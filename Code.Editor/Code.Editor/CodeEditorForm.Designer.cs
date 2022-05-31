@@ -2,7 +2,7 @@
 
 namespace Code.Editor
 {
-    partial class Form1
+    partial class CodeEditorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace Code.Editor
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeEditorForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,11 +67,6 @@ namespace Code.Editor
             this.blueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.codeArea = new FastColoredTextBoxNS.FastColoredTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.printPagePreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.menuStrip.SuspendLayout();
@@ -241,14 +236,14 @@ namespace Code.Editor
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
             // colorToolStripMenuItem
             // 
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.colorToolStripMenuItem.Text = "Color";
             this.colorToolStripMenuItem.Click += new System.EventHandler(this.colorToolStripMenuItem_Click);
             // 
@@ -264,7 +259,7 @@ namespace Code.Editor
             this.jSToolStripMenuItem,
             this.lUAToolStripMenuItem});
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.languageToolStripMenuItem.Text = "Language";
             // 
             // customToolStripMenuItem
@@ -330,27 +325,27 @@ namespace Code.Editor
             this.darkToolStripMenuItem,
             this.blueToolStripMenuItem});
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.themeToolStripMenuItem.Text = "Theme";
             // 
             // brightToolStripMenuItem
             // 
             this.brightToolStripMenuItem.Name = "brightToolStripMenuItem";
-            this.brightToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.brightToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.brightToolStripMenuItem.Text = "Bright";
             this.brightToolStripMenuItem.Click += new System.EventHandler(this.whiteThemeModeToolStripMenuItem_Click);
             // 
             // darkToolStripMenuItem
             // 
             this.darkToolStripMenuItem.Name = "darkToolStripMenuItem";
-            this.darkToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.darkToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.darkToolStripMenuItem.Text = "Dark";
             this.darkToolStripMenuItem.Click += new System.EventHandler(this.blackThemeModeToolStripMenuItem_Click);
             // 
             // blueToolStripMenuItem
             // 
             this.blueToolStripMenuItem.Name = "blueToolStripMenuItem";
-            this.blueToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.blueToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.blueToolStripMenuItem.Text = "Light Blue";
             this.blueToolStripMenuItem.Click += new System.EventHandler(this.lightBlueToolStripMenuItem_Click);
             // 
@@ -359,6 +354,7 @@ namespace Code.Editor
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
             this.runToolStripMenuItem.Text = "Run";
+            this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
             // codeArea
             // 
@@ -383,73 +379,16 @@ namespace Code.Editor
             this.codeArea.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.codeArea.Font = new System.Drawing.Font("Courier New", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.codeArea.IsReplaceMode = false;
-            this.codeArea.Location = new System.Drawing.Point(0, 37);
+            this.codeArea.Location = new System.Drawing.Point(0, 35);
             this.codeArea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.codeArea.Name = "codeArea";
             this.codeArea.Paddings = new System.Windows.Forms.Padding(0);
             this.codeArea.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.codeArea.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("codeArea.ServiceColors")));
-            this.codeArea.Size = new System.Drawing.Size(1019, 635);
+            this.codeArea.Size = new System.Drawing.Size(1019, 637);
             this.codeArea.TabIndex = 1;
             this.codeArea.WordWrap = true;
             this.codeArea.Zoom = 100;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(869, 674);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 49);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Change";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(231, 683);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(213, 27);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox2.Location = new System.Drawing.Point(611, 683);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(232, 27);
-            this.textBox2.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(16, 688);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Word that will change";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(461, 688);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "New Word";
             // 
             // printPagePreviewDialog
             // 
@@ -466,24 +405,19 @@ namespace Code.Editor
             // 
             this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // Form1
+            // CodeEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1020, 723);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.codeArea);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form1";
-            this.Text = "Text Editor";
+            this.Name = "CodeEditorForm";
+            this.Text = "Code editor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -515,11 +449,6 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
         private FastColoredTextBox codeArea;
         private System.Windows.Forms.ToolStripMenuItem cutKeyToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
         private System.Windows.Forms.PrintPreviewDialog printPagePreviewDialog;
         private System.Drawing.Printing.PrintDocument printDocument;

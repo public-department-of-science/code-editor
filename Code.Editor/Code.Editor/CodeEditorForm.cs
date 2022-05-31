@@ -1,8 +1,11 @@
-﻿namespace Code.Editor
+﻿using Microsoft.CSharp;
+using System.CodeDom.Compiler;
+
+namespace Code.Editor
 {
-    public partial class Form1 : Form
+    public partial class CodeEditorForm : Form
     {
-        public Form1()
+        public CodeEditorForm()
         {
             InitializeComponent();
             this.codeArea.MouseWheel += Mause_MouseWheel;
@@ -146,13 +149,6 @@
             codeArea.Cut();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string text1 = textBox1.Text;
-            string text2 = textBox2.Text;
-            codeArea.Text = codeArea.Text.Replace(text1, text2);
-        }
-
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
             printPagePreviewDialog.Document = printDocument;
@@ -202,6 +198,46 @@
         private void lUAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             codeArea.Language = FastColoredTextBoxNS.Language.Lua;
+        }
+
+        private void runToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (codeArea.Language == FastColoredTextBoxNS.Language.CSharp)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Executable File|*.exe";
+                string outPath = "?.exe";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    outPath = saveFileDialog.FileName;
+                }
+
+                var cSharpCodeProvider = new CSharpCodeProvider();
+                var compilerParameters = new CompilerParameters(new string[] { "System.dll", "System.Runtime.dll", "mscorlib.dll" })
+                {
+                    GenerateExecutable = true,
+                    OutputAssembly = outPath,
+                    GenerateInMemory = true,
+                };
+
+                string[] sources = { codeArea.Text };
+                var compilerResults = cSharpCodeProvider.CompileAssemblyFromSource(compilerParameters, sources);
+
+                if (compilerResults.Errors.HasErrors)
+                {
+                    foreach (CompilerError compilerError in compilerResults.Errors)
+                    {
+                        MessageBox.Show(string.Concat(compilerError.ErrorNumber,
+                            compilerError.Line, compilerError.Column, compilerError.ErrorText),
+                            "Error", MessageBoxButtons.OK);
+                    }
+                }
+                else
+                {
+                    System.Diagnostics.Process.Start(outPath);
+                }
+            }
         }
     }
 }
