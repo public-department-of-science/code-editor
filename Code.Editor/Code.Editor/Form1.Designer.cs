@@ -52,17 +52,6 @@ namespace Code.Editor
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.themeModesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darkColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.brightColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.codeArea = new FastColoredTextBoxNS.FastColoredTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.printPagePreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,6 +61,19 @@ namespace Code.Editor
             this.pHPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lUAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.darkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.codeArea = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.printPagePreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codeArea)).BeginInit();
             this.SuspendLayout();
@@ -84,7 +86,7 @@ namespace Code.Editor
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.settingsToolStripMenuItem,
-            this.themeModesToolStripMenuItem});
+            this.runToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
@@ -230,7 +232,8 @@ namespace Code.Editor
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fontToolStripMenuItem,
             this.colorToolStripMenuItem,
-            this.languageToolStripMenuItem});
+            this.languageToolStripMenuItem,
+            this.themeToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -249,28 +252,113 @@ namespace Code.Editor
             this.colorToolStripMenuItem.Text = "Color";
             this.colorToolStripMenuItem.Click += new System.EventHandler(this.colorToolStripMenuItem_Click);
             // 
-            // themeModesToolStripMenuItem
+            // languageToolStripMenuItem
             // 
-            this.themeModesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.darkColorToolStripMenuItem,
-            this.brightColorToolStripMenuItem});
-            this.themeModesToolStripMenuItem.Name = "themeModesToolStripMenuItem";
-            this.themeModesToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
-            this.themeModesToolStripMenuItem.Text = "Modes";
+            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.customToolStripMenuItem,
+            this.cToolStripMenuItem,
+            this.hTMLToolStripMenuItem,
+            this.xMLToolStripMenuItem,
+            this.sQLToolStripMenuItem,
+            this.pHPToolStripMenuItem,
+            this.jSToolStripMenuItem,
+            this.lUAToolStripMenuItem});
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.languageToolStripMenuItem.Text = "Language";
             // 
-            // darkColorToolStripMenuItem
+            // customToolStripMenuItem
             // 
-            this.darkColorToolStripMenuItem.Name = "darkColorToolStripMenuItem";
-            this.darkColorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.darkColorToolStripMenuItem.Text = "Dark Mode";
-            this.darkColorToolStripMenuItem.Click += new System.EventHandler(this.blackThemeModeToolStripMenuItem1_Click);
+            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.customToolStripMenuItem.Text = "Custom";
+            this.customToolStripMenuItem.Click += new System.EventHandler(this.customToolStripMenuItem_Click);
             // 
-            // brightColorToolStripMenuItem
+            // cToolStripMenuItem
             // 
-            this.brightColorToolStripMenuItem.Name = "brightColorToolStripMenuItem";
-            this.brightColorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.brightColorToolStripMenuItem.Text = "Bright Mode";
-            this.brightColorToolStripMenuItem.Click += new System.EventHandler(this.whiteThemeModeToolStripMenuItem_Click);
+            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
+            this.cToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.cToolStripMenuItem.Text = "C#";
+            this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
+            // 
+            // hTMLToolStripMenuItem
+            // 
+            this.hTMLToolStripMenuItem.Name = "hTMLToolStripMenuItem";
+            this.hTMLToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.hTMLToolStripMenuItem.Text = "HTML";
+            this.hTMLToolStripMenuItem.Click += new System.EventHandler(this.hTMLToolStripMenuItem_Click);
+            // 
+            // xMLToolStripMenuItem
+            // 
+            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.xMLToolStripMenuItem.Text = "XML";
+            this.xMLToolStripMenuItem.Click += new System.EventHandler(this.xMLToolStripMenuItem_Click);
+            // 
+            // sQLToolStripMenuItem
+            // 
+            this.sQLToolStripMenuItem.Name = "sQLToolStripMenuItem";
+            this.sQLToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.sQLToolStripMenuItem.Text = "SQL";
+            this.sQLToolStripMenuItem.Click += new System.EventHandler(this.sQLToolStripMenuItem_Click);
+            // 
+            // pHPToolStripMenuItem
+            // 
+            this.pHPToolStripMenuItem.Name = "pHPToolStripMenuItem";
+            this.pHPToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.pHPToolStripMenuItem.Text = "PHP";
+            this.pHPToolStripMenuItem.Click += new System.EventHandler(this.pHPToolStripMenuItem_Click);
+            // 
+            // jSToolStripMenuItem
+            // 
+            this.jSToolStripMenuItem.Name = "jSToolStripMenuItem";
+            this.jSToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.jSToolStripMenuItem.Text = "JS";
+            this.jSToolStripMenuItem.Click += new System.EventHandler(this.jSToolStripMenuItem_Click);
+            // 
+            // lUAToolStripMenuItem
+            // 
+            this.lUAToolStripMenuItem.Name = "lUAToolStripMenuItem";
+            this.lUAToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.lUAToolStripMenuItem.Text = "LUA";
+            this.lUAToolStripMenuItem.Click += new System.EventHandler(this.lUAToolStripMenuItem_Click);
+            // 
+            // themeToolStripMenuItem
+            // 
+            this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.brightToolStripMenuItem,
+            this.darkToolStripMenuItem,
+            this.blueToolStripMenuItem});
+            this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.themeToolStripMenuItem.Text = "Theme";
+            // 
+            // brightToolStripMenuItem
+            // 
+            this.brightToolStripMenuItem.Name = "brightToolStripMenuItem";
+            this.brightToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.brightToolStripMenuItem.Text = "Bright";
+            this.brightToolStripMenuItem.Click += new System.EventHandler(this.whiteThemeModeToolStripMenuItem_Click);
+            // 
+            // darkToolStripMenuItem
+            // 
+            this.darkToolStripMenuItem.Name = "darkToolStripMenuItem";
+            this.darkToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.darkToolStripMenuItem.Text = "Dark";
+            this.darkToolStripMenuItem.Click += new System.EventHandler(this.blackThemeModeToolStripMenuItem_Click);
+            // 
+            // blueToolStripMenuItem
+            // 
+            this.blueToolStripMenuItem.Name = "blueToolStripMenuItem";
+            this.blueToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.blueToolStripMenuItem.Text = "Light Blue";
+            this.blueToolStripMenuItem.Click += new System.EventHandler(this.lightBlueToolStripMenuItem_Click);
+            // 
+            // runToolStripMenuItem
+            // 
+            this.runToolStripMenuItem.Name = "runToolStripMenuItem";
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
+            this.runToolStripMenuItem.Text = "Run";
             // 
             // codeArea
             // 
@@ -378,69 +466,6 @@ namespace Code.Editor
             // 
             this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // languageToolStripMenuItem
-            // 
-            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customToolStripMenuItem,
-            this.cToolStripMenuItem,
-            this.hTMLToolStripMenuItem,
-            this.xMLToolStripMenuItem,
-            this.sQLToolStripMenuItem,
-            this.pHPToolStripMenuItem,
-            this.jSToolStripMenuItem,
-            this.lUAToolStripMenuItem});
-            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.languageToolStripMenuItem.Text = "Language";
-            // 
-            // customToolStripMenuItem
-            // 
-            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
-            this.customToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.customToolStripMenuItem.Text = "Custom";
-            // 
-            // cToolStripMenuItem
-            // 
-            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
-            this.cToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.cToolStripMenuItem.Text = "C#";
-            // 
-            // hTMLToolStripMenuItem
-            // 
-            this.hTMLToolStripMenuItem.Name = "hTMLToolStripMenuItem";
-            this.hTMLToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.hTMLToolStripMenuItem.Text = "HTML";
-            // 
-            // xMLToolStripMenuItem
-            // 
-            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.xMLToolStripMenuItem.Text = "XML";
-            // 
-            // sQLToolStripMenuItem
-            // 
-            this.sQLToolStripMenuItem.Name = "sQLToolStripMenuItem";
-            this.sQLToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.sQLToolStripMenuItem.Text = "SQL";
-            // 
-            // pHPToolStripMenuItem
-            // 
-            this.pHPToolStripMenuItem.Name = "pHPToolStripMenuItem";
-            this.pHPToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.pHPToolStripMenuItem.Text = "PHP";
-            // 
-            // jSToolStripMenuItem
-            // 
-            this.jSToolStripMenuItem.Name = "jSToolStripMenuItem";
-            this.jSToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.jSToolStripMenuItem.Text = "JS";
-            // 
-            // lUAToolStripMenuItem
-            // 
-            this.lUAToolStripMenuItem.Name = "lUAToolStripMenuItem";
-            this.lUAToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.lUAToolStripMenuItem.Text = "LUA";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -489,9 +514,6 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
         private FastColoredTextBox codeArea;
-        private System.Windows.Forms.ToolStripMenuItem themeModesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem darkColorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem brightColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cutKeyToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
@@ -510,5 +532,10 @@ namespace Code.Editor
         private ToolStripMenuItem pHPToolStripMenuItem;
         private ToolStripMenuItem jSToolStripMenuItem;
         private ToolStripMenuItem lUAToolStripMenuItem;
+        private ToolStripMenuItem themeToolStripMenuItem;
+        private ToolStripMenuItem brightToolStripMenuItem;
+        private ToolStripMenuItem darkToolStripMenuItem;
+        private ToolStripMenuItem runToolStripMenuItem;
+        private ToolStripMenuItem blueToolStripMenuItem;
     }
 }

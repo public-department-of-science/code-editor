@@ -123,7 +123,7 @@
             }
         }
 
-        private void blackThemeModeToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void blackThemeModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             codeArea.ForeColor = Color.White;
             codeArea.BackColor = Color.Black;
@@ -133,6 +133,12 @@
         {
             codeArea.ForeColor = Color.Black;
             codeArea.BackColor = Color.White;
+        }
+
+        private void lightBlueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            codeArea.ForeColor = Color.White;
+            codeArea.BackColor = Color.AliceBlue;
         }
 
         private void cutKeyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -156,6 +162,46 @@
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.DrawString(codeArea.Text, codeArea.Font, Brushes.Black, 12, 10);
+        }
+
+        private void customToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            codeArea.Language = FastColoredTextBoxNS.Language.Custom;
+        }
+
+        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            codeArea.Language = FastColoredTextBoxNS.Language.CSharp;
+        }
+
+        private void hTMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            codeArea.Language = FastColoredTextBoxNS.Language.HTML;
+        }
+
+        private void xMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            codeArea.Language = FastColoredTextBoxNS.Language.XML;
+        }
+
+        private void sQLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            codeArea.Language = FastColoredTextBoxNS.Language.SQL;
+        }
+
+        private void pHPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            codeArea.Language = FastColoredTextBoxNS.Language.PHP;
+        }
+
+        private void jSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            codeArea.Language = FastColoredTextBoxNS.Language.JS;
+        }
+
+        private void lUAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            codeArea.Language = FastColoredTextBoxNS.Language.Lua;
         }
     }
 }
