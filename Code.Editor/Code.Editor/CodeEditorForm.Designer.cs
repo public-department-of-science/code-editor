@@ -389,6 +389,7 @@ namespace Code.Editor
             this.codeArea.TabIndex = 1;
             this.codeArea.WordWrap = true;
             this.codeArea.Zoom = 100;
+            this.codeArea.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.codeArea_TextChanged);
             // 
             // printPagePreviewDialog
             // 

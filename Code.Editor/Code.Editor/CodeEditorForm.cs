@@ -239,5 +239,14 @@ namespace Code.Editor
                 }
             }
         }
+
+        private void codeArea_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
+        {
+            //clear folding markers of changed range
+            e.ChangedRange.ClearFoldingMarkers();
+            //set folding markers
+            e.ChangedRange.SetFoldingMarkers("{", "}");
+            //   e.ChangedRange.SetFoldingMarkers(@"#region\b", @"#endregion\b");
+        }
     }
 }
