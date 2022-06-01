@@ -14,6 +14,7 @@ namespace Code.Editor
         private void Form1_Load(object sender, EventArgs e)
         {
         }
+
         void Mause_MouseWheel(object sender, MouseEventArgs e)
         {
             float fontSize = codeArea.Font.Size;
@@ -163,6 +164,7 @@ namespace Code.Editor
         private void customToolStripMenuItem_Click(object sender, EventArgs e)
         {
             codeArea.Language = FastColoredTextBoxNS.Language.Custom;
+            codeArea.DescriptionFile = @"Resources\CustomCodeHighlighting.xml";
         }
 
         private void cToolStripMenuItem_Click(object sender, EventArgs e)

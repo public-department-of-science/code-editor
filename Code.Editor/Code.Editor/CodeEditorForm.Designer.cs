@@ -358,8 +358,9 @@ namespace Code.Editor
             // 
             // codeArea
             // 
-            this.codeArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.codeArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top
+            | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.codeArea.AutoCompleteBracketsList = new char[] {
         '(',
@@ -390,6 +391,7 @@ namespace Code.Editor
             this.codeArea.WordWrap = true;
             this.codeArea.Zoom = 100;
             this.codeArea.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.codeArea_TextChanged);
+
             // 
             // printPagePreviewDialog
             // 
