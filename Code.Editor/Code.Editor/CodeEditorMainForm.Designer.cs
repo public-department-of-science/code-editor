@@ -554,12 +554,12 @@ namespace Code.Editor
             // sfdMain
             // 
             this.sfdMain.DefaultExt = "cs";
-            this.sfdMain.Filter = "C# file(*.cs)|*.cs";
+            this.sfdMain.Filter = "C# file(*.cs)|*.cs|All files|*.*";
             // 
             // ofdMain
             // 
             this.ofdMain.DefaultExt = "cs";
-            this.ofdMain.Filter = "C# file(*.cs)|*.cs";
+            this.ofdMain.Filter = "C# file(*.cs)|*.cs|All files|*.*";
             // 
             // cmMain
             // 
