@@ -475,8 +475,8 @@ namespace Code.Editor
             // 
             this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(44, 24);
-            this.toolStripLabel1.Text = "Find: ";
+            this.toolStripLabel1.Size = new System.Drawing.Size(60, 24);
+            this.toolStripLabel1.Text = "Search: ";
             // 
             // toolStripSeparator6
             // 
@@ -766,7 +766,7 @@ namespace Code.Editor
             this.MainMenuStrip = this.msMain;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CodeEditorMainForm";
-            this.Text = "PowerfulCSharpEditor";
+            this.Text = "Code editor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PowerfulCSharpEditor_FormClosing);
             this.msMain.ResumeLayout(false);
