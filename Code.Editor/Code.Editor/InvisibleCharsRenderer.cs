@@ -4,35 +4,38 @@ namespace Code.Editor
 {
     public class InvisibleCharsRenderer : Style
     {
-        Pen pen;
+        private const char emptySymbol = ' ';
+        private Pen pen;
 
         public InvisibleCharsRenderer(Pen pen)
         {
             this.pen = pen;
         }
 
-        public override void Draw(Graphics gr, Point position, FastColoredTextBoxNS.Range range)
+        public override void Draw(Graphics graphics, Point position, FastColoredTextBoxNS.Range range)
         {
-            var tb = range.tb;
+            var textBox = range.tb;
             using (Brush brush = new SolidBrush(pen.Color))
+            {
                 foreach (var place in range)
                 {
-                    switch (tb[place].c)
+                    switch (textBox[place].c)
                     {
-                        case ' ':
-                            var point = tb.PlaceToPoint(place);
-                            point.Offset(tb.CharWidth / 2, tb.CharHeight / 2);
-                            gr.DrawLine(pen, point.X, point.Y, point.X + 1, point.Y);
+                        case emptySymbol:
+                            var point = textBox.PlaceToPoint(place);
+                            point.Offset(textBox.CharWidth / 2, textBox.CharHeight / 2);
+                            graphics.DrawLine(pen, point.X, point.Y, point.X + 1, point.Y);
                             break;
                     }
 
-                    if (tb[place.iLine].Count - 1 == place.iChar)
+                    if (textBox[place.iLine].Count - 1 == place.iChar)
                     {
-                        var point = tb.PlaceToPoint(place);
-                        point.Offset(tb.CharWidth, 0);
-                        gr.DrawString("¶", tb.Font, brush, point);
+                        var point = textBox.PlaceToPoint(place);
+                        point.Offset(textBox.CharWidth, 0);
+                        graphics.DrawString("¶", textBox.Font, brush, point);
                     }
                 }
+            }
         }
     }
 }

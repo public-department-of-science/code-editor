@@ -80,13 +80,13 @@ namespace Code.Editor
                 tb.KeyDown += new KeyEventHandler(tb_KeyDown);
                 tb.MouseMove += new MouseEventHandler(tb_MouseMove);
                 tb.ChangedLineColor = changedLineColor;
-                if (btHighlightCurrentLine.Checked)
+                if (buttonHighlightCurrentLine.Checked)
                     tb.CurrentLineColor = currentLineColor;
-                tb.ShowFoldingLines = btShowFoldingLines.Checked;
+                tb.ShowFoldingLines = buttonShowFoldingLines.Checked;
                 tb.HighlightingRangeType = HighlightingRangeType.VisibleRange;
                 //create autocomplete popup menu
                 AutocompleteMenu popupMenu = new AutocompleteMenu(tb);
-                popupMenu.Items.ImageList = ilAutocomplete;
+                popupMenu.Items.ImageList = imageListAutocomplete;
                 popupMenu.Opening += new EventHandler<CancelEventArgs>(popupMenu_Opening);
                 BuildAutocompleteMenu(popupMenu);
                 (tb.Tag as TbInfo).popupMenu = popupMenu;
@@ -145,7 +145,7 @@ namespace Code.Editor
             var r = new FastColoredTextBoxNS.Range(tb, place, place);
 
             string text = r.GetFragment("[a-zA-Z]").Text;
-            lbWordUnderMouse.Text = text;
+            labelWordUnderMouse.Text = text;
         }
 
         void tb_KeyDown(object sender, KeyEventArgs e)
@@ -216,7 +216,7 @@ namespace Code.Editor
         private void HighlightInvisibleChars(FastColoredTextBoxNS.Range range)
         {
             range.ClearStyle(invisibleCharsStyle);
-            if (btInvisibleChars.Checked)
+            if (buttonInvisibleSymbols.Checked)
                 range.SetStyle(invisibleCharsStyle, @".$|.\r\n|\s");
         }
 
@@ -285,8 +285,8 @@ namespace Code.Editor
                     new Action(() =>
                     {
                         explorerList = list;
-                        dgvObjectExplorer.RowCount = explorerList.Count;
-                        dgvObjectExplorer.Invalidate();
+                        datagridviewerObjectExplorer.RowCount = explorerList.Count;
+                        datagridviewerObjectExplorer.Invalidate();
                     })
                 );
             }
@@ -446,8 +446,8 @@ namespace Code.Editor
                 if (CurrentTB != null && tsFiles.Items.Count > 0)
                 {
                     var tb = CurrentTB;
-                    undoStripButton.Enabled = undoToolStripMenuItem.Enabled = tb.UndoEnabled;
-                    redoStripButton.Enabled = redoToolStripMenuItem.Enabled = tb.RedoEnabled;
+                    buttonUndoStrip.Enabled = undoToolStripMenuItem.Enabled = tb.UndoEnabled;
+                    buttonRedoStrip.Enabled = redoToolStripMenuItem.Enabled = tb.RedoEnabled;
                     saveToolStripButton.Enabled = saveToolStripMenuItem.Enabled = tb.IsChanged;
                     saveAsToolStripMenuItem.Enabled = true;
                     pasteToolStripButton.Enabled = pasteToolStripMenuItem.Enabled = true;
@@ -463,9 +463,9 @@ namespace Code.Editor
                     copyToolStripButton.Enabled = copyToolStripMenuItem.Enabled = false;
                     pasteToolStripButton.Enabled = pasteToolStripMenuItem.Enabled = false;
                     printToolStripButton.Enabled = false;
-                    undoStripButton.Enabled = undoToolStripMenuItem.Enabled = false;
-                    redoStripButton.Enabled = redoToolStripMenuItem.Enabled = false;
-                    dgvObjectExplorer.RowCount = 0;
+                    buttonUndoStrip.Enabled = undoToolStripMenuItem.Enabled = false;
+                    buttonRedoStrip.Enabled = redoToolStripMenuItem.Enabled = false;
+                    datagridviewerObjectExplorer.RowCount = 0;
                 }
             }
             catch (Exception ex)
@@ -495,7 +495,7 @@ namespace Code.Editor
                 FastColoredTextBoxNS.Range r = tbFindChanged ? CurrentTB.Range.Clone() : CurrentTB.Selection.Clone();
                 tbFindChanged = false;
                 r.End = new Place(CurrentTB[CurrentTB.LinesCount - 1].Count, CurrentTB.LinesCount - 1);
-                var pattern = Regex.Escape(tbFind.Text);
+                var pattern = Regex.Escape(textboxSearch.Text);
                 foreach (var found in r.GetRanges(pattern))
                 {
                     found.Inverse();
@@ -801,7 +801,7 @@ namespace Code.Editor
         {
             foreach (FATabStripItem tab in tsFiles.Items)
             {
-                if (btHighlightCurrentLine.Checked)
+                if (buttonHighlightCurrentLine.Checked)
                     (tab.Controls[0] as FastColoredTextBox).CurrentLineColor = currentLineColor;
                 else
                     (tab.Controls[0] as FastColoredTextBox).CurrentLineColor = Color.Transparent;
@@ -866,13 +866,13 @@ namespace Code.Editor
 
         private void gotoButton_DropDownOpening(object sender, EventArgs e)
         {
-            gotoButton.DropDownItems.Clear();
+            buttonGoto.DropDownItems.Clear();
             foreach (Control tab in tsFiles.Items)
             {
                 FastColoredTextBox tb = tab.Controls[0] as FastColoredTextBox;
                 foreach (var bookmark in tb.Bookmarks)
                 {
-                    var item = gotoButton.DropDownItems.Add(bookmark.Name + " [" + Path.GetFileNameWithoutExtension(tab.Tag as String) + "]");
+                    var item = buttonGoto.DropDownItems.Add(bookmark.Name + " [" + Path.GetFileNameWithoutExtension(tab.Tag as String) + "]");
                     item.Tag = bookmark;
                     item.Click += (o, a) =>
                     {
@@ -895,7 +895,7 @@ namespace Code.Editor
         private void btShowFoldingLines_Click(object sender, EventArgs e)
         {
             foreach (FATabStripItem tab in tsFiles.Items)
-                (tab.Controls[0] as FastColoredTextBox).ShowFoldingLines = btShowFoldingLines.Checked;
+                (tab.Controls[0] as FastColoredTextBox).ShowFoldingLines = buttonShowFoldingLines.Checked;
             if (CurrentTB != null)
                 CurrentTB.Invalidate();
         }

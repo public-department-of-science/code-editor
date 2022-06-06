@@ -34,7 +34,7 @@ namespace Code.Editor
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeEditorMainForm));
-            this.msMain = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,16 +42,16 @@ namespace Code.Editor
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ssMain = new System.Windows.Forms.StatusStrip();
-            this.lbWordUnderMouse = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btZoom = new System.Windows.Forms.ToolStripSplitButton();
+            this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.labelWordUnderMouse = new System.Windows.Forms.ToolStripStatusLabel();
+            this.buttonZoom = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsMain = new System.Windows.Forms.ToolStrip();
+            this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -60,21 +60,21 @@ namespace Code.Editor
             this.cutToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.btInvisibleChars = new System.Windows.Forms.ToolStripButton();
-            this.btHighlightCurrentLine = new System.Windows.Forms.ToolStripButton();
-            this.btShowFoldingLines = new System.Windows.Forms.ToolStripButton();
+            this.buttonInvisibleSymbols = new System.Windows.Forms.ToolStripButton();
+            this.buttonHighlightCurrentLine = new System.Windows.Forms.ToolStripButton();
+            this.buttonShowFoldingLines = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.undoStripButton = new System.Windows.Forms.ToolStripButton();
-            this.redoStripButton = new System.Windows.Forms.ToolStripButton();
+            this.buttonUndoStrip = new System.Windows.Forms.ToolStripButton();
+            this.buttonRedoStrip = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.backStripButton = new System.Windows.Forms.ToolStripButton();
-            this.forwardStripButton = new System.Windows.Forms.ToolStripButton();
-            this.tbFind = new System.Windows.Forms.ToolStripTextBox();
+            this.buttonBackStrip = new System.Windows.Forms.ToolStripButton();
+            this.buttonForwardStrip = new System.Windows.Forms.ToolStripButton();
+            this.textboxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.bookmarkPlusButton = new System.Windows.Forms.ToolStripButton();
-            this.bookmarkMinusButton = new System.Windows.Forms.ToolStripButton();
-            this.gotoButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.buttonBookmarkPlus = new System.Windows.Forms.ToolStripButton();
+            this.buttonBookmarkMinus = new System.Windows.Forms.ToolStripButton();
+            this.buttonGoto = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -100,29 +100,29 @@ namespace Code.Editor
             this.cloneLinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cloneLinesAndCommentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmUpdateInterface = new System.Windows.Forms.Timer(this.components);
-            this.dgvObjectExplorer = new System.Windows.Forms.DataGridView();
-            this.clImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.clName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ilAutocomplete = new System.Windows.Forms.ImageList(this.components);
-            this.msMain.SuspendLayout();
-            this.ssMain.SuspendLayout();
-            this.tsMain.SuspendLayout();
+            this.datagridviewerObjectExplorer = new System.Windows.Forms.DataGridView();
+            this.datagridviewerImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
+            this.menuStrip.SuspendLayout();
+            this.mainStatusStrip.SuspendLayout();
+            this.toolStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tsFiles)).BeginInit();
             this.cmMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObjectExplorer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).BeginInit();
             this.SuspendLayout();
             // 
             // msMain
             // 
-            this.msMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.msMain.Location = new System.Drawing.Point(0, 0);
-            this.msMain.Name = "msMain";
-            this.msMain.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
-            this.msMain.Size = new System.Drawing.Size(1025, 30);
-            this.msMain.TabIndex = 0;
-            this.msMain.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "msMain";
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
+            this.menuStrip.Size = new System.Drawing.Size(1025, 30);
+            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -184,41 +184,41 @@ namespace Code.Editor
             // 
             // ssMain
             // 
-            this.ssMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ssMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lbWordUnderMouse,
-            this.btZoom});
-            this.ssMain.Location = new System.Drawing.Point(0, 480);
-            this.ssMain.Name = "ssMain";
-            this.ssMain.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.ssMain.Size = new System.Drawing.Size(1025, 26);
-            this.ssMain.TabIndex = 2;
-            this.ssMain.Text = "statusStrip1";
+            this.mainStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelWordUnderMouse,
+            this.buttonZoom});
+            this.mainStatusStrip.Location = new System.Drawing.Point(0, 480);
+            this.mainStatusStrip.Name = "ssMain";
+            this.mainStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.mainStatusStrip.Size = new System.Drawing.Size(1025, 26);
+            this.mainStatusStrip.TabIndex = 2;
+            this.mainStatusStrip.Text = "statusStrip1";
             // 
             // lbWordUnderMouse
             // 
-            this.lbWordUnderMouse.AutoSize = false;
-            this.lbWordUnderMouse.ForeColor = System.Drawing.Color.Gray;
-            this.lbWordUnderMouse.Name = "lbWordUnderMouse";
-            this.lbWordUnderMouse.Size = new System.Drawing.Size(937, 20);
-            this.lbWordUnderMouse.Spring = true;
-            this.lbWordUnderMouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelWordUnderMouse.AutoSize = false;
+            this.labelWordUnderMouse.ForeColor = System.Drawing.Color.Gray;
+            this.labelWordUnderMouse.Name = "lbWordUnderMouse";
+            this.labelWordUnderMouse.Size = new System.Drawing.Size(937, 20);
+            this.labelWordUnderMouse.Spring = true;
+            this.labelWordUnderMouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btZoom
             // 
-            this.btZoom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btZoom.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonZoom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonZoom.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem11,
             this.toolStripMenuItem10,
             this.toolStripMenuItem9,
             this.toolStripMenuItem8,
             this.toolStripMenuItem7,
             this.toolStripMenuItem6});
-            this.btZoom.Image = ((System.Drawing.Image)(resources.GetObject("btZoom.Image")));
-            this.btZoom.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btZoom.Name = "btZoom";
-            this.btZoom.Size = new System.Drawing.Size(68, 24);
-            this.btZoom.Text = "Zoom";
+            this.buttonZoom.Image = ((System.Drawing.Image)(resources.GetObject("btZoom.Image")));
+            this.buttonZoom.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonZoom.Name = "btZoom";
+            this.buttonZoom.Size = new System.Drawing.Size(68, 24);
+            this.buttonZoom.Text = "Zoom";
             // 
             // toolStripMenuItem11
             // 
@@ -270,8 +270,8 @@ namespace Code.Editor
             // 
             // tsMain
             // 
-            this.tsMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.tsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.openToolStripButton,
             this.saveToolStripButton,
@@ -280,26 +280,26 @@ namespace Code.Editor
             this.cutToolStripButton,
             this.copyToolStripButton,
             this.pasteToolStripButton,
-            this.btInvisibleChars,
-            this.btHighlightCurrentLine,
-            this.btShowFoldingLines,
+            this.buttonInvisibleSymbols,
+            this.buttonHighlightCurrentLine,
+            this.buttonShowFoldingLines,
             this.toolStripSeparator4,
-            this.undoStripButton,
-            this.redoStripButton,
+            this.buttonUndoStrip,
+            this.buttonRedoStrip,
             this.toolStripSeparator5,
-            this.backStripButton,
-            this.forwardStripButton,
-            this.tbFind,
+            this.buttonBackStrip,
+            this.buttonForwardStrip,
+            this.textboxSearch,
             this.toolStripLabel1,
             this.toolStripSeparator6,
-            this.bookmarkPlusButton,
-            this.bookmarkMinusButton,
-            this.gotoButton});
-            this.tsMain.Location = new System.Drawing.Point(0, 30);
-            this.tsMain.Name = "tsMain";
-            this.tsMain.Size = new System.Drawing.Size(1025, 27);
-            this.tsMain.TabIndex = 3;
-            this.tsMain.Text = "toolStrip1";
+            this.buttonBookmarkPlus,
+            this.buttonBookmarkMinus,
+            this.buttonGoto});
+            this.toolStripMain.Location = new System.Drawing.Point(0, 30);
+            this.toolStripMain.Name = "tsMain";
+            this.toolStripMain.Size = new System.Drawing.Size(1025, 27);
+            this.toolStripMain.TabIndex = 3;
+            this.toolStripMain.Text = "toolStrip1";
             // 
             // newToolStripButton
             // 
@@ -378,40 +378,40 @@ namespace Code.Editor
             // 
             // btInvisibleChars
             // 
-            this.btInvisibleChars.CheckOnClick = true;
-            this.btInvisibleChars.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btInvisibleChars.Image = ((System.Drawing.Image)(resources.GetObject("btInvisibleChars.Image")));
-            this.btInvisibleChars.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btInvisibleChars.Name = "btInvisibleChars";
-            this.btInvisibleChars.Size = new System.Drawing.Size(29, 24);
-            this.btInvisibleChars.Text = "¶";
-            this.btInvisibleChars.ToolTipText = "Show invisible chars";
-            this.btInvisibleChars.Click += new System.EventHandler(this.btInvisibleChars_Click);
+            this.buttonInvisibleSymbols.CheckOnClick = true;
+            this.buttonInvisibleSymbols.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonInvisibleSymbols.Image = ((System.Drawing.Image)(resources.GetObject("btInvisibleChars.Image")));
+            this.buttonInvisibleSymbols.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonInvisibleSymbols.Name = "btInvisibleChars";
+            this.buttonInvisibleSymbols.Size = new System.Drawing.Size(29, 24);
+            this.buttonInvisibleSymbols.Text = "¶";
+            this.buttonInvisibleSymbols.ToolTipText = "Show invisible chars";
+            this.buttonInvisibleSymbols.Click += new System.EventHandler(this.btInvisibleChars_Click);
             // 
             // btHighlightCurrentLine
             // 
-            this.btHighlightCurrentLine.CheckOnClick = true;
-            this.btHighlightCurrentLine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btHighlightCurrentLine.Image = global::Code.Editor.Properties.Resources.edit_padding_top;
-            this.btHighlightCurrentLine.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btHighlightCurrentLine.Name = "btHighlightCurrentLine";
-            this.btHighlightCurrentLine.Size = new System.Drawing.Size(29, 24);
-            this.btHighlightCurrentLine.Text = "Highlight current line";
-            this.btHighlightCurrentLine.ToolTipText = "Highlight current line";
-            this.btHighlightCurrentLine.Click += new System.EventHandler(this.btHighlightCurrentLine_Click);
+            this.buttonHighlightCurrentLine.CheckOnClick = true;
+            this.buttonHighlightCurrentLine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonHighlightCurrentLine.Image = global::Code.Editor.Properties.Resources.edit_padding_top;
+            this.buttonHighlightCurrentLine.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonHighlightCurrentLine.Name = "btHighlightCurrentLine";
+            this.buttonHighlightCurrentLine.Size = new System.Drawing.Size(29, 24);
+            this.buttonHighlightCurrentLine.Text = "Highlight current line";
+            this.buttonHighlightCurrentLine.ToolTipText = "Highlight current line";
+            this.buttonHighlightCurrentLine.Click += new System.EventHandler(this.btHighlightCurrentLine_Click);
             // 
             // btShowFoldingLines
             // 
-            this.btShowFoldingLines.Checked = true;
-            this.btShowFoldingLines.CheckOnClick = true;
-            this.btShowFoldingLines.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.btShowFoldingLines.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btShowFoldingLines.Image = ((System.Drawing.Image)(resources.GetObject("btShowFoldingLines.Image")));
-            this.btShowFoldingLines.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btShowFoldingLines.Name = "btShowFoldingLines";
-            this.btShowFoldingLines.Size = new System.Drawing.Size(29, 24);
-            this.btShowFoldingLines.Text = "Show folding lines";
-            this.btShowFoldingLines.Click += new System.EventHandler(this.btShowFoldingLines_Click);
+            this.buttonShowFoldingLines.Checked = true;
+            this.buttonShowFoldingLines.CheckOnClick = true;
+            this.buttonShowFoldingLines.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.buttonShowFoldingLines.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonShowFoldingLines.Image = ((System.Drawing.Image)(resources.GetObject("btShowFoldingLines.Image")));
+            this.buttonShowFoldingLines.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonShowFoldingLines.Name = "btShowFoldingLines";
+            this.buttonShowFoldingLines.Size = new System.Drawing.Size(29, 24);
+            this.buttonShowFoldingLines.Text = "Show folding lines";
+            this.buttonShowFoldingLines.Click += new System.EventHandler(this.btShowFoldingLines_Click);
             // 
             // toolStripSeparator4
             // 
@@ -420,23 +420,23 @@ namespace Code.Editor
             // 
             // undoStripButton
             // 
-            this.undoStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.undoStripButton.Image = global::Code.Editor.Properties.Resources.undo_16x16;
-            this.undoStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.undoStripButton.Name = "undoStripButton";
-            this.undoStripButton.Size = new System.Drawing.Size(29, 24);
-            this.undoStripButton.Text = "Undo (Ctrl+Z)";
-            this.undoStripButton.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            this.buttonUndoStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonUndoStrip.Image = global::Code.Editor.Properties.Resources.undo_16x16;
+            this.buttonUndoStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonUndoStrip.Name = "undoStripButton";
+            this.buttonUndoStrip.Size = new System.Drawing.Size(29, 24);
+            this.buttonUndoStrip.Text = "Undo (Ctrl+Z)";
+            this.buttonUndoStrip.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // redoStripButton
             // 
-            this.redoStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.redoStripButton.Image = global::Code.Editor.Properties.Resources.redo_16x16;
-            this.redoStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.redoStripButton.Name = "redoStripButton";
-            this.redoStripButton.Size = new System.Drawing.Size(29, 24);
-            this.redoStripButton.Text = "Redo (Ctrl+R)";
-            this.redoStripButton.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+            this.buttonRedoStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonRedoStrip.Image = global::Code.Editor.Properties.Resources.redo_16x16;
+            this.buttonRedoStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonRedoStrip.Name = "redoStripButton";
+            this.buttonRedoStrip.Size = new System.Drawing.Size(29, 24);
+            this.buttonRedoStrip.Text = "Redo (Ctrl+R)";
+            this.buttonRedoStrip.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -445,31 +445,31 @@ namespace Code.Editor
             // 
             // backStripButton
             // 
-            this.backStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.backStripButton.Image = global::Code.Editor.Properties.Resources.backward0_16x16;
-            this.backStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.backStripButton.Name = "backStripButton";
-            this.backStripButton.Size = new System.Drawing.Size(29, 24);
-            this.backStripButton.Text = "Navigate Backward (Ctrl+ -)";
-            this.backStripButton.Click += new System.EventHandler(this.backStripButton_Click);
+            this.buttonBackStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonBackStrip.Image = global::Code.Editor.Properties.Resources.backward0_16x16;
+            this.buttonBackStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonBackStrip.Name = "backStripButton";
+            this.buttonBackStrip.Size = new System.Drawing.Size(29, 24);
+            this.buttonBackStrip.Text = "Navigate Backward (Ctrl+ -)";
+            this.buttonBackStrip.Click += new System.EventHandler(this.backStripButton_Click);
             // 
             // forwardStripButton
             // 
-            this.forwardStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.forwardStripButton.Image = global::Code.Editor.Properties.Resources.forward_16x16;
-            this.forwardStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.forwardStripButton.Name = "forwardStripButton";
-            this.forwardStripButton.Size = new System.Drawing.Size(29, 24);
-            this.forwardStripButton.Text = "Navigate Forward (Ctrl+Shift+ -)";
-            this.forwardStripButton.Click += new System.EventHandler(this.forwardStripButton_Click);
+            this.buttonForwardStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonForwardStrip.Image = global::Code.Editor.Properties.Resources.forward_16x16;
+            this.buttonForwardStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonForwardStrip.Name = "forwardStripButton";
+            this.buttonForwardStrip.Size = new System.Drawing.Size(29, 24);
+            this.buttonForwardStrip.Text = "Navigate Forward (Ctrl+Shift+ -)";
+            this.buttonForwardStrip.Click += new System.EventHandler(this.forwardStripButton_Click);
             // 
             // tbFind
             // 
-            this.tbFind.AcceptsReturn = true;
-            this.tbFind.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tbFind.Name = "tbFind";
-            this.tbFind.Size = new System.Drawing.Size(132, 27);
-            this.tbFind.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFind_KeyPress);
+            this.textboxSearch.AcceptsReturn = true;
+            this.textboxSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.textboxSearch.Name = "tbFind";
+            this.textboxSearch.Size = new System.Drawing.Size(132, 27);
+            this.textboxSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFind_KeyPress);
             // 
             // toolStripLabel1
             // 
@@ -485,33 +485,33 @@ namespace Code.Editor
             // 
             // bookmarkPlusButton
             // 
-            this.bookmarkPlusButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bookmarkPlusButton.Image = global::Code.Editor.Properties.Resources.layer__plus;
-            this.bookmarkPlusButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bookmarkPlusButton.Name = "bookmarkPlusButton";
-            this.bookmarkPlusButton.Size = new System.Drawing.Size(29, 24);
-            this.bookmarkPlusButton.Text = "Add bookmark (Ctrl-B)";
-            this.bookmarkPlusButton.Click += new System.EventHandler(this.bookmarkPlusButton_Click);
+            this.buttonBookmarkPlus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonBookmarkPlus.Image = global::Code.Editor.Properties.Resources.layer__plus;
+            this.buttonBookmarkPlus.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonBookmarkPlus.Name = "bookmarkPlusButton";
+            this.buttonBookmarkPlus.Size = new System.Drawing.Size(29, 24);
+            this.buttonBookmarkPlus.Text = "Add bookmark (Ctrl-B)";
+            this.buttonBookmarkPlus.Click += new System.EventHandler(this.bookmarkPlusButton_Click);
             // 
             // bookmarkMinusButton
             // 
-            this.bookmarkMinusButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bookmarkMinusButton.Image = global::Code.Editor.Properties.Resources.layer__minus;
-            this.bookmarkMinusButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bookmarkMinusButton.Name = "bookmarkMinusButton";
-            this.bookmarkMinusButton.Size = new System.Drawing.Size(29, 24);
-            this.bookmarkMinusButton.Text = "Remove bookmark (Ctrl-Shift-B)";
-            this.bookmarkMinusButton.Click += new System.EventHandler(this.bookmarkMinusButton_Click);
+            this.buttonBookmarkMinus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonBookmarkMinus.Image = global::Code.Editor.Properties.Resources.layer__minus;
+            this.buttonBookmarkMinus.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonBookmarkMinus.Name = "bookmarkMinusButton";
+            this.buttonBookmarkMinus.Size = new System.Drawing.Size(29, 24);
+            this.buttonBookmarkMinus.Text = "Remove bookmark (Ctrl-Shift-B)";
+            this.buttonBookmarkMinus.Click += new System.EventHandler(this.bookmarkMinusButton_Click);
             // 
             // gotoButton
             // 
-            this.gotoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.gotoButton.Image = ((System.Drawing.Image)(resources.GetObject("gotoButton.Image")));
-            this.gotoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.gotoButton.Name = "gotoButton";
-            this.gotoButton.Size = new System.Drawing.Size(65, 24);
-            this.gotoButton.Text = "Goto...";
-            this.gotoButton.DropDownOpening += new System.EventHandler(this.gotoButton_DropDownOpening);
+            this.buttonGoto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonGoto.Image = ((System.Drawing.Image)(resources.GetObject("gotoButton.Image")));
+            this.buttonGoto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonGoto.Name = "gotoButton";
+            this.buttonGoto.Size = new System.Drawing.Size(65, 24);
+            this.buttonGoto.Text = "Goto...";
+            this.buttonGoto.DropDownOpening += new System.EventHandler(this.gotoButton_DropDownOpening);
             // 
             // toolStripSeparator
             // 
@@ -698,59 +698,59 @@ namespace Code.Editor
             // 
             // dgvObjectExplorer
             // 
-            this.dgvObjectExplorer.AllowUserToAddRows = false;
-            this.dgvObjectExplorer.AllowUserToDeleteRows = false;
-            this.dgvObjectExplorer.AllowUserToResizeColumns = false;
-            this.dgvObjectExplorer.AllowUserToResizeRows = false;
-            this.dgvObjectExplorer.BackgroundColor = System.Drawing.Color.White;
-            this.dgvObjectExplorer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvObjectExplorer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObjectExplorer.ColumnHeadersVisible = false;
-            this.dgvObjectExplorer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clImage,
-            this.clName});
-            this.dgvObjectExplorer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvObjectExplorer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dgvObjectExplorer.GridColor = System.Drawing.Color.White;
-            this.dgvObjectExplorer.Location = new System.Drawing.Point(0, 57);
-            this.dgvObjectExplorer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgvObjectExplorer.MultiSelect = false;
-            this.dgvObjectExplorer.Name = "dgvObjectExplorer";
-            this.dgvObjectExplorer.ReadOnly = true;
-            this.dgvObjectExplorer.RowHeadersVisible = false;
-            this.dgvObjectExplorer.RowHeadersWidth = 51;
-            this.dgvObjectExplorer.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvObjectExplorer.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.dgvObjectExplorer.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Green;
-            this.dgvObjectExplorer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvObjectExplorer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvObjectExplorer.Size = new System.Drawing.Size(229, 423);
-            this.dgvObjectExplorer.TabIndex = 6;
-            this.dgvObjectExplorer.VirtualMode = true;
-            this.dgvObjectExplorer.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvObjectExplorer_CellMouseDoubleClick);
-            this.dgvObjectExplorer.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dgvObjectExplorer_CellValueNeeded);
+            this.datagridviewerObjectExplorer.AllowUserToAddRows = false;
+            this.datagridviewerObjectExplorer.AllowUserToDeleteRows = false;
+            this.datagridviewerObjectExplorer.AllowUserToResizeColumns = false;
+            this.datagridviewerObjectExplorer.AllowUserToResizeRows = false;
+            this.datagridviewerObjectExplorer.BackgroundColor = System.Drawing.Color.White;
+            this.datagridviewerObjectExplorer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.datagridviewerObjectExplorer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridviewerObjectExplorer.ColumnHeadersVisible = false;
+            this.datagridviewerObjectExplorer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.datagridviewerImageColumn,
+            this.datagridviewerTextBoxColumn});
+            this.datagridviewerObjectExplorer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.datagridviewerObjectExplorer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.datagridviewerObjectExplorer.GridColor = System.Drawing.Color.White;
+            this.datagridviewerObjectExplorer.Location = new System.Drawing.Point(0, 57);
+            this.datagridviewerObjectExplorer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.datagridviewerObjectExplorer.MultiSelect = false;
+            this.datagridviewerObjectExplorer.Name = "dgvObjectExplorer";
+            this.datagridviewerObjectExplorer.ReadOnly = true;
+            this.datagridviewerObjectExplorer.RowHeadersVisible = false;
+            this.datagridviewerObjectExplorer.RowHeadersWidth = 51;
+            this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Green;
+            this.datagridviewerObjectExplorer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.datagridviewerObjectExplorer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 423);
+            this.datagridviewerObjectExplorer.TabIndex = 6;
+            this.datagridviewerObjectExplorer.VirtualMode = true;
+            this.datagridviewerObjectExplorer.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvObjectExplorer_CellMouseDoubleClick);
+            this.datagridviewerObjectExplorer.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dgvObjectExplorer_CellValueNeeded);
             // 
             // clImage
             // 
-            this.clImage.HeaderText = "Column2";
-            this.clImage.MinimumWidth = 32;
-            this.clImage.Name = "clImage";
-            this.clImage.ReadOnly = true;
-            this.clImage.Width = 32;
+            this.datagridviewerImageColumn.HeaderText = "Column2";
+            this.datagridviewerImageColumn.MinimumWidth = 32;
+            this.datagridviewerImageColumn.Name = "clImage";
+            this.datagridviewerImageColumn.ReadOnly = true;
+            this.datagridviewerImageColumn.Width = 32;
             // 
             // clName
             // 
-            this.clName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clName.HeaderText = "Column1";
-            this.clName.MinimumWidth = 6;
-            this.clName.Name = "clName";
-            this.clName.ReadOnly = true;
+            this.datagridviewerTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.datagridviewerTextBoxColumn.HeaderText = "Column1";
+            this.datagridviewerTextBoxColumn.MinimumWidth = 6;
+            this.datagridviewerTextBoxColumn.Name = "clName";
+            this.datagridviewerTextBoxColumn.ReadOnly = true;
             // 
             // ilAutocomplete
             // 
-            this.ilAutocomplete.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.ilAutocomplete.ImageSize = new System.Drawing.Size(16, 16);
-            this.ilAutocomplete.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListAutocomplete.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageListAutocomplete.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListAutocomplete.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // CodeEditorMainForm
             // 
@@ -759,25 +759,25 @@ namespace Code.Editor
             this.ClientSize = new System.Drawing.Size(1025, 506);
             this.Controls.Add(this.tsFiles);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.dgvObjectExplorer);
-            this.Controls.Add(this.tsMain);
-            this.Controls.Add(this.msMain);
-            this.Controls.Add(this.ssMain);
-            this.MainMenuStrip = this.msMain;
+            this.Controls.Add(this.datagridviewerObjectExplorer);
+            this.Controls.Add(this.toolStripMain);
+            this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.mainStatusStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CodeEditorMainForm";
             this.Text = "Code editor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PowerfulCSharpEditor_FormClosing);
-            this.msMain.ResumeLayout(false);
-            this.msMain.PerformLayout();
-            this.ssMain.ResumeLayout(false);
-            this.ssMain.PerformLayout();
-            this.tsMain.ResumeLayout(false);
-            this.tsMain.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
+            this.mainStatusStrip.ResumeLayout(false);
+            this.mainStatusStrip.PerformLayout();
+            this.toolStripMain.ResumeLayout(false);
+            this.toolStripMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tsFiles)).EndInit();
             this.cmMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvObjectExplorer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -785,15 +785,15 @@ namespace Code.Editor
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip msMain;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
-        private System.Windows.Forms.StatusStrip ssMain;
-        private System.Windows.Forms.ToolStrip tsMain;
+        private System.Windows.Forms.StatusStrip mainStatusStrip;
+        private System.Windows.Forms.ToolStrip toolStripMain;
         private FarsiLibrary.Win.FATabStrip tsFiles;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.Splitter splitter1;
@@ -817,38 +817,38 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripButton copyToolStripButton;
         private System.Windows.Forms.ToolStripButton pasteToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton undoStripButton;
-        private System.Windows.Forms.ToolStripButton redoStripButton;
+        private System.Windows.Forms.ToolStripButton buttonUndoStrip;
+        private System.Windows.Forms.ToolStripButton buttonRedoStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripTextBox tbFind;
+        private System.Windows.Forms.ToolStripTextBox textboxSearch;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replaceToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dgvObjectExplorer;
-        private System.Windows.Forms.ToolStripButton backStripButton;
-        private System.Windows.Forms.ToolStripButton forwardStripButton;
+        private System.Windows.Forms.DataGridView datagridviewerObjectExplorer;
+        private System.Windows.Forms.ToolStripButton buttonBackStrip;
+        private System.Windows.Forms.ToolStripButton buttonForwardStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.DataGridViewImageColumn clImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clName;
-        private System.Windows.Forms.ToolStripStatusLabel lbWordUnderMouse;
-        private System.Windows.Forms.ImageList ilAutocomplete;
+        private System.Windows.Forms.DataGridViewImageColumn datagridviewerImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datagridviewerTextBoxColumn;
+        private System.Windows.Forms.ToolStripStatusLabel labelWordUnderMouse;
+        private System.Windows.Forms.ImageList imageListAutocomplete;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem autoIndentSelectedTextToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton btInvisibleChars;
-        private System.Windows.Forms.ToolStripButton btHighlightCurrentLine;
+        private System.Windows.Forms.ToolStripButton buttonInvisibleSymbols;
+        private System.Windows.Forms.ToolStripButton buttonHighlightCurrentLine;
         private System.Windows.Forms.ToolStripMenuItem commentSelectedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uncommentSelectedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cloneLinesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cloneLinesAndCommentToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripButton bookmarkPlusButton;
-        private System.Windows.Forms.ToolStripButton bookmarkMinusButton;
-        private System.Windows.Forms.ToolStripDropDownButton gotoButton;
-        private System.Windows.Forms.ToolStripButton btShowFoldingLines;
-        private System.Windows.Forms.ToolStripSplitButton btZoom;
+        private System.Windows.Forms.ToolStripButton buttonBookmarkPlus;
+        private System.Windows.Forms.ToolStripButton buttonBookmarkMinus;
+        private System.Windows.Forms.ToolStripDropDownButton buttonGoto;
+        private System.Windows.Forms.ToolStripButton buttonShowFoldingLines;
+        private System.Windows.Forms.ToolStripSplitButton buttonZoom;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
