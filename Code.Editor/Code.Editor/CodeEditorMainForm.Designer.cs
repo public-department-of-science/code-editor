@@ -78,7 +78,7 @@ namespace Code.Editor
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsFiles = new FarsiLibrary.Win.FATabStrip();
+            this.openFilesTabs = new FarsiLibrary.Win.FATabStrip();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.sfdMain = new System.Windows.Forms.SaveFileDialog();
             this.ofdMain = new System.Windows.Forms.OpenFileDialog();
@@ -107,7 +107,7 @@ namespace Code.Editor
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tsFiles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openFilesTabs)).BeginInit();
             this.cmMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).BeginInit();
             this.SuspendLayout();
@@ -530,17 +530,17 @@ namespace Code.Editor
             // 
             // tsFiles
             // 
-            this.tsFiles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tsFiles.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tsFiles.Location = new System.Drawing.Point(233, 57);
-            this.tsFiles.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tsFiles.Name = "tsFiles";
-            this.tsFiles.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
-            this.tsFiles.Size = new System.Drawing.Size(792, 423);
-            this.tsFiles.TabIndex = 0;
-            this.tsFiles.Text = "faTabStrip1";
-            this.tsFiles.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
-            this.tsFiles.TabStripItemSelectionChanged += new FarsiLibrary.Win.TabStripItemChangedHandler(this.tsFiles_TabStripItemSelectionChanged);
+            this.openFilesTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.openFilesTabs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.openFilesTabs.Location = new System.Drawing.Point(233, 57);
+            this.openFilesTabs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.openFilesTabs.Name = "tsFiles";
+            this.openFilesTabs.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
+            this.openFilesTabs.Size = new System.Drawing.Size(792, 423);
+            this.openFilesTabs.TabIndex = 0;
+            this.openFilesTabs.Text = "faTabStrip1";
+            this.openFilesTabs.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
+            this.openFilesTabs.TabStripItemSelectionChanged += new FarsiLibrary.Win.TabStripItemChangedHandler(this.tsFiles_TabStripItemSelectionChanged);
             // 
             // splitter1
             // 
@@ -757,7 +757,7 @@ namespace Code.Editor
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 506);
-            this.Controls.Add(this.tsFiles);
+            this.Controls.Add(this.openFilesTabs);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.datagridviewerObjectExplorer);
             this.Controls.Add(this.toolStripMain);
@@ -775,7 +775,7 @@ namespace Code.Editor
             this.mainStatusStrip.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tsFiles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openFilesTabs)).EndInit();
             this.cmMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).EndInit();
             this.ResumeLayout(false);
@@ -794,7 +794,7 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.StatusStrip mainStatusStrip;
         private System.Windows.Forms.ToolStrip toolStripMain;
-        private FarsiLibrary.Win.FATabStrip tsFiles;
+        private FarsiLibrary.Win.FATabStrip openFilesTabs;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.SaveFileDialog sfdMain;
