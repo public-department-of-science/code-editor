@@ -2,7 +2,7 @@
 
 namespace Code.Editor
 {
-    public class InvisibleCharsRenderer : Style
+    internal class InvisibleCharsRenderer : Style
     {
         private const char emptySymbol = ' ';
         private Pen pen;

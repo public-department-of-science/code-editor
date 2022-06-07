@@ -7,11 +7,5 @@
     <Compile Update="CodeEditorMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="InsertEnterSnippet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="InsertSpaceSnippet.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

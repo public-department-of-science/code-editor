@@ -114,8 +114,11 @@ namespace Code.Editor
             }
             catch (Exception ex)
             {
-                if (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == System.Windows.Forms.DialogResult.Retry)
+                if (MessageBox.Show(ex.Message, "Error",
+                    MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
+                {
                     CreateTab(fileName);
+                }
             }
         }
 
@@ -125,6 +128,7 @@ namespace Code.Editor
             //get index of green style (used for comments)
             var iGreenStyle = CurrentTextBox.GetStyleIndex(CurrentTextBox.SyntaxHighlighter.GreenStyle);
             if (iGreenStyle >= 0)
+            {
                 if (CurrentTextBox.Selection.Start.iChar > 0)
                 {
                     //current char (before caret)
@@ -133,8 +137,11 @@ namespace Code.Editor
                     var greenStyleIndex = FastColoredTextBoxNS.Range.ToStyleIndex(iGreenStyle);
                     //if char contains green style then block popup menu
                     if ((c.style & greenStyleIndex) != 0)
+                    {
                         e.Cancel = true;
+                    }
                 }
+            }
         }
 
         private void BuildAutocompleteMenu(AutocompleteMenu popupMenu)
@@ -199,7 +206,7 @@ namespace Code.Editor
             }
         }
 
-        void tb_SelectionChangedDelayed(object sender, EventArgs e)
+        private void tb_SelectionChangedDelayed(object sender, EventArgs e)
         {
             var tb = sender as FastColoredTextBox;
             //remember last visit time
@@ -237,7 +244,7 @@ namespace Code.Editor
             }
         }
 
-        void tb_TextChangedDelayed(object sender, TextChangedEventArgs e)
+        private void tb_TextChangedDelayed(object sender, TextChangedEventArgs e)
         {
             FastColoredTextBox tb = (sender as FastColoredTextBox);
             //rebuild object explorer
@@ -257,7 +264,7 @@ namespace Code.Editor
             }
         }
 
-        List<ExplorerItem> explorerList = new List<ExplorerItem>();
+        private List<ExplorerItem> explorerList = new List<ExplorerItem>();
 
         private void ReBuildObjectExplorer(string text)
         {
@@ -712,27 +719,6 @@ namespace Code.Editor
             else
             {
                 return false;
-            }
-        }
-
-        /// <summary>
-        /// This item appears when any part of snippet text is typed
-        /// </summary>
-        class DeclarationSnippet : SnippetAutocompleteItem
-        {
-            public DeclarationSnippet(string snippet)
-                : base(snippet)
-            {
-            }
-
-            public override CompareResult Compare(string fragmentText)
-            {
-                var pattern = Regex.Escape(fragmentText);
-                if (Regex.IsMatch(Text, "\\b" + pattern, RegexOptions.IgnoreCase))
-                {
-                    return CompareResult.Visible;
-                }
-                return CompareResult.Hidden;
             }
         }
 

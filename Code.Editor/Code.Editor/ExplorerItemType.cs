@@ -1,10 +1,10 @@
 ﻿namespace Code.Editor
 {
-    public partial class CodeEditorMainForm
+    internal enum ExplorerItemType
     {
-        internal enum ExplorerItemType
-        {
-            Class, Method, Property, Event
-        }
+        Class = 0,
+        Method = 1,
+        Property = 2,
+        Event = 3,
     }
 }
