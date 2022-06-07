@@ -46,6 +46,23 @@ namespace Code.Editor
 
         private DateTime lastNavigatedDateTime = DateTime.Now;
 
+        FastColoredTextBox CurrentTextBox
+        {
+            get
+            {
+                if (openFilesTabs.SelectedItem == null)
+                {
+                    return null;
+                }
+                return (openFilesTabs.SelectedItem.Controls[0] as FastColoredTextBox);
+            }
+            set
+            {
+                openFilesTabs.SelectedItem = (value.Parent as FATabStripItem);
+                value.Focus();
+            }
+        }
+        
         public CodeEditorMainForm()
         {
             InitializeComponent();
@@ -55,11 +72,6 @@ namespace Code.Editor
             copyToolStripMenuItem.Image = ((Image)(resources.GetObject("copyToolStripButton.Image")));
             cutToolStripMenuItem.Image = ((Image)(resources.GetObject("cutToolStripButton.Image")));
             pasteToolStripMenuItem.Image = ((Image)(resources.GetObject("pasteToolStripButton.Image")));
-        }
-
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CreateTab(string.Empty);
         }
 
         private Style sameWordsStyle = new MarkerStyle(new SolidBrush(Color.FromArgb(50, Color.Gray)));
@@ -324,46 +336,10 @@ namespace Code.Editor
             }
         }
 
-        FastColoredTextBox CurrentTextBox
-        {
-            get
-            {
-                if (openFilesTabs.SelectedItem == null)
-                {
-                    return null;
-                }
-                return (openFilesTabs.SelectedItem.Controls[0] as FastColoredTextBox);
-            }
-            set
-            {
-                openFilesTabs.SelectedItem = (value.Parent as FATabStripItem);
-                value.Focus();
-            }
-        }
 
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CurrentTextBox.ShowReplaceDialog();
-        }
-
-        private void PowerfulCSharpEditor_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            List<FATabStripItem> list = new List<FATabStripItem>();
-            foreach (FATabStripItem tab in openFilesTabs.Items)
-            {
-                list.Add(tab);
-            }
-            foreach (var tab in list)
-            {
-                TabStripItemClosingEventArgs args = new TabStripItemClosingEventArgs(tab);
-                tsFiles_TabStripItemClosing(args);
-                if (args.Cancel)
-                {
-                    e.Cancel = true;
-                    return;
-                }
-                openFilesTabs.RemoveTab(tab);
-            }
         }
 
         private void dgvObjectExplorer_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -426,6 +402,26 @@ namespace Code.Editor
             if (CurrentTextBox != null)
             {
                 CurrentTextBox.Invalidate();
+            }
+        }
+        
+        private void CodeEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            List<FATabStripItem> list = new List<FATabStripItem>();
+            foreach (FATabStripItem tab in openFilesTabs.Items)
+            {
+                list.Add(tab);
+            }
+            foreach (var tab in list)
+            {
+                TabStripItemClosingEventArgs args = new TabStripItemClosingEventArgs(tab);
+                tsFiles_TabStripItemClosing(args);
+                if (args.Cancel)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+                openFilesTabs.RemoveTab(tab);
             }
         }
     }

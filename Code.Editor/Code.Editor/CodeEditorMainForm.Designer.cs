@@ -768,7 +768,7 @@ namespace Code.Editor
             this.Name = "CodeEditorMainForm";
             this.Text = "Code editor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PowerfulCSharpEditor_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CodeEditor_FormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.mainStatusStrip.ResumeLayout(false);

@@ -15,5 +15,10 @@ namespace Code.Editor
                 CurrentTextBox.Print(settings);
             }
         }
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateTab(string.Empty);
+        }
+
     }
 }
