@@ -9,9 +9,9 @@
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (ofdMain.ShowDialog() == DialogResult.OK)
+            if (openFileDialogMain.ShowDialog() == DialogResult.OK)
             {
-                CreateTab(ofdMain.FileName);
+                CreateTab(openFileDialogMain.FileName);
             }
         }
 

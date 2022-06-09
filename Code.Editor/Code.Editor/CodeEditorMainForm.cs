@@ -83,7 +83,7 @@ namespace Code.Editor
             {
                 var newTextBox = new FastColoredTextBox();
                 newTextBox.Font = new Font("Consolas", 9.75f);
-                newTextBox.ContextMenuStrip = cmMain;
+                newTextBox.ContextMenuStrip = codeAreaContextMenu;
                 newTextBox.Dock = DockStyle.Fill;
                 newTextBox.BorderStyle = BorderStyle.Fixed3D;
                 //tb.VirtualSpace = true;
@@ -269,12 +269,12 @@ namespace Code.Editor
             var tb = (tab.Controls[0] as FastColoredTextBox);
             if (tab.Tag == null)
             {
-                if (sfdMain.ShowDialog() != DialogResult.OK)
+                if (saveFileDialogMain.ShowDialog() != DialogResult.OK)
                 {
                     return false;
                 }
-                tab.Title = Path.GetFileName(sfdMain.FileName);
-                tab.Tag = sfdMain.FileName;
+                tab.Title = Path.GetFileName(saveFileDialogMain.FileName);
+                tab.Tag = saveFileDialogMain.FileName;
             }
 
             try
@@ -309,15 +309,10 @@ namespace Code.Editor
 
         private void openButtonMenuItem_Click(object sender, EventArgs e)
         {
-            if (ofdMain.ShowDialog() == DialogResult.OK)
+            if (openFileDialogMain.ShowDialog() == DialogResult.OK)
             {
-                CreateTab(ofdMain.FileName);
+                CreateTab(openFileDialogMain.FileName);
             }
-        }
-
-        private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CurrentTextBox.ShowReplaceDialog();
         }
 
         private void dgvObjectExplorer_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -402,5 +397,6 @@ namespace Code.Editor
                 openFilesTabs.RemoveTab(tab);
             }
         }
+
     }
 }

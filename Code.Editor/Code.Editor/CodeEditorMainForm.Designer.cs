@@ -51,7 +51,7 @@ namespace Code.Editor
             this.zoom100Item = new System.Windows.Forms.ToolStripMenuItem();
             this.zoom50Item = new System.Windows.Forms.ToolStripMenuItem();
             this.zoom25Item = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMain = new System.Windows.Forms.ToolStrip();
+            this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -80,20 +80,20 @@ namespace Code.Editor
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.openFilesTabs = new FarsiLibrary.Win.FATabStrip();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.sfdMain = new System.Windows.Forms.SaveFileDialog();
-            this.ofdMain = new System.Windows.Forms.OpenFileDialog();
-            this.cmMain = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.saveFileDialogMain = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialogMain = new System.Windows.Forms.OpenFileDialog();
+            this.codeAreaContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.codeAreaContextMenuSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.codeAreaContextMenuSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.codeAreaContextMenuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.autoIndentSelectedTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commentSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uncommentSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,9 +106,9 @@ namespace Code.Editor
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
-            this.toolStripMain.SuspendLayout();
+            this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.openFilesTabs)).BeginInit();
-            this.cmMain.SuspendLayout();
+            this.codeAreaContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,7 +163,7 @@ namespace Code.Editor
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.S)));
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.saveAsToolStripMenuItem.Text = "Save as ...";
@@ -268,10 +268,10 @@ namespace Code.Editor
             this.zoom25Item.Text = "25%";
             this.zoom25Item.Click += new System.EventHandler(this.Zoom_click);
             // 
-            // toolStripMain
+            // toolStripMenu
             // 
-            this.toolStripMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.openToolStripButton,
             this.saveToolStripButton,
@@ -295,11 +295,11 @@ namespace Code.Editor
             this.buttonBookmarkPlus,
             this.buttonBookmarkMinus,
             this.buttonGoto});
-            this.toolStripMain.Location = new System.Drawing.Point(0, 30);
-            this.toolStripMain.Name = "toolStripMain";
-            this.toolStripMain.Size = new System.Drawing.Size(1025, 27);
-            this.toolStripMain.TabIndex = 3;
-            this.toolStripMain.Text = "toolStrip1";
+            this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
+            this.toolStripMenu.Name = "toolStripMenu";
+            this.toolStripMenu.Size = new System.Drawing.Size(1025, 27);
+            this.toolStripMenu.TabIndex = 3;
+            this.toolStripMenu.Text = "toolStrip1";
             // 
             // newToolStripButton
             // 
@@ -354,7 +354,7 @@ namespace Code.Editor
             this.cutToolStripButton.Name = "cutToolStripButton";
             this.cutToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.cutToolStripButton.Text = "C&ut";
-            this.cutToolStripButton.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
+            this.cutToolStripButton.Click += new System.EventHandler(this.cutButton_Click);
             // 
             // copyToolStripButton
             // 
@@ -364,7 +364,7 @@ namespace Code.Editor
             this.copyToolStripButton.Name = "copyToolStripButton";
             this.copyToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.copyToolStripButton.Text = "&Copy";
-            this.copyToolStripButton.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            this.copyToolStripButton.Click += new System.EventHandler(this.copyButton_Click);
             // 
             // pasteToolStripButton
             // 
@@ -374,7 +374,7 @@ namespace Code.Editor
             this.pasteToolStripButton.Name = "pasteToolStripButton";
             this.pasteToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.pasteToolStripButton.Text = "&Paste";
-            this.pasteToolStripButton.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
+            this.pasteToolStripButton.Click += new System.EventHandler(this.pasteButton_Click);
             // 
             // buttonInvisibleSymbols
             // 
@@ -426,7 +426,7 @@ namespace Code.Editor
             this.buttonUndoStrip.Name = "buttonUndoStrip";
             this.buttonUndoStrip.Size = new System.Drawing.Size(29, 24);
             this.buttonUndoStrip.Text = "Undo (Ctrl+Z)";
-            this.buttonUndoStrip.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            this.buttonUndoStrip.Click += new System.EventHandler(this.undoButton_Click);
             // 
             // buttonRedoStrip
             // 
@@ -436,7 +436,7 @@ namespace Code.Editor
             this.buttonRedoStrip.Name = "buttonRedoStrip";
             this.buttonRedoStrip.Size = new System.Drawing.Size(29, 24);
             this.buttonRedoStrip.Text = "Redo (Ctrl+R)";
-            this.buttonRedoStrip.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+            this.buttonRedoStrip.Click += new System.EventHandler(this.redoButton_Click);
             // 
             // toolStripSeparator5
             // 
@@ -551,38 +551,38 @@ namespace Code.Editor
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
-            // sfdMain
+            // saveFileDialogMain
             // 
-            this.sfdMain.DefaultExt = "cs";
-            this.sfdMain.Filter = "C# file(*.cs)|*.cs|All files|*.*";
+            this.saveFileDialogMain.DefaultExt = "cs";
+            this.saveFileDialogMain.Filter = "C# file(*.cs)|*.cs|All files|*.*";
             // 
-            // ofdMain
+            // openFileDialogMain
             // 
-            this.ofdMain.DefaultExt = "cs";
-            this.ofdMain.Filter = "C# file(*.cs)|*.cs|All files|*.*";
+            this.openFileDialogMain.DefaultExt = "cs";
+            this.openFileDialogMain.Filter = "C# file(*.cs)|*.cs|All files|*.*";
             // 
-            // cmMain
+            // codeAreaContextMenu
             // 
-            this.cmMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.codeAreaContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.codeAreaContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cutToolStripMenuItem,
             this.copyToolStripMenuItem,
             this.pasteToolStripMenuItem,
             this.selectAllToolStripMenuItem,
-            this.toolStripMenuItem2,
+            this.codeAreaContextMenuSeparator,
             this.undoToolStripMenuItem,
             this.redoToolStripMenuItem,
-            this.toolStripMenuItem3,
+            this.codeAreaContextMenuSeparator1,
             this.findToolStripMenuItem,
             this.replaceToolStripMenuItem,
-            this.toolStripMenuItem4,
+            this.codeAreaContextMenuSeparator2,
             this.autoIndentSelectedTextToolStripMenuItem,
             this.commentSelectedToolStripMenuItem,
             this.uncommentSelectedToolStripMenuItem,
             this.cloneLinesToolStripMenuItem,
             this.cloneLinesAndCommentToolStripMenuItem});
-            this.cmMain.Name = "cmMain";
-            this.cmMain.Size = new System.Drawing.Size(257, 334);
+            this.codeAreaContextMenu.Name = "cmMain";
+            this.codeAreaContextMenu.Size = new System.Drawing.Size(257, 362);
             // 
             // cutToolStripMenuItem
             // 
@@ -612,10 +612,10 @@ namespace Code.Editor
             this.selectAllToolStripMenuItem.Text = "Select all";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem2
+            // codeAreaContextMenuSeparator
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(253, 6);
+            this.codeAreaContextMenuSeparator.Name = "codeAreaContextMenuSeparator";
+            this.codeAreaContextMenuSeparator.Size = new System.Drawing.Size(253, 6);
             // 
             // undoToolStripMenuItem
             // 
@@ -633,8 +633,8 @@ namespace Code.Editor
             // 
             // toolStripMenuItem3
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(253, 6);
+            this.codeAreaContextMenuSeparator1.Name = "codeAreaContextMenuSeparator1";
+            this.codeAreaContextMenuSeparator1.Size = new System.Drawing.Size(253, 6);
             // 
             // findToolStripMenuItem
             // 
@@ -650,10 +650,10 @@ namespace Code.Editor
             this.replaceToolStripMenuItem.Text = "Replace";
             this.replaceToolStripMenuItem.Click += new System.EventHandler(this.replaceToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem4
+            // codeAreaContextMenuSeparator2
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(253, 6);
+            this.codeAreaContextMenuSeparator2.Name = "codeAreaContextMenuSeparator2";
+            this.codeAreaContextMenuSeparator2.Size = new System.Drawing.Size(253, 6);
             // 
             // autoIndentSelectedTextToolStripMenuItem
             // 
@@ -760,7 +760,7 @@ namespace Code.Editor
             this.Controls.Add(this.openFilesTabs);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.datagridviewerObjectExplorer);
-            this.Controls.Add(this.toolStripMain);
+            this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.mainStatusStrip);
             this.MainMenuStrip = this.menuStrip;
@@ -773,13 +773,14 @@ namespace Code.Editor
             this.menuStrip.PerformLayout();
             this.mainStatusStrip.ResumeLayout(false);
             this.mainStatusStrip.PerformLayout();
-            this.toolStripMain.ResumeLayout(false);
-            this.toolStripMain.PerformLayout();
+            this.toolStripMenu.ResumeLayout(false);
+            this.toolStripMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.openFilesTabs)).EndInit();
-            this.cmMain.ResumeLayout(false);
+            this.codeAreaContextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private void newTabButton_Click(object sender, EventArgs e)
@@ -797,18 +798,18 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripSeparator toolStripMenuSeparator;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.StatusStrip mainStatusStrip;
-        private System.Windows.Forms.ToolStrip toolStripMain;
+        private System.Windows.Forms.ToolStrip toolStripMenu;
         private FarsiLibrary.Win.FATabStrip openFilesTabs;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.SaveFileDialog sfdMain;
-        private System.Windows.Forms.OpenFileDialog ofdMain;
-        private System.Windows.Forms.ContextMenuStrip cmMain;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogMain;
+        private System.Windows.Forms.OpenFileDialog openFileDialogMain;
+        private System.Windows.Forms.ContextMenuStrip codeAreaContextMenu;
         private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripSeparator codeAreaContextMenuSeparator;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
         private System.Windows.Forms.Timer tmUpdateInterface;
@@ -826,7 +827,7 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripTextBox textboxFind;
         private System.Windows.Forms.ToolStripLabel labelFindStrip;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripSeparator codeAreaContextMenuSeparator1;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replaceToolStripMenuItem;
         private System.Windows.Forms.DataGridView datagridviewerObjectExplorer;
@@ -839,7 +840,7 @@ namespace Code.Editor
         private System.Windows.Forms.DataGridViewTextBoxColumn datagridviewerTextBoxColumn;
         private System.Windows.Forms.ToolStripStatusLabel labelWordUnderMouse;
         private System.Windows.Forms.ImageList imageListAutocomplete;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripSeparator codeAreaContextMenuSeparator2;
         private System.Windows.Forms.ToolStripMenuItem autoIndentSelectedTextToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton buttonInvisibleSymbols;
         private System.Windows.Forms.ToolStripButton buttonHighlightCurrentLine;

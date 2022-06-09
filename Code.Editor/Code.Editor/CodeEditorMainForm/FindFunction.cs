@@ -29,10 +29,5 @@ namespace Code.Editor
                 tbFindChanged = true;
             }
         }
-
-        private void findToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CurrentTextBox.ShowFindDialog();
-        }
     }
 }
