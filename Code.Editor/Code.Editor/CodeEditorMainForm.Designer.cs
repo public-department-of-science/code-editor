@@ -582,111 +582,113 @@ namespace Code.Editor
             this.cloneLinesToolStripMenuItem,
             this.cloneLinesAndCommentToolStripMenuItem});
             this.codeAreaContextMenu.Name = "cmMain";
-            this.codeAreaContextMenu.Size = new System.Drawing.Size(257, 362);
+            this.codeAreaContextMenu.Size = new System.Drawing.Size(271, 334);
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.cutToolStripMenuItem.Text = "Cut";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.pasteToolStripMenuItem.Text = "Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.selectAllToolStripMenuItem.Text = "Select all";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
             // codeAreaContextMenuSeparator
             // 
             this.codeAreaContextMenuSeparator.Name = "codeAreaContextMenuSeparator";
-            this.codeAreaContextMenuSeparator.Size = new System.Drawing.Size(253, 6);
+            this.codeAreaContextMenuSeparator.Size = new System.Drawing.Size(267, 6);
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.redoToolStripMenuItem.Text = "Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem3
+            // codeAreaContextMenuSeparator1
             // 
             this.codeAreaContextMenuSeparator1.Name = "codeAreaContextMenuSeparator1";
-            this.codeAreaContextMenuSeparator1.Size = new System.Drawing.Size(253, 6);
+            this.codeAreaContextMenuSeparator1.Size = new System.Drawing.Size(267, 6);
             // 
             // findToolStripMenuItem
             // 
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.findToolStripMenuItem.Text = "Find";
             this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
             // replaceToolStripMenuItem
             // 
             this.replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
-            this.replaceToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.replaceToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.replaceToolStripMenuItem.Text = "Replace";
             this.replaceToolStripMenuItem.Click += new System.EventHandler(this.replaceToolStripMenuItem_Click);
             // 
             // codeAreaContextMenuSeparator2
             // 
             this.codeAreaContextMenuSeparator2.Name = "codeAreaContextMenuSeparator2";
-            this.codeAreaContextMenuSeparator2.Size = new System.Drawing.Size(253, 6);
+            this.codeAreaContextMenuSeparator2.Size = new System.Drawing.Size(267, 6);
             // 
             // autoIndentSelectedTextToolStripMenuItem
             // 
             this.autoIndentSelectedTextToolStripMenuItem.Name = "autoIndentSelectedTextToolStripMenuItem";
-            this.autoIndentSelectedTextToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.autoIndentSelectedTextToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.autoIndentSelectedTextToolStripMenuItem.Text = "AutoIndent selected text";
             this.autoIndentSelectedTextToolStripMenuItem.Click += new System.EventHandler(this.autoIndentSelectedTextToolStripMenuItem_Click);
             // 
             // commentSelectedToolStripMenuItem
             // 
             this.commentSelectedToolStripMenuItem.Name = "commentSelectedToolStripMenuItem";
-            this.commentSelectedToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.commentSelectedToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.commentSelectedToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.commentSelectedToolStripMenuItem.Text = "Comment selected";
             this.commentSelectedToolStripMenuItem.Click += new System.EventHandler(this.commentSelectedToolStripMenuItem_Click);
             // 
             // uncommentSelectedToolStripMenuItem
             // 
             this.uncommentSelectedToolStripMenuItem.Name = "uncommentSelectedToolStripMenuItem";
-            this.uncommentSelectedToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.uncommentSelectedToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.uncommentSelectedToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.uncommentSelectedToolStripMenuItem.Text = "Uncomment selected";
             this.uncommentSelectedToolStripMenuItem.Click += new System.EventHandler(this.uncommentSelectedToolStripMenuItem_Click);
             // 
             // cloneLinesToolStripMenuItem
             // 
             this.cloneLinesToolStripMenuItem.Name = "cloneLinesToolStripMenuItem";
-            this.cloneLinesToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.cloneLinesToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.cloneLinesToolStripMenuItem.Text = "Clone line(s)";
             this.cloneLinesToolStripMenuItem.Click += new System.EventHandler(this.cloneLinesToolStripMenuItem_Click);
             // 
             // cloneLinesAndCommentToolStripMenuItem
             // 
             this.cloneLinesAndCommentToolStripMenuItem.Name = "cloneLinesAndCommentToolStripMenuItem";
-            this.cloneLinesAndCommentToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.cloneLinesAndCommentToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.cloneLinesAndCommentToolStripMenuItem.Text = "Clone line(s) and comment";
             this.cloneLinesAndCommentToolStripMenuItem.Click += new System.EventHandler(this.cloneLinesAndCommentToolStripMenuItem_Click);
             // 
