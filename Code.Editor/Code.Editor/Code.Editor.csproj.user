@@ -7,35 +7,5 @@
     <Compile Update="CodeEditorMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CodeEditorMainForm\BookmarksNavigationFunction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="CodeEditorMainForm\FindFunction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="CodeEditorMainForm\FunctionalMenuStrip.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="CodeEditorMainForm\GotoBookmarkFunction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="CodeEditorMainForm\NavigationFunction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="CodeEditorMainForm\ObjectExplorerFunction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="CodeEditorMainForm\PrintFunction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="CodeEditorMainForm\SelectionFunction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="CodeEditorMainForm\Timer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="CodeEditorMainForm\ZoomFunction.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

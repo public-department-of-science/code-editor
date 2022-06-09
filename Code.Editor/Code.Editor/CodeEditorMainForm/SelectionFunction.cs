@@ -6,32 +6,32 @@ namespace Code.Editor
     {
         private void tb_SelectionChangedDelayed(object sender, EventArgs e)
         {
-            var tb = sender as FastColoredTextBox;
+            var textBox = sender as FastColoredTextBox;
             //remember last visit time
-            if (tb.Selection.IsEmpty && tb.Selection.Start.iLine < tb.LinesCount)
+            if (textBox.Selection.IsEmpty && textBox.Selection.Start.iLine < textBox.LinesCount)
             {
-                if (lastNavigatedDateTime != tb[tb.Selection.Start.iLine].LastVisit)
+                if (lastNavigatedDateTime != textBox[textBox.Selection.Start.iLine].LastVisit)
                 {
-                    tb[tb.Selection.Start.iLine].LastVisit = DateTime.Now;
-                    lastNavigatedDateTime = tb[tb.Selection.Start.iLine].LastVisit;
+                    textBox[textBox.Selection.Start.iLine].LastVisit = DateTime.Now;
+                    lastNavigatedDateTime = textBox[textBox.Selection.Start.iLine].LastVisit;
                 }
             }
 
             //highlight same words
-            tb.VisibleRange.ClearStyle(sameWordsStyle);
-            if (!tb.Selection.IsEmpty)
+            textBox.VisibleRange.ClearStyle(sameWordsStyle);
+            if (!textBox.Selection.IsEmpty)
             {
                 return;//user selected diapason
             }
             //get fragment around caret
-            var fragment = tb.Selection.GetFragment(@"\w");
+            var fragment = textBox.Selection.GetFragment(@"\w");
             string text = fragment.Text;
             if (text.Length == 0)
             {
                 return;
             }
             //highlight same words
-            FastColoredTextBoxNS.Range[] ranges = tb.VisibleRange.GetRanges("\\b" + text + "\\b").ToArray();
+            FastColoredTextBoxNS.Range[] ranges = textBox.VisibleRange.GetRanges("\\b" + text + "\\b").ToArray();
 
             if (ranges.Length > 1)
             {

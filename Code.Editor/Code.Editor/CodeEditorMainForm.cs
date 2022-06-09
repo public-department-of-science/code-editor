@@ -62,7 +62,7 @@ namespace Code.Editor
                 value.Focus();
             }
         }
-        
+
         public CodeEditorMainForm()
         {
             InitializeComponent();
@@ -190,11 +190,11 @@ namespace Code.Editor
 
         private void tb_MouseMove(object sender, MouseEventArgs e)
         {
-            var tb = sender as FastColoredTextBox;
-            var place = tb.PointToPlace(e.Location);
-            var r = new FastColoredTextBoxNS.Range(tb, place, place);
+            var textBox = sender as FastColoredTextBox;
+            var place = textBox.PointToPlace(e.Location);
+            var range = new FastColoredTextBoxNS.Range(textBox, place, place);
 
-            string text = r.GetFragment("[a-zA-Z]").Text;
+            string text = range.GetFragment("[a-zA-Z]").Text;
             labelWordUnderMouse.Text = text;
         }
 
@@ -298,7 +298,7 @@ namespace Code.Editor
             return true;
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
             if (openFilesTabs.SelectedItem != null)
             {
@@ -306,36 +306,13 @@ namespace Code.Editor
             }
         }
 
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openButtonMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFilesTabs.SelectedItem != null)
-            {
-                string oldFile = openFilesTabs.SelectedItem.Tag as string;
-                openFilesTabs.SelectedItem.Tag = null;
-                if (!Save(openFilesTabs.SelectedItem))
-                {
-                    if (oldFile != null)
-                    {
-                        openFilesTabs.SelectedItem.Tag = oldFile;
-                        openFilesTabs.SelectedItem.Title = Path.GetFileName(oldFile);
-                    }
-                }
-            }
-        }
-
-        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (ofdMain.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (ofdMain.ShowDialog() == DialogResult.OK)
             {
                 CreateTab(ofdMain.FileName);
             }
         }
-
 
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -404,7 +381,7 @@ namespace Code.Editor
                 CurrentTextBox.Invalidate();
             }
         }
-        
+
         private void CodeEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
             List<FATabStripItem> list = new List<FATabStripItem>();

@@ -40,17 +40,17 @@ namespace Code.Editor
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.labelWordUnderMouse = new System.Windows.Forms.ToolStripStatusLabel();
             this.buttonZoom = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoom300Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoom200Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoom150Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoom100Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoom50Item = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoom25Item = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -131,7 +131,7 @@ namespace Code.Editor
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
-            this.toolStripMenuItem1,
+            this.toolStripMenuSeparator,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
@@ -163,16 +163,16 @@ namespace Code.Editor
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.S)));
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.saveAsToolStripMenuItem.Text = "Save as ...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem1
+            // toolStripMenuSeparator
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(241, 6);
+            this.toolStripMenuSeparator.Name = "toolStripMenuSeparator";
+            this.toolStripMenuSeparator.Size = new System.Drawing.Size(241, 6);
             // 
             // quitToolStripMenuItem
             // 
@@ -208,65 +208,65 @@ namespace Code.Editor
             // 
             this.buttonZoom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.buttonZoom.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem11,
-            this.toolStripMenuItem10,
-            this.toolStripMenuItem9,
-            this.toolStripMenuItem8,
-            this.toolStripMenuItem7,
-            this.toolStripMenuItem6});
+            this.zoom300Item,
+            this.zoom200Item,
+            this.zoom150Item,
+            this.zoom100Item,
+            this.zoom50Item,
+            this.zoom25Item});
             this.buttonZoom.Image = ((System.Drawing.Image)(resources.GetObject("buttonZoom.Image")));
             this.buttonZoom.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonZoom.Name = "buttonZoom";
             this.buttonZoom.Size = new System.Drawing.Size(68, 24);
             this.buttonZoom.Text = "Zoom";
             // 
-            // toolStripMenuItem11
+            // zoom300Item
             // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(128, 26);
-            this.toolStripMenuItem11.Tag = "300";
-            this.toolStripMenuItem11.Text = "300%";
-            this.toolStripMenuItem11.Click += new System.EventHandler(this.Zoom_click);
+            this.zoom300Item.Name = "zoom300Item";
+            this.zoom300Item.Size = new System.Drawing.Size(128, 26);
+            this.zoom300Item.Tag = "300";
+            this.zoom300Item.Text = "300%";
+            this.zoom300Item.Click += new System.EventHandler(this.Zoom_click);
             // 
-            // toolStripMenuItem10
+            // zoom200Item
             // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(128, 26);
-            this.toolStripMenuItem10.Tag = "200";
-            this.toolStripMenuItem10.Text = "200%";
-            this.toolStripMenuItem10.Click += new System.EventHandler(this.Zoom_click);
+            this.zoom200Item.Name = "zoom200Item";
+            this.zoom200Item.Size = new System.Drawing.Size(128, 26);
+            this.zoom200Item.Tag = "200";
+            this.zoom200Item.Text = "200%";
+            this.zoom200Item.Click += new System.EventHandler(this.Zoom_click);
             // 
-            // toolStripMenuItem9
+            // zoom150Item
             // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(128, 26);
-            this.toolStripMenuItem9.Tag = "150";
-            this.toolStripMenuItem9.Text = "150%";
-            this.toolStripMenuItem9.Click += new System.EventHandler(this.Zoom_click);
+            this.zoom150Item.Name = "zoom150Item";
+            this.zoom150Item.Size = new System.Drawing.Size(128, 26);
+            this.zoom150Item.Tag = "150";
+            this.zoom150Item.Text = "150%";
+            this.zoom150Item.Click += new System.EventHandler(this.Zoom_click);
             // 
-            // toolStripMenuItem8
+            // zoom100Item
             // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(128, 26);
-            this.toolStripMenuItem8.Tag = "100";
-            this.toolStripMenuItem8.Text = "100%";
-            this.toolStripMenuItem8.Click += new System.EventHandler(this.Zoom_click);
+            this.zoom100Item.Name = "zoom100Item";
+            this.zoom100Item.Size = new System.Drawing.Size(128, 26);
+            this.zoom100Item.Tag = "100";
+            this.zoom100Item.Text = "100%";
+            this.zoom100Item.Click += new System.EventHandler(this.Zoom_click);
             // 
-            // toolStripMenuItem7
+            // zoom50Item
             // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(128, 26);
-            this.toolStripMenuItem7.Tag = "50";
-            this.toolStripMenuItem7.Text = "50%";
-            this.toolStripMenuItem7.Click += new System.EventHandler(this.Zoom_click);
+            this.zoom50Item.Name = "zoom50Item";
+            this.zoom50Item.Size = new System.Drawing.Size(128, 26);
+            this.zoom50Item.Tag = "50";
+            this.zoom50Item.Text = "50%";
+            this.zoom50Item.Click += new System.EventHandler(this.Zoom_click);
             // 
-            // toolStripMenuItem6
+            // zoom25Item
             // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(128, 26);
-            this.toolStripMenuItem6.Tag = "25";
-            this.toolStripMenuItem6.Text = "25%";
-            this.toolStripMenuItem6.Click += new System.EventHandler(this.Zoom_click);
+            this.zoom25Item.Name = "zoom25Item";
+            this.zoom25Item.Size = new System.Drawing.Size(128, 26);
+            this.zoom25Item.Tag = "25";
+            this.zoom25Item.Text = "25%";
+            this.zoom25Item.Click += new System.EventHandler(this.Zoom_click);
             // 
             // toolStripMain
             // 
@@ -309,7 +309,7 @@ namespace Code.Editor
             this.newToolStripButton.Name = "newToolStripButton";
             this.newToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.newToolStripButton.Text = "&New";
-            this.newToolStripButton.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.newToolStripButton.Click += new System.EventHandler(this.newTabButton_Click);
             // 
             // openToolStripButton
             // 
@@ -319,7 +319,7 @@ namespace Code.Editor
             this.openToolStripButton.Name = "openToolStripButton";
             this.openToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.openToolStripButton.Text = "&Open";
-            this.openToolStripButton.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openToolStripButton.Click += new System.EventHandler(this.openButtonMenuItem_Click);
             // 
             // saveToolStripButton
             // 
@@ -329,7 +329,7 @@ namespace Code.Editor
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.saveToolStripButton.Text = "&Save";
-            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            this.saveToolStripButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // printToolStripButton
             // 
@@ -780,7 +780,11 @@ namespace Code.Editor
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+        }
 
+        private void newTabButton_Click(object sender, EventArgs e)
+        {
+            CreateTab(string.Empty);
         }
 
         #endregion
@@ -790,7 +794,7 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuSeparator;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.StatusStrip mainStatusStrip;
         private System.Windows.Forms.ToolStrip toolStripMain;
@@ -849,11 +853,11 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripDropDownButton buttonGoto;
         private System.Windows.Forms.ToolStripButton buttonShowFoldingLines;
         private System.Windows.Forms.ToolStripSplitButton buttonZoom;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem zoom300Item;
+        private System.Windows.Forms.ToolStripMenuItem zoom200Item;
+        private System.Windows.Forms.ToolStripMenuItem zoom150Item;
+        private System.Windows.Forms.ToolStripMenuItem zoom100Item;
+        private System.Windows.Forms.ToolStripMenuItem zoom50Item;
+        private System.Windows.Forms.ToolStripMenuItem zoom25Item;
     }
 }

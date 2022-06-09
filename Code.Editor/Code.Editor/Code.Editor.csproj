@@ -9,6 +9,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="CodeEditorMainForm\SelectionFunction.cs~RF32eba5.TMP" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Content Include="Resources\CustomCodeHighlighting.xml">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>

@@ -1,7 +1,6 @@
 ﻿using FastColoredTextBoxNS;
 using System.Text.RegularExpressions;
 
-
 namespace Code.Editor
 {
     /// <summary>
