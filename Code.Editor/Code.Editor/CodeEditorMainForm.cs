@@ -1,4 +1,5 @@
-﻿using FarsiLibrary.Win;
+﻿using Code.Editor.Snippet;
+using FarsiLibrary.Win;
 using FastColoredTextBoxNS;
 using System.ComponentModel;
 using System.Text.RegularExpressions;

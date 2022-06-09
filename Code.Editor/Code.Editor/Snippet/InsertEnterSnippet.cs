@@ -1,6 +1,6 @@
 ﻿using FastColoredTextBoxNS;
 
-namespace Code.Editor
+namespace Code.Editor.Snippet
 {
     /// <summary>
     /// Inerts line break after '}'

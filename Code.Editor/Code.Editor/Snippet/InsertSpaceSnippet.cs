@@ -1,7 +1,7 @@
 ﻿using FastColoredTextBoxNS;
 using System.Text.RegularExpressions;
 
-namespace Code.Editor
+namespace Code.Editor.Snippet
 {
     /// <summary>
     /// Divides numbers and words: "123AND456" -> "123 AND 456"
