@@ -17,6 +17,18 @@
                     cutToolStripButton.Enabled = cutToolStripMenuItem.Enabled =
                     copyToolStripButton.Enabled = copyToolStripMenuItem.Enabled = !tb.Selection.IsEmpty;
                     printToolStripButton.Enabled = true;
+                    commentCodeStripButton.Enabled = true;
+                    uncommentCodeStripButton.Enabled = true;
+                    buttonBookmarkMinus.Enabled = true;
+                    buttonBookmarkPlus.Enabled = true;
+                    buttonRedoStrip.Enabled = true;
+                    buttonUndoStrip.Enabled = true;
+                    buttonGotoBookmark.Enabled = true;
+                    buttonForwardStrip.Enabled = true;
+                    buttonBackwardStrip.Enabled = true;
+                    buttonInvisibleSymbols.Enabled = true;
+                    buttonShowFoldingLines.Enabled = true;
+                    buttonHighlightCurrentLine.Enabled = true;
                 }
                 else
                 {
@@ -29,6 +41,18 @@
                     buttonUndoStrip.Enabled = undoToolStripMenuItem.Enabled = false;
                     buttonRedoStrip.Enabled = redoToolStripMenuItem.Enabled = false;
                     datagridviewerObjectExplorer.RowCount = 0;
+                    commentCodeStripButton.Enabled = false;
+                    uncommentCodeStripButton.Enabled = false;
+                    buttonBookmarkMinus.Enabled = false;
+                    buttonBookmarkPlus.Enabled = false;
+                    buttonRedoStrip.Enabled = false;
+                    buttonUndoStrip.Enabled = false;
+                    buttonGotoBookmark.Enabled = false;
+                    buttonForwardStrip.Enabled = false;
+                    buttonBackwardStrip.Enabled = false;
+                    buttonInvisibleSymbols.Enabled = false;
+                    buttonShowFoldingLines.Enabled = false;
+                    buttonHighlightCurrentLine.Enabled = false;
                 }
             }
             catch (Exception ex)

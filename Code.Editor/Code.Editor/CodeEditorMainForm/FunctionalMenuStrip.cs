@@ -1,5 +1,7 @@
-﻿using FarsiLibrary.Win;
+﻿using Code.Editor.Snippet;
+using FarsiLibrary.Win;
 using FastColoredTextBoxNS;
+using System.ComponentModel;
 using System.Text.RegularExpressions;
 
 namespace Code.Editor
@@ -24,7 +26,7 @@ namespace Code.Editor
         }
 
         #endregion
-        
+
         #region Actions step undo \ redo
 
         private void undoButton_Click(object sender, EventArgs e)
@@ -46,7 +48,7 @@ namespace Code.Editor
         #endregion
 
         #region Highlighting functions
-        
+
         private void btInvisibleChars_Click(object sender, EventArgs e)
         {
             foreach (FATabStripItem tab in openFilesTabs.Items)
@@ -78,27 +80,196 @@ namespace Code.Editor
             }
         }
 
-        #endregion
-        
-        #region Commenting code buttons
-
-        private void commentButton_Click(object sender, EventArgs e)
+        private void tb_TextChangedDelayed(object sender, TextChangedEventArgs e)
         {
-            CurrentTextBox.InsertLinePrefix("//");
+            FastColoredTextBox tb = (sender as FastColoredTextBox);
+            //rebuild object explorer
+            string text = (sender as FastColoredTextBox).Text;
+            ThreadPool.QueueUserWorkItem(obj => ReBuildObjectExplorer(text));
+
+            //show invisible chars
+            HighlightInvisibleChars(e.ChangedRange);
         }
 
-        private void uncommentButton_Click(object sender, EventArgs e)
+        private void HighlightInvisibleChars(FastColoredTextBoxNS.Range range)
         {
-            CurrentTextBox.RemoveLinePrefix("//");
+            range.ClearStyle(invisibleCharsStyle);
+            if (buttonInvisibleSymbols.Checked)
+            {
+                range.SetStyle(invisibleCharsStyle, @".$|.\r\n|\s");
+            }
+        }
+
+        #endregion
+
+        #region Commenting code buttons
+
+        private void commentCodeLinesButton_Click(object sender, EventArgs e)
+        {
+            if (openFilesTabs.SelectedItem != null)
+            {
+                CurrentTextBox.InsertLinePrefix("//");
+            }
+        }
+
+        private void uncommentCodeLinesButton_Click(object sender, EventArgs e)
+        {
+            if (openFilesTabs.SelectedItem != null)
+            {
+                CurrentTextBox.RemoveLinePrefix("//");
+            }
         }
 
         #endregion
 
         #region New tab funtionality
-        
+
         private void newTabButton_Click(object sender, EventArgs e)
         {
             CreateTab(string.Empty);
+        }
+
+        private void CreateTab(string fileName)
+        {
+            try
+            {
+                var newTextBox = new FastColoredTextBox();
+                newTextBox.Font = new Font("Consolas", 9.75f);
+                newTextBox.ContextMenuStrip = codeAreaContextMenu;
+                newTextBox.Dock = DockStyle.Fill;
+                newTextBox.BorderStyle = BorderStyle.Fixed3D;
+                //tb.VirtualSpace = true;
+                newTextBox.LeftPadding = 17;
+                newTextBox.Language = Language.CSharp;
+                newTextBox.AddStyle(sameWordsStyle);//same words style
+                var newFileTab = new FATabStripItem(
+                    String.IsNullOrWhiteSpace(fileName) == false
+                    ? Path.GetFileName(fileName)
+                    : "[new]", newTextBox);
+
+                newFileTab.Tag = fileName;
+                if (string.IsNullOrEmpty(fileName) == false)
+                {
+                    newTextBox.OpenFile(fileName);
+                }
+
+                newTextBox.Tag = new TbInfo();
+                openFilesTabs.AddTab(newFileTab);
+                openFilesTabs.SelectedItem = newFileTab;
+                newTextBox.Focus();
+                newTextBox.DelayedTextChangedInterval = 1000;
+                newTextBox.DelayedEventsInterval = 500;
+                newTextBox.TextChangedDelayed += new EventHandler<TextChangedEventArgs>(tb_TextChangedDelayed);
+                newTextBox.SelectionChangedDelayed += new EventHandler(tb_SelectionChangedDelayed);
+                newTextBox.KeyDown += new KeyEventHandler(tb_KeyDown);
+                newTextBox.MouseMove += new MouseEventHandler(tb_MouseMove);
+                newTextBox.ChangedLineColor = changedLineColor;
+                if (buttonHighlightCurrentLine.Checked)
+                {
+                    newTextBox.CurrentLineColor = currentLineColor;
+                }
+                newTextBox.ShowFoldingLines = buttonShowFoldingLines.Checked;
+                newTextBox.HighlightingRangeType = HighlightingRangeType.VisibleRange;
+
+                //create autocomplete popup menu
+                AutocompleteMenu popupMenu = new AutocompleteMenu(newTextBox);
+                popupMenu.Items.ImageList = imageListAutocomplete;
+                popupMenu.Opening += new EventHandler<CancelEventArgs>(popupMenu_Opening);
+                BuildAutocompleteMenu(popupMenu);
+
+                (newTextBox.Tag as TbInfo).popupMenu = popupMenu;
+            }
+            catch (Exception ex)
+            {
+                if (MessageBox.Show(ex.Message, "Error",
+                    MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
+                {
+                    CreateTab(fileName);
+                }
+            }
+        }
+        private void BuildAutocompleteMenu(AutocompleteMenu popupMenu)
+        {
+            List<AutocompleteItem> items = new List<AutocompleteItem>();
+
+            foreach (var item in snippets)
+            {
+                items.Add(new SnippetAutocompleteItem(item) { ImageIndex = 1 });
+            }
+            foreach (var item in declarationSnippets)
+            {
+                items.Add(new DeclarationSnippet(item) { ImageIndex = 0 });
+            }
+            foreach (var item in methods)
+            {
+                items.Add(new MethodAutocompleteItem(item) { ImageIndex = 2 });
+            }
+            foreach (var item in keywords)
+            {
+                items.Add(new AutocompleteItem(item));
+            }
+
+            items.Add(new InsertSpaceSnippet());
+            items.Add(new InsertSpaceSnippet(@"^(\w+)([=<>!:]+)(\w+)$"));
+            items.Add(new InsertEnterSnippet());
+
+            //set as autocomplete source
+            popupMenu.Items.SetAutocompleteItems(items);
+            popupMenu.SearchPattern = @"[\w\.:=!<>]";
+        }
+
+        private void popupMenu_Opening(object sender, CancelEventArgs e)
+        {
+            //---block autocomplete menu for comments
+            //get index of green style (used for comments)
+            var iGreenStyle = CurrentTextBox.GetStyleIndex(CurrentTextBox.SyntaxHighlighter.GreenStyle);
+            if (iGreenStyle >= 0)
+            {
+                if (CurrentTextBox.Selection.Start.iChar > 0)
+                {
+                    //current char (before caret)
+                    var c = CurrentTextBox[CurrentTextBox.Selection.Start.iLine][CurrentTextBox.Selection.Start.iChar - 1];
+                    //green Style
+                    var greenStyleIndex = FastColoredTextBoxNS.Range.ToStyleIndex(iGreenStyle);
+                    //if char contains green style then block popup menu
+                    if ((c.style & greenStyleIndex) != 0)
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
+        }
+
+        private void tb_MouseMove(object sender, MouseEventArgs e)
+        {
+            var textBox = sender as FastColoredTextBox;
+            var place = textBox.PointToPlace(e.Location);
+            var range = new FastColoredTextBoxNS.Range(textBox, place, place);
+
+            string text = range.GetFragment("[a-zA-Z]").Text;
+            labelWordUnderMouse.Text = text;
+        }
+
+        private void tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.OemMinus)
+            {
+                NavigateBackward();
+                e.Handled = true;
+            }
+
+            if (e.Modifiers == (Keys.Control | Keys.Shift) && e.KeyCode == Keys.OemMinus)
+            {
+                NavigateForward();
+                e.Handled = true;
+            }
+
+            if (e.KeyData == (Keys.K | Keys.Control))
+            {
+                //forced show (MinFragmentLength will be ignored)
+                (CurrentTextBox.Tag as TbInfo).popupMenu.Show(true);
+                e.Handled = true;
+            }
         }
 
         #endregion
@@ -122,7 +293,7 @@ namespace Code.Editor
         }
 
         #endregion
-        
+
         #region Print current tab-window
 
         private void printToolStripButton_Click(object sender, EventArgs e)
@@ -293,13 +464,13 @@ namespace Code.Editor
 
         private void gotoButton_DropDownOpening(object sender, EventArgs e)
         {
-            buttonGoto.DropDownItems.Clear();
+            buttonGotoBookmark.DropDownItems.Clear();
             foreach (Control tab in openFilesTabs.Items)
             {
                 FastColoredTextBox tb = tab.Controls[0] as FastColoredTextBox;
                 foreach (var bookmark in tb.Bookmarks)
                 {
-                    var item = buttonGoto.DropDownItems.Add(bookmark.Name + " [" + Path.GetFileNameWithoutExtension(tab.Tag as String) + "]");
+                    var item = buttonGotoBookmark.DropDownItems.Add(bookmark.Name + " [" + Path.GetFileNameWithoutExtension(tab.Tag as String) + "]");
                     item.Tag = bookmark;
                     item.Click += (o, a) =>
                     {

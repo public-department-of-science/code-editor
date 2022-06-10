@@ -66,14 +66,16 @@ namespace Code.Editor
             this.buttonUndoStrip = new System.Windows.Forms.ToolStripButton();
             this.buttonRedoStrip = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.buttonBackStrip = new System.Windows.Forms.ToolStripButton();
+            this.buttonBackwardStrip = new System.Windows.Forms.ToolStripButton();
             this.buttonForwardStrip = new System.Windows.Forms.ToolStripButton();
             this.textboxFind = new System.Windows.Forms.ToolStripTextBox();
             this.labelFindStrip = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.buttonBookmarkPlus = new System.Windows.Forms.ToolStripButton();
             this.buttonBookmarkMinus = new System.Windows.Forms.ToolStripButton();
-            this.buttonGoto = new System.Windows.Forms.ToolStripDropDownButton();
+            this.buttonGotoBookmark = new System.Windows.Forms.ToolStripDropDownButton();
+            this.commentCodeStripButton = new System.Windows.Forms.ToolStripButton();
+            this.uncommentCodeStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -103,7 +105,8 @@ namespace Code.Editor
             this.datagridviewerImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -287,15 +290,18 @@ namespace Code.Editor
             this.buttonUndoStrip,
             this.buttonRedoStrip,
             this.toolStripSeparator5,
-            this.buttonBackStrip,
+            this.buttonBackwardStrip,
             this.buttonForwardStrip,
             this.textboxFind,
             this.labelFindStrip,
             this.toolStripSeparator6,
             this.buttonBookmarkPlus,
             this.buttonBookmarkMinus,
-            this.buttonGoto,
-            this.toolStripButton1});
+            this.toolStripSeparator7,
+            this.buttonGotoBookmark,
+            this.toolStripSeparator8,
+            this.commentCodeStripButton,
+            this.uncommentCodeStripButton});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Size = new System.Drawing.Size(1025, 27);
@@ -446,13 +452,13 @@ namespace Code.Editor
             // 
             // buttonBackStrip
             // 
-            this.buttonBackStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buttonBackStrip.Image = global::Code.Editor.Properties.Resources.backward0_16x16;
-            this.buttonBackStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonBackStrip.Name = "buttonBackStrip";
-            this.buttonBackStrip.Size = new System.Drawing.Size(29, 24);
-            this.buttonBackStrip.Text = "Navigate Backward (Ctrl+ -)";
-            this.buttonBackStrip.Click += new System.EventHandler(this.backStripButton_Click);
+            this.buttonBackwardStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.buttonBackwardStrip.Image = global::Code.Editor.Properties.Resources.backward0_16x16;
+            this.buttonBackwardStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonBackwardStrip.Name = "buttonBackStrip";
+            this.buttonBackwardStrip.Size = new System.Drawing.Size(29, 24);
+            this.buttonBackwardStrip.Text = "Navigate Backward (Ctrl+ -)";
+            this.buttonBackwardStrip.Click += new System.EventHandler(this.backStripButton_Click);
             // 
             // buttonForwardStrip
             // 
@@ -504,15 +510,37 @@ namespace Code.Editor
             this.buttonBookmarkMinus.Text = "Remove bookmark (Ctrl-Shift-B)";
             this.buttonBookmarkMinus.Click += new System.EventHandler(this.bookmarkMinusButton_Click);
             // 
-            // buttonGoto
+            // buttonGotoBookmark
             // 
-            this.buttonGoto.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.buttonGoto.Image = ((System.Drawing.Image)(resources.GetObject("buttonGoto.Image")));
-            this.buttonGoto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonGoto.Name = "buttonGoto";
-            this.buttonGoto.Size = new System.Drawing.Size(65, 24);
-            this.buttonGoto.Text = "Goto...";
-            this.buttonGoto.DropDownOpening += new System.EventHandler(this.gotoButton_DropDownOpening);
+            this.buttonGotoBookmark.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonGotoBookmark.Image = ((System.Drawing.Image)(resources.GetObject("buttonGotoBookmark.Image")));
+            this.buttonGotoBookmark.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonGotoBookmark.Name = "buttonGotoBookmark";
+            this.buttonGotoBookmark.Size = new System.Drawing.Size(131, 24);
+            this.buttonGotoBookmark.Text = "Go to bookmark";
+            this.buttonGotoBookmark.DropDownOpening += new System.EventHandler(this.gotoButton_DropDownOpening);
+            // 
+            // commentCodeStripButton
+            // 
+            this.commentCodeStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.commentCodeStripButton.Image = global::Code.Editor.Properties.Resources.commentCode;
+            this.commentCodeStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.commentCodeStripButton.Name = "commentCodeStripButton";
+            this.commentCodeStripButton.Size = new System.Drawing.Size(29, 24);
+            this.commentCodeStripButton.Tag = "Comment selected code lines";
+            this.commentCodeStripButton.Text = "Comment selected code lines";
+            this.commentCodeStripButton.Click += new System.EventHandler(this.commentCodeLinesButton_Click);
+            // 
+            // uncommentCodeStripButton
+            // 
+            this.uncommentCodeStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.uncommentCodeStripButton.Image = global::Code.Editor.Properties.Resources.uncommentCode;
+            this.uncommentCodeStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.uncommentCodeStripButton.Name = "uncommentCodeStripButton";
+            this.uncommentCodeStripButton.Size = new System.Drawing.Size(29, 24);
+            this.uncommentCodeStripButton.Tag = "Uncomment selected code lines";
+            this.uncommentCodeStripButton.Text = "Uncomment selected code lines";
+            this.uncommentCodeStripButton.Click += new System.EventHandler(this.uncommentCodeLinesButton_Click);
             // 
             // toolStripSeparator
             // 
@@ -755,14 +783,15 @@ namespace Code.Editor
             this.imageListAutocomplete.ImageSize = new System.Drawing.Size(16, 16);
             this.imageListAutocomplete.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // toolStripButton1
+            // toolStripSeparator7
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 27);
             // 
             // CodeEditorMainForm
             // 
@@ -838,7 +867,7 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replaceToolStripMenuItem;
         private System.Windows.Forms.DataGridView datagridviewerObjectExplorer;
-        private System.Windows.Forms.ToolStripButton buttonBackStrip;
+        private System.Windows.Forms.ToolStripButton buttonBackwardStrip;
         private System.Windows.Forms.ToolStripButton buttonForwardStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
@@ -858,7 +887,7 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton buttonBookmarkPlus;
         private System.Windows.Forms.ToolStripButton buttonBookmarkMinus;
-        private System.Windows.Forms.ToolStripDropDownButton buttonGoto;
+        private System.Windows.Forms.ToolStripDropDownButton buttonGotoBookmark;
         private System.Windows.Forms.ToolStripButton buttonShowFoldingLines;
         private System.Windows.Forms.ToolStripSplitButton buttonZoom;
         private System.Windows.Forms.ToolStripMenuItem zoom300Item;
@@ -867,6 +896,9 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripMenuItem zoom100Item;
         private System.Windows.Forms.ToolStripMenuItem zoom50Item;
         private System.Windows.Forms.ToolStripMenuItem zoom25Item;
-        private ToolStripButton toolStripButton1;
+        private ToolStripButton commentCodeStripButton;
+        private ToolStripButton uncommentCodeStripButton;
+        private ToolStripSeparator toolStripSeparator7;
+        private ToolStripSeparator toolStripSeparator8;
     }
 }

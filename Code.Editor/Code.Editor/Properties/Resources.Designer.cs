@@ -73,6 +73,16 @@ namespace Code.Editor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap commentCode {
+            get {
+                object obj = ResourceManager.GetObject("commentCode", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_padding_top {
             get {
                 object obj = ResourceManager.GetObject("edit-padding-top", resourceCulture);
@@ -116,6 +126,16 @@ namespace Code.Editor.Properties {
         internal static System.Drawing.Bitmap redo_16x16 {
             get {
                 object obj = ResourceManager.GetObject("redo_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap uncommentCode {
+            get {
+                object obj = ResourceManager.GetObject("uncommentCode", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
