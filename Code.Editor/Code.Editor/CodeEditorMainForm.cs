@@ -75,67 +75,8 @@ namespace Code.Editor
             pasteToolStripMenuItem.Image = ((Image)(resources.GetObject("pasteToolStripButton.Image")));
         }
 
-        private Style sameWordsStyle = new MarkerStyle(new SolidBrush(Color.FromArgb(50, Color.Gray)));
+        private Style sameWordsStyle = new MarkerStyle(new SolidBrush(Color.FromArgb(50, Color.Red)));
 
-        private void CreateTab(string fileName)
-        {
-            try
-            {
-                var newTextBox = new FastColoredTextBox();
-                newTextBox.Font = new Font("Consolas", 9.75f);
-                newTextBox.ContextMenuStrip = codeAreaContextMenu;
-                newTextBox.Dock = DockStyle.Fill;
-                newTextBox.BorderStyle = BorderStyle.Fixed3D;
-                //tb.VirtualSpace = true;
-                newTextBox.LeftPadding = 17;
-                newTextBox.Language = Language.CSharp;
-                newTextBox.AddStyle(sameWordsStyle);//same words style
-                var newFileTab = new FATabStripItem(
-                    String.IsNullOrWhiteSpace(fileName) == false
-                    ? Path.GetFileName(fileName)
-                    : "[new]", newTextBox);
-
-                newFileTab.Tag = fileName;
-                if (string.IsNullOrEmpty(fileName) == false)
-                {
-                    newTextBox.OpenFile(fileName);
-                }
-
-                newTextBox.Tag = new TbInfo();
-                openFilesTabs.AddTab(newFileTab);
-                openFilesTabs.SelectedItem = newFileTab;
-                newTextBox.Focus();
-                newTextBox.DelayedTextChangedInterval = 1000;
-                newTextBox.DelayedEventsInterval = 500;
-                newTextBox.TextChangedDelayed += new EventHandler<TextChangedEventArgs>(tb_TextChangedDelayed);
-                newTextBox.SelectionChangedDelayed += new EventHandler(tb_SelectionChangedDelayed);
-                newTextBox.KeyDown += new KeyEventHandler(tb_KeyDown);
-                newTextBox.MouseMove += new MouseEventHandler(tb_MouseMove);
-                newTextBox.ChangedLineColor = changedLineColor;
-                if (buttonHighlightCurrentLine.Checked)
-                {
-                    newTextBox.CurrentLineColor = currentLineColor;
-                }
-                newTextBox.ShowFoldingLines = buttonShowFoldingLines.Checked;
-                newTextBox.HighlightingRangeType = HighlightingRangeType.VisibleRange;
-
-                //create autocomplete popup menu
-                AutocompleteMenu popupMenu = new AutocompleteMenu(newTextBox);
-                popupMenu.Items.ImageList = imageListAutocomplete;
-                popupMenu.Opening += new EventHandler<CancelEventArgs>(popupMenu_Opening);
-                BuildAutocompleteMenu(popupMenu);
-
-                (newTextBox.Tag as TbInfo).popupMenu = popupMenu;
-            }
-            catch (Exception ex)
-            {
-                if (MessageBox.Show(ex.Message, "Error",
-                    MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
-                {
-                    CreateTab(fileName);
-                }
-            }
-        }
 
         private void popupMenu_Opening(object sender, CancelEventArgs e)
         {
@@ -264,6 +205,79 @@ namespace Code.Editor
             }
         }
 
+        private void tsFiles_TabStripItemSelectionChanged(TabStripItemChangedEventArgs e)
+        {
+            if (CurrentTextBox != null)
+            {
+                CurrentTextBox.Focus();
+                string text = CurrentTextBox.Text;
+                ThreadPool.QueueUserWorkItem(obj => ReBuildObjectExplorer(text));
+            }
+        }
+
+
+        ///////////////////////////////////////////////
+
+        private void CreateTab(string fileName)
+        {
+            try
+            {
+                var newTextBox = new FastColoredTextBox();
+                newTextBox.Font = new Font("Consolas", 9.75f);
+                newTextBox.ContextMenuStrip = codeAreaContextMenu;
+                newTextBox.Dock = DockStyle.Fill;
+                newTextBox.BorderStyle = BorderStyle.Fixed3D;
+                //tb.VirtualSpace = true;
+                newTextBox.LeftPadding = 17;
+                newTextBox.Language = Language.CSharp;
+                newTextBox.AddStyle(sameWordsStyle);//same words style
+                var newFileTab = new FATabStripItem(
+                    String.IsNullOrWhiteSpace(fileName) == false
+                    ? Path.GetFileName(fileName)
+                    : "[new]", newTextBox);
+
+                newFileTab.Tag = fileName;
+                if (string.IsNullOrEmpty(fileName) == false)
+                {
+                    newTextBox.OpenFile(fileName);
+                }
+
+                newTextBox.Tag = new TbInfo();
+                openFilesTabs.AddTab(newFileTab);
+                openFilesTabs.SelectedItem = newFileTab;
+                newTextBox.Focus();
+                newTextBox.DelayedTextChangedInterval = 1000;
+                newTextBox.DelayedEventsInterval = 500;
+                newTextBox.TextChangedDelayed += new EventHandler<TextChangedEventArgs>(tb_TextChangedDelayed);
+                newTextBox.SelectionChangedDelayed += new EventHandler(tb_SelectionChangedDelayed);
+                newTextBox.KeyDown += new KeyEventHandler(tb_KeyDown);
+                newTextBox.MouseMove += new MouseEventHandler(tb_MouseMove);
+                newTextBox.ChangedLineColor = changedLineColor;
+                if (buttonHighlightCurrentLine.Checked)
+                {
+                    newTextBox.CurrentLineColor = currentLineColor;
+                }
+                newTextBox.ShowFoldingLines = buttonShowFoldingLines.Checked;
+                newTextBox.HighlightingRangeType = HighlightingRangeType.VisibleRange;
+
+                //create autocomplete popup menu
+                AutocompleteMenu popupMenu = new AutocompleteMenu(newTextBox);
+                popupMenu.Items.ImageList = imageListAutocomplete;
+                popupMenu.Opening += new EventHandler<CancelEventArgs>(popupMenu_Opening);
+                BuildAutocompleteMenu(popupMenu);
+
+                (newTextBox.Tag as TbInfo).popupMenu = popupMenu;
+            }
+            catch (Exception ex)
+            {
+                if (MessageBox.Show(ex.Message, "Error",
+                    MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
+                {
+                    CreateTab(fileName);
+                }
+            }
+        }
+
         private bool Save(FATabStripItem tab)
         {
             var tb = (tab.Controls[0] as FastColoredTextBox);
@@ -299,85 +313,6 @@ namespace Code.Editor
             return true;
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            if (openFilesTabs.SelectedItem != null)
-            {
-                Save(openFilesTabs.SelectedItem);
-            }
-        }
-
-        private void openButtonMenuItem_Click(object sender, EventArgs e)
-        {
-            if (openFileDialogMain.ShowDialog() == DialogResult.OK)
-            {
-                CreateTab(openFileDialogMain.FileName);
-            }
-        }
-
-        private void dgvObjectExplorer_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (CurrentTextBox != null)
-            {
-                var item = explorerList[e.RowIndex];
-                CurrentTextBox.GoEnd();
-                CurrentTextBox.SelectionStart = item.position;
-                CurrentTextBox.DoSelectionVisible();
-                CurrentTextBox.Focus();
-            }
-        }
-
-        private void dgvObjectExplorer_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
-        {
-            try
-            {
-                ExplorerItem item = explorerList[e.RowIndex];
-                if (e.ColumnIndex == 1)
-                    e.Value = item.title;
-                else
-                {
-                    switch (item.type)
-                    {
-                        case ExplorerItemType.Class:
-                            //   e.Value = global::Tester.Properties.Resources.class_libraries;
-                            return;
-                        case ExplorerItemType.Method:
-                            //  e.Value = global::Tester.Properties.Resources.box;
-                            return;
-                        case ExplorerItemType.Event:
-                            // e.Value = global::Code.Editor.Properties.Resources.lightning;
-                            return;
-                        case ExplorerItemType.Property:
-                            //   e.Value = global::Tester.Properties.Resources.property;
-                            return;
-                    }
-                }
-            }
-            catch { }
-        }
-
-        private void tsFiles_TabStripItemSelectionChanged(TabStripItemChangedEventArgs e)
-        {
-            if (CurrentTextBox != null)
-            {
-                CurrentTextBox.Focus();
-                string text = CurrentTextBox.Text;
-                ThreadPool.QueueUserWorkItem(obj => ReBuildObjectExplorer(text));
-            }
-        }
-
-        private void btShowFoldingLines_Click(object sender, EventArgs e)
-        {
-            foreach (FATabStripItem tab in openFilesTabs.Items)
-            {
-                (tab.Controls[0] as FastColoredTextBox).ShowFoldingLines = buttonShowFoldingLines.Checked;
-            }
-            if (CurrentTextBox != null)
-            {
-                CurrentTextBox.Invalidate();
-            }
-        }
-
         private void CodeEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
             List<FATabStripItem> list = new List<FATabStripItem>();
@@ -397,6 +332,5 @@ namespace Code.Editor
                 openFilesTabs.RemoveTab(tab);
             }
         }
-
     }
 }

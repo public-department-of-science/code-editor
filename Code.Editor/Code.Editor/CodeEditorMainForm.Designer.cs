@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Code.Editor
 {
 
@@ -52,7 +51,7 @@ namespace Code.Editor
             this.zoom50Item = new System.Windows.Forms.ToolStripMenuItem();
             this.zoom25Item = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
-            this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.newTabToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -104,6 +103,7 @@ namespace Code.Editor
             this.datagridviewerImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -272,7 +272,7 @@ namespace Code.Editor
             // 
             this.toolStripMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripButton,
+            this.newTabToolStripButton,
             this.openToolStripButton,
             this.saveToolStripButton,
             this.printToolStripButton,
@@ -294,22 +294,23 @@ namespace Code.Editor
             this.toolStripSeparator6,
             this.buttonBookmarkPlus,
             this.buttonBookmarkMinus,
-            this.buttonGoto});
+            this.buttonGoto,
+            this.toolStripButton1});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Size = new System.Drawing.Size(1025, 27);
             this.toolStripMenu.TabIndex = 3;
             this.toolStripMenu.Text = "toolStrip1";
             // 
-            // newToolStripButton
+            // newTabToolStripButton
             // 
-            this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
-            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.newToolStripButton.Name = "newToolStripButton";
-            this.newToolStripButton.Size = new System.Drawing.Size(29, 24);
-            this.newToolStripButton.Text = "&New";
-            this.newToolStripButton.Click += new System.EventHandler(this.newTabButton_Click);
+            this.newTabToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newTabToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newTabToolStripButton.Image")));
+            this.newTabToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newTabToolStripButton.Name = "newTabToolStripButton";
+            this.newTabToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.newTabToolStripButton.Text = "&New";
+            this.newTabToolStripButton.Click += new System.EventHandler(this.newTabButton_Click);
             // 
             // openToolStripButton
             // 
@@ -754,6 +755,15 @@ namespace Code.Editor
             this.imageListAutocomplete.ImageSize = new System.Drawing.Size(16, 16);
             this.imageListAutocomplete.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
             // CodeEditorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -785,11 +795,6 @@ namespace Code.Editor
 
         }
 
-        private void newTabButton_Click(object sender, EventArgs e)
-        {
-            CreateTab(string.Empty);
-        }
-
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip;
@@ -815,7 +820,7 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
         private System.Windows.Forms.Timer tmUpdateInterface;
-        private System.Windows.Forms.ToolStripButton newToolStripButton;
+        private System.Windows.Forms.ToolStripButton newTabToolStripButton;
         private System.Windows.Forms.ToolStripButton openToolStripButton;
         private System.Windows.Forms.ToolStripButton saveToolStripButton;
         private System.Windows.Forms.ToolStripButton printToolStripButton;
@@ -862,5 +867,6 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripMenuItem zoom100Item;
         private System.Windows.Forms.ToolStripMenuItem zoom50Item;
         private System.Windows.Forms.ToolStripMenuItem zoom25Item;
+        private ToolStripButton toolStripButton1;
     }
 }

@@ -78,5 +78,48 @@ namespace Code.Editor
             }
             catch { }
         }
+
+        private void dgvObjectExplorer_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (CurrentTextBox != null)
+            {
+                var item = explorerList[e.RowIndex];
+                CurrentTextBox.GoEnd();
+                CurrentTextBox.SelectionStart = item.position;
+                CurrentTextBox.DoSelectionVisible();
+                CurrentTextBox.Focus();
+            }
+        }
+
+        private void dgvObjectExplorer_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+        {
+            try
+            {
+                ExplorerItem item = explorerList[e.RowIndex];
+                if (e.ColumnIndex == 1)
+                {
+                    e.Value = item.title;
+                }
+                else
+                {
+                    switch (item.type)
+                    {
+                        case ExplorerItemType.Class:
+                            //   e.Value = global::Tester.Properties.Resources.class_libraries;
+                            return;
+                        case ExplorerItemType.Method:
+                            //  e.Value = global::Tester.Properties.Resources.box;
+                            return;
+                        case ExplorerItemType.Event:
+                            // e.Value = global::Code.Editor.Properties.Resources.lightning;
+                            return;
+                        case ExplorerItemType.Property:
+                            //   e.Value = global::Tester.Properties.Resources.property;
+                            return;
+                    }
+                }
+            }
+            catch { }
+        }
     }
 }
