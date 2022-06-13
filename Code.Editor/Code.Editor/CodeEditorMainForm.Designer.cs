@@ -73,7 +73,9 @@ namespace Code.Editor
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.buttonBookmarkPlus = new System.Windows.Forms.ToolStripButton();
             this.buttonBookmarkMinus = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.buttonGotoBookmark = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.commentCodeStripButton = new System.Windows.Forms.ToolStripButton();
             this.uncommentCodeStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -105,8 +107,6 @@ namespace Code.Editor
             this.datagridviewerImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -413,7 +413,7 @@ namespace Code.Editor
             this.buttonShowFoldingLines.CheckOnClick = true;
             this.buttonShowFoldingLines.CheckState = System.Windows.Forms.CheckState.Checked;
             this.buttonShowFoldingLines.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.buttonShowFoldingLines.Image = ((System.Drawing.Image)(resources.GetObject("buttonShowFoldingLines.Image")));
+            this.buttonShowFoldingLines.Image = global::Code.Editor.Properties.Resources.btShowFoldingLines_Image;
             this.buttonShowFoldingLines.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonShowFoldingLines.Name = "buttonShowFoldingLines";
             this.buttonShowFoldingLines.Size = new System.Drawing.Size(29, 24);
@@ -450,12 +450,12 @@ namespace Code.Editor
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
-            // buttonBackStrip
+            // buttonBackwardStrip
             // 
             this.buttonBackwardStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.buttonBackwardStrip.Image = global::Code.Editor.Properties.Resources.backward0_16x16;
             this.buttonBackwardStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buttonBackwardStrip.Name = "buttonBackStrip";
+            this.buttonBackwardStrip.Name = "buttonBackwardStrip";
             this.buttonBackwardStrip.Size = new System.Drawing.Size(29, 24);
             this.buttonBackwardStrip.Text = "Navigate Backward (Ctrl+ -)";
             this.buttonBackwardStrip.Click += new System.EventHandler(this.backStripButton_Click);
@@ -510,6 +510,11 @@ namespace Code.Editor
             this.buttonBookmarkMinus.Text = "Remove bookmark (Ctrl-Shift-B)";
             this.buttonBookmarkMinus.Click += new System.EventHandler(this.bookmarkMinusButton_Click);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 27);
+            // 
             // buttonGotoBookmark
             // 
             this.buttonGotoBookmark.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -519,6 +524,11 @@ namespace Code.Editor
             this.buttonGotoBookmark.Size = new System.Drawing.Size(131, 24);
             this.buttonGotoBookmark.Text = "Go to bookmark";
             this.buttonGotoBookmark.DropDownOpening += new System.EventHandler(this.gotoButton_DropDownOpening);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 27);
             // 
             // commentCodeStripButton
             // 
@@ -782,16 +792,6 @@ namespace Code.Editor
             this.imageListAutocomplete.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageListAutocomplete.ImageSize = new System.Drawing.Size(16, 16);
             this.imageListAutocomplete.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 27);
             // 
             // CodeEditorMainForm
             // 

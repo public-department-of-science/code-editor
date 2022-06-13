@@ -105,17 +105,25 @@ namespace Code.Editor
                     switch (item.type)
                     {
                         case ExplorerItemType.Class:
-                            //   e.Value = global::Tester.Properties.Resources.class_libraries;
-                            return;
+                            {
+                                e.Value = Properties.Resources.class_libraries;
+                                return;
+                            }
                         case ExplorerItemType.Method:
-                            //  e.Value = global::Tester.Properties.Resources.box;
-                            return;
+                            {
+                                e.Value = Properties.Resources.box;
+                                return;
+                            }
                         case ExplorerItemType.Event:
-                            // e.Value = global::Code.Editor.Properties.Resources.lightning;
-                            return;
+                            {
+                                e.Value = Properties.Resources.lightning;
+                                return;
+                            }
                         case ExplorerItemType.Property:
-                            //   e.Value = global::Tester.Properties.Resources.property;
-                            return;
+                            {
+                                e.Value = Properties.Resources.property;
+                                return;
+                            }
                     }
                 }
             }

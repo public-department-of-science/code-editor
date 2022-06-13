@@ -139,7 +139,6 @@ namespace Code.Editor
             }
 
             tb.Invalidate();
-
             return true;
         }
 
