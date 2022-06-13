@@ -1,5 +1,4 @@
-﻿using Code.Editor.Snippet;
-using FarsiLibrary.Win;
+﻿using FarsiLibrary.Win;
 using FastColoredTextBoxNS;
 using System.ComponentModel;
 
@@ -109,29 +108,29 @@ namespace Code.Editor
             }
         }
 
-        private bool Save(FATabStripItem tab)
+        private bool Save(FATabStripItem selectedTab)
         {
-            var tb = (tab.Controls[0] as FastColoredTextBox);
-            if (tab.Tag == null)
+            var tb = (selectedTab.Controls[0] as FastColoredTextBox);
+            if (string.IsNullOrWhiteSpace(selectedTab.Tag.ToString()))
             {
                 if (saveFileDialogMain.ShowDialog() != DialogResult.OK)
                 {
                     return false;
                 }
-                tab.Title = Path.GetFileName(saveFileDialogMain.FileName);
-                tab.Tag = saveFileDialogMain.FileName;
+                selectedTab.Title = Path.GetFileName(saveFileDialogMain.FileName);
+                selectedTab.Tag = saveFileDialogMain.FileName;
             }
 
             try
             {
-                File.WriteAllText(tab.Tag as string, tb.Text);
+                File.WriteAllText(selectedTab.Tag.ToString(), tb.Text);
                 tb.IsChanged = false;
             }
             catch (Exception ex)
             {
                 if (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
                 {
-                    return Save(tab);
+                    return Save(selectedTab);
                 }
                 else
                 {
