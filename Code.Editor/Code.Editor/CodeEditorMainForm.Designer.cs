@@ -790,8 +790,11 @@ namespace Code.Editor
             // imageListAutocomplete
             // 
             this.imageListAutocomplete.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageListAutocomplete.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListAutocomplete.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListAutocomplete.ImageStream")));
             this.imageListAutocomplete.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListAutocomplete.Images.SetKeyName(0, "box.png");
+            this.imageListAutocomplete.Images.SetKeyName(1, "backward0_16x16.png");
+            this.imageListAutocomplete.Images.SetKeyName(2, "bookmark--plus.png");
             // 
             // CodeEditorMainForm
             // 
