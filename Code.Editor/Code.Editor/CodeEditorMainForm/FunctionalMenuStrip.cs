@@ -16,7 +16,7 @@ namespace Code.Editor
         /// <summary>
         /// Or "i=2" -> "i = 2"
         /// </summary>
-        private const string constructionsDividePattern = @"^(\w+)([=<>!:]+)(\w+)$";
+        private const string constructionsDividePattern = @"^(\w+)\s([=<>!:]+)\s(\w+)$";
 
         #region General activity functions: cut, paste, copy
 

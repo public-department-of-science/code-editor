@@ -20,6 +20,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Third.Part.References\FCTB\FastColoredTextBox\FastColoredTextBox.csproj" />
+	  <ProjectReference Include="..\Third.Part.References\Grammar-Analyzer\GrammarAnalyzer\Grammar.Analyzer.Library\Grammar.Analyzer.Library.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,3 +1,6 @@
 [submodule "Code.Editor/Third.Part.References/FCTB"]
 	path = Code.Editor/Third.Part.References/FCTB
 	url = https://github.com/PavelTorgashov/FastColoredTextBox.git
+[submodule "Code.Editor/Third.Part.References/Grammar-Analyzer"]
+	path = Code.Editor/Third.Part.References/Grammar-Analyzer
+	url = https://github.com/public-department-of-science/grammar-analyzer.git

@@ -27,16 +27,16 @@ namespace Code.Editor.Snippet
 
         public string InsertSpaces(string fragment)
         {
-            var m = Regex.Match(fragment, pattern);
-            if (m == null)
+            var match = Regex.Match(fragment, pattern);
+            if (match == null)
             {
                 return fragment;
             }
-            if (m.Groups[1].Value == "" && m.Groups[3].Value == "")
+            if (match.Groups[1].Value == "" && match.Groups[3].Value == "")
             {
                 return fragment;
             }
-            return (m.Groups[1].Value + " " + m.Groups[2].Value + " " + m.Groups[3].Value).Trim();
+            return (match.Groups[1].Value + " " + match.Groups[2].Value + " " + match.Groups[3].Value).Trim();
         }
 
         public override string ToolTipTitle
