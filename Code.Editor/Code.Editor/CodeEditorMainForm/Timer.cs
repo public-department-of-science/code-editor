@@ -1,4 +1,6 @@
-﻿namespace Code.Editor
+﻿using System.Linq;
+
+namespace Code.Editor
 {
     public partial class CodeEditorMainForm
     {
@@ -29,7 +31,6 @@
                     buttonInvisibleSymbols.Enabled = true;
                     buttonShowFoldingLines.Enabled = true;
                     buttonHighlightCurrentLine.Enabled = true;
-
 
                     runToolStripMenuItem.Enabled = true;
                     languageToolStripMenuItem.Enabled = true;

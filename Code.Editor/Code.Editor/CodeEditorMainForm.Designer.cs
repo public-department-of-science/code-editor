@@ -43,8 +43,16 @@ namespace Code.Editor
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cSharpLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hTMLLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sQLLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pHPLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jSLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lUALangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jSONLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.labelWordUnderMouse = new System.Windows.Forms.ToolStripStatusLabel();
             this.buttonZoom = new System.Windows.Forms.ToolStripSplitButton();
@@ -198,28 +206,92 @@ namespace Code.Editor
             this.runToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
             this.runToolStripMenuItem.Text = "Run";
             // 
-            // languageToolStripMenuItem1
+            // languageToolStripMenuItem
             // 
             this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customToolStripMenuItem,
-            this.cToolStripMenuItem});
-            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem1";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.customLangToolStripMenuItem,
+            this.cSharpLangToolStripMenuItem,
+            this.hTMLLangToolStripMenuItem,
+            this.xMLLangToolStripMenuItem,
+            this.sQLLangToolStripMenuItem,
+            this.pHPLangToolStripMenuItem,
+            this.jSLangToolStripMenuItem,
+            this.lUALangToolStripMenuItem,
+            this.jSONLangToolStripMenuItem,
+            this.vBToolStripMenuItem});
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.languageToolStripMenuItem.Text = "Language";
             // 
-            // customToolStripMenuItem
+            // customLangToolStripMenuItem
             // 
-            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
-            this.customToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.customToolStripMenuItem.Text = "Custom";
-            this.customToolStripMenuItem.Click += new System.EventHandler(this.customToolStripMenuItem_Click);
+            this.customLangToolStripMenuItem.Name = "customLangToolStripMenuItem";
+            this.customLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.customLangToolStripMenuItem.Text = "Custom";
+            this.customLangToolStripMenuItem.Click += new System.EventHandler(this.customLangToolStripMenuItem_Click);
             // 
-            // cToolStripMenuItem
+            // cSharpLangToolStripMenuItem
             // 
-            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
-            this.cToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.cToolStripMenuItem.Text = "C#";
-            this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
+            this.cSharpLangToolStripMenuItem.Name = "cSharpLangToolStripMenuItem";
+            this.cSharpLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.cSharpLangToolStripMenuItem.Text = "C#";
+            this.cSharpLangToolStripMenuItem.Click += new System.EventHandler(this.cSharpLangToolStripMenuItem_Click);
+            // 
+            // hTMLLangToolStripMenuItem
+            // 
+            this.hTMLLangToolStripMenuItem.Name = "hTMLLangToolStripMenuItem";
+            this.hTMLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.hTMLLangToolStripMenuItem.Text = "HTML";
+            this.hTMLLangToolStripMenuItem.Click += new System.EventHandler(this.hTMLLangToolStripMenuItem_Click);
+            // 
+            // xMLLangToolStripMenuItem
+            // 
+            this.xMLLangToolStripMenuItem.Name = "xMLLangToolStripMenuItem";
+            this.xMLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.xMLLangToolStripMenuItem.Text = "XML";
+            this.xMLLangToolStripMenuItem.Click += new System.EventHandler(this.xMLLangToolStripMenuItem_Click);
+            // 
+            // sQLLangToolStripMenuItem
+            // 
+            this.sQLLangToolStripMenuItem.Name = "sQLLangToolStripMenuItem";
+            this.sQLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.sQLLangToolStripMenuItem.Text = "SQL";
+            this.sQLLangToolStripMenuItem.Click += new System.EventHandler(this.sQLLangToolStripMenuItem_Click);
+            // 
+            // pHPLangToolStripMenuItem
+            // 
+            this.pHPLangToolStripMenuItem.Name = "pHPLangToolStripMenuItem";
+            this.pHPLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.pHPLangToolStripMenuItem.Text = "PHP";
+            this.pHPLangToolStripMenuItem.Click += new System.EventHandler(this.pHPLangToolStripMenuItem_Click);
+            // 
+            // jSLangToolStripMenuItem
+            // 
+            this.jSLangToolStripMenuItem.Name = "jSLangToolStripMenuItem";
+            this.jSLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.jSLangToolStripMenuItem.Text = "JS";
+            this.jSLangToolStripMenuItem.Click += new System.EventHandler(this.jSLangToolStripMenuItem_Click);
+            // 
+            // lUALangToolStripMenuItem
+            // 
+            this.lUALangToolStripMenuItem.Name = "lUALangToolStripMenuItem";
+            this.lUALangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.lUALangToolStripMenuItem.Text = "LUA";
+            this.lUALangToolStripMenuItem.Click += new System.EventHandler(this.lUALangToolStripMenuItem_Click);
+            // 
+            // jSONLangToolStripMenuItem
+            // 
+            this.jSONLangToolStripMenuItem.Name = "jSONLangToolStripMenuItem";
+            this.jSONLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.jSONLangToolStripMenuItem.Text = "JSON";
+            this.jSONLangToolStripMenuItem.Click += new System.EventHandler(this.jSONLangToolStripMenuItem_Click);
+            // 
+            // vBToolStripMenuItem
+            // 
+            this.vBToolStripMenuItem.Name = "vBToolStripMenuItem";
+            this.vBToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.vBToolStripMenuItem.Text = "VB";
+            this.vBToolStripMenuItem.Click += new System.EventHandler(this.vBLangToolStripMenuItem_Click);
             // 
             // mainStatusStrip
             // 
@@ -941,7 +1013,15 @@ namespace Code.Editor
         private ToolStripSeparator toolStripSeparator8;
         private ToolStripMenuItem runToolStripMenuItem;
         private ToolStripMenuItem languageToolStripMenuItem;
-        private ToolStripMenuItem customToolStripMenuItem;
-        private ToolStripMenuItem cToolStripMenuItem;
+        private ToolStripMenuItem customLangToolStripMenuItem;
+        private ToolStripMenuItem cSharpLangToolStripMenuItem;
+        private ToolStripMenuItem hTMLLangToolStripMenuItem;
+        private ToolStripMenuItem xMLLangToolStripMenuItem;
+        private ToolStripMenuItem sQLLangToolStripMenuItem;
+        private ToolStripMenuItem pHPLangToolStripMenuItem;
+        private ToolStripMenuItem jSLangToolStripMenuItem;
+        private ToolStripMenuItem lUALangToolStripMenuItem;
+        private ToolStripMenuItem jSONLangToolStripMenuItem;
+        private ToolStripMenuItem vBToolStripMenuItem;
     }
 }
