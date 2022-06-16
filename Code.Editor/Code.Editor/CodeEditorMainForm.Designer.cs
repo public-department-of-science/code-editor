@@ -41,6 +41,10 @@ namespace Code.Editor
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.labelWordUnderMouse = new System.Windows.Forms.ToolStripStatusLabel();
             this.buttonZoom = new System.Windows.Forms.ToolStripSplitButton();
@@ -119,7 +123,8 @@ namespace Code.Editor
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.runToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
@@ -184,6 +189,37 @@ namespace Code.Editor
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            // 
+            // runToolStripMenuItem
+            // 
+            this.runToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.languageToolStripMenuItem});
+            this.runToolStripMenuItem.Name = "runToolStripMenuItem";
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
+            this.runToolStripMenuItem.Text = "Run";
+            // 
+            // languageToolStripMenuItem1
+            // 
+            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.customToolStripMenuItem,
+            this.cToolStripMenuItem});
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem1";
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.languageToolStripMenuItem.Text = "Language";
+            // 
+            // customToolStripMenuItem
+            // 
+            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.customToolStripMenuItem.Text = "Custom";
+            this.customToolStripMenuItem.Click += new System.EventHandler(this.customToolStripMenuItem_Click);
+            // 
+            // cToolStripMenuItem
+            // 
+            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
+            this.cToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.cToolStripMenuItem.Text = "C#";
+            this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
             // 
             // mainStatusStrip
             // 
@@ -903,5 +939,9 @@ namespace Code.Editor
         private ToolStripButton uncommentCodeStripButton;
         private ToolStripSeparator toolStripSeparator7;
         private ToolStripSeparator toolStripSeparator8;
+        private ToolStripMenuItem runToolStripMenuItem;
+        private ToolStripMenuItem languageToolStripMenuItem;
+        private ToolStripMenuItem customToolStripMenuItem;
+        private ToolStripMenuItem cToolStripMenuItem;
     }
 }

@@ -29,6 +29,10 @@
                     buttonInvisibleSymbols.Enabled = true;
                     buttonShowFoldingLines.Enabled = true;
                     buttonHighlightCurrentLine.Enabled = true;
+
+
+                    runToolStripMenuItem.Enabled = true;
+                    languageToolStripMenuItem.Enabled = true;
                 }
                 else
                 {
@@ -53,6 +57,9 @@
                     buttonInvisibleSymbols.Enabled = false;
                     buttonShowFoldingLines.Enabled = false;
                     buttonHighlightCurrentLine.Enabled = false;
+
+                    runToolStripMenuItem.Enabled = false;
+                    languageToolStripMenuItem.Enabled = false;
                 }
             }
             catch (Exception ex)
