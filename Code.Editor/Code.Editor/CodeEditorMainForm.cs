@@ -103,6 +103,7 @@ namespace Code.Editor
             if (CurrentTextBox != null)
             {
                 CurrentTextBox.Focus();
+               // CurrentTextBox.Language;
                 string text = CurrentTextBox.Text;
                 ThreadPool.QueueUserWorkItem(obj => ReBuildObjectExplorer(text));
             }

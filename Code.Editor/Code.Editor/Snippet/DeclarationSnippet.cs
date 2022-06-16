@@ -1,7 +1,7 @@
 ﻿using FastColoredTextBoxNS;
 using System.Text.RegularExpressions;
 
-namespace Code.Editor
+namespace Code.Editor.Snippet
 {
     /// <summary>
     /// This item appears when any part of snippet text is typed

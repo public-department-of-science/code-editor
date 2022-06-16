@@ -220,76 +220,86 @@ namespace Code.Editor
             this.jSONLangToolStripMenuItem,
             this.vBToolStripMenuItem});
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.languageToolStripMenuItem.Text = "Language";
             // 
             // customLangToolStripMenuItem
             // 
             this.customLangToolStripMenuItem.Name = "customLangToolStripMenuItem";
-            this.customLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.customLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.customLangToolStripMenuItem.Tag = "Custom";
             this.customLangToolStripMenuItem.Text = "Custom";
             this.customLangToolStripMenuItem.Click += new System.EventHandler(this.customLangToolStripMenuItem_Click);
             // 
             // cSharpLangToolStripMenuItem
             // 
             this.cSharpLangToolStripMenuItem.Name = "cSharpLangToolStripMenuItem";
-            this.cSharpLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.cSharpLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cSharpLangToolStripMenuItem.Tag = "C#";
             this.cSharpLangToolStripMenuItem.Text = "C#";
             this.cSharpLangToolStripMenuItem.Click += new System.EventHandler(this.cSharpLangToolStripMenuItem_Click);
             // 
             // hTMLLangToolStripMenuItem
             // 
             this.hTMLLangToolStripMenuItem.Name = "hTMLLangToolStripMenuItem";
-            this.hTMLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.hTMLLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.hTMLLangToolStripMenuItem.Tag = "HTML";
             this.hTMLLangToolStripMenuItem.Text = "HTML";
             this.hTMLLangToolStripMenuItem.Click += new System.EventHandler(this.hTMLLangToolStripMenuItem_Click);
             // 
             // xMLLangToolStripMenuItem
             // 
             this.xMLLangToolStripMenuItem.Name = "xMLLangToolStripMenuItem";
-            this.xMLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.xMLLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.xMLLangToolStripMenuItem.Tag = "XML";
             this.xMLLangToolStripMenuItem.Text = "XML";
             this.xMLLangToolStripMenuItem.Click += new System.EventHandler(this.xMLLangToolStripMenuItem_Click);
             // 
             // sQLLangToolStripMenuItem
             // 
             this.sQLLangToolStripMenuItem.Name = "sQLLangToolStripMenuItem";
-            this.sQLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.sQLLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sQLLangToolStripMenuItem.Tag = "SQL";
             this.sQLLangToolStripMenuItem.Text = "SQL";
             this.sQLLangToolStripMenuItem.Click += new System.EventHandler(this.sQLLangToolStripMenuItem_Click);
             // 
             // pHPLangToolStripMenuItem
             // 
             this.pHPLangToolStripMenuItem.Name = "pHPLangToolStripMenuItem";
-            this.pHPLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.pHPLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pHPLangToolStripMenuItem.Tag = "PHP";
             this.pHPLangToolStripMenuItem.Text = "PHP";
             this.pHPLangToolStripMenuItem.Click += new System.EventHandler(this.pHPLangToolStripMenuItem_Click);
             // 
             // jSLangToolStripMenuItem
             // 
             this.jSLangToolStripMenuItem.Name = "jSLangToolStripMenuItem";
-            this.jSLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.jSLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jSLangToolStripMenuItem.Tag = "JS";
             this.jSLangToolStripMenuItem.Text = "JS";
             this.jSLangToolStripMenuItem.Click += new System.EventHandler(this.jSLangToolStripMenuItem_Click);
             // 
             // lUALangToolStripMenuItem
             // 
             this.lUALangToolStripMenuItem.Name = "lUALangToolStripMenuItem";
-            this.lUALangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.lUALangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.lUALangToolStripMenuItem.Tag = "LUA";
             this.lUALangToolStripMenuItem.Text = "LUA";
             this.lUALangToolStripMenuItem.Click += new System.EventHandler(this.lUALangToolStripMenuItem_Click);
             // 
             // jSONLangToolStripMenuItem
             // 
             this.jSONLangToolStripMenuItem.Name = "jSONLangToolStripMenuItem";
-            this.jSONLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.jSONLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jSONLangToolStripMenuItem.Tag = "JSON";
             this.jSONLangToolStripMenuItem.Text = "JSON";
             this.jSONLangToolStripMenuItem.Click += new System.EventHandler(this.jSONLangToolStripMenuItem_Click);
             // 
             // vBToolStripMenuItem
             // 
             this.vBToolStripMenuItem.Name = "vBToolStripMenuItem";
-            this.vBToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.vBToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.vBToolStripMenuItem.Tag = "VB";
             this.vBToolStripMenuItem.Text = "VB";
             this.vBToolStripMenuItem.Click += new System.EventHandler(this.vBLangToolStripMenuItem_Click);
             // 

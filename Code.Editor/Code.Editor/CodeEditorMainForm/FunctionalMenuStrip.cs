@@ -12,7 +12,7 @@ namespace Code.Editor
         /// Divides numbers and words: "123AND456" -> "123 AND 456"
         /// </summary>
         private const string digitsDividePattern = @"^(\d+)([a-zA-Z_]+)(\d*)$";
-        
+
         /// <summary>
         /// Or "i=2" -> "i = 2"
         /// </summary>
@@ -141,6 +141,7 @@ namespace Code.Editor
 
         private void CreateTab(string fileName)
         {
+
             try
             {
                 var newTextBox = new FastColoredTextBox();
@@ -150,10 +151,11 @@ namespace Code.Editor
                 newTextBox.BorderStyle = BorderStyle.Fixed3D;
                 //tb.VirtualSpace = true;
                 newTextBox.LeftPadding = 17;
-                newTextBox.Language = Language.CSharp;
+                var selectedLanguage = GetCurrentLanguageByTag();
+                newTextBox.Language = selectedLanguage;
                 newTextBox.AddStyle(sameWordsStyle);//same words style
                 var newFileTab = new FATabStripItem(
-                    String.IsNullOrWhiteSpace(fileName) == false
+                    string.IsNullOrWhiteSpace(fileName) == false
                     ? Path.GetFileName(fileName)
                     : "[new]", newTextBox);
 
@@ -198,6 +200,77 @@ namespace Code.Editor
                 }
             }
         }
+
+        private Language GetCurrentLanguageByTag()
+        {
+            ToolStripMenuItem selectedLenguageItem = null;
+            foreach (ToolStripMenuItem item in languageToolStripMenuItem.DropDownItems)
+            {
+                if (item.Checked)
+                {
+                    selectedLenguageItem = item;
+                    break;
+                }
+            }
+
+            if (selectedLenguageItem != null)
+            {
+                switch (selectedLenguageItem.Tag.ToString())
+                {
+                    case "Custom": return Language.Custom;
+                    case "C#": return Language.CSharp;
+                    case "HTML": return Language.HTML;
+                    case "XML": return Language.XML;
+                    case "SQL": return Language.SQL;
+                    case "PHP": return Language.PHP;
+                    case "JS": return Language.JS;
+                    case "LUA": return Language.Lua;
+                    case "JSON": return Language.JSON;
+                    case "VB": return Language.VB;
+                    default: return Language.Custom;
+                }
+            }
+            else
+            {
+                return Language.Custom;
+            }
+        }
+
+        //private string GetTagByCurrentLanguage()
+        //{
+        //    ToolStripMenuItem selectedLenguageItem = null;
+        //    foreach (ToolStripMenuItem item in languageToolStripMenuItem.DropDownItems)
+        //    {
+        //        if (item.Checked)
+        //        {
+        //            selectedLenguageItem = item;
+        //            break;
+        //        }
+        //    }
+
+        //    if (selectedLenguageItem != null)
+        //    {
+        //        switch (selectedLenguageItem.Tag.ToString())
+        //        {
+        //            case "Custom": return Language.Custom;
+        //            case "C#": return Language.CSharp;
+        //            case "HTML": return Language.HTML;
+        //            case "XML": return Language.XML;
+        //            case "SQL": return Language.SQL;
+        //            case "PHP": return Language.PHP;
+        //            case "JS": return Language.JS;
+        //            case "LUA": return Language.Lua;
+        //            case "JSON": return Language.JSON;
+        //            case "VB": return Language.VB;
+        //            default: return Language.Custom;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return Language.Custom;
+        //    }
+        //}
+
         private void BuildAutocompleteMenu(AutocompleteMenu popupMenu)
         {
             List<AutocompleteItem> items = new List<AutocompleteItem>();

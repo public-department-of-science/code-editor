@@ -6,7 +6,7 @@ namespace Code.Editor
     {
         private void tb_SelectionChangedDelayed(object sender, EventArgs e)
         {
-            var textBox = sender as FastColoredTextBox;
+           var textBox = sender as FastColoredTextBox;
             //remember last visit time
             if (textBox.Selection.IsEmpty && textBox.Selection.Start.iLine < textBox.LinesCount)
             {
