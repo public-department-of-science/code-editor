@@ -15,16 +15,16 @@ namespace Code.Editor.Snippet
 
         public override CompareResult Compare(string fragmentText)
         {
-            var r = Parent.Fragment.Clone();
-            while (r.Start.iChar > 0)
+            var range = Parent.Fragment.Clone();
+            while (range.Start.iChar > 0)
             {
-                if (r.CharBeforeStart == '}')
+                if (range.CharBeforeStart == '}')
                 {
-                    enterPlace = r.Start;
+                    enterPlace = range.Start;
                     return CompareResult.Visible;
                 }
 
-                r.GoLeftThroughFolded();
+                range.GoLeftThroughFolded();
             }
 
             return CompareResult.Hidden;
@@ -33,12 +33,12 @@ namespace Code.Editor.Snippet
         public override string GetTextForReplace()
         {
             //extend range
-            FastColoredTextBoxNS.Range r = Parent.Fragment;
-            Place end = r.End;
-            r.Start = enterPlace;
-            r.End = r.End;
+            FastColoredTextBoxNS.Range range = Parent.Fragment;
+            Place end = range.End;
+            range.Start = enterPlace;
+            range.End = range.End;
             //insert line break
-            return Environment.NewLine + r.Text;
+            return Environment.NewLine + range.Text;
         }
 
         public override void OnSelected(AutocompleteMenu popupMenu, SelectedEventArgs e)

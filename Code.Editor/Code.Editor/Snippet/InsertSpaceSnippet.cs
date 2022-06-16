@@ -3,10 +3,6 @@ using System.Text.RegularExpressions;
 
 namespace Code.Editor.Snippet
 {
-    /// <summary>
-    /// Divides numbers and words: "123AND456" -> "123 AND 456"
-    /// Or "i=2" -> "i = 2"
-    /// </summary>
     internal class InsertSpaceSnippet : AutocompleteItem
     {
         string pattern;
@@ -14,10 +10,6 @@ namespace Code.Editor.Snippet
         public InsertSpaceSnippet(string pattern) : base("")
         {
             this.pattern = pattern;
-        }
-
-        public InsertSpaceSnippet() : this(@"^(\d+)([a-zA-Z_]+)(\d*)$")
-        {
         }
 
         public override CompareResult Compare(string fragmentText)

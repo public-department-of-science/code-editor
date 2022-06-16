@@ -8,6 +8,16 @@ namespace Code.Editor
 {
     public partial class CodeEditorMainForm
     {
+        /// <summary>
+        /// Divides numbers and words: "123AND456" -> "123 AND 456"
+        /// </summary>
+        private const string digitsDividePattern = @"^(\d+)([a-zA-Z_]+)(\d*)$";
+        
+        /// <summary>
+        /// Or "i=2" -> "i = 2"
+        /// </summary>
+        private const string constructionsDividePattern = @"^(\w+)([=<>!:]+)(\w+)$";
+
         #region General activity functions: cut, paste, copy
 
         private void cutButton_Click(object sender, EventArgs e)
@@ -209,8 +219,8 @@ namespace Code.Editor
                 items.Add(new AutocompleteItem(item));
             }
 
-            items.Add(new InsertSpaceSnippet());
-            items.Add(new InsertSpaceSnippet(@"^(\w+)([=<>!:]+)(\w+)$"));
+            items.Add(new InsertSpaceSnippet(digitsDividePattern));
+            items.Add(new InsertSpaceSnippet(constructionsDividePattern));
             items.Add(new InsertEnterSnippet());
 
             //set as autocomplete source
