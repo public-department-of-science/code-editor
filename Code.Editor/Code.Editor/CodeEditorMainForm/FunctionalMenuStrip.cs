@@ -236,41 +236,6 @@ namespace Code.Editor
             }
         }
 
-        //private string GetTagByCurrentLanguage()
-        //{
-        //    ToolStripMenuItem selectedLenguageItem = null;
-        //    foreach (ToolStripMenuItem item in languageToolStripMenuItem.DropDownItems)
-        //    {
-        //        if (item.Checked)
-        //        {
-        //            selectedLenguageItem = item;
-        //            break;
-        //        }
-        //    }
-
-        //    if (selectedLenguageItem != null)
-        //    {
-        //        switch (selectedLenguageItem.Tag.ToString())
-        //        {
-        //            case "Custom": return Language.Custom;
-        //            case "C#": return Language.CSharp;
-        //            case "HTML": return Language.HTML;
-        //            case "XML": return Language.XML;
-        //            case "SQL": return Language.SQL;
-        //            case "PHP": return Language.PHP;
-        //            case "JS": return Language.JS;
-        //            case "LUA": return Language.Lua;
-        //            case "JSON": return Language.JSON;
-        //            case "VB": return Language.VB;
-        //            default: return Language.Custom;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        return Language.Custom;
-        //    }
-        //}
-
         private void BuildAutocompleteMenu(AutocompleteMenu popupMenu)
         {
             List<AutocompleteItem> items = new List<AutocompleteItem>();

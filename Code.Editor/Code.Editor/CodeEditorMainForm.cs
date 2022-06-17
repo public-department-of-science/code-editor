@@ -103,11 +103,13 @@ namespace Code.Editor
             if (CurrentTextBox != null)
             {
                 CurrentTextBox.Focus();
-               // CurrentTextBox.Language;
+                UpdateSelectedLanguageButtonByCurrentTab();
                 string text = CurrentTextBox.Text;
                 ThreadPool.QueueUserWorkItem(obj => ReBuildObjectExplorer(text));
             }
         }
+
+
 
         private bool Save(FATabStripItem selectedTab)
         {
