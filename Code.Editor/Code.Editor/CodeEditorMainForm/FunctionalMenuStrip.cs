@@ -141,7 +141,6 @@ namespace Code.Editor
 
         private void CreateTab(string fileName)
         {
-
             try
             {
                 var newTextBox = new FastColoredTextBox();
@@ -160,7 +159,7 @@ namespace Code.Editor
                     : "[new]", newTextBox);
 
                 newFileTab.Tag = fileName;
-                if (string.IsNullOrEmpty(fileName) == false)
+                if (string.IsNullOrWhiteSpace(fileName) == false)
                 {
                     newTextBox.OpenFile(fileName);
                 }
