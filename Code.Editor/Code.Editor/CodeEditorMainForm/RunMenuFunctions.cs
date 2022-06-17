@@ -4,6 +4,8 @@ namespace Code.Editor
 {
     public partial class CodeEditorMainForm
     {
+        #region Current language selection functions
+
         private void customLangToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClearLanguageCheckMark();
@@ -149,6 +151,10 @@ namespace Code.Editor
                 default:
                     break;
             }
-        }
+        } 
+
+        #endregion
+
+
     }
 }

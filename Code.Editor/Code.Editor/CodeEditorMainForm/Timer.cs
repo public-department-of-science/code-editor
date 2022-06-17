@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Code.Editor
+﻿namespace Code.Editor
 {
     public partial class CodeEditorMainForm
     {
@@ -10,14 +8,14 @@ namespace Code.Editor
             {
                 if (CurrentTextBox != null && openFilesTabs.Items.Count > 0)
                 {
-                    var tb = CurrentTextBox;
-                    buttonUndoStrip.Enabled = undoToolStripMenuItem.Enabled = tb.UndoEnabled;
-                    buttonRedoStrip.Enabled = redoToolStripMenuItem.Enabled = tb.RedoEnabled;
-                    saveToolStripButton.Enabled = saveToolStripMenuItem.Enabled = tb.IsChanged;
+                    var textBox = CurrentTextBox;
+                    buttonUndoStrip.Enabled = undoToolStripMenuItem.Enabled = textBox.UndoEnabled;
+                    buttonRedoStrip.Enabled = redoToolStripMenuItem.Enabled = textBox.RedoEnabled;
+                    saveToolStripButton.Enabled = saveToolStripMenuItem.Enabled = textBox.IsChanged;
                     saveAsToolStripMenuItem.Enabled = true;
                     pasteToolStripButton.Enabled = pasteToolStripMenuItem.Enabled = true;
                     cutToolStripButton.Enabled = cutToolStripMenuItem.Enabled =
-                    copyToolStripButton.Enabled = copyToolStripMenuItem.Enabled = !tb.Selection.IsEmpty;
+                    copyToolStripButton.Enabled = copyToolStripMenuItem.Enabled = !textBox.Selection.IsEmpty;
                     printToolStripButton.Enabled = true;
                     commentCodeStripButton.Enabled = true;
                     uncommentCodeStripButton.Enabled = true;
