@@ -109,6 +109,8 @@ namespace Code.Editor
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.codeAreaContextMenuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.markAsReadonlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.markAsWriteableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoIndentSelectedTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commentSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uncommentSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,6 +121,7 @@ namespace Code.Editor
             this.datagridviewerImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -220,13 +223,13 @@ namespace Code.Editor
             this.jSONLangToolStripMenuItem,
             this.vBToolStripMenuItem});
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.languageToolStripMenuItem.Text = "Language";
             // 
             // customLangToolStripMenuItem
             // 
             this.customLangToolStripMenuItem.Name = "customLangToolStripMenuItem";
-            this.customLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.customLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.customLangToolStripMenuItem.Tag = "Custom";
             this.customLangToolStripMenuItem.Text = "Custom";
             this.customLangToolStripMenuItem.Click += new System.EventHandler(this.customLangToolStripMenuItem_Click);
@@ -234,7 +237,7 @@ namespace Code.Editor
             // cSharpLangToolStripMenuItem
             // 
             this.cSharpLangToolStripMenuItem.Name = "cSharpLangToolStripMenuItem";
-            this.cSharpLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cSharpLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.cSharpLangToolStripMenuItem.Tag = "C#";
             this.cSharpLangToolStripMenuItem.Text = "C#";
             this.cSharpLangToolStripMenuItem.Click += new System.EventHandler(this.cSharpLangToolStripMenuItem_Click);
@@ -242,7 +245,7 @@ namespace Code.Editor
             // hTMLLangToolStripMenuItem
             // 
             this.hTMLLangToolStripMenuItem.Name = "hTMLLangToolStripMenuItem";
-            this.hTMLLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.hTMLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.hTMLLangToolStripMenuItem.Tag = "HTML";
             this.hTMLLangToolStripMenuItem.Text = "HTML";
             this.hTMLLangToolStripMenuItem.Click += new System.EventHandler(this.hTMLLangToolStripMenuItem_Click);
@@ -250,7 +253,7 @@ namespace Code.Editor
             // xMLLangToolStripMenuItem
             // 
             this.xMLLangToolStripMenuItem.Name = "xMLLangToolStripMenuItem";
-            this.xMLLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.xMLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.xMLLangToolStripMenuItem.Tag = "XML";
             this.xMLLangToolStripMenuItem.Text = "XML";
             this.xMLLangToolStripMenuItem.Click += new System.EventHandler(this.xMLLangToolStripMenuItem_Click);
@@ -258,7 +261,7 @@ namespace Code.Editor
             // sQLLangToolStripMenuItem
             // 
             this.sQLLangToolStripMenuItem.Name = "sQLLangToolStripMenuItem";
-            this.sQLLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sQLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.sQLLangToolStripMenuItem.Tag = "SQL";
             this.sQLLangToolStripMenuItem.Text = "SQL";
             this.sQLLangToolStripMenuItem.Click += new System.EventHandler(this.sQLLangToolStripMenuItem_Click);
@@ -266,7 +269,7 @@ namespace Code.Editor
             // pHPLangToolStripMenuItem
             // 
             this.pHPLangToolStripMenuItem.Name = "pHPLangToolStripMenuItem";
-            this.pHPLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pHPLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.pHPLangToolStripMenuItem.Tag = "PHP";
             this.pHPLangToolStripMenuItem.Text = "PHP";
             this.pHPLangToolStripMenuItem.Click += new System.EventHandler(this.pHPLangToolStripMenuItem_Click);
@@ -274,7 +277,7 @@ namespace Code.Editor
             // jSLangToolStripMenuItem
             // 
             this.jSLangToolStripMenuItem.Name = "jSLangToolStripMenuItem";
-            this.jSLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jSLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.jSLangToolStripMenuItem.Tag = "JS";
             this.jSLangToolStripMenuItem.Text = "JS";
             this.jSLangToolStripMenuItem.Click += new System.EventHandler(this.jSLangToolStripMenuItem_Click);
@@ -282,7 +285,7 @@ namespace Code.Editor
             // lUALangToolStripMenuItem
             // 
             this.lUALangToolStripMenuItem.Name = "lUALangToolStripMenuItem";
-            this.lUALangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.lUALangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.lUALangToolStripMenuItem.Tag = "LUA";
             this.lUALangToolStripMenuItem.Text = "LUA";
             this.lUALangToolStripMenuItem.Click += new System.EventHandler(this.lUALangToolStripMenuItem_Click);
@@ -290,7 +293,7 @@ namespace Code.Editor
             // jSONLangToolStripMenuItem
             // 
             this.jSONLangToolStripMenuItem.Name = "jSONLangToolStripMenuItem";
-            this.jSONLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jSONLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.jSONLangToolStripMenuItem.Tag = "JSON";
             this.jSONLangToolStripMenuItem.Text = "JSON";
             this.jSONLangToolStripMenuItem.Click += new System.EventHandler(this.jSONLangToolStripMenuItem_Click);
@@ -298,7 +301,7 @@ namespace Code.Editor
             // vBToolStripMenuItem
             // 
             this.vBToolStripMenuItem.Name = "vBToolStripMenuItem";
-            this.vBToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.vBToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.vBToolStripMenuItem.Tag = "VB";
             this.vBToolStripMenuItem.Text = "VB";
             this.vBToolStripMenuItem.Click += new System.EventHandler(this.vBLangToolStripMenuItem_Click);
@@ -733,13 +736,16 @@ namespace Code.Editor
             this.findToolStripMenuItem,
             this.replaceToolStripMenuItem,
             this.codeAreaContextMenuSeparator2,
+            this.markAsReadonlyToolStripMenuItem,
+            this.markAsWriteableToolStripMenuItem,
+            this.toolStripSeparator9,
             this.autoIndentSelectedTextToolStripMenuItem,
             this.commentSelectedToolStripMenuItem,
             this.uncommentSelectedToolStripMenuItem,
             this.cloneLinesToolStripMenuItem,
             this.cloneLinesAndCommentToolStripMenuItem});
             this.codeAreaContextMenu.Name = "cmMain";
-            this.codeAreaContextMenu.Size = new System.Drawing.Size(271, 334);
+            this.codeAreaContextMenu.Size = new System.Drawing.Size(271, 416);
             // 
             // cutToolStripMenuItem
             // 
@@ -811,6 +817,20 @@ namespace Code.Editor
             // 
             this.codeAreaContextMenuSeparator2.Name = "codeAreaContextMenuSeparator2";
             this.codeAreaContextMenuSeparator2.Size = new System.Drawing.Size(267, 6);
+            // 
+            // markAsReadonlyToolStripMenuItem
+            // 
+            this.markAsReadonlyToolStripMenuItem.Name = "markAsReadonlyToolStripMenuItem";
+            this.markAsReadonlyToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.markAsReadonlyToolStripMenuItem.Text = "Mark text as \'read-only\'";
+            this.markAsReadonlyToolStripMenuItem.Click += new System.EventHandler(this.markAsReadonlyToolStripMenuItem_Click);
+            // 
+            // markAsWriteableToolStripMenuItem
+            // 
+            this.markAsWriteableToolStripMenuItem.Name = "markAsWriteableToolStripMenuItem";
+            this.markAsWriteableToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.markAsWriteableToolStripMenuItem.Text = "Mark text as \'writable\'";
+            this.markAsWriteableToolStripMenuItem.Click += new System.EventHandler(this.markAsWriteableToolStripMenuItem_Click);
             // 
             // autoIndentSelectedTextToolStripMenuItem
             // 
@@ -913,6 +933,11 @@ namespace Code.Editor
             this.imageListAutocomplete.Images.SetKeyName(0, "box.png");
             this.imageListAutocomplete.Images.SetKeyName(1, "backward0_16x16.png");
             this.imageListAutocomplete.Images.SetKeyName(2, "bookmark--plus.png");
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(267, 6);
             // 
             // CodeEditorMainForm
             // 
@@ -1033,5 +1058,8 @@ namespace Code.Editor
         private ToolStripMenuItem lUALangToolStripMenuItem;
         private ToolStripMenuItem jSONLangToolStripMenuItem;
         private ToolStripMenuItem vBToolStripMenuItem;
+        private ToolStripMenuItem markAsReadonlyToolStripMenuItem;
+        private ToolStripMenuItem markAsWriteableToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator9;
     }
 }

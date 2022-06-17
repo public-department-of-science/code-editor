@@ -92,5 +92,15 @@
             //end of autoUndo block
             CurrentTextBox.EndAutoUndo();
         }
+
+        private void markAsReadonlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void markAsWriteableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
