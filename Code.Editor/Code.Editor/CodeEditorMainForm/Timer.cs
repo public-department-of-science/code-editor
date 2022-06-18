@@ -32,8 +32,10 @@
 
                     runToolStripMenuItem.Enabled = true;
                     languageToolStripMenuItem.Enabled = true;
-                    documentMapStripButton.Enabled = true;
 
+                    documentMapStripButton.Enabled = true;
+                    documentMapSplitter.Visible= true;
+                    documentMapSplitter.Enabled = true;
                     documentMap.Target = CurrentTextBox;
                 }
                 else
@@ -64,6 +66,8 @@
                     languageToolStripMenuItem.Enabled = false;
 
                     documentMapStripButton.Enabled = false;
+                    documentMapSplitter.Visible= true;
+                    documentMapSplitter.Enabled = false;
                     documentMap.Target = null;
                 }
             }

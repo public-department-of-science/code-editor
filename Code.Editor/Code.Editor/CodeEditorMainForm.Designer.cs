@@ -143,7 +143,7 @@ namespace Code.Editor
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
-            this.menuStrip.Size = new System.Drawing.Size(721, 30);
+            this.menuStrip.Size = new System.Drawing.Size(825, 30);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -314,10 +314,11 @@ namespace Code.Editor
             // 
             this.documentMap.Dock = System.Windows.Forms.DockStyle.Right;
             this.documentMap.ForeColor = System.Drawing.Color.Maroon;
-            this.documentMap.Location = new System.Drawing.Point(721, 0);
+            this.documentMap.Location = new System.Drawing.Point(825, 0);
             this.documentMap.Margin = new System.Windows.Forms.Padding(4);
+            this.documentMap.MaximumSize = new System.Drawing.Size(400, 0);
             this.documentMap.Name = "documentMap";
-            this.documentMap.Size = new System.Drawing.Size(300, 506);
+            this.documentMap.Size = new System.Drawing.Size(200, 506);
             this.documentMap.TabIndex = 1;
             this.documentMap.Target = null;
             this.documentMap.Text = "documentMap";
@@ -332,7 +333,7 @@ namespace Code.Editor
             this.mainStatusStrip.Location = new System.Drawing.Point(0, 480);
             this.mainStatusStrip.Name = "mainStatusStrip";
             this.mainStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.mainStatusStrip.Size = new System.Drawing.Size(721, 26);
+            this.mainStatusStrip.Size = new System.Drawing.Size(825, 26);
             this.mainStatusStrip.TabIndex = 2;
             this.mainStatusStrip.Text = "statusStrip1";
             // 
@@ -341,7 +342,7 @@ namespace Code.Editor
             this.labelWordUnderMouse.AutoSize = false;
             this.labelWordUnderMouse.ForeColor = System.Drawing.Color.Gray;
             this.labelWordUnderMouse.Name = "labelWordUnderMouse";
-            this.labelWordUnderMouse.Size = new System.Drawing.Size(633, 20);
+            this.labelWordUnderMouse.Size = new System.Drawing.Size(737, 20);
             this.labelWordUnderMouse.Spring = true;
             this.labelWordUnderMouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -444,7 +445,7 @@ namespace Code.Editor
             this.documentMapStripButton});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(721, 27);
+            this.toolStripMenu.Size = new System.Drawing.Size(825, 27);
             this.toolStripMenu.TabIndex = 3;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -731,7 +732,7 @@ namespace Code.Editor
             this.openFilesTabs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.openFilesTabs.Name = "openFilesTabs";
             this.openFilesTabs.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
-            this.openFilesTabs.Size = new System.Drawing.Size(488, 423);
+            this.openFilesTabs.Size = new System.Drawing.Size(592, 423);
             this.openFilesTabs.TabIndex = 0;
             this.openFilesTabs.Text = "faTabStrip1";
             this.openFilesTabs.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
@@ -974,11 +975,11 @@ namespace Code.Editor
             this.imageListAutocomplete.Images.SetKeyName(1, "backward0_16x16.png");
             this.imageListAutocomplete.Images.SetKeyName(2, "bookmark--plus.png");
             // 
-            // splitter2
+            // documentMapSplitter
             // 
             this.documentMapSplitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.documentMapSplitter.Location = new System.Drawing.Point(717, 57);
-            this.documentMapSplitter.Name = "splitter2";
+            this.documentMapSplitter.Location = new System.Drawing.Point(821, 57);
+            this.documentMapSplitter.Name = "documentMapSplitter";
             this.documentMapSplitter.Size = new System.Drawing.Size(4, 423);
             this.documentMapSplitter.TabIndex = 7;
             this.documentMapSplitter.TabStop = false;
