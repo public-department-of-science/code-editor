@@ -53,7 +53,6 @@ namespace Code.Editor
             this.lUALangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jSONLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.documentMapSplitter = new System.Windows.Forms.Splitter();
             this.documentMap = new FastColoredTextBoxNS.DocumentMap();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.labelWordUnderMouse = new System.Windows.Forms.ToolStripStatusLabel();
@@ -126,7 +125,7 @@ namespace Code.Editor
             this.datagridviewerImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
-            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.documentMapSplitter = new System.Windows.Forms.Splitter();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -310,16 +309,6 @@ namespace Code.Editor
             this.vBToolStripMenuItem.Tag = "VB";
             this.vBToolStripMenuItem.Text = "VB";
             this.vBToolStripMenuItem.Click += new System.EventHandler(this.vBLangToolStripMenuItem_Click);
-            // 
-            // documentMapSplitter
-            // 
-            this.documentMapSplitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.documentMapSplitter.Location = new System.Drawing.Point(1021, 0);
-            this.documentMapSplitter.Margin = new System.Windows.Forms.Padding(4);
-            this.documentMapSplitter.Name = "documentMapSplitter";
-            this.documentMapSplitter.Size = new System.Drawing.Size(4, 506);
-            this.documentMapSplitter.TabIndex = 3;
-            this.documentMapSplitter.TabStop = false;
             // 
             // documentMap
             // 
@@ -987,19 +976,19 @@ namespace Code.Editor
             // 
             // splitter2
             // 
-            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Location = new System.Drawing.Point(717, 57);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(4, 423);
-            this.splitter2.TabIndex = 7;
-            this.splitter2.TabStop = false;
+            this.documentMapSplitter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.documentMapSplitter.Location = new System.Drawing.Point(717, 57);
+            this.documentMapSplitter.Name = "splitter2";
+            this.documentMapSplitter.Size = new System.Drawing.Size(4, 423);
+            this.documentMapSplitter.TabIndex = 7;
+            this.documentMapSplitter.TabStop = false;
             // 
             // CodeEditorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 506);
-            this.Controls.Add(this.splitter2);
+            this.Controls.Add(this.documentMapSplitter);
             this.Controls.Add(this.openFilesTabs);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.datagridviewerObjectExplorer);
@@ -1007,7 +996,6 @@ namespace Code.Editor
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.mainStatusStrip);
             this.Controls.Add(this.documentMap);
-            this.Controls.Add(this.documentMapSplitter);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CodeEditorMainForm";
@@ -1122,7 +1110,6 @@ namespace Code.Editor
         private ToolStripSeparator toolStripSeparator10;
         private ToolStripButton documentMapStripButton;
         private FastColoredTextBoxNS.DocumentMap documentMap;
-        private System.Windows.Forms.Splitter documentMapSplitter;
-        private Splitter splitter2;
+        private Splitter documentMapSplitter;
     }
 }
