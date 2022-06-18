@@ -126,6 +126,7 @@ namespace Code.Editor
             this.datagridviewerImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
+            this.splitter2 = new System.Windows.Forms.Splitter();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -984,11 +985,21 @@ namespace Code.Editor
             this.imageListAutocomplete.Images.SetKeyName(1, "backward0_16x16.png");
             this.imageListAutocomplete.Images.SetKeyName(2, "bookmark--plus.png");
             // 
+            // splitter2
+            // 
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter2.Location = new System.Drawing.Point(717, 57);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(4, 423);
+            this.splitter2.TabIndex = 7;
+            this.splitter2.TabStop = false;
+            // 
             // CodeEditorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 506);
+            this.Controls.Add(this.splitter2);
             this.Controls.Add(this.openFilesTabs);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.datagridviewerObjectExplorer);
@@ -1112,5 +1123,6 @@ namespace Code.Editor
         private ToolStripButton documentMapStripButton;
         private FastColoredTextBoxNS.DocumentMap documentMap;
         private System.Windows.Forms.Splitter documentMapSplitter;
+        private Splitter splitter2;
     }
 }
