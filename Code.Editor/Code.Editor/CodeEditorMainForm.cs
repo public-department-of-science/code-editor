@@ -109,8 +109,6 @@ namespace Code.Editor
             }
         }
 
-
-
         private bool Save(FATabStripItem selectedTab)
         {
             var tb = (selectedTab.Controls[0] as FastColoredTextBox);

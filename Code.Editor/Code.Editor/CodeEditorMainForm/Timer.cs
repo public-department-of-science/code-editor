@@ -32,6 +32,9 @@
 
                     runToolStripMenuItem.Enabled = true;
                     languageToolStripMenuItem.Enabled = true;
+                    documentMapStripButton.Enabled = true;
+
+                    documentMap.Target = CurrentTextBox;
                 }
                 else
                 {
@@ -59,6 +62,9 @@
 
                     runToolStripMenuItem.Enabled = false;
                     languageToolStripMenuItem.Enabled = false;
+
+                    documentMapStripButton.Enabled = false;
+                    documentMap.Target = null;
                 }
             }
             catch (Exception ex)

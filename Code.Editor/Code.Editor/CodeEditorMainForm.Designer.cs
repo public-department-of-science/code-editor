@@ -53,6 +53,8 @@ namespace Code.Editor
             this.lUALangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jSONLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentMapSplitter = new System.Windows.Forms.Splitter();
+            this.documentMap = new FastColoredTextBoxNS.DocumentMap();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.labelWordUnderMouse = new System.Windows.Forms.ToolStripStatusLabel();
             this.buttonZoom = new System.Windows.Forms.ToolStripSplitButton();
@@ -90,6 +92,8 @@ namespace Code.Editor
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.commentCodeStripButton = new System.Windows.Forms.ToolStripButton();
             this.uncommentCodeStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.documentMapStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -111,6 +115,7 @@ namespace Code.Editor
             this.codeAreaContextMenuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.markAsReadonlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.markAsWriteableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.autoIndentSelectedTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commentSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uncommentSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -121,7 +126,6 @@ namespace Code.Editor
             this.datagridviewerImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -139,7 +143,7 @@ namespace Code.Editor
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
-            this.menuStrip.Size = new System.Drawing.Size(1025, 30);
+            this.menuStrip.Size = new System.Drawing.Size(721, 30);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -306,6 +310,29 @@ namespace Code.Editor
             this.vBToolStripMenuItem.Text = "VB";
             this.vBToolStripMenuItem.Click += new System.EventHandler(this.vBLangToolStripMenuItem_Click);
             // 
+            // documentMapSplitter
+            // 
+            this.documentMapSplitter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.documentMapSplitter.Location = new System.Drawing.Point(1021, 0);
+            this.documentMapSplitter.Margin = new System.Windows.Forms.Padding(4);
+            this.documentMapSplitter.Name = "documentMapSplitter";
+            this.documentMapSplitter.Size = new System.Drawing.Size(4, 506);
+            this.documentMapSplitter.TabIndex = 3;
+            this.documentMapSplitter.TabStop = false;
+            // 
+            // documentMap
+            // 
+            this.documentMap.Dock = System.Windows.Forms.DockStyle.Right;
+            this.documentMap.ForeColor = System.Drawing.Color.Maroon;
+            this.documentMap.Location = new System.Drawing.Point(721, 0);
+            this.documentMap.Margin = new System.Windows.Forms.Padding(4);
+            this.documentMap.Name = "documentMap";
+            this.documentMap.Size = new System.Drawing.Size(300, 506);
+            this.documentMap.TabIndex = 1;
+            this.documentMap.Target = null;
+            this.documentMap.Text = "documentMap";
+            this.documentMap.Visible = false;
+            // 
             // mainStatusStrip
             // 
             this.mainStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -315,7 +342,7 @@ namespace Code.Editor
             this.mainStatusStrip.Location = new System.Drawing.Point(0, 480);
             this.mainStatusStrip.Name = "mainStatusStrip";
             this.mainStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.mainStatusStrip.Size = new System.Drawing.Size(1025, 26);
+            this.mainStatusStrip.Size = new System.Drawing.Size(721, 26);
             this.mainStatusStrip.TabIndex = 2;
             this.mainStatusStrip.Text = "statusStrip1";
             // 
@@ -324,7 +351,7 @@ namespace Code.Editor
             this.labelWordUnderMouse.AutoSize = false;
             this.labelWordUnderMouse.ForeColor = System.Drawing.Color.Gray;
             this.labelWordUnderMouse.Name = "labelWordUnderMouse";
-            this.labelWordUnderMouse.Size = new System.Drawing.Size(937, 20);
+            this.labelWordUnderMouse.Size = new System.Drawing.Size(633, 20);
             this.labelWordUnderMouse.Spring = true;
             this.labelWordUnderMouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -422,10 +449,12 @@ namespace Code.Editor
             this.buttonGotoBookmark,
             this.toolStripSeparator8,
             this.commentCodeStripButton,
-            this.uncommentCodeStripButton});
+            this.uncommentCodeStripButton,
+            this.toolStripSeparator10,
+            this.documentMapStripButton});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(1025, 27);
+            this.toolStripMenu.Size = new System.Drawing.Size(721, 27);
             this.toolStripMenu.TabIndex = 3;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -673,6 +702,22 @@ namespace Code.Editor
             this.uncommentCodeStripButton.Text = "Uncomment selected code lines";
             this.uncommentCodeStripButton.Click += new System.EventHandler(this.uncommentCodeLinesButton_Click);
             // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 27);
+            // 
+            // documentMapStripButton
+            // 
+            this.documentMapStripButton.CheckOnClick = true;
+            this.documentMapStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.documentMapStripButton.Image = ((System.Drawing.Image)(resources.GetObject("documentMapStripButton.Image")));
+            this.documentMapStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.documentMapStripButton.Name = "documentMapStripButton";
+            this.documentMapStripButton.Size = new System.Drawing.Size(29, 24);
+            this.documentMapStripButton.Text = "Document map";
+            this.documentMapStripButton.Click += new System.EventHandler(this.documentMapStripButton_Click);
+            // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
@@ -696,7 +741,7 @@ namespace Code.Editor
             this.openFilesTabs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.openFilesTabs.Name = "openFilesTabs";
             this.openFilesTabs.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
-            this.openFilesTabs.Size = new System.Drawing.Size(792, 423);
+            this.openFilesTabs.Size = new System.Drawing.Size(488, 423);
             this.openFilesTabs.TabIndex = 0;
             this.openFilesTabs.Text = "faTabStrip1";
             this.openFilesTabs.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
@@ -745,7 +790,7 @@ namespace Code.Editor
             this.cloneLinesToolStripMenuItem,
             this.cloneLinesAndCommentToolStripMenuItem});
             this.codeAreaContextMenu.Name = "cmMain";
-            this.codeAreaContextMenu.Size = new System.Drawing.Size(271, 416);
+            this.codeAreaContextMenu.Size = new System.Drawing.Size(271, 388);
             // 
             // cutToolStripMenuItem
             // 
@@ -831,6 +876,11 @@ namespace Code.Editor
             this.markAsWriteableToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.markAsWriteableToolStripMenuItem.Text = "Mark text as \'writable\'";
             this.markAsWriteableToolStripMenuItem.Click += new System.EventHandler(this.markAsWriteableToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(267, 6);
             // 
             // autoIndentSelectedTextToolStripMenuItem
             // 
@@ -934,11 +984,6 @@ namespace Code.Editor
             this.imageListAutocomplete.Images.SetKeyName(1, "backward0_16x16.png");
             this.imageListAutocomplete.Images.SetKeyName(2, "bookmark--plus.png");
             // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(267, 6);
-            // 
             // CodeEditorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -950,6 +995,8 @@ namespace Code.Editor
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.mainStatusStrip);
+            this.Controls.Add(this.documentMap);
+            this.Controls.Add(this.documentMapSplitter);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CodeEditorMainForm";
@@ -1061,5 +1108,9 @@ namespace Code.Editor
         private ToolStripMenuItem markAsReadonlyToolStripMenuItem;
         private ToolStripMenuItem markAsWriteableToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator9;
+        private ToolStripSeparator toolStripSeparator10;
+        private ToolStripButton documentMapStripButton;
+        private FastColoredTextBoxNS.DocumentMap documentMap;
+        private System.Windows.Forms.Splitter documentMapSplitter;
     }
 }

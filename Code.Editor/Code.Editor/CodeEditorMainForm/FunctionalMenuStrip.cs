@@ -144,6 +144,7 @@ namespace Code.Editor
             try
             {
                 var newTextBox = new FastColoredTextBox();
+                documentMap.Target = newTextBox;
                 newTextBox.Font = new Font("Consolas", 9.75f);
                 newTextBox.ContextMenuStrip = codeAreaContextMenu;
                 newTextBox.Dock = DockStyle.Fill;
@@ -538,5 +539,19 @@ namespace Code.Editor
         }
 
         #endregion
+
+        private void documentMapStripButton_Click(object sender, EventArgs e)
+        {
+            documentMap.Visible = !documentMap.Visible;
+            documentMapStripButton.Checked = !documentMapStripButton.Checked;
+            if (documentMapStripButton.Checked == true)
+            {
+                documentMapStripButton.CheckState = CheckState.Checked;
+            }
+            else
+            {
+                documentMapStripButton.CheckState = CheckState.Unchecked;
+            }
+        }
     }
 }

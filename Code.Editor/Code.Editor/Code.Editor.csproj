@@ -24,6 +24,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Reference Include="FastColoredTextBox">
+	    <HintPath>..\Third.Part.References\FCTB\Binary\FastColoredTextBox.dll</HintPath>
+	  </Reference>
 	  <Reference Include="TabStrip">
 	    <HintPath>..\Third.Part.References\FCTB\Tester\TabStrip.dll</HintPath>
 	  </Reference>
