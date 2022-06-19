@@ -740,6 +740,7 @@ namespace Code.Editor
             // 
             this.documentMapStripButton.CheckOnClick = true;
             this.documentMapStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.documentMapStripButton.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.documentMapStripButton.Image = global::Code.Editor.Properties.Resources.documentMapImage;
             this.documentMapStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.documentMapStripButton.Name = "documentMapStripButton";
@@ -750,6 +751,7 @@ namespace Code.Editor
             // wordWrapToolStripButton
             // 
             this.wordWrapToolStripButton.Checked = true;
+            this.wordWrapToolStripButton.CheckOnClick = true;
             this.wordWrapToolStripButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.wordWrapToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.wordWrapToolStripButton.ForeColor = System.Drawing.SystemColors.MenuHighlight;

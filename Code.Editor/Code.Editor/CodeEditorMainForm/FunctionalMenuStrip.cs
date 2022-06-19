@@ -546,14 +546,14 @@ namespace Code.Editor
         private void documentMapStripButton_Click(object sender, EventArgs e)
         {
             documentMap.Visible = !documentMap.Visible;
-            documentMapStripButton.Checked = !documentMapStripButton.Checked;
+
             if (documentMapStripButton.Checked == true)
             {
-                documentMapStripButton.CheckState = CheckState.Checked;
+                documentMapStripButton.ForeColor = Color.AliceBlue;
             }
             else
             {
-                documentMapStripButton.CheckState = CheckState.Unchecked;
+                documentMapStripButton.ForeColor = menuStrip.BackColor;
             }
         }
 
@@ -563,8 +563,6 @@ namespace Code.Editor
 
         private void wordWrapToolStripButton_Click(object sender, EventArgs e)
         {
-            wordWrapToolStripButton.Checked = !wordWrapToolStripButton.Checked;
-
             CurrentTextBox.WordWrap = wordWrapToolStripButton.Checked;
             if (wordWrapToolStripButton.Checked)
             {
