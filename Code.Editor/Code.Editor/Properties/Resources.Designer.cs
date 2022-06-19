@@ -113,6 +113,16 @@ namespace Code.Editor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap documentMapImage {
+            get {
+                object obj = ResourceManager.GetObject("documentMapImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_padding_top {
             get {
                 object obj = ResourceManager.GetObject("edit-padding-top", resourceCulture);

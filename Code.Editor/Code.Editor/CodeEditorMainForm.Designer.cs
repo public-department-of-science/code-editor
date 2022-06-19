@@ -10,7 +10,7 @@ namespace Code.Editor
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        private ReadOnlyStyle readOnlyStyle;
+        private ReadOnlyStyle readOnlyStyle = new ReadOnlyStyle();
 
         /// <summary>
         /// Clean up any resources being used.
@@ -33,7 +33,6 @@ namespace Code.Editor
         /// </summary>
         private void InitializeComponent()
         {
-            readOnlyStyle = new ReadOnlyStyle();
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeEditorMainForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -56,6 +55,10 @@ namespace Code.Editor
             this.lUALangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jSONLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.macrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startWritingMacrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopMacrosRecordingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.executeMacrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentMap = new FastColoredTextBoxNS.DocumentMap();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.labelWordUnderMouse = new System.Windows.Forms.ToolStripStatusLabel();
@@ -129,10 +132,6 @@ namespace Code.Editor
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
             this.documentMapSplitter = new System.Windows.Forms.Splitter();
-            this.macrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startWritingMacrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopMacrosRecordingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.executeMacrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -150,7 +149,7 @@ namespace Code.Editor
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
-            this.menuStrip.Size = new System.Drawing.Size(825, 30);
+            this.menuStrip.Size = new System.Drawing.Size(937, 30);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -193,7 +192,7 @@ namespace Code.Editor
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.S)));
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.saveAsToolStripMenuItem.Text = "Save as ...";
@@ -235,7 +234,7 @@ namespace Code.Editor
             this.jSONLangToolStripMenuItem,
             this.vBToolStripMenuItem});
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.languageToolStripMenuItem.Text = "Language";
             // 
             // customLangToolStripMenuItem
@@ -318,15 +317,43 @@ namespace Code.Editor
             this.vBToolStripMenuItem.Text = "VB";
             this.vBToolStripMenuItem.Click += new System.EventHandler(this.vBLangToolStripMenuItem_Click);
             // 
+            // macrosToolStripMenuItem
+            // 
+            this.macrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.startWritingMacrosToolStripMenuItem,
+            this.stopMacrosRecordingToolStripMenuItem,
+            this.executeMacrosToolStripMenuItem});
+            this.macrosToolStripMenuItem.Name = "macrosToolStripMenuItem";
+            this.macrosToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.macrosToolStripMenuItem.Text = "Macros";
+            // 
+            // startWritingMacrosToolStripMenuItem
+            // 
+            this.startWritingMacrosToolStripMenuItem.Name = "startWritingMacrosToolStripMenuItem";
+            this.startWritingMacrosToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.startWritingMacrosToolStripMenuItem.Text = "Start macros recording";
+            // 
+            // stopMacrosRecordingToolStripMenuItem
+            // 
+            this.stopMacrosRecordingToolStripMenuItem.Name = "stopMacrosRecordingToolStripMenuItem";
+            this.stopMacrosRecordingToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.stopMacrosRecordingToolStripMenuItem.Text = "Stop macros recording";
+            // 
+            // executeMacrosToolStripMenuItem
+            // 
+            this.executeMacrosToolStripMenuItem.Name = "executeMacrosToolStripMenuItem";
+            this.executeMacrosToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.executeMacrosToolStripMenuItem.Text = "Execute macros";
+            // 
             // documentMap
             // 
             this.documentMap.Dock = System.Windows.Forms.DockStyle.Right;
             this.documentMap.ForeColor = System.Drawing.Color.Maroon;
-            this.documentMap.Location = new System.Drawing.Point(825, 0);
+            this.documentMap.Location = new System.Drawing.Point(937, 0);
             this.documentMap.Margin = new System.Windows.Forms.Padding(4);
             this.documentMap.MaximumSize = new System.Drawing.Size(400, 0);
             this.documentMap.Name = "documentMap";
-            this.documentMap.Size = new System.Drawing.Size(200, 506);
+            this.documentMap.Size = new System.Drawing.Size(200, 530);
             this.documentMap.TabIndex = 1;
             this.documentMap.Target = null;
             this.documentMap.Text = "documentMap";
@@ -338,10 +365,10 @@ namespace Code.Editor
             this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelWordUnderMouse,
             this.buttonZoom});
-            this.mainStatusStrip.Location = new System.Drawing.Point(0, 480);
+            this.mainStatusStrip.Location = new System.Drawing.Point(0, 504);
             this.mainStatusStrip.Name = "mainStatusStrip";
             this.mainStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.mainStatusStrip.Size = new System.Drawing.Size(825, 26);
+            this.mainStatusStrip.Size = new System.Drawing.Size(937, 26);
             this.mainStatusStrip.TabIndex = 2;
             this.mainStatusStrip.Text = "statusStrip1";
             // 
@@ -350,7 +377,7 @@ namespace Code.Editor
             this.labelWordUnderMouse.AutoSize = false;
             this.labelWordUnderMouse.ForeColor = System.Drawing.Color.Gray;
             this.labelWordUnderMouse.Name = "labelWordUnderMouse";
-            this.labelWordUnderMouse.Size = new System.Drawing.Size(737, 20);
+            this.labelWordUnderMouse.Size = new System.Drawing.Size(849, 20);
             this.labelWordUnderMouse.Spring = true;
             this.labelWordUnderMouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -453,7 +480,7 @@ namespace Code.Editor
             this.documentMapStripButton});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(825, 27);
+            this.toolStripMenu.Size = new System.Drawing.Size(937, 27);
             this.toolStripMenu.TabIndex = 3;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -710,7 +737,7 @@ namespace Code.Editor
             // 
             this.documentMapStripButton.CheckOnClick = true;
             this.documentMapStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.documentMapStripButton.Image = ((System.Drawing.Image)(resources.GetObject("documentMapStripButton.Image")));
+            this.documentMapStripButton.Image = global::Code.Editor.Properties.Resources.documentMapImage;
             this.documentMapStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.documentMapStripButton.Name = "documentMapStripButton";
             this.documentMapStripButton.Size = new System.Drawing.Size(29, 24);
@@ -740,7 +767,7 @@ namespace Code.Editor
             this.openFilesTabs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.openFilesTabs.Name = "openFilesTabs";
             this.openFilesTabs.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
-            this.openFilesTabs.Size = new System.Drawing.Size(592, 423);
+            this.openFilesTabs.Size = new System.Drawing.Size(704, 447);
             this.openFilesTabs.TabIndex = 0;
             this.openFilesTabs.Text = "faTabStrip1";
             this.openFilesTabs.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
@@ -751,7 +778,7 @@ namespace Code.Editor
             this.splitter1.Location = new System.Drawing.Point(229, 57);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 423);
+            this.splitter1.Size = new System.Drawing.Size(4, 447);
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
@@ -952,7 +979,7 @@ namespace Code.Editor
             this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Green;
             this.datagridviewerObjectExplorer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.datagridviewerObjectExplorer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 423);
+            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 447);
             this.datagridviewerObjectExplorer.TabIndex = 6;
             this.datagridviewerObjectExplorer.VirtualMode = true;
             this.datagridviewerObjectExplorer.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvObjectExplorer_CellMouseDoubleClick);
@@ -986,45 +1013,17 @@ namespace Code.Editor
             // documentMapSplitter
             // 
             this.documentMapSplitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.documentMapSplitter.Location = new System.Drawing.Point(821, 57);
+            this.documentMapSplitter.Location = new System.Drawing.Point(933, 57);
             this.documentMapSplitter.Name = "documentMapSplitter";
-            this.documentMapSplitter.Size = new System.Drawing.Size(4, 423);
+            this.documentMapSplitter.Size = new System.Drawing.Size(4, 447);
             this.documentMapSplitter.TabIndex = 7;
             this.documentMapSplitter.TabStop = false;
-            // 
-            // macrosToolStripMenuItem
-            // 
-            this.macrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startWritingMacrosToolStripMenuItem,
-            this.stopMacrosRecordingToolStripMenuItem,
-            this.executeMacrosToolStripMenuItem});
-            this.macrosToolStripMenuItem.Name = "macrosToolStripMenuItem";
-            this.macrosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.macrosToolStripMenuItem.Text = "Macros";
-            // 
-            // startWritingMacrosToolStripMenuItem
-            // 
-            this.startWritingMacrosToolStripMenuItem.Name = "startWritingMacrosToolStripMenuItem";
-            this.startWritingMacrosToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
-            this.startWritingMacrosToolStripMenuItem.Text = "Start macros recording";
-            // 
-            // stopMacrosRecordingToolStripMenuItem
-            // 
-            this.stopMacrosRecordingToolStripMenuItem.Name = "stopMacrosRecordingToolStripMenuItem";
-            this.stopMacrosRecordingToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
-            this.stopMacrosRecordingToolStripMenuItem.Text = "Stop macros recording";
-            // 
-            // executeMacrosToolStripMenuItem
-            // 
-            this.executeMacrosToolStripMenuItem.Name = "executeMacrosToolStripMenuItem";
-            this.executeMacrosToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
-            this.executeMacrosToolStripMenuItem.Text = "Execute macros";
             // 
             // CodeEditorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1025, 506);
+            this.ClientSize = new System.Drawing.Size(1137, 530);
             this.Controls.Add(this.documentMapSplitter);
             this.Controls.Add(this.openFilesTabs);
             this.Controls.Add(this.splitter1);
