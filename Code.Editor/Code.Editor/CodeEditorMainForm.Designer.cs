@@ -33,9 +33,8 @@ namespace Code.Editor
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-
             readOnlyStyle = new ReadOnlyStyle();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeEditorMainForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -130,6 +129,10 @@ namespace Code.Editor
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
             this.documentMapSplitter = new System.Windows.Forms.Splitter();
+            this.macrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startWritingMacrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopMacrosRecordingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.executeMacrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -212,7 +215,8 @@ namespace Code.Editor
             // runToolStripMenuItem
             // 
             this.runToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.languageToolStripMenuItem});
+            this.languageToolStripMenuItem,
+            this.macrosToolStripMenuItem});
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
             this.runToolStripMenuItem.Text = "Run";
@@ -231,7 +235,7 @@ namespace Code.Editor
             this.jSONLangToolStripMenuItem,
             this.vBToolStripMenuItem});
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.languageToolStripMenuItem.Text = "Language";
             // 
             // customLangToolStripMenuItem
@@ -988,6 +992,34 @@ namespace Code.Editor
             this.documentMapSplitter.TabIndex = 7;
             this.documentMapSplitter.TabStop = false;
             // 
+            // macrosToolStripMenuItem
+            // 
+            this.macrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.startWritingMacrosToolStripMenuItem,
+            this.stopMacrosRecordingToolStripMenuItem,
+            this.executeMacrosToolStripMenuItem});
+            this.macrosToolStripMenuItem.Name = "macrosToolStripMenuItem";
+            this.macrosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.macrosToolStripMenuItem.Text = "Macros";
+            // 
+            // startWritingMacrosToolStripMenuItem
+            // 
+            this.startWritingMacrosToolStripMenuItem.Name = "startWritingMacrosToolStripMenuItem";
+            this.startWritingMacrosToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.startWritingMacrosToolStripMenuItem.Text = "Start macros recording";
+            // 
+            // stopMacrosRecordingToolStripMenuItem
+            // 
+            this.stopMacrosRecordingToolStripMenuItem.Name = "stopMacrosRecordingToolStripMenuItem";
+            this.stopMacrosRecordingToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.stopMacrosRecordingToolStripMenuItem.Text = "Stop macros recording";
+            // 
+            // executeMacrosToolStripMenuItem
+            // 
+            this.executeMacrosToolStripMenuItem.Name = "executeMacrosToolStripMenuItem";
+            this.executeMacrosToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.executeMacrosToolStripMenuItem.Text = "Execute macros";
+            // 
             // CodeEditorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1116,5 +1148,9 @@ namespace Code.Editor
         private ToolStripButton documentMapStripButton;
         private FastColoredTextBoxNS.DocumentMap documentMap;
         private Splitter documentMapSplitter;
+        private ToolStripMenuItem macrosToolStripMenuItem;
+        private ToolStripMenuItem startWritingMacrosToolStripMenuItem;
+        private ToolStripMenuItem stopMacrosRecordingToolStripMenuItem;
+        private ToolStripMenuItem executeMacrosToolStripMenuItem;
     }
 }
