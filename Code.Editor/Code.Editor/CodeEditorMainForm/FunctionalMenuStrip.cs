@@ -145,6 +145,7 @@ namespace Code.Editor
             {
                 var newTextBox = new FastColoredTextBox();
                 documentMap.Target = newTextBox;
+                newTextBox.WordWrap = true;
                 newTextBox.Font = new Font("Consolas", 9.75f);
                 newTextBox.ContextMenuStrip = codeAreaContextMenu;
                 newTextBox.Dock = DockStyle.Fill;
@@ -553,6 +554,25 @@ namespace Code.Editor
             else
             {
                 documentMapStripButton.CheckState = CheckState.Unchecked;
+            }
+        }
+
+        #endregion
+
+        #region Word wrap
+
+        private void wordWrapToolStripButton_Click(object sender, EventArgs e)
+        {
+            wordWrapToolStripButton.Checked = !wordWrapToolStripButton.Checked;
+
+            CurrentTextBox.WordWrap = wordWrapToolStripButton.Checked;
+            if (wordWrapToolStripButton.Checked)
+            {
+                wordWrapToolStripButton.ForeColor = Color.AliceBlue;
+            }
+            else
+            {
+                wordWrapToolStripButton.ForeColor = menuStrip.ForeColor;
             }
         }
 

@@ -99,6 +99,7 @@ namespace Code.Editor
             this.uncommentCodeStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.documentMapStripButton = new System.Windows.Forms.ToolStripButton();
+            this.wordWrapToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -477,7 +478,9 @@ namespace Code.Editor
             this.commentCodeStripButton,
             this.uncommentCodeStripButton,
             this.toolStripSeparator10,
-            this.documentMapStripButton});
+            this.documentMapStripButton,
+            this.wordWrapToolStripButton});
+            this.toolStripMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Size = new System.Drawing.Size(937, 27);
@@ -527,7 +530,7 @@ namespace Code.Editor
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 23);
             // 
             // cutToolStripButton
             // 
@@ -599,7 +602,7 @@ namespace Code.Editor
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 23);
             // 
             // buttonUndoStrip
             // 
@@ -624,7 +627,7 @@ namespace Code.Editor
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 23);
             // 
             // buttonBackwardStrip
             // 
@@ -658,13 +661,13 @@ namespace Code.Editor
             // 
             this.labelFindStrip.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.labelFindStrip.Name = "labelFindStrip";
-            this.labelFindStrip.Size = new System.Drawing.Size(44, 24);
+            this.labelFindStrip.Size = new System.Drawing.Size(44, 20);
             this.labelFindStrip.Text = "Find: ";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 23);
             // 
             // buttonBookmarkPlus
             // 
@@ -689,7 +692,7 @@ namespace Code.Editor
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 23);
             // 
             // buttonGotoBookmark
             // 
@@ -704,7 +707,7 @@ namespace Code.Editor
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 23);
             // 
             // commentCodeStripButton
             // 
@@ -731,7 +734,7 @@ namespace Code.Editor
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 23);
             // 
             // documentMapStripButton
             // 
@@ -743,6 +746,19 @@ namespace Code.Editor
             this.documentMapStripButton.Size = new System.Drawing.Size(29, 24);
             this.documentMapStripButton.Text = "Document map";
             this.documentMapStripButton.Click += new System.EventHandler(this.documentMapStripButton_Click);
+            // 
+            // wordWrapToolStripButton
+            // 
+            this.wordWrapToolStripButton.Checked = true;
+            this.wordWrapToolStripButton.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.wordWrapToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.wordWrapToolStripButton.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.wordWrapToolStripButton.Image = global::Code.Editor.Properties.Resources.word_wrap_image;
+            this.wordWrapToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.wordWrapToolStripButton.Name = "wordWrapToolStripButton";
+            this.wordWrapToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.wordWrapToolStripButton.Text = "Word wrap";
+            this.wordWrapToolStripButton.Click += new System.EventHandler(this.wordWrapToolStripButton_Click);
             // 
             // toolStripSeparator
             // 
@@ -1151,5 +1167,6 @@ namespace Code.Editor
         private ToolStripMenuItem startWritingMacrosToolStripMenuItem;
         private ToolStripMenuItem stopMacrosRecordingToolStripMenuItem;
         private ToolStripMenuItem executeMacrosToolStripMenuItem;
+        private ToolStripButton wordWrapToolStripButton;
     }
 }

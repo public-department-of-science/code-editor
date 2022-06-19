@@ -34,9 +34,11 @@
                     languageToolStripMenuItem.Enabled = true;
 
                     documentMapStripButton.Enabled = true;
-                    documentMapSplitter.Visible= true;
+                    documentMapSplitter.Visible = true;
                     documentMapSplitter.Enabled = true;
                     documentMap.Target = CurrentTextBox;
+
+                    wordWrapToolStripButton.Enabled = true;
                 }
                 else
                 {
@@ -66,9 +68,11 @@
                     languageToolStripMenuItem.Enabled = false;
 
                     documentMapStripButton.Enabled = false;
-                    documentMapSplitter.Visible= true;
+                    documentMapSplitter.Visible = false;
                     documentMapSplitter.Enabled = false;
                     documentMap.Target = null;
+
+                    wordWrapToolStripButton.Enabled = false;
                 }
             }
             catch (Exception ex)
