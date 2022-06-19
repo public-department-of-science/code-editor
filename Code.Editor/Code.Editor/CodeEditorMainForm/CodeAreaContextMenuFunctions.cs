@@ -1,4 +1,6 @@
-﻿namespace Code.Editor
+﻿using FastColoredTextBoxNS;
+
+namespace Code.Editor
 {
     public partial class CodeEditorMainForm
     {
@@ -95,12 +97,21 @@
 
         private void markAsReadonlyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CurrentTextBox.Selection.ReadOnly = true;
 
+            TextChangedEventArgs eventArgs = new TextChangedEventArgs(CurrentTextBox.Selection);
+
+            eventArgs.ChangedRange.ClearStyle(readOnlyStyle);
+            eventArgs.ChangedRange.SetStyle(readOnlyStyle);
         }
 
         private void markAsWriteableToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CurrentTextBox.Selection.ReadOnly = false;
 
+            TextChangedEventArgs eventArgs = new TextChangedEventArgs(CurrentTextBox.Selection);
+
+            eventArgs.ChangedRange.ClearStyle(readOnlyStyle);
         }
     }
 }

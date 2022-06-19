@@ -10,6 +10,8 @@ namespace Code.Editor
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        private ReadOnlyStyle readOnlyStyle;
+
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -32,6 +34,8 @@ namespace Code.Editor
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+
+            readOnlyStyle = new ReadOnlyStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeEditorMainForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -186,7 +190,7 @@ namespace Code.Editor
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.S)));
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.saveAsToolStripMenuItem.Text = "Save as ...";

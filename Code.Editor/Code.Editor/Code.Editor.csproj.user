@@ -19,6 +19,9 @@
     <Compile Update="CodeEditorMainForm\ObjectExplorerFunction.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CodeEditorMainForm\ReadOnlyStyle.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CodeEditorMainForm\RunMenuFunctions.cs">
       <SubType>Form</SubType>
     </Compile>

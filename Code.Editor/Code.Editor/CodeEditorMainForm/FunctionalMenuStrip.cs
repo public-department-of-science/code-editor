@@ -540,6 +540,8 @@ namespace Code.Editor
 
         #endregion
 
+        #region Document map button
+
         private void documentMapStripButton_Click(object sender, EventArgs e)
         {
             documentMap.Visible = !documentMap.Visible;
@@ -553,5 +555,7 @@ namespace Code.Editor
                 documentMapStripButton.CheckState = CheckState.Unchecked;
             }
         }
+
+        #endregion
     }
 }
