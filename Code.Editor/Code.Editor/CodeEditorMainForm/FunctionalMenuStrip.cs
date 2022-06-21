@@ -2,6 +2,7 @@
 using FarsiLibrary.Win;
 using FastColoredTextBoxNS;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace Code.Editor
@@ -99,6 +100,16 @@ namespace Code.Editor
 
             //show invisible chars
             HighlightInvisibleChars(e.ChangedRange);
+
+            HighlightHyperLinks(e.ChangedRange);
+        }
+
+        private void HighlightHyperLinks(FastColoredTextBoxNS.Range changedRange)
+        {
+            changedRange.ClearStyle(hyperLinksStyle);
+            changedRange.SetStyle(hyperLinksStyle, @"(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?");
+
+
         }
 
         private void HighlightInvisibleChars(FastColoredTextBoxNS.Range range)
@@ -176,6 +187,7 @@ namespace Code.Editor
                 newTextBox.SelectionChangedDelayed += new EventHandler(tb_SelectionChangedDelayed);
                 newTextBox.KeyDown += new KeyEventHandler(tb_KeyDown);
                 newTextBox.MouseMove += new MouseEventHandler(tb_MouseMove);
+                newTextBox.MouseDown += new MouseEventHandler(tb_MouseDown);
                 newTextBox.ChangedLineColor = changedLineColor;
                 if (buttonHighlightCurrentLine.Checked)
                 {
@@ -199,6 +211,24 @@ namespace Code.Editor
                 {
                     CreateTab(fileName);
                 }
+            }
+        }
+
+        private void tb_MouseDown(object sender, MouseEventArgs e)
+        {
+            var p = CurrentTextBox.PointToPlace(e.Location);
+            if (CharIsHyperlink(p))
+            {
+                var url = CurrentTextBox.GetRange(p, p).GetFragment(@"[\S]").Text.ToString();
+                if ((url.StartsWith("http:") || url.StartsWith("https:")) == false)
+                {
+                    throw new Exception("The hyper link must starts with the protocol to use symbols.");
+                }
+
+                var processStartInfo = new ProcessStartInfo();
+                processStartInfo.UseShellExecute = true;
+                processStartInfo.FileName = url;
+                Process.Start(processStartInfo);
             }
         }
 
@@ -297,6 +327,34 @@ namespace Code.Editor
 
             string text = range.GetFragment("[a-zA-Z]").Text;
             labelWordUnderMouse.Text = text;
+
+            tb_MouseMoveCursorChangeOnHyperLink(sender, e);
+        }
+
+        private void tb_MouseMoveCursorChangeOnHyperLink(object sender, MouseEventArgs e)
+        {
+            var p = CurrentTextBox.PointToPlace(e.Location);
+            if (CharIsHyperlink(p))
+            {
+                CurrentTextBox.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                CurrentTextBox.Cursor = Cursors.IBeam;
+            }
+        }
+
+        private bool CharIsHyperlink(Place place)
+        {
+            var mask = CurrentTextBox.GetStyleIndexMask(new Style[] { hyperLinksStyle });
+            if (place.iChar < CurrentTextBox.GetLineLength(place.iLine))
+            {
+                if ((CurrentTextBox[place].style & mask) != 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void tb_KeyDown(object sender, KeyEventArgs e)

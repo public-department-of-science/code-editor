@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastColoredTextBoxNS;
+using System;
 
 namespace Code.Editor
 {
@@ -11,6 +12,8 @@ namespace Code.Editor
         private System.ComponentModel.IContainer components = null;
 
         private ReadOnlyStyle readOnlyStyle = new ReadOnlyStyle();
+        private TextStyle hyperLinksStyle = new TextStyle(Brushes.Blue, null, FontStyle.Underline);
+
 
         /// <summary>
         /// Clean up any resources being used.
@@ -150,7 +153,7 @@ namespace Code.Editor
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
-            this.menuStrip.Size = new System.Drawing.Size(937, 30);
+            this.menuStrip.Size = new System.Drawing.Size(956, 30);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -193,7 +196,7 @@ namespace Code.Editor
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.S)));
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.saveAsToolStripMenuItem.Text = "Save as ...";
@@ -350,11 +353,11 @@ namespace Code.Editor
             // 
             this.documentMap.Dock = System.Windows.Forms.DockStyle.Right;
             this.documentMap.ForeColor = System.Drawing.Color.Maroon;
-            this.documentMap.Location = new System.Drawing.Point(937, 0);
+            this.documentMap.Location = new System.Drawing.Point(956, 0);
             this.documentMap.Margin = new System.Windows.Forms.Padding(4);
             this.documentMap.MaximumSize = new System.Drawing.Size(400, 0);
             this.documentMap.Name = "documentMap";
-            this.documentMap.Size = new System.Drawing.Size(200, 530);
+            this.documentMap.Size = new System.Drawing.Size(200, 593);
             this.documentMap.TabIndex = 1;
             this.documentMap.Target = null;
             this.documentMap.Text = "documentMap";
@@ -366,10 +369,10 @@ namespace Code.Editor
             this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelWordUnderMouse,
             this.buttonZoom});
-            this.mainStatusStrip.Location = new System.Drawing.Point(0, 504);
+            this.mainStatusStrip.Location = new System.Drawing.Point(0, 567);
             this.mainStatusStrip.Name = "mainStatusStrip";
             this.mainStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.mainStatusStrip.Size = new System.Drawing.Size(937, 26);
+            this.mainStatusStrip.Size = new System.Drawing.Size(956, 26);
             this.mainStatusStrip.TabIndex = 2;
             this.mainStatusStrip.Text = "statusStrip1";
             // 
@@ -378,7 +381,7 @@ namespace Code.Editor
             this.labelWordUnderMouse.AutoSize = false;
             this.labelWordUnderMouse.ForeColor = System.Drawing.Color.Gray;
             this.labelWordUnderMouse.Name = "labelWordUnderMouse";
-            this.labelWordUnderMouse.Size = new System.Drawing.Size(849, 20);
+            this.labelWordUnderMouse.Size = new System.Drawing.Size(868, 20);
             this.labelWordUnderMouse.Spring = true;
             this.labelWordUnderMouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -483,7 +486,7 @@ namespace Code.Editor
             this.toolStripMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(937, 27);
+            this.toolStripMenu.Size = new System.Drawing.Size(956, 27);
             this.toolStripMenu.TabIndex = 3;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -785,7 +788,7 @@ namespace Code.Editor
             this.openFilesTabs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.openFilesTabs.Name = "openFilesTabs";
             this.openFilesTabs.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
-            this.openFilesTabs.Size = new System.Drawing.Size(704, 447);
+            this.openFilesTabs.Size = new System.Drawing.Size(723, 510);
             this.openFilesTabs.TabIndex = 0;
             this.openFilesTabs.Text = "faTabStrip1";
             this.openFilesTabs.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
@@ -796,7 +799,7 @@ namespace Code.Editor
             this.splitter1.Location = new System.Drawing.Point(229, 57);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 447);
+            this.splitter1.Size = new System.Drawing.Size(4, 510);
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
@@ -997,7 +1000,7 @@ namespace Code.Editor
             this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Green;
             this.datagridviewerObjectExplorer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.datagridviewerObjectExplorer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 447);
+            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 510);
             this.datagridviewerObjectExplorer.TabIndex = 6;
             this.datagridviewerObjectExplorer.VirtualMode = true;
             this.datagridviewerObjectExplorer.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvObjectExplorer_CellMouseDoubleClick);
@@ -1031,9 +1034,9 @@ namespace Code.Editor
             // documentMapSplitter
             // 
             this.documentMapSplitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.documentMapSplitter.Location = new System.Drawing.Point(933, 57);
+            this.documentMapSplitter.Location = new System.Drawing.Point(952, 57);
             this.documentMapSplitter.Name = "documentMapSplitter";
-            this.documentMapSplitter.Size = new System.Drawing.Size(4, 447);
+            this.documentMapSplitter.Size = new System.Drawing.Size(4, 510);
             this.documentMapSplitter.TabIndex = 7;
             this.documentMapSplitter.TabStop = false;
             // 
@@ -1041,7 +1044,7 @@ namespace Code.Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1137, 530);
+            this.ClientSize = new System.Drawing.Size(1156, 593);
             this.Controls.Add(this.documentMapSplitter);
             this.Controls.Add(this.openFilesTabs);
             this.Controls.Add(this.splitter1);
