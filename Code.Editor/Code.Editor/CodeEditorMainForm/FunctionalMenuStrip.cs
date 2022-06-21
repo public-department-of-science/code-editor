@@ -165,6 +165,7 @@ namespace Code.Editor
                 newTextBox.LeftPadding = 17;
                 var selectedLanguage = GetCurrentLanguageByTag();
                 newTextBox.Language = selectedLanguage;
+                newTextBox.AutoCompleteBrackets = true;
                 newTextBox.AddStyle(sameWordsStyle);//same words style
                 var newFileTab = new FATabStripItem(
                     string.IsNullOrWhiteSpace(fileName) == false
