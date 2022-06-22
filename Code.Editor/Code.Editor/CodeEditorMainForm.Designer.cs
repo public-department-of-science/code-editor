@@ -11,9 +11,9 @@ namespace Code.Editor
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        private ReadOnlyStyle readOnlyStyle = new ReadOnlyStyle();
-        private TextStyle hyperLinksStyle = new TextStyle(Brushes.Blue, null, FontStyle.Underline);
-        private CodeEditorSettings codeEditorSettings = new CodeEditorSettings();
+        private static ReadOnlyStyle readOnlyStyle = new ReadOnlyStyle();
+        private static TextStyle hyperLinksStyle = new TextStyle(Brushes.Blue, null, FontStyle.Underline);
+        private static CodeEditorSettings codeEditorSettings = new CodeEditorSettings();
 
         /// <summary>
         /// Clean up any resources being used.
@@ -58,6 +58,14 @@ namespace Code.Editor
             this.lUALangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jSONLangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hotKeysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.codeareaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.codeareaBgColorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentMapBgColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.objectexplorerBgColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opentabPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentMap = new FastColoredTextBoxNS.DocumentMap();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.labelWordUnderMouse = new System.Windows.Forms.ToolStripStatusLabel();
@@ -132,6 +140,7 @@ namespace Code.Editor
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
             this.documentMapSplitter = new System.Windows.Forms.Splitter();
+            this.restoreDefaultColorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -145,7 +154,8 @@ namespace Code.Editor
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.runToolStripMenuItem});
+            this.runToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
@@ -192,7 +202,7 @@ namespace Code.Editor
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
             | System.Windows.Forms.Keys.S)));
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.saveAsToolStripMenuItem.Text = "Save as ...";
@@ -316,10 +326,74 @@ namespace Code.Editor
             this.vBToolStripMenuItem.Text = "VB";
             this.vBToolStripMenuItem.Click += new System.EventHandler(this.vBLangToolStripMenuItem_Click);
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hotKeysToolStripMenuItem,
+            this.backgroundToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // hotKeysToolStripMenuItem
+            // 
+            this.hotKeysToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.codeareaToolStripMenuItem});
+            this.hotKeysToolStripMenuItem.Name = "hotKeysToolStripMenuItem";
+            this.hotKeysToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.hotKeysToolStripMenuItem.Text = "HotKeys - Binding";
+            // 
+            // codeareaToolStripMenuItem
+            // 
+            this.codeareaToolStripMenuItem.Name = "codeareaToolStripMenuItem";
+            this.codeareaToolStripMenuItem.Size = new System.Drawing.Size(162, 26);
+            this.codeareaToolStripMenuItem.Text = "Code-area";
+            // 
+            // backgroundToolStripMenuItem
+            // 
+            this.backgroundToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.codeareaBgColorToolStripMenuItem1,
+            this.documentMapBgColorToolStripMenuItem,
+            this.objectexplorerBgColorToolStripMenuItem,
+            this.opentabPanelToolStripMenuItem,
+            this.restoreDefaultColorsToolStripMenuItem});
+            this.backgroundToolStripMenuItem.Name = "backgroundToolStripMenuItem";
+            this.backgroundToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.backgroundToolStripMenuItem.Text = "Background-Color";
+            // 
+            // codeareaBgColorToolStripMenuItem1
+            // 
+            this.codeareaBgColorToolStripMenuItem1.Name = "codeareaBgColorToolStripMenuItem1";
+            this.codeareaBgColorToolStripMenuItem1.Size = new System.Drawing.Size(237, 26);
+            this.codeareaBgColorToolStripMenuItem1.Text = "Code-area";
+            this.codeareaBgColorToolStripMenuItem1.Click += new System.EventHandler(this.codeareaToolStripMenuItem1_Click);
+            // 
+            // documentMapBgColorToolStripMenuItem
+            // 
+            this.documentMapBgColorToolStripMenuItem.Name = "documentMapBgColorToolStripMenuItem";
+            this.documentMapBgColorToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.documentMapBgColorToolStripMenuItem.Text = "Document-Map";
+            this.documentMapBgColorToolStripMenuItem.Click += new System.EventHandler(this.documentMapToolStripMenuItem_Click);
+            // 
+            // objectexplorerBgColorToolStripMenuItem
+            // 
+            this.objectexplorerBgColorToolStripMenuItem.Name = "objectexplorerBgColorToolStripMenuItem";
+            this.objectexplorerBgColorToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.objectexplorerBgColorToolStripMenuItem.Text = "Object-explorer";
+            this.objectexplorerBgColorToolStripMenuItem.Click += new System.EventHandler(this.objectexplorerToolStripMenuItem_Click);
+            // 
+            // opentabPanelToolStripMenuItem
+            // 
+            this.opentabPanelToolStripMenuItem.Name = "opentabPanelToolStripMenuItem";
+            this.opentabPanelToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.opentabPanelToolStripMenuItem.Text = "Open-files tabs";
+            this.opentabPanelToolStripMenuItem.Click += new System.EventHandler(this.opentabPanelToolStripMenuItem_Click);
+            // 
             // documentMap
             // 
             this.documentMap.Dock = System.Windows.Forms.DockStyle.Right;
             this.documentMap.ForeColor = System.Drawing.Color.Maroon;
+            this.documentMap.BackColor = codeEditorSettings.documentMapBackGround;
             this.documentMap.Location = new System.Drawing.Point(956, 0);
             this.documentMap.Margin = new System.Windows.Forms.Padding(4);
             this.documentMap.MaximumSize = new System.Drawing.Size(400, 0);
@@ -752,6 +826,7 @@ namespace Code.Editor
             this.openFilesTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.openFilesTabs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.openFilesTabs.Location = new System.Drawing.Point(233, 57);
+            this.openFilesTabs.BackColor = codeEditorSettings.openFilesTabsBackColor;
             this.openFilesTabs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.openFilesTabs.Name = "openFilesTabs";
             this.openFilesTabs.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
@@ -943,7 +1018,7 @@ namespace Code.Editor
             this.datagridviewerObjectExplorer.AllowUserToDeleteRows = false;
             this.datagridviewerObjectExplorer.AllowUserToResizeColumns = false;
             this.datagridviewerObjectExplorer.AllowUserToResizeRows = false;
-            this.datagridviewerObjectExplorer.BackgroundColor = System.Drawing.Color.White;
+            this.datagridviewerObjectExplorer.BackgroundColor = codeEditorSettings.objectExplorerBackGround;
             this.datagridviewerObjectExplorer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.datagridviewerObjectExplorer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridviewerObjectExplorer.ColumnHeadersVisible = false;
@@ -952,7 +1027,7 @@ namespace Code.Editor
             this.datagridviewerTextBoxColumn});
             this.datagridviewerObjectExplorer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.datagridviewerObjectExplorer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.datagridviewerObjectExplorer.GridColor = System.Drawing.Color.White;
+            this.datagridviewerObjectExplorer.GridColor = codeEditorSettings.objectExplorerBackGround;
             this.datagridviewerObjectExplorer.Location = new System.Drawing.Point(0, 57);
             this.datagridviewerObjectExplorer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.datagridviewerObjectExplorer.MultiSelect = false;
@@ -1004,6 +1079,13 @@ namespace Code.Editor
             this.documentMapSplitter.Size = new System.Drawing.Size(4, 510);
             this.documentMapSplitter.TabIndex = 7;
             this.documentMapSplitter.TabStop = false;
+            // 
+            // restoreDefaultColorsToolStripMenuItem
+            // 
+            this.restoreDefaultColorsToolStripMenuItem.Name = "restoreDefaultColorsToolStripMenuItem";
+            this.restoreDefaultColorsToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.restoreDefaultColorsToolStripMenuItem.Text = "Restore default colors";
+            this.restoreDefaultColorsToolStripMenuItem.Click += new System.EventHandler(this.restoreDefaultColorsToolStripMenuItem_Click);
             // 
             // CodeEditorMainForm
             // 
@@ -1134,5 +1216,14 @@ namespace Code.Editor
         private FastColoredTextBoxNS.DocumentMap documentMap;
         private Splitter documentMapSplitter;
         private ToolStripButton wordWrapToolStripButton;
+        private ToolStripMenuItem settingsToolStripMenuItem;
+        private ToolStripMenuItem hotKeysToolStripMenuItem;
+        private ToolStripMenuItem codeareaToolStripMenuItem;
+        private ToolStripMenuItem backgroundToolStripMenuItem;
+        private ToolStripMenuItem codeareaBgColorToolStripMenuItem1;
+        private ToolStripMenuItem documentMapBgColorToolStripMenuItem;
+        private ToolStripMenuItem objectexplorerBgColorToolStripMenuItem;
+        private ToolStripMenuItem opentabPanelToolStripMenuItem;
+        private ToolStripMenuItem restoreDefaultColorsToolStripMenuItem;
     }
 }

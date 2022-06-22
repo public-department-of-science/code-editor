@@ -172,15 +172,14 @@ namespace Code.Editor
                     ? Path.GetFileName(fileName)
                     : "[new]", newTextBox);
 
-                //var t = new HotkeysMapping();
-
-                //HotkeysEditorForm hotkeysEditorForm = new HotkeysEditorForm(t);
-                //hotkeysEditorForm.ShowDialog();
-                //newTextBox.HotkeysMapping = hotkeysEditorForm.GetHotkeys();
-                var t = codeEditorSettings.HotKeys;
-
-                newTextBox.Hotkeys = t;
-
+                if (codeEditorSettings != null)
+                {
+                    if (string.IsNullOrWhiteSpace(codeEditorSettings.HotKeysDefault) == false)
+                    {
+                        newTextBox.Hotkeys = codeEditorSettings.HotKeysDefault;
+                    }
+                    newTextBox.BackColor = codeEditorSettings.codeAreaBackGround;
+                }
 
                 newFileTab.Tag = fileName;
 

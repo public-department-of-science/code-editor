@@ -68,9 +68,12 @@
                     languageToolStripMenuItem.Enabled = false;
 
                     documentMapStripButton.Enabled = false;
+                    documentMapStripButton.Checked = false;
+                    
                     documentMapSplitter.Visible = false;
                     documentMapSplitter.Enabled = false;
                     documentMap.Target = null;
+                    documentMap.Visible = false;
 
                     wordWrapToolStripButton.Enabled = false;
                 }

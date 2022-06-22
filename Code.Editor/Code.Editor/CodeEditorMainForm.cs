@@ -162,5 +162,96 @@ namespace Code.Editor
                 openFilesTabs.RemoveTab(tab);
             }
         }
+
+        private void objectexplorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDlg = new ColorDialog();
+            colorDlg.AllowFullOpen = false;
+            colorDlg.AnyColor = true;
+            colorDlg.SolidColorOnly = false;
+            colorDlg.Color = Color.FloralWhite;
+
+            if (colorDlg.ShowDialog() == DialogResult.OK)
+            {
+                var selectedColor = colorDlg.Color;
+                codeEditorSettings.objectExplorerBackGround = selectedColor;
+                datagridviewerObjectExplorer.BackgroundColor = selectedColor;
+                codeEditorSettings.Save();
+            }
+        }
+
+        private void codeareaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDlg = new ColorDialog();
+            colorDlg.AllowFullOpen = false;
+            colorDlg.AnyColor = true;
+            colorDlg.SolidColorOnly = false;
+            colorDlg.Color = Color.FloralWhite;
+
+            if (colorDlg.ShowDialog() == DialogResult.OK)
+            {
+                var selectedColor = colorDlg.Color;
+                codeEditorSettings.codeAreaBackGround = selectedColor;
+                if (CurrentTextBox != null)
+                {
+                    CurrentTextBox.BackColor = selectedColor;
+                }
+                codeEditorSettings.Save();
+            }
+        }
+
+        private void documentMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDlg = new ColorDialog();
+            colorDlg.AllowFullOpen = false;
+            colorDlg.AnyColor = true;
+            colorDlg.SolidColorOnly = false;
+            colorDlg.Color = Color.FloralWhite;
+
+            if (colorDlg.ShowDialog() == DialogResult.OK)
+            {
+                var selectedColor = colorDlg.Color;
+                codeEditorSettings.documentMapBackGround = selectedColor;
+                documentMap.BackColor = selectedColor;
+
+                codeEditorSettings.Save();
+            }
+        }
+
+        private void opentabPanelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDlg = new ColorDialog();
+            colorDlg.AllowFullOpen = false;
+            colorDlg.AnyColor = true;
+            colorDlg.SolidColorOnly = false;
+            colorDlg.Color = Color.FloralWhite;
+
+            if (colorDlg.ShowDialog() == DialogResult.OK)
+            {
+                var selectedColor = colorDlg.Color;
+                codeEditorSettings.openFilesTabsBackColor = selectedColor;
+                openFilesTabs.BackColor = selectedColor;
+
+                codeEditorSettings.Save();
+            }
+        }
+
+        private void restoreDefaultColorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (codeEditorSettings != null)
+            {
+                codeEditorSettings.codeAreaBackGround = codeEditorSettings.codeAreaBackGroundDefault;
+                codeEditorSettings.documentMapBackGround = codeEditorSettings.documentMapBackGroundDefault;
+                codeEditorSettings.openFilesTabsBackColor = codeEditorSettings.openFilesTabsBackColorDefault;
+                codeEditorSettings.objectExplorerBackGround = codeEditorSettings.objectExplorerBackGroundDefault;
+
+                codeEditorSettings.Save();
+
+                CurrentTextBox.BackColor = codeEditorSettings.codeAreaBackGroundDefault;
+                openFilesTabs.BackColor = codeEditorSettings.codeAreaBackGroundDefault;
+                documentMap.BackColor = codeEditorSettings.documentMapBackGroundDefault;
+                datagridviewerObjectExplorer.BackgroundColor = codeEditorSettings.objectExplorerBackGroundDefault;
+            }
+        }
     }
 }
