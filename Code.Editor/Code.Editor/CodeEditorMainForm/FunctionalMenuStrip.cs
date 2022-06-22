@@ -172,7 +172,18 @@ namespace Code.Editor
                     ? Path.GetFileName(fileName)
                     : "[new]", newTextBox);
 
+                //var t = new HotkeysMapping();
+
+                //HotkeysEditorForm hotkeysEditorForm = new HotkeysEditorForm(t);
+                //hotkeysEditorForm.ShowDialog();
+                //newTextBox.HotkeysMapping = hotkeysEditorForm.GetHotkeys();
+                var t = codeEditorSettings.HotKeys;
+
+                newTextBox.Hotkeys = t;
+
+
                 newFileTab.Tag = fileName;
+
                 if (string.IsNullOrWhiteSpace(fileName) == false)
                 {
                     newTextBox.OpenFile(fileName);

@@ -13,7 +13,7 @@ namespace Code.Editor
 
         private ReadOnlyStyle readOnlyStyle = new ReadOnlyStyle();
         private TextStyle hyperLinksStyle = new TextStyle(Brushes.Blue, null, FontStyle.Underline);
-
+        private CodeEditorSettings codeEditorSettings = new CodeEditorSettings();
 
         /// <summary>
         /// Clean up any resources being used.
@@ -233,13 +233,13 @@ namespace Code.Editor
             this.jSONLangToolStripMenuItem,
             this.vBToolStripMenuItem});
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
             this.languageToolStripMenuItem.Text = "Language";
             // 
             // customLangToolStripMenuItem
             // 
             this.customLangToolStripMenuItem.Name = "customLangToolStripMenuItem";
-            this.customLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.customLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.customLangToolStripMenuItem.Tag = "Custom";
             this.customLangToolStripMenuItem.Text = "Custom";
             this.customLangToolStripMenuItem.Click += new System.EventHandler(this.customLangToolStripMenuItem_Click);
@@ -247,7 +247,7 @@ namespace Code.Editor
             // cSharpLangToolStripMenuItem
             // 
             this.cSharpLangToolStripMenuItem.Name = "cSharpLangToolStripMenuItem";
-            this.cSharpLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cSharpLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.cSharpLangToolStripMenuItem.Tag = "C#";
             this.cSharpLangToolStripMenuItem.Text = "C#";
             this.cSharpLangToolStripMenuItem.Click += new System.EventHandler(this.cSharpLangToolStripMenuItem_Click);
@@ -255,7 +255,7 @@ namespace Code.Editor
             // hTMLLangToolStripMenuItem
             // 
             this.hTMLLangToolStripMenuItem.Name = "hTMLLangToolStripMenuItem";
-            this.hTMLLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.hTMLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.hTMLLangToolStripMenuItem.Tag = "HTML";
             this.hTMLLangToolStripMenuItem.Text = "HTML";
             this.hTMLLangToolStripMenuItem.Click += new System.EventHandler(this.hTMLLangToolStripMenuItem_Click);
@@ -263,7 +263,7 @@ namespace Code.Editor
             // xMLLangToolStripMenuItem
             // 
             this.xMLLangToolStripMenuItem.Name = "xMLLangToolStripMenuItem";
-            this.xMLLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.xMLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.xMLLangToolStripMenuItem.Tag = "XML";
             this.xMLLangToolStripMenuItem.Text = "XML";
             this.xMLLangToolStripMenuItem.Click += new System.EventHandler(this.xMLLangToolStripMenuItem_Click);
@@ -271,7 +271,7 @@ namespace Code.Editor
             // sQLLangToolStripMenuItem
             // 
             this.sQLLangToolStripMenuItem.Name = "sQLLangToolStripMenuItem";
-            this.sQLLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sQLLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.sQLLangToolStripMenuItem.Tag = "SQL";
             this.sQLLangToolStripMenuItem.Text = "SQL";
             this.sQLLangToolStripMenuItem.Click += new System.EventHandler(this.sQLLangToolStripMenuItem_Click);
@@ -279,7 +279,7 @@ namespace Code.Editor
             // pHPLangToolStripMenuItem
             // 
             this.pHPLangToolStripMenuItem.Name = "pHPLangToolStripMenuItem";
-            this.pHPLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pHPLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.pHPLangToolStripMenuItem.Tag = "PHP";
             this.pHPLangToolStripMenuItem.Text = "PHP";
             this.pHPLangToolStripMenuItem.Click += new System.EventHandler(this.pHPLangToolStripMenuItem_Click);
@@ -287,7 +287,7 @@ namespace Code.Editor
             // jSLangToolStripMenuItem
             // 
             this.jSLangToolStripMenuItem.Name = "jSLangToolStripMenuItem";
-            this.jSLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jSLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.jSLangToolStripMenuItem.Tag = "JS";
             this.jSLangToolStripMenuItem.Text = "JS";
             this.jSLangToolStripMenuItem.Click += new System.EventHandler(this.jSLangToolStripMenuItem_Click);
@@ -295,7 +295,7 @@ namespace Code.Editor
             // lUALangToolStripMenuItem
             // 
             this.lUALangToolStripMenuItem.Name = "lUALangToolStripMenuItem";
-            this.lUALangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.lUALangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.lUALangToolStripMenuItem.Tag = "LUA";
             this.lUALangToolStripMenuItem.Text = "LUA";
             this.lUALangToolStripMenuItem.Click += new System.EventHandler(this.lUALangToolStripMenuItem_Click);
@@ -303,7 +303,7 @@ namespace Code.Editor
             // jSONLangToolStripMenuItem
             // 
             this.jSONLangToolStripMenuItem.Name = "jSONLangToolStripMenuItem";
-            this.jSONLangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jSONLangToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.jSONLangToolStripMenuItem.Tag = "JSON";
             this.jSONLangToolStripMenuItem.Text = "JSON";
             this.jSONLangToolStripMenuItem.Click += new System.EventHandler(this.jSONLangToolStripMenuItem_Click);
@@ -311,7 +311,7 @@ namespace Code.Editor
             // vBToolStripMenuItem
             // 
             this.vBToolStripMenuItem.Name = "vBToolStripMenuItem";
-            this.vBToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.vBToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.vBToolStripMenuItem.Tag = "VB";
             this.vBToolStripMenuItem.Text = "VB";
             this.vBToolStripMenuItem.Click += new System.EventHandler(this.vBLangToolStripMenuItem_Click);
@@ -804,132 +804,130 @@ namespace Code.Editor
             this.cloneLinesToolStripMenuItem,
             this.cloneLinesAndCommentToolStripMenuItem});
             this.codeAreaContextMenu.Name = "cmMain";
-            this.codeAreaContextMenu.Size = new System.Drawing.Size(271, 388);
+            this.codeAreaContextMenu.Size = new System.Drawing.Size(257, 388);
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.cutToolStripMenuItem.Text = "Cut";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.pasteToolStripMenuItem.Text = "Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.selectAllToolStripMenuItem.Text = "Select all";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
             // codeAreaContextMenuSeparator
             // 
             this.codeAreaContextMenuSeparator.Name = "codeAreaContextMenuSeparator";
-            this.codeAreaContextMenuSeparator.Size = new System.Drawing.Size(267, 6);
+            this.codeAreaContextMenuSeparator.Size = new System.Drawing.Size(253, 6);
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.redoToolStripMenuItem.Text = "Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // codeAreaContextMenuSeparator1
             // 
             this.codeAreaContextMenuSeparator1.Name = "codeAreaContextMenuSeparator1";
-            this.codeAreaContextMenuSeparator1.Size = new System.Drawing.Size(267, 6);
+            this.codeAreaContextMenuSeparator1.Size = new System.Drawing.Size(253, 6);
             // 
             // findToolStripMenuItem
             // 
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.findToolStripMenuItem.Text = "Find";
             this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
             // replaceToolStripMenuItem
             // 
             this.replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
-            this.replaceToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.replaceToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.replaceToolStripMenuItem.Text = "Replace";
             this.replaceToolStripMenuItem.Click += new System.EventHandler(this.replaceToolStripMenuItem_Click);
             // 
             // codeAreaContextMenuSeparator2
             // 
             this.codeAreaContextMenuSeparator2.Name = "codeAreaContextMenuSeparator2";
-            this.codeAreaContextMenuSeparator2.Size = new System.Drawing.Size(267, 6);
+            this.codeAreaContextMenuSeparator2.Size = new System.Drawing.Size(253, 6);
             // 
             // markAsReadonlyToolStripMenuItem
             // 
             this.markAsReadonlyToolStripMenuItem.Name = "markAsReadonlyToolStripMenuItem";
-            this.markAsReadonlyToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.markAsReadonlyToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.markAsReadonlyToolStripMenuItem.Text = "Mark text as \'read-only\'";
             this.markAsReadonlyToolStripMenuItem.Click += new System.EventHandler(this.markAsReadonlyToolStripMenuItem_Click);
             // 
             // markAsWriteableToolStripMenuItem
             // 
             this.markAsWriteableToolStripMenuItem.Name = "markAsWriteableToolStripMenuItem";
-            this.markAsWriteableToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.markAsWriteableToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.markAsWriteableToolStripMenuItem.Text = "Mark text as \'writable\'";
             this.markAsWriteableToolStripMenuItem.Click += new System.EventHandler(this.markAsWriteableToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(267, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(253, 6);
             // 
             // autoIndentSelectedTextToolStripMenuItem
             // 
             this.autoIndentSelectedTextToolStripMenuItem.Name = "autoIndentSelectedTextToolStripMenuItem";
-            this.autoIndentSelectedTextToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.autoIndentSelectedTextToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.autoIndentSelectedTextToolStripMenuItem.Text = "AutoIndent selected text";
             this.autoIndentSelectedTextToolStripMenuItem.Click += new System.EventHandler(this.autoIndentSelectedTextToolStripMenuItem_Click);
             // 
             // commentSelectedToolStripMenuItem
             // 
             this.commentSelectedToolStripMenuItem.Name = "commentSelectedToolStripMenuItem";
-            this.commentSelectedToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.commentSelectedToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.commentSelectedToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.commentSelectedToolStripMenuItem.Text = "Comment selected";
             this.commentSelectedToolStripMenuItem.Click += new System.EventHandler(this.commentSelectedToolStripMenuItem_Click);
             // 
             // uncommentSelectedToolStripMenuItem
             // 
             this.uncommentSelectedToolStripMenuItem.Name = "uncommentSelectedToolStripMenuItem";
-            this.uncommentSelectedToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.uncommentSelectedToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.uncommentSelectedToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.uncommentSelectedToolStripMenuItem.Text = "Uncomment selected";
             this.uncommentSelectedToolStripMenuItem.Click += new System.EventHandler(this.uncommentSelectedToolStripMenuItem_Click);
             // 
             // cloneLinesToolStripMenuItem
             // 
             this.cloneLinesToolStripMenuItem.Name = "cloneLinesToolStripMenuItem";
-            this.cloneLinesToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.cloneLinesToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.cloneLinesToolStripMenuItem.Text = "Clone line(s)";
             this.cloneLinesToolStripMenuItem.Click += new System.EventHandler(this.cloneLinesToolStripMenuItem_Click);
             // 
             // cloneLinesAndCommentToolStripMenuItem
             // 
             this.cloneLinesAndCommentToolStripMenuItem.Name = "cloneLinesAndCommentToolStripMenuItem";
-            this.cloneLinesAndCommentToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
+            this.cloneLinesAndCommentToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.cloneLinesAndCommentToolStripMenuItem.Text = "Clone line(s) and comment";
             this.cloneLinesAndCommentToolStripMenuItem.Click += new System.EventHandler(this.cloneLinesAndCommentToolStripMenuItem_Click);
             // 
