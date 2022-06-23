@@ -143,6 +143,11 @@ namespace Code.Editor
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
             this.documentMapSplitter = new System.Windows.Forms.Splitter();
+            this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.terminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outputTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.traceLoggingTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorsTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -157,7 +162,8 @@ namespace Code.Editor
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.runToolStripMenuItem,
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.windowsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
@@ -1101,6 +1107,42 @@ namespace Code.Editor
             this.documentMapSplitter.TabIndex = 7;
             this.documentMapSplitter.TabStop = false;
             // 
+            // windowsToolStripMenuItem
+            // 
+            this.windowsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.terminalToolStripMenuItem});
+            this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
+            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.windowsToolStripMenuItem.Text = "Windows";
+            // 
+            // terminalToolStripMenuItem
+            // 
+            this.terminalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.outputTerminalToolStripMenuItem,
+            this.traceLoggingTerminalToolStripMenuItem,
+            this.errorsTerminalToolStripMenuItem});
+            this.terminalToolStripMenuItem.Name = "terminalToolStripMenuItem";
+            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.terminalToolStripMenuItem.Text = "Terminal";
+            // 
+            // outputTerminalToolStripMenuItem
+            // 
+            this.outputTerminalToolStripMenuItem.Name = "outputTerminalToolStripMenuItem";
+            this.outputTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.outputTerminalToolStripMenuItem.Text = "Output terminal";
+            // 
+            // traceLoggingTerminalToolStripMenuItem
+            // 
+            this.traceLoggingTerminalToolStripMenuItem.Name = "traceLoggingTerminalToolStripMenuItem";
+            this.traceLoggingTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.traceLoggingTerminalToolStripMenuItem.Text = "Trace-Logging terminal";
+            // 
+            // errorsTerminalToolStripMenuItem
+            // 
+            this.errorsTerminalToolStripMenuItem.Name = "errorsTerminalToolStripMenuItem";
+            this.errorsTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.errorsTerminalToolStripMenuItem.Text = "Errors terminal";
+            // 
             // CodeEditorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1241,5 +1283,10 @@ namespace Code.Editor
         private ToolStripMenuItem restoreDefaultColorsToolStripMenuItem;
         private ToolStripMenuItem restoreDefaultToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator11;
+        private ToolStripMenuItem windowsToolStripMenuItem;
+        private ToolStripMenuItem terminalToolStripMenuItem;
+        private ToolStripMenuItem outputTerminalToolStripMenuItem;
+        private ToolStripMenuItem traceLoggingTerminalToolStripMenuItem;
+        private ToolStripMenuItem errorsTerminalToolStripMenuItem;
     }
 }
