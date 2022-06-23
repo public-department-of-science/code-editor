@@ -25,6 +25,9 @@
     <Compile Update="CodeEditorMainForm\SelectionFunction.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CodeEditorMainForm\SettingsMenuFunctions.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CodeEditorMainForm\Timer.cs">
       <SubType>Form</SubType>
     </Compile>

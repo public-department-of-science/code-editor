@@ -142,6 +142,7 @@ namespace Code.Editor
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
             this.documentMapSplitter = new System.Windows.Forms.Splitter();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -342,20 +343,20 @@ namespace Code.Editor
             this.customizeCodeAreaHotKeysToolStripMenuItem,
             this.restoreDefaultToolStripMenuItem});
             this.hotKeysToolStripMenuItem.Name = "hotKeysToolStripMenuItem";
-            this.hotKeysToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.hotKeysToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.hotKeysToolStripMenuItem.Text = "HotKeys - Binding";
             // 
-            // codeareaToolStripMenuItem
+            // customizeCodeAreaHotKeysToolStripMenuItem
             // 
-            this.customizeCodeAreaHotKeysToolStripMenuItem.Name = "codeareaToolStripMenuItem";
-            this.customizeCodeAreaHotKeysToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.customizeCodeAreaHotKeysToolStripMenuItem.Name = "customizeCodeAreaHotKeysToolStripMenuItem";
+            this.customizeCodeAreaHotKeysToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.customizeCodeAreaHotKeysToolStripMenuItem.Text = "Code-area";
             this.customizeCodeAreaHotKeysToolStripMenuItem.Click += new System.EventHandler(this.customizeCodeAreaHotKeysToolStripMenuItem_Click);
             // 
             // restoreDefaultToolStripMenuItem
             // 
             this.restoreDefaultToolStripMenuItem.Name = "restoreDefaultToolStripMenuItem";
-            this.restoreDefaultToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.restoreDefaultToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.restoreDefaultToolStripMenuItem.Text = "Restore default";
             this.restoreDefaultToolStripMenuItem.Click += new System.EventHandler(this.restoreDefaultCodeAreaHotKeysToolStripMenuItem_Click);
             // 
@@ -368,7 +369,7 @@ namespace Code.Editor
             this.opentabPanelToolStripMenuItem,
             this.restoreDefaultColorsToolStripMenuItem});
             this.backgroundToolStripMenuItem.Name = "backgroundToolStripMenuItem";
-            this.backgroundToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.backgroundToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.backgroundToolStripMenuItem.Text = "Background-Color";
             // 
             // codeareaBgColorToolStripMenuItem1
@@ -527,8 +528,9 @@ namespace Code.Editor
             this.toolStripSeparator5,
             this.buttonBackwardStrip,
             this.buttonForwardStrip,
-            this.textboxFind,
+            this.toolStripSeparator11,
             this.labelFindStrip,
+            this.textboxFind,
             this.toolStripSeparator6,
             this.buttonBookmarkPlus,
             this.buttonBookmarkMinus,
@@ -1093,6 +1095,11 @@ namespace Code.Editor
             this.documentMapSplitter.TabIndex = 7;
             this.documentMapSplitter.TabStop = false;
             // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 23);
+            // 
             // CodeEditorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1232,5 +1239,6 @@ namespace Code.Editor
         private ToolStripMenuItem opentabPanelToolStripMenuItem;
         private ToolStripMenuItem restoreDefaultColorsToolStripMenuItem;
         private ToolStripMenuItem restoreDefaultToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator11;
     }
 }
