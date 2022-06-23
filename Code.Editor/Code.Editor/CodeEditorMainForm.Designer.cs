@@ -376,28 +376,28 @@ namespace Code.Editor
             this.codeareaBgColorToolStripMenuItem1.Name = "codeareaBgColorToolStripMenuItem1";
             this.codeareaBgColorToolStripMenuItem1.Size = new System.Drawing.Size(237, 26);
             this.codeareaBgColorToolStripMenuItem1.Text = "Code-area";
-            this.codeareaBgColorToolStripMenuItem1.Click += new System.EventHandler(this.codeareaToolStripMenuItem1_Click);
+            this.codeareaBgColorToolStripMenuItem1.Click += new System.EventHandler(this.codeareaColorToolStripMenuItem1_Click);
             // 
             // documentMapBgColorToolStripMenuItem
             // 
             this.documentMapBgColorToolStripMenuItem.Name = "documentMapBgColorToolStripMenuItem";
             this.documentMapBgColorToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.documentMapBgColorToolStripMenuItem.Text = "Document-Map";
-            this.documentMapBgColorToolStripMenuItem.Click += new System.EventHandler(this.documentMapToolStripMenuItem_Click);
+            this.documentMapBgColorToolStripMenuItem.Click += new System.EventHandler(this.documentMapColorToolStripMenuItem_Click);
             // 
             // objectexplorerBgColorToolStripMenuItem
             // 
             this.objectexplorerBgColorToolStripMenuItem.Name = "objectexplorerBgColorToolStripMenuItem";
             this.objectexplorerBgColorToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.objectexplorerBgColorToolStripMenuItem.Text = "Object-explorer";
-            this.objectexplorerBgColorToolStripMenuItem.Click += new System.EventHandler(this.objectexplorerToolStripMenuItem_Click);
+            this.objectexplorerBgColorToolStripMenuItem.Click += new System.EventHandler(this.objectexplorerColorToolStripMenuItem_Click);
             // 
             // opentabPanelToolStripMenuItem
             // 
             this.opentabPanelToolStripMenuItem.Name = "opentabPanelToolStripMenuItem";
             this.opentabPanelToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.opentabPanelToolStripMenuItem.Text = "Open-files tabs";
-            this.opentabPanelToolStripMenuItem.Click += new System.EventHandler(this.opentabPanelToolStripMenuItem_Click);
+            this.opentabPanelToolStripMenuItem.Click += new System.EventHandler(this.opentabColorPanelToolStripMenuItem_Click);
             // 
             // restoreDefaultColorsToolStripMenuItem
             // 
