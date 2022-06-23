@@ -109,6 +109,11 @@ namespace Code.Editor
             }
         }
 
+        /// <summary>
+        /// Save text information the file
+        /// </summary>
+        /// <param name="selectedTab"></param>
+        /// <returns>True - if saved; False - if not saved</returns>
         private bool Save(FATabStripItem selectedTab)
         {
             var tb = (selectedTab.Controls[0] as FastColoredTextBox);

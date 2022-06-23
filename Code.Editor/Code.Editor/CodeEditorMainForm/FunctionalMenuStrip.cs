@@ -166,6 +166,8 @@ namespace Code.Editor
                 }
                 documentMap.Target = newTextBox;
                 newTextBox.WordWrap = true;
+                newTextBox.ShowCaretWhenInactive = true;
+                newTextBox.CustomAction += NewTextBox_CustomAction;
                 newTextBox.Font = new Font("Consolas", 9.75f);
                 newTextBox.ContextMenuStrip = codeAreaContextMenu;
                 newTextBox.Dock = DockStyle.Fill;
@@ -221,6 +223,34 @@ namespace Code.Editor
                 {
                     CreateTab(fileName);
                 }
+            }
+        }
+
+        private void NewTextBox_CustomAction(object? sender, CustomActionEventArgs eventHappend)
+        {
+            if (CurrentTextBox.IsChanged)
+            {
+                switch (MessageBox.Show("Do you want save " + CurrentTextBox.Name + " ?",
+                    "Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
+                {
+                    case DialogResult.Yes:
+                        {
+                            if (Save(openFilesTabs.SelectedItem) == true)
+                            {
+                                openFilesTabs.RemoveTab(openFilesTabs.SelectedItem);
+                                return;
+                            }
+                            break;
+                        }
+                    case DialogResult.Cancel:
+                        {
+                            break;
+                        }
+                }
+            }
+            else
+            {
+                openFilesTabs.RemoveTab(openFilesTabs.SelectedItem);
             }
         }
 
