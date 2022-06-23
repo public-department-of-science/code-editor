@@ -96,8 +96,9 @@ namespace Code.Editor
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.buttonBackwardStrip = new System.Windows.Forms.ToolStripButton();
             this.buttonForwardStrip = new System.Windows.Forms.ToolStripButton();
-            this.textboxFind = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.labelFindStrip = new System.Windows.Forms.ToolStripLabel();
+            this.textboxFind = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.buttonBookmarkPlus = new System.Windows.Forms.ToolStripButton();
             this.buttonBookmarkMinus = new System.Windows.Forms.ToolStripButton();
@@ -142,7 +143,6 @@ namespace Code.Editor
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
             this.documentMapSplitter = new System.Windows.Forms.Splitter();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -545,7 +545,7 @@ namespace Code.Editor
             this.toolStripMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(956, 27);
+            this.toolStripMenu.Size = new System.Drawing.Size(956, 51);
             this.toolStripMenu.TabIndex = 3;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -711,13 +711,10 @@ namespace Code.Editor
             this.buttonForwardStrip.Text = "Navigate Forward (Ctrl+Shift+ -)";
             this.buttonForwardStrip.Click += new System.EventHandler(this.forwardStripButton_Click);
             // 
-            // textboxFind
+            // toolStripSeparator11
             // 
-            this.textboxFind.AcceptsReturn = true;
-            this.textboxFind.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.textboxFind.Name = "textboxFind";
-            this.textboxFind.Size = new System.Drawing.Size(132, 27);
-            this.textboxFind.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFind_KeyPress);
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 23);
             // 
             // labelFindStrip
             // 
@@ -725,6 +722,14 @@ namespace Code.Editor
             this.labelFindStrip.Name = "labelFindStrip";
             this.labelFindStrip.Size = new System.Drawing.Size(44, 20);
             this.labelFindStrip.Text = "Find: ";
+            // 
+            // textboxFind
+            // 
+            this.textboxFind.AcceptsReturn = true;
+            this.textboxFind.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.textboxFind.Name = "textboxFind";
+            this.textboxFind.Size = new System.Drawing.Size(132, 27);
+            this.textboxFind.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFind_KeyPress);
             // 
             // toolStripSeparator6
             // 
@@ -843,11 +848,11 @@ namespace Code.Editor
             // 
             this.openFilesTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.openFilesTabs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.openFilesTabs.Location = new System.Drawing.Point(233, 57);
+            this.openFilesTabs.Location = new System.Drawing.Point(233, 81);
             this.openFilesTabs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.openFilesTabs.Name = "openFilesTabs";
             this.openFilesTabs.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
-            this.openFilesTabs.Size = new System.Drawing.Size(723, 510);
+            this.openFilesTabs.Size = new System.Drawing.Size(723, 486);
             this.openFilesTabs.TabIndex = 0;
             this.openFilesTabs.Text = "faTabStrip1";
             this.openFilesTabs.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
@@ -855,10 +860,10 @@ namespace Code.Editor
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(229, 57);
+            this.splitter1.Location = new System.Drawing.Point(229, 81);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 510);
+            this.splitter1.Size = new System.Drawing.Size(4, 486);
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
@@ -1043,7 +1048,7 @@ namespace Code.Editor
             this.datagridviewerTextBoxColumn});
             this.datagridviewerObjectExplorer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.datagridviewerObjectExplorer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.datagridviewerObjectExplorer.Location = new System.Drawing.Point(0, 57);
+            this.datagridviewerObjectExplorer.Location = new System.Drawing.Point(0, 81);
             this.datagridviewerObjectExplorer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.datagridviewerObjectExplorer.MultiSelect = false;
             this.datagridviewerObjectExplorer.Name = "datagridviewerObjectExplorer";
@@ -1055,7 +1060,7 @@ namespace Code.Editor
             this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Green;
             this.datagridviewerObjectExplorer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.datagridviewerObjectExplorer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 510);
+            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 486);
             this.datagridviewerObjectExplorer.TabIndex = 6;
             this.datagridviewerObjectExplorer.VirtualMode = true;
             this.datagridviewerObjectExplorer.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvObjectExplorer_CellMouseDoubleClick);
@@ -1089,16 +1094,11 @@ namespace Code.Editor
             // documentMapSplitter
             // 
             this.documentMapSplitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.documentMapSplitter.Location = new System.Drawing.Point(952, 57);
+            this.documentMapSplitter.Location = new System.Drawing.Point(952, 81);
             this.documentMapSplitter.Name = "documentMapSplitter";
-            this.documentMapSplitter.Size = new System.Drawing.Size(4, 510);
+            this.documentMapSplitter.Size = new System.Drawing.Size(4, 486);
             this.documentMapSplitter.TabIndex = 7;
             this.documentMapSplitter.TabStop = false;
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 23);
             // 
             // CodeEditorMainForm
             // 

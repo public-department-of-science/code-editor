@@ -546,7 +546,7 @@ namespace Code.Editor
                     CurrentTextBox.DoSelectionVisible();
                     return;
                 }
-                MessageBox.Show("Not found.");
+                tbFindChanged = true;
             }
             else
             {
