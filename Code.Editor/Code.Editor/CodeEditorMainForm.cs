@@ -247,10 +247,69 @@ namespace Code.Editor
 
                 codeEditorSettings.Save();
 
-                CurrentTextBox.BackColor = codeEditorSettings.codeAreaBackGroundDefault;
+                if (CurrentTextBox != null)
+                {
+                    CurrentTextBox.BackColor = codeEditorSettings.codeAreaBackGroundDefault;
+                }
                 openFilesTabs.BackColor = codeEditorSettings.codeAreaBackGroundDefault;
                 documentMap.BackColor = codeEditorSettings.documentMapBackGroundDefault;
                 datagridviewerObjectExplorer.BackgroundColor = codeEditorSettings.objectExplorerBackGroundDefault;
+            }
+        }
+
+        private void customizeCodeAreaHotKeysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(codeEditorSettings.HotKeys) == false)
+            {
+                var userKeysMapping = HotkeysMapping.Parse(codeEditorSettings.HotKeys);
+                HotkeysEditorForm hotkeysEditorForm = new HotkeysEditorForm(userKeysMapping);
+                if (hotkeysEditorForm.ShowDialog() == DialogResult.OK)
+                {
+                    codeEditorSettings.HotKeys = hotkeysEditorForm.GetHotkeys().ToString();
+                    codeEditorSettings.Save();
+                    UpdateOpenTabs(false);
+                }
+            }
+            else
+            {
+                HotkeysEditorForm hotkeysEditorForm = new HotkeysEditorForm(new HotkeysMapping());
+                if (hotkeysEditorForm.ShowDialog() == DialogResult.OK)
+                {
+                    codeEditorSettings.HotKeys = hotkeysEditorForm.GetHotkeys().ToString();
+                    codeEditorSettings.Save();
+                    UpdateOpenTabs(false);
+                }
+            }
+        }
+
+        private void restoreDefaultCodeAreaHotKeysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (codeEditorSettings != null)
+            {
+                codeEditorSettings.HotKeys = codeEditorSettings.HotKeysDefault;
+            }
+            UpdateOpenTabs(true);
+        }
+
+        private void UpdateOpenTabs(bool isDefault)
+        {
+            if (openFilesTabs.Items.Count > 0)
+            {
+                foreach (FATabStripItem item in openFilesTabs.Items)
+                {
+                    var tab = item.Controls[0] as FastColoredTextBox;
+                    if (tab != null)
+                    {
+                        if (isDefault == true)
+                        {
+                            tab.HotkeysMapping = HotkeysMapping.Parse(codeEditorSettings.HotKeys);
+                        }
+                        else
+                        {
+                            tab.HotkeysMapping = HotkeysMapping.Parse(codeEditorSettings.HotKeysDefault);
+                        }
+                    }
+                }
             }
         }
     }

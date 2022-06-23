@@ -155,13 +155,22 @@ namespace Code.Editor
             try
             {
                 var newTextBox = new FastColoredTextBox();
+                if (codeEditorSettings != null)
+                {
+                    if (string.IsNullOrWhiteSpace(codeEditorSettings.HotKeys) == false)
+                    {
+                        var hotKeysMapping = HotkeysMapping.Parse(codeEditorSettings.HotKeys);
+                        newTextBox.HotkeysMapping = hotKeysMapping;
+                    }
+                    newTextBox.BackColor = codeEditorSettings.codeAreaBackGround;
+                }
+
                 documentMap.Target = newTextBox;
                 newTextBox.WordWrap = true;
                 newTextBox.Font = new Font("Consolas", 9.75f);
                 newTextBox.ContextMenuStrip = codeAreaContextMenu;
                 newTextBox.Dock = DockStyle.Fill;
                 newTextBox.BorderStyle = BorderStyle.Fixed3D;
-                //tb.VirtualSpace = true;
                 newTextBox.LeftPadding = 17;
                 var selectedLanguage = GetCurrentLanguageByTag();
                 newTextBox.Language = selectedLanguage;
@@ -171,15 +180,6 @@ namespace Code.Editor
                     string.IsNullOrWhiteSpace(fileName) == false
                     ? Path.GetFileName(fileName)
                     : "[new]", newTextBox);
-
-                if (codeEditorSettings != null)
-                {
-                    if (string.IsNullOrWhiteSpace(codeEditorSettings.HotKeysDefault) == false)
-                    {
-                        newTextBox.Hotkeys = codeEditorSettings.HotKeysDefault;
-                    }
-                    newTextBox.BackColor = codeEditorSettings.codeAreaBackGround;
-                }
 
                 newFileTab.Tag = fileName;
 
