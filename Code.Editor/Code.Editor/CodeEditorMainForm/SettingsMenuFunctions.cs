@@ -8,7 +8,7 @@ namespace Code.Editor
         private void objectexplorerColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog colorDlg = new ColorDialog();
-            colorDlg.AllowFullOpen = false;
+            colorDlg.AllowFullOpen = true;
             colorDlg.AnyColor = true;
             colorDlg.SolidColorOnly = false;
             colorDlg.Color = Color.FloralWhite;
@@ -25,7 +25,7 @@ namespace Code.Editor
         private void codeareaColorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ColorDialog colorDlg = new ColorDialog();
-            colorDlg.AllowFullOpen = false;
+            colorDlg.AllowFullOpen = true;
             colorDlg.AnyColor = true;
             colorDlg.SolidColorOnly = false;
             colorDlg.Color = Color.FloralWhite;
@@ -45,7 +45,7 @@ namespace Code.Editor
         private void documentMapColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog colorDlg = new ColorDialog();
-            colorDlg.AllowFullOpen = false;
+            colorDlg.AllowFullOpen = true;
             colorDlg.AnyColor = true;
             colorDlg.SolidColorOnly = false;
             colorDlg.Color = Color.FloralWhite;
@@ -63,7 +63,7 @@ namespace Code.Editor
         private void opentabColorPanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog colorDlg = new ColorDialog();
-            colorDlg.AllowFullOpen = false;
+            colorDlg.AllowFullOpen = true;
             colorDlg.AnyColor = true;
             colorDlg.SolidColorOnly = false;
             colorDlg.Color = Color.FloralWhite;

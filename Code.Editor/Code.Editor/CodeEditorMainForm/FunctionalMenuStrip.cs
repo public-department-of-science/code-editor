@@ -164,7 +164,6 @@ namespace Code.Editor
                     }
                     newTextBox.BackColor = codeEditorSettings.codeAreaBackGround;
                 }
-
                 documentMap.Target = newTextBox;
                 newTextBox.WordWrap = true;
                 newTextBox.Font = new Font("Consolas", 9.75f);
