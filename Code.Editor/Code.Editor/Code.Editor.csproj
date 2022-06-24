@@ -46,6 +46,9 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>CodeEditorSettings.settings</DependentUpon>
 	  </Compile>
+	  <Compile Update="Terminal\LoggingTerminal.cs">
+	    <SubType>Form</SubType>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>

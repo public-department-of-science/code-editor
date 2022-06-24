@@ -1,4 +1,5 @@
 ﻿using Code.Editor.Merge;
+using Code.Editor.Terminal;
 using FarsiLibrary.Win;
 using FastColoredTextBoxNS;
 using System.ComponentModel;
@@ -180,8 +181,13 @@ namespace Code.Editor
 
         private void compareTwoFilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             var mergeFilesForm = new DiffMergeForm();
+            var mergeFilesForm = new DiffMergeForm();
             mergeFilesForm.Show();
+        }
+
+        private void loggingTerminalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new LoggingTerminal().Show();
         }
     }
 }

@@ -71,7 +71,7 @@ namespace Code.Editor
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.terminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outputTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.traceLoggingTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loggingTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorsTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compareTwoFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -429,28 +429,29 @@ namespace Code.Editor
             // 
             this.terminalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.outputTerminalToolStripMenuItem,
-            this.traceLoggingTerminalToolStripMenuItem,
+            this.loggingTerminalToolStripMenuItem,
             this.errorsTerminalToolStripMenuItem});
             this.terminalToolStripMenuItem.Name = "terminalToolStripMenuItem";
-            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
+            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.terminalToolStripMenuItem.Text = "Terminal";
             // 
             // outputTerminalToolStripMenuItem
             // 
             this.outputTerminalToolStripMenuItem.Name = "outputTerminalToolStripMenuItem";
-            this.outputTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.outputTerminalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.outputTerminalToolStripMenuItem.Text = "Output terminal";
             // 
-            // traceLoggingTerminalToolStripMenuItem
+            // loggingTerminalToolStripMenuItem
             // 
-            this.traceLoggingTerminalToolStripMenuItem.Name = "traceLoggingTerminalToolStripMenuItem";
-            this.traceLoggingTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
-            this.traceLoggingTerminalToolStripMenuItem.Text = "Trace-Logging terminal";
+            this.loggingTerminalToolStripMenuItem.Name = "loggingTerminalToolStripMenuItem";
+            this.loggingTerminalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.loggingTerminalToolStripMenuItem.Text = "Logging terminal";
+            this.loggingTerminalToolStripMenuItem.Click += new System.EventHandler(this.loggingTerminalToolStripMenuItem_Click);
             // 
             // errorsTerminalToolStripMenuItem
             // 
             this.errorsTerminalToolStripMenuItem.Name = "errorsTerminalToolStripMenuItem";
-            this.errorsTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.errorsTerminalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.errorsTerminalToolStripMenuItem.Text = "Errors terminal";
             // 
             // toolsToolStripMenuItem
@@ -464,7 +465,7 @@ namespace Code.Editor
             // compareTwoFilesToolStripMenuItem
             // 
             this.compareTwoFilesToolStripMenuItem.Name = "compareTwoFilesToolStripMenuItem";
-            this.compareTwoFilesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.compareTwoFilesToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.compareTwoFilesToolStripMenuItem.Text = "Merge Files";
             this.compareTwoFilesToolStripMenuItem.Click += new System.EventHandler(this.compareTwoFilesToolStripMenuItem_Click);
             // 
@@ -1304,7 +1305,7 @@ namespace Code.Editor
         private ToolStripMenuItem windowsToolStripMenuItem;
         private ToolStripMenuItem terminalToolStripMenuItem;
         private ToolStripMenuItem outputTerminalToolStripMenuItem;
-        private ToolStripMenuItem traceLoggingTerminalToolStripMenuItem;
+        private ToolStripMenuItem loggingTerminalToolStripMenuItem;
         private ToolStripMenuItem errorsTerminalToolStripMenuItem;
         private ToolStripMenuItem toolsToolStripMenuItem;
         private ToolStripMenuItem compareTwoFilesToolStripMenuItem;
