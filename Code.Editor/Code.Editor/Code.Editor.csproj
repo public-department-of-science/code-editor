@@ -9,6 +9,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="CodeEditorMainForm.Designer.cs~RF13c38e1.TMP" />
+	  <None Remove="CodeEditorMainForm.resx~RF14b1fb3.TMP" />
 	  <None Remove="CodeEditorMainForm\SelectionFunction.cs~RF32eba5.TMP" />
 	</ItemGroup>
 
@@ -33,6 +35,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Merge\DiffMergeForm.cs" />
 	  <Compile Update="Properties\Resources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>

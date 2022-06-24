@@ -68,6 +68,13 @@ namespace Code.Editor
             this.objectexplorerBgColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opentabPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreDefaultColorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.terminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outputTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.traceLoggingTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorsTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compareTwoFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentMap = new FastColoredTextBoxNS.DocumentMap();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.labelWordUnderMouse = new System.Windows.Forms.ToolStripStatusLabel();
@@ -143,11 +150,6 @@ namespace Code.Editor
             this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
             this.documentMapSplitter = new System.Windows.Forms.Splitter();
-            this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.terminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.outputTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.traceLoggingTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.errorsTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -163,7 +165,8 @@ namespace Code.Editor
             this.fileToolStripMenuItem,
             this.runToolStripMenuItem,
             this.settingsToolStripMenuItem,
-            this.windowsToolStripMenuItem});
+            this.windowsToolStripMenuItem,
+            this.toolsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
@@ -211,7 +214,7 @@ namespace Code.Editor
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.S)));
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.saveAsToolStripMenuItem.Text = "Save as ...";
@@ -413,6 +416,57 @@ namespace Code.Editor
             this.restoreDefaultColorsToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.restoreDefaultColorsToolStripMenuItem.Text = "Restore default colors";
             this.restoreDefaultColorsToolStripMenuItem.Click += new System.EventHandler(this.restoreDefaultColorsToolStripMenuItem_Click);
+            // 
+            // windowsToolStripMenuItem
+            // 
+            this.windowsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.terminalToolStripMenuItem});
+            this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
+            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.windowsToolStripMenuItem.Text = "Windows";
+            // 
+            // terminalToolStripMenuItem
+            // 
+            this.terminalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.outputTerminalToolStripMenuItem,
+            this.traceLoggingTerminalToolStripMenuItem,
+            this.errorsTerminalToolStripMenuItem});
+            this.terminalToolStripMenuItem.Name = "terminalToolStripMenuItem";
+            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
+            this.terminalToolStripMenuItem.Text = "Terminal";
+            // 
+            // outputTerminalToolStripMenuItem
+            // 
+            this.outputTerminalToolStripMenuItem.Name = "outputTerminalToolStripMenuItem";
+            this.outputTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.outputTerminalToolStripMenuItem.Text = "Output terminal";
+            // 
+            // traceLoggingTerminalToolStripMenuItem
+            // 
+            this.traceLoggingTerminalToolStripMenuItem.Name = "traceLoggingTerminalToolStripMenuItem";
+            this.traceLoggingTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.traceLoggingTerminalToolStripMenuItem.Text = "Trace-Logging terminal";
+            // 
+            // errorsTerminalToolStripMenuItem
+            // 
+            this.errorsTerminalToolStripMenuItem.Name = "errorsTerminalToolStripMenuItem";
+            this.errorsTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.errorsTerminalToolStripMenuItem.Text = "Errors terminal";
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.compareTwoFilesToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // compareTwoFilesToolStripMenuItem
+            // 
+            this.compareTwoFilesToolStripMenuItem.Name = "compareTwoFilesToolStripMenuItem";
+            this.compareTwoFilesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.compareTwoFilesToolStripMenuItem.Text = "Merge Files";
+            this.compareTwoFilesToolStripMenuItem.Click += new System.EventHandler(this.compareTwoFilesToolStripMenuItem_Click);
             // 
             // documentMap
             // 
@@ -862,7 +916,6 @@ namespace Code.Editor
             this.openFilesTabs.Size = new System.Drawing.Size(723, 510);
             this.openFilesTabs.TabIndex = 0;
             this.openFilesTabs.Text = "faTabStrip1";
-            this.openFilesTabs.KeyDown += OpenFilesTabs_KeyDown;
             this.openFilesTabs.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
             this.openFilesTabs.TabStripItemSelectionChanged += new FarsiLibrary.Win.TabStripItemChangedHandler(this.tsFiles_TabStripItemSelectionChanged);
             // 
@@ -1108,42 +1161,6 @@ namespace Code.Editor
             this.documentMapSplitter.TabIndex = 7;
             this.documentMapSplitter.TabStop = false;
             // 
-            // windowsToolStripMenuItem
-            // 
-            this.windowsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.terminalToolStripMenuItem});
-            this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
-            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
-            this.windowsToolStripMenuItem.Text = "Windows";
-            // 
-            // terminalToolStripMenuItem
-            // 
-            this.terminalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.outputTerminalToolStripMenuItem,
-            this.traceLoggingTerminalToolStripMenuItem,
-            this.errorsTerminalToolStripMenuItem});
-            this.terminalToolStripMenuItem.Name = "terminalToolStripMenuItem";
-            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.terminalToolStripMenuItem.Text = "Terminal";
-            // 
-            // outputTerminalToolStripMenuItem
-            // 
-            this.outputTerminalToolStripMenuItem.Name = "outputTerminalToolStripMenuItem";
-            this.outputTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
-            this.outputTerminalToolStripMenuItem.Text = "Output terminal";
-            // 
-            // traceLoggingTerminalToolStripMenuItem
-            // 
-            this.traceLoggingTerminalToolStripMenuItem.Name = "traceLoggingTerminalToolStripMenuItem";
-            this.traceLoggingTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
-            this.traceLoggingTerminalToolStripMenuItem.Text = "Trace-Logging terminal";
-            // 
-            // errorsTerminalToolStripMenuItem
-            // 
-            this.errorsTerminalToolStripMenuItem.Name = "errorsTerminalToolStripMenuItem";
-            this.errorsTerminalToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
-            this.errorsTerminalToolStripMenuItem.Text = "Errors terminal";
-            // 
             // CodeEditorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1289,5 +1306,7 @@ namespace Code.Editor
         private ToolStripMenuItem outputTerminalToolStripMenuItem;
         private ToolStripMenuItem traceLoggingTerminalToolStripMenuItem;
         private ToolStripMenuItem errorsTerminalToolStripMenuItem;
+        private ToolStripMenuItem toolsToolStripMenuItem;
+        private ToolStripMenuItem compareTwoFilesToolStripMenuItem;
     }
 }

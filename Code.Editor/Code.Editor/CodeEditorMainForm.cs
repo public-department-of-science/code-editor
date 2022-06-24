@@ -1,4 +1,5 @@
-﻿using FarsiLibrary.Win;
+﻿using Code.Editor.Merge;
+using FarsiLibrary.Win;
 using FastColoredTextBoxNS;
 using System.ComponentModel;
 
@@ -175,6 +176,12 @@ namespace Code.Editor
                 newTabButton_Click(sender, e);
                 e.Handled = true;
             }
+        }
+
+        private void compareTwoFilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+             var mergeFilesForm = new DiffMergeForm();
+            mergeFilesForm.Show();
         }
     }
 }
