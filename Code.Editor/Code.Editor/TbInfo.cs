@@ -1,6 +1,5 @@
 ﻿using FastColoredTextBoxNS;
 
-
 namespace Code.Editor
 {
     public class TextBoxInfo

@@ -38,7 +38,7 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>Resources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="CodeEditorSettings.Designer.cs">
+	  <Compile Update="Settings\CodeEditorSettings.Designer.cs">
 	    <DesignTimeSharedInput>True</DesignTimeSharedInput>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>CodeEditorSettings.settings</DependentUpon>
@@ -56,7 +56,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="CodeEditorSettings.settings">
+	  <None Update="Settings\CodeEditorSettings.settings">
 	    <Generator>SettingsSingleFileGenerator</Generator>
 	    <LastGenOutput>CodeEditorSettings.Designer.cs</LastGenOutput>
 	  </None>
