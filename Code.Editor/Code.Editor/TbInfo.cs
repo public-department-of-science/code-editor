@@ -5,6 +5,7 @@ namespace Code.Editor
 {
     public class TbInfo
     {
-        public AutocompleteMenu popupMenu;
+        public AutocompleteMenu syntaxMembersPopupMenu;
+        public AutocompleteMenu randomWordsPopupMenu;
     }
 }

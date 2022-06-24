@@ -208,7 +208,7 @@ namespace Code.Editor
                 newTextBox.ShowFoldingLines = buttonShowFoldingLines.Checked;
                 newTextBox.HighlightingRangeType = HighlightingRangeType.VisibleRange;
 
-                //create autocomplete popup menu
+                //create autocomplete syntax members popup menu
                 AutocompleteMenu popupMenu = new AutocompleteMenu(newTextBox)
                 {
                     SelectedColor = Color.Purple,
@@ -219,8 +219,20 @@ namespace Code.Editor
                 popupMenu.Items.ImageList = imageListAutocomplete;
                 popupMenu.Opening += new EventHandler<CancelEventArgs>(popupMenu_Opening);
                 BuildAutocompleteMenu(popupMenu);
+                (newTextBox.Tag as TbInfo).syntaxMembersPopupMenu = popupMenu;
 
-                (newTextBox.Tag as TbInfo).popupMenu = popupMenu;
+                //create autocomplete for random words menu
+                AutocompleteMenu randomWordsPopupMenu = new AutocompleteMenu(newTextBox)
+                {
+                    SelectedColor = Color.Green,
+                    BackColor = Color.White,
+                    ForeColor = Color.Black,
+                };
+
+                randomWordsPopupMenu.Items.ImageList = imageListAutocomplete;
+                randomWordsPopupMenu.Opening += new EventHandler<CancelEventArgs>(popupMenu_Opening);
+                BuildAutocompleteRandomWordsMenu(randomWordsPopupMenu);
+                (newTextBox.Tag as TbInfo).randomWordsPopupMenu = randomWordsPopupMenu;
             }
             catch (Exception ex)
             {
@@ -357,6 +369,28 @@ namespace Code.Editor
             popupMenu.SearchPattern = @"[\w\.:=!<>]";
         }
 
+        private void BuildAutocompleteRandomWordsMenu(AutocompleteMenu popupMenu)
+        {
+            //create autocomplete popup menu
+            popupMenu.MinFragmentLength = 2;
+
+            //generate 456976 words
+            var randomWords = new List<string>();
+            int codeA = Convert.ToInt32('a');
+            for (int i = 0; i < 26; i++)
+                for (int j = 0; j < 26; j++)
+                    for (int k = 0; k < 26; k++)
+                        for (int l = 0; l < 26; l++)
+                            randomWords.Add(
+                                new string(new char[] { Convert.ToChar(i + codeA), Convert.ToChar(j + codeA), Convert.ToChar(k + codeA), Convert.ToChar(l + codeA) }));
+
+            //set words as autocomplete source
+            popupMenu.Items.SetAutocompleteItems(randomWords);
+            //size of popupmenu
+            popupMenu.Items.MaximumSize = new System.Drawing.Size(200, 300);
+            popupMenu.Items.Width = 200;
+        }
+
         private void popupMenu_Opening(object sender, CancelEventArgs e)
         {
             //---block autocomplete menu for comments
@@ -431,10 +465,17 @@ namespace Code.Editor
                 e.Handled = true;
             }
 
-            if (e.KeyData == (Keys.K | Keys.Control))
+            if (e.KeyData == (Keys.Control | Keys.K))
             {
                 //forced show (MinFragmentLength will be ignored)
-                (CurrentTextBox.Tag as TbInfo).popupMenu.Show(true);
+                (CurrentTextBox.Tag as TbInfo).syntaxMembersPopupMenu.Show(true);
+                e.Handled = true;
+            }
+
+            if (e.KeyData == (Keys.Control | Keys.R))
+            {
+                //forced show (MinFragmentLength will be ignored)
+                (CurrentTextBox.Tag as TbInfo).randomWordsPopupMenu.Show(true);
                 e.Handled = true;
             }
         }
