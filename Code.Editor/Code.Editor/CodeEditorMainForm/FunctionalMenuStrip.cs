@@ -167,7 +167,7 @@ namespace Code.Editor
                 documentMap.Target = newTextBox;
                 newTextBox.WordWrap = true;
                 newTextBox.ShowCaretWhenInactive = true;
-                newTextBox.CustomAction += NewTextBox_CustomAction;
+                newTextBox.CustomAction += closeOpenTabByHotKey_CustomAction;
                 newTextBox.Font = new Font("Consolas", 9.75f);
                 newTextBox.ContextMenuStrip = codeAreaContextMenu;
                 newTextBox.Dock = DockStyle.Fill;
@@ -211,7 +211,7 @@ namespace Code.Editor
                 //create autocomplete popup menu
                 AutocompleteMenu popupMenu = new AutocompleteMenu(newTextBox)
                 {
-                    SelectedColor  = Color.Purple,
+                    SelectedColor = Color.Purple,
                     BackColor = Color.NavajoWhite,
                     ForeColor = Color.Blue,
                 };
@@ -232,7 +232,7 @@ namespace Code.Editor
             }
         }
 
-        private void NewTextBox_CustomAction(object? sender, CustomActionEventArgs eventHappend)
+        private void closeOpenTabByHotKey_CustomAction(object? sender, CustomActionEventArgs eventHappend)
         {
             if (CurrentTextBox.IsChanged)
             {
@@ -250,6 +250,11 @@ namespace Code.Editor
                         }
                     case DialogResult.Cancel:
                         {
+                            break;
+                        }
+                    case DialogResult.No:
+                        {
+                            openFilesTabs.RemoveTab(openFilesTabs.SelectedItem);
                             break;
                         }
                 }
