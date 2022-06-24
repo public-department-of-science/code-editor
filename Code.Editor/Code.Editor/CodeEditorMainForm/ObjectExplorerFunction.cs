@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using Code.Editor.Explorer;
+using System.Text.RegularExpressions;
 
 namespace Code.Editor
 {

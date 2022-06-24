@@ -189,7 +189,7 @@ namespace Code.Editor
                     newTextBox.OpenFile(fileName);
                 }
 
-                newTextBox.Tag = new TbInfo();
+                newTextBox.Tag = new TextBoxInfo();
                 openFilesTabs.AddTab(newFileTab);
                 openFilesTabs.SelectedItem = newFileTab;
                 newTextBox.Focus();
@@ -219,7 +219,7 @@ namespace Code.Editor
                 popupMenu.Items.ImageList = imageListAutocomplete;
                 popupMenu.Opening += new EventHandler<CancelEventArgs>(popupMenu_Opening);
                 BuildAutocompleteMenu(popupMenu);
-                (newTextBox.Tag as TbInfo).syntaxMembersPopupMenu = popupMenu;
+                (newTextBox.Tag as TextBoxInfo).syntaxMembersPopupMenu = popupMenu;
 
                 //create autocomplete for random words menu
                 AutocompleteMenu randomWordsPopupMenu = new AutocompleteMenu(newTextBox)
@@ -232,7 +232,7 @@ namespace Code.Editor
                 randomWordsPopupMenu.Items.ImageList = imageListAutocomplete;
                 randomWordsPopupMenu.Opening += new EventHandler<CancelEventArgs>(popupMenu_Opening);
                 BuildAutocompleteRandomWordsMenu(randomWordsPopupMenu);
-                (newTextBox.Tag as TbInfo).randomWordsPopupMenu = randomWordsPopupMenu;
+                (newTextBox.Tag as TextBoxInfo).randomWordsPopupMenu = randomWordsPopupMenu;
             }
             catch (Exception ex)
             {
@@ -468,14 +468,14 @@ namespace Code.Editor
             if (e.KeyData == (Keys.Control | Keys.K))
             {
                 //forced show (MinFragmentLength will be ignored)
-                (CurrentTextBox.Tag as TbInfo).syntaxMembersPopupMenu.Show(true);
+                (CurrentTextBox.Tag as TextBoxInfo).syntaxMembersPopupMenu.Show(true);
                 e.Handled = true;
             }
 
             if (e.KeyData == (Keys.Control | Keys.R))
             {
                 //forced show (MinFragmentLength will be ignored)
-                (CurrentTextBox.Tag as TbInfo).randomWordsPopupMenu.Show(true);
+                (CurrentTextBox.Tag as TextBoxInfo).randomWordsPopupMenu.Show(true);
                 e.Handled = true;
             }
         }

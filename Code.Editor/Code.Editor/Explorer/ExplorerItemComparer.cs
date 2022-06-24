@@ -1,6 +1,6 @@
 ﻿using static Code.Editor.CodeEditorMainForm;
 
-namespace Code.Editor
+namespace Code.Editor.Explorer
 {
     internal class ExplorerItemComparer : IComparer<ExplorerItem>
     {

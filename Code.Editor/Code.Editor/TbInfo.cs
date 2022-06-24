@@ -3,7 +3,7 @@
 
 namespace Code.Editor
 {
-    public class TbInfo
+    public class TextBoxInfo
     {
         public AutocompleteMenu syntaxMembersPopupMenu;
         public AutocompleteMenu randomWordsPopupMenu;

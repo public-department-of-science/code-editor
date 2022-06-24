@@ -1,4 +1,4 @@
-﻿namespace Code.Editor
+﻿namespace Code.Editor.Explorer
 {
     internal class ExplorerItem
     {
