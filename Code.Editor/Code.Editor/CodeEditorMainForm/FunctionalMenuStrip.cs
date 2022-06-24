@@ -209,7 +209,13 @@ namespace Code.Editor
                 newTextBox.HighlightingRangeType = HighlightingRangeType.VisibleRange;
 
                 //create autocomplete popup menu
-                AutocompleteMenu popupMenu = new AutocompleteMenu(newTextBox);
+                AutocompleteMenu popupMenu = new AutocompleteMenu(newTextBox)
+                {
+                    SelectedColor  = Color.Purple,
+                    BackColor = Color.NavajoWhite,
+                    ForeColor = Color.Blue,
+                };
+
                 popupMenu.Items.ImageList = imageListAutocomplete;
                 popupMenu.Opening += new EventHandler<CancelEventArgs>(popupMenu_Opening);
                 BuildAutocompleteMenu(popupMenu);
@@ -313,7 +319,16 @@ namespace Code.Editor
 
             foreach (var item in snippets)
             {
-                items.Add(new SnippetAutocompleteItem(item) { ImageIndex = 1 });
+                items.Add(new SnippetAutocompleteItem(item)
+                {
+                    ImageIndex = 1,
+                    ToolTipTitle = "Test tool tip title",
+                    ToolTipText = "Tool tip text",
+                    // BackColor = Color.Green,
+                    //ForeColor = Color.Red,
+                    //SelectedColor = Color.Purple;
+                    //MenuText = "Menu text show here",
+                });
             }
             foreach (var item in declarationSnippets)
             {
