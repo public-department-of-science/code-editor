@@ -167,5 +167,14 @@ namespace Code.Editor
                 openFilesTabs.RemoveTab(tab);
             }
         }
+
+        private void OpenFilesTabs_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == (Keys.Control | Keys.N))
+            {
+                newTabButton_Click(sender, e);
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -2,11 +2,11 @@
 
 namespace Code.Editor.MethodsAutocomplete
 {
-    public partial class AutocompleteSample3 : Form
+    public partial class MethodsAutocomplete
     {
-        AutocompleteMenu popupMenu;
+        private AutocompleteMenu popupMenu;
 
-        public AutocompleteSample3()
+        public MethodsAutocomplete()
         {
             //create autocomplete popup menu
             popupMenu = new AutocompleteMenu(null);
