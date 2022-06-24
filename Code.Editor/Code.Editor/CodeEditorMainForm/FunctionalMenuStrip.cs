@@ -200,6 +200,7 @@ namespace Code.Editor
                 newTextBox.KeyDown += new KeyEventHandler(tb_KeyDown);
                 newTextBox.MouseMove += new MouseEventHandler(tb_MouseMove);
                 newTextBox.MouseDown += new MouseEventHandler(tb_MouseDown);
+                newTextBox.ToolTipNeeded += new EventHandler<ToolTipNeededEventArgs>(NewTextBox_ToolTipNeeded);
                 newTextBox.ChangedLineColor = changedLineColor;
                 if (buttonHighlightCurrentLine.Checked)
                 {
@@ -244,11 +245,21 @@ namespace Code.Editor
             }
         }
 
+        private void NewTextBox_ToolTipNeeded(object sender, ToolTipNeededEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(e.HoveredWord))
+            {
+                e.ToolTipTitle = e.HoveredWord;
+                e.ToolTipText = "Howered word: '" + e.HoveredWord + "'";
+                e.ToolTipIcon = ToolTipIcon.Info;
+            }
+        }
+
         private void closeOpenTabByHotKey_CustomAction(object? sender, CustomActionEventArgs eventHappend)
         {
             if (CurrentTextBox.IsChanged)
             {
-                switch (MessageBox.Show("Do you want save " + CurrentTextBox.Name + " ?",
+                switch (MessageBox.Show("Do you want to save " + CurrentTextBox.Name + " ?",
                     "Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
                 {
                     case DialogResult.Yes:

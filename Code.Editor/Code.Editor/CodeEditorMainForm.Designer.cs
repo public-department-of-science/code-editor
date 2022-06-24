@@ -1,5 +1,5 @@
-﻿using FastColoredTextBoxNS;
-using System;
+﻿using Code.Editor.Settings;
+using FastColoredTextBoxNS;
 
 namespace Code.Editor
 {
