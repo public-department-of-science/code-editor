@@ -37,13 +37,15 @@
             this.btnSaveLogs = new System.Windows.Forms.Button();
             this.checkListFilterBoxParams = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnStopLogging = new System.Windows.Forms.Button();
+            this.btnStartLoggin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.loggingTerminalArea)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGotToEnd
             // 
             this.btnGotToEnd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGotToEnd.Location = new System.Drawing.Point(13, 511);
+            this.btnGotToEnd.Location = new System.Drawing.Point(13, 520);
             this.btnGotToEnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGotToEnd.Name = "btnGotToEnd";
             this.btnGotToEnd.Size = new System.Drawing.Size(123, 49);
@@ -54,7 +56,6 @@
             // 
             // timer
             // 
-            this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.tm_Tick);
             // 
             // loggingTerminalArea
@@ -92,10 +93,10 @@
             this.loggingTerminalArea.TabIndex = 5;
             this.loggingTerminalArea.Zoom = 100;
             // 
-            // btn_EmptifyTerminalWindow
+            // btnEmptyTerminalWindow
             // 
             this.btnEmptyTerminalWindow.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEmptyTerminalWindow.Location = new System.Drawing.Point(13, 452);
+            this.btnEmptyTerminalWindow.Location = new System.Drawing.Point(13, 461);
             this.btnEmptyTerminalWindow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEmptyTerminalWindow.Name = "btnEmptyTerminalWindow";
             this.btnEmptyTerminalWindow.Size = new System.Drawing.Size(123, 49);
@@ -107,25 +108,25 @@
             // btnSaveLogs
             // 
             this.btnSaveLogs.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSaveLogs.Location = new System.Drawing.Point(13, 393);
+            this.btnSaveLogs.Location = new System.Drawing.Point(13, 401);
             this.btnSaveLogs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSaveLogs.Name = "btnSaveLogs";
-            this.btnSaveLogs.Size = new System.Drawing.Size(123, 49);
+            this.btnSaveLogs.Size = new System.Drawing.Size(123, 50);
             this.btnSaveLogs.TabIndex = 8;
             this.btnSaveLogs.Text = "Save logging information";
             this.btnSaveLogs.UseVisualStyleBackColor = true;
             // 
-            // checkedListBox1
+            // checkListFilterBoxParams
             // 
             this.checkListFilterBoxParams.FormattingEnabled = true;
-            this.checkListFilterBoxParams.Items.AddRange(new object[] {
-            "Info",
-            "Debug",
-            "Warning",
-            "Error",
-            "All"});
+            this.checkListFilterBoxParams.Items.Add("Info", false);
+            this.checkListFilterBoxParams.Items.Add("Debug", false);
+            this.checkListFilterBoxParams.Items.Add("Warning", false);
+            this.checkListFilterBoxParams.Items.Add("Error", false);
+            this.checkListFilterBoxParams.Items.Add("All", true);
+
             this.checkListFilterBoxParams.Location = new System.Drawing.Point(13, 32);
-            this.checkListFilterBoxParams.Name = "checkedListBox1";
+            this.checkListFilterBoxParams.Name = "checkListFilterBoxParams";
             this.checkListFilterBoxParams.Size = new System.Drawing.Size(123, 114);
             this.checkListFilterBoxParams.TabIndex = 9;
             this.checkListFilterBoxParams.SelectedValueChanged += new System.EventHandler(this.filterBoxParams_SelectedValueChanged);
@@ -139,11 +140,37 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Filter options";
             // 
+            // btnStopLogging
+            // 
+            this.btnStopLogging.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnStopLogging.Location = new System.Drawing.Point(13, 228);
+            this.btnStopLogging.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnStopLogging.Name = "btnStopLogging";
+            this.btnStopLogging.Size = new System.Drawing.Size(123, 50);
+            this.btnStopLogging.TabIndex = 11;
+            this.btnStopLogging.Text = "Stop logging";
+            this.btnStopLogging.UseVisualStyleBackColor = true;
+            this.btnStopLogging.Click += new System.EventHandler(this.btnStopLogging_Click);
+            // 
+            // btnStartLoggin
+            // 
+            this.btnStartLoggin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnStartLoggin.Location = new System.Drawing.Point(13, 168);
+            this.btnStartLoggin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnStartLoggin.Name = "btnStartLoggin";
+            this.btnStartLoggin.Size = new System.Drawing.Size(123, 50);
+            this.btnStartLoggin.TabIndex = 12;
+            this.btnStartLoggin.Text = "Start logging";
+            this.btnStartLoggin.UseVisualStyleBackColor = true;
+            this.btnStartLoggin.Click += new System.EventHandler(this.btnStartLogging_Click);
+            // 
             // LoggingTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 574);
+            this.Controls.Add(this.btnStartLoggin);
+            this.Controls.Add(this.btnStopLogging);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkListFilterBoxParams);
             this.Controls.Add(this.btnSaveLogs);
@@ -167,5 +194,7 @@
         private Button btnSaveLogs;
         private CheckedListBox checkListFilterBoxParams;
         private Label label1;
+        private Button btnStopLogging;
+        private Button btnStartLoggin;
     }
 }

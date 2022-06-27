@@ -1,4 +1,5 @@
 ﻿using FastColoredTextBoxNS;
+using System.Linq;
 
 namespace Code.Editor.Terminal
 {
@@ -92,6 +93,16 @@ namespace Code.Editor.Terminal
             {
                 //  item;
             }
+        }
+
+        private void btnStartLogging_Click(object sender, EventArgs e)
+        {
+            timer.Start();
+        }
+
+        private void btnStopLogging_Click(object sender, EventArgs e)
+        {
+            timer.Stop();
         }
     }
 }
