@@ -39,6 +39,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnStopLogging = new System.Windows.Forms.Button();
             this.btnStartLoggin = new System.Windows.Forms.Button();
+            this.txtBoxFilterLogsText = new System.Windows.Forms.TextBox();
+            this.lblFilteringText = new System.Windows.Forms.Label();
+            this.filterTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.loggingTerminalArea)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +51,7 @@
             this.btnGotToEnd.Location = new System.Drawing.Point(13, 520);
             this.btnGotToEnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGotToEnd.Name = "btnGotToEnd";
-            this.btnGotToEnd.Size = new System.Drawing.Size(123, 49);
+            this.btnGotToEnd.Size = new System.Drawing.Size(124, 49);
             this.btnGotToEnd.TabIndex = 6;
             this.btnGotToEnd.Text = "Move to the bottom";
             this.btnGotToEnd.UseVisualStyleBackColor = true;
@@ -99,7 +102,7 @@
             this.btnEmptyTerminalWindow.Location = new System.Drawing.Point(13, 461);
             this.btnEmptyTerminalWindow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEmptyTerminalWindow.Name = "btnEmptyTerminalWindow";
-            this.btnEmptyTerminalWindow.Size = new System.Drawing.Size(123, 49);
+            this.btnEmptyTerminalWindow.Size = new System.Drawing.Size(124, 49);
             this.btnEmptyTerminalWindow.TabIndex = 7;
             this.btnEmptyTerminalWindow.Text = "Empty terminal";
             this.btnEmptyTerminalWindow.UseVisualStyleBackColor = true;
@@ -111,23 +114,24 @@
             this.btnSaveLogs.Location = new System.Drawing.Point(13, 401);
             this.btnSaveLogs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSaveLogs.Name = "btnSaveLogs";
-            this.btnSaveLogs.Size = new System.Drawing.Size(123, 50);
+            this.btnSaveLogs.Size = new System.Drawing.Size(124, 50);
             this.btnSaveLogs.TabIndex = 8;
             this.btnSaveLogs.Text = "Save logging information";
             this.btnSaveLogs.UseVisualStyleBackColor = true;
             // 
             // checkListFilterBoxParams
             // 
+            this.checkListFilterBoxParams.Enabled = false;
             this.checkListFilterBoxParams.FormattingEnabled = true;
-            this.checkListFilterBoxParams.Items.Add("Info", false);
-            this.checkListFilterBoxParams.Items.Add("Debug", false);
-            this.checkListFilterBoxParams.Items.Add("Warning", false);
-            this.checkListFilterBoxParams.Items.Add("Error", false);
-            this.checkListFilterBoxParams.Items.Add("All", true);
-
+            this.checkListFilterBoxParams.Items.AddRange(new object[] {
+            "Info",
+            "Debug",
+            "Warning",
+            "Error",
+            "All"});
             this.checkListFilterBoxParams.Location = new System.Drawing.Point(13, 32);
             this.checkListFilterBoxParams.Name = "checkListFilterBoxParams";
-            this.checkListFilterBoxParams.Size = new System.Drawing.Size(123, 114);
+            this.checkListFilterBoxParams.Size = new System.Drawing.Size(124, 114);
             this.checkListFilterBoxParams.TabIndex = 9;
             this.checkListFilterBoxParams.SelectedValueChanged += new System.EventHandler(this.filterBoxParams_SelectedValueChanged);
             // 
@@ -143,10 +147,10 @@
             // btnStopLogging
             // 
             this.btnStopLogging.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnStopLogging.Location = new System.Drawing.Point(13, 228);
+            this.btnStopLogging.Location = new System.Drawing.Point(13, 325);
             this.btnStopLogging.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStopLogging.Name = "btnStopLogging";
-            this.btnStopLogging.Size = new System.Drawing.Size(123, 50);
+            this.btnStopLogging.Size = new System.Drawing.Size(124, 50);
             this.btnStopLogging.TabIndex = 11;
             this.btnStopLogging.Text = "Stop logging";
             this.btnStopLogging.UseVisualStyleBackColor = true;
@@ -155,20 +159,46 @@
             // btnStartLoggin
             // 
             this.btnStartLoggin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnStartLoggin.Location = new System.Drawing.Point(13, 168);
+            this.btnStartLoggin.Location = new System.Drawing.Point(13, 265);
             this.btnStartLoggin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStartLoggin.Name = "btnStartLoggin";
-            this.btnStartLoggin.Size = new System.Drawing.Size(123, 50);
+            this.btnStartLoggin.Size = new System.Drawing.Size(124, 50);
             this.btnStartLoggin.TabIndex = 12;
             this.btnStartLoggin.Text = "Start logging";
             this.btnStartLoggin.UseVisualStyleBackColor = true;
             this.btnStartLoggin.Click += new System.EventHandler(this.btnStartLogging_Click);
+            // 
+            // txtBoxFilterLogsText
+            // 
+            this.txtBoxFilterLogsText.Enabled = false;
+            this.txtBoxFilterLogsText.Location = new System.Drawing.Point(13, 196);
+            this.txtBoxFilterLogsText.Name = "txtBoxFilterLogsText";
+            this.txtBoxFilterLogsText.Size = new System.Drawing.Size(121, 27);
+            this.txtBoxFilterLogsText.TabIndex = 13;
+            this.txtBoxFilterLogsText.TextChanged += new System.EventHandler(this.txtBoxFilterLogsText_TextChanged);
+            // 
+            // lblFilteringText
+            // 
+            this.lblFilteringText.AutoSize = true;
+            this.lblFilteringText.Location = new System.Drawing.Point(13, 162);
+            this.lblFilteringText.Name = "lblFilteringText";
+            this.lblFilteringText.Size = new System.Drawing.Size(92, 20);
+            this.lblFilteringText.TabIndex = 14;
+            this.lblFilteringText.Text = "Filtering text";
+            // 
+            // filterTimer
+            // 
+            this.filterTimer.Enabled = true;
+            this.filterTimer.Interval = 200;
+            this.filterTimer.Tick += new System.EventHandler(this.filterTimer_Tick);
             // 
             // LoggingTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 574);
+            this.Controls.Add(this.lblFilteringText);
+            this.Controls.Add(this.txtBoxFilterLogsText);
             this.Controls.Add(this.btnStartLoggin);
             this.Controls.Add(this.btnStopLogging);
             this.Controls.Add(this.label1);
@@ -196,5 +226,8 @@
         private Label label1;
         private Button btnStopLogging;
         private Button btnStartLoggin;
+        private TextBox txtBoxFilterLogsText;
+        private Label lblFilteringText;
+        private System.Windows.Forms.Timer filterTimer;
     }
 }

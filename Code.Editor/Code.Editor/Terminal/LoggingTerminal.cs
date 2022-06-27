@@ -1,5 +1,5 @@
 ﻿using FastColoredTextBoxNS;
-using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Code.Editor.Terminal
 {
@@ -11,20 +11,24 @@ namespace Code.Editor.Terminal
         static TextStyle warningStyle = new TextStyle(Brushes.BurlyWood, null, FontStyle.Italic);
         static TextStyle errorStyle = new TextStyle(Brushes.Red, null, FontStyle.Bold);
 
+        static private TextSourceWithLineFiltering ts;
+
         public LoggingTerminal()
         {
             InitializeComponent();
+
+            //loggingTerminalArea.ClearUndo();
         }
 
         private void tm_Tick(object sender, EventArgs e)
         {
             switch (DateTime.Now.Millisecond % 5)
             {
-                case 0: Log(DateTime.Now + " Trace\r\n", InformationType.Trace); break;
-                case 1: Log(DateTime.Now + " Debug\r\n", InformationType.Debug); break;
-                case 2: Log(DateTime.Now + " Info\r\n", InformationType.Information); break;
-                case 3: Log(DateTime.Now + " Warning\r\n", InformationType.Warning); break;
-                case 4: Log(DateTime.Now + " Error\r\n", InformationType.Error); break;
+                case 0: LogInformation(DateTime.Now + " Trace\r\n", InformationType.Trace); break;
+                case 1: LogInformation(DateTime.Now + " Debug\r\n", InformationType.Debug); break;
+                case 2: LogInformation(DateTime.Now + " Info\r\n", InformationType.Information); break;
+                case 3: LogInformation(DateTime.Now + " Warning\r\n", InformationType.Warning); break;
+                case 4: LogInformation(DateTime.Now + " Error\r\n", InformationType.Error); break;
             }
         }
 
@@ -50,7 +54,7 @@ namespace Code.Editor.Terminal
             }
         }
 
-        private void Log(string text, InformationType informationType)
+        private void LogInformation(string text, InformationType informationType)
         {
             // some stuffs for best performance
             loggingTerminalArea.BeginUpdate();
@@ -98,11 +102,47 @@ namespace Code.Editor.Terminal
         private void btnStartLogging_Click(object sender, EventArgs e)
         {
             timer.Start();
+
+            checkListFilterBoxParams.Enabled = false;
+            txtBoxFilterLogsText.Enabled = false;
+
         }
 
         private void btnStopLogging_Click(object sender, EventArgs e)
         {
             timer.Stop();
+
+            checkListFilterBoxParams.Enabled = true;
+            txtBoxFilterLogsText.Enabled = true;
+        }
+
+        private void txtBoxFilterLogsText_TextChanged(object sender, EventArgs e)
+        {
+            filterTimer_Tick(sender, e);
+
+            if (timer.Enabled == false)
+            {
+                if (checkListFilterBoxParams.CheckedItems.Count != 0)
+                {
+
+                }
+                else
+                {
+                    (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).LineFilterRegex =
+                        Regex.Escape(txtBoxFilterLogsText.Text);
+                }
+            }
+        }
+
+        private void filterTimer_Tick(object sender, EventArgs e)
+        {
+            if (txtBoxFilterLogsText.Enabled == true
+                && string.IsNullOrWhiteSpace(txtBoxFilterLogsText.Text) == false)
+            {
+                var ts = new TextSourceWithLineFiltering(loggingTerminalArea);
+                loggingTerminalArea.TextSource = ts;
+                loggingTerminalArea.ClearUndo();
+            }
         }
     }
 }
