@@ -11,13 +11,9 @@ namespace Code.Editor.Terminal
         static TextStyle warningStyle = new TextStyle(Brushes.BurlyWood, null, FontStyle.Italic);
         static TextStyle errorStyle = new TextStyle(Brushes.Red, null, FontStyle.Bold);
 
-        static private TextSourceWithLineFiltering ts;
-
         public LoggingTerminal()
         {
             InitializeComponent();
-
-            //loggingTerminalArea.ClearUndo();
         }
 
         private void tm_Tick(object sender, EventArgs e)
@@ -61,6 +57,8 @@ namespace Code.Editor.Terminal
             loggingTerminalArea.Selection.BeginUpdate();
             // remember user selection
             var userSelection = loggingTerminalArea.Selection.Clone();
+
+
             // add text with predefined style
             loggingTerminalArea.TextSource.CurrentTB = loggingTerminalArea;
 
@@ -105,7 +103,6 @@ namespace Code.Editor.Terminal
 
             checkListFilterBoxParams.Enabled = false;
             txtBoxFilterLogsText.Enabled = false;
-
         }
 
         private void btnStopLogging_Click(object sender, EventArgs e)
@@ -118,31 +115,25 @@ namespace Code.Editor.Terminal
 
         private void txtBoxFilterLogsText_TextChanged(object sender, EventArgs e)
         {
-            filterTimer_Tick(sender, e);
+            TextSourceWithLineFiltering ts = new TextSourceWithLineFiltering(loggingTerminalArea);
 
-            if (timer.Enabled == false)
-            {
-                if (checkListFilterBoxParams.CheckedItems.Count != 0)
-                {
+            ts.CurrentTB = loggingTerminalArea;
 
-                }
-                else
-                {
-                    (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).LineFilterRegex =
-                        Regex.Escape(txtBoxFilterLogsText.Text);
-                }
-            }
+            //   loggingTerminalArea.TextSource = ts;
+            // loggingTerminalArea.TextSource.CurrentTB = loggingTerminalArea;
+
+            loggingTerminalArea.ClearUndo();
+
+            (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).LineFilterRegex =
+            ts.LineFilterRegex = Regex.Escape(txtBoxFilterLogsText.Text);
         }
 
-        private void filterTimer_Tick(object sender, EventArgs e)
+        private void LoggingTerminal_Shown(object sender, EventArgs e)
         {
-            if (txtBoxFilterLogsText.Enabled == true
-                && string.IsNullOrWhiteSpace(txtBoxFilterLogsText.Text) == false)
-            {
-                var ts = new TextSourceWithLineFiltering(loggingTerminalArea);
-                loggingTerminalArea.TextSource = ts;
-                loggingTerminalArea.ClearUndo();
-            }
+            var ts = new TextSourceWithLineFiltering(loggingTerminalArea);
+            loggingTerminalArea.TextSource = ts;
+            loggingTerminalArea.Text = "";
+            loggingTerminalArea.ClearUndo();
         }
     }
 }

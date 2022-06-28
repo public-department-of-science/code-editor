@@ -5,13 +5,24 @@ namespace Code.Editor.Terminal
 {
     public class TextSourceWithLineFiltering : TextSource
     {
-        List<int> toSourceIndex = new List<int>();
+        private List<int> toSourceIndex = new List<int>();
         private string _lineFilterRegex;
+
+        public TextSourceWithLineFiltering(FastColoredTextBox tb) : base(tb)
+        {
+        }
 
         public string LineFilterRegex
         {
-            get { return _lineFilterRegex; }
-            set { _lineFilterRegex = value; UpdateFilter(); }
+            get
+            {
+                return _lineFilterRegex;
+            }
+            set
+            {
+                _lineFilterRegex = value;
+                UpdateFilter();
+            }
         }
 
         private void UpdateFilter()
@@ -23,26 +34,33 @@ namespace Code.Editor.Terminal
             for (int i = 0; i < count; i++)
             {
                 if (regex.IsMatch(lines[i].Text))
+                {
                     toSourceIndex.Add(i);
+                }
             }
 
             CurrentTB.NeedRecalc(true);
             CurrentTB.Invalidate();
         }
 
-        public TextSourceWithLineFiltering(FastColoredTextBox tb) : base(tb)
-        {
-        }
-
         public override int Count
         {
-            get { return toSourceIndex.Count; }
+            get
+            {
+                return toSourceIndex.Count;
+            }
         }
 
         public override Line this[int i]
         {
-            get { return base[toSourceIndex[i]]; }
-            set { base[toSourceIndex[i]] = value; }
+            get
+            {
+                return base[toSourceIndex[i]];
+            }
+            set
+            {
+                base[toSourceIndex[i]] = value;
+            }
         }
 
         public override void InsertLine(int index, Line line)
@@ -51,14 +69,18 @@ namespace Code.Editor.Terminal
             {
                 var c = lines.Count;
                 while (index >= toSourceIndex.Count)
+                {
                     toSourceIndex.Add(c++);
+                }
             }
             else
             {
                 var srcIndex = toSourceIndex[index];
                 toSourceIndex.Insert(index, srcIndex);
                 for (int i = index + 1; i < toSourceIndex.Count; i++)
+                {
                     toSourceIndex[i]++;
+                }
             }
 
             index = toSourceIndex[index];
@@ -75,7 +97,9 @@ namespace Code.Editor.Terminal
                 toSourceIndex.RemoveAt(ii);
 
                 for (int i = index; i < toSourceIndex.Count; i++)
+                {
                     toSourceIndex[i]--;
+                }
             }
         }
 

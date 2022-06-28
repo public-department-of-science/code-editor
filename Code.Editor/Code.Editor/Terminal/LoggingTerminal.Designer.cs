@@ -190,7 +190,6 @@
             // 
             this.filterTimer.Enabled = true;
             this.filterTimer.Interval = 200;
-            this.filterTimer.Tick += new System.EventHandler(this.filterTimer_Tick);
             // 
             // LoggingTerminal
             // 
@@ -210,6 +209,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LoggingTerminal";
             this.Text = "Logging terminal";
+            this.Shown += new System.EventHandler(this.LoggingTerminal_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.loggingTerminalArea)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
