@@ -8,8 +8,34 @@ namespace Code.Editor.Terminal
         private List<int> toSourceIndex = new List<int>();
         private string _lineFilterRegex;
 
-        public TextSourceWithLineFiltering(FastColoredTextBox tb) : base(tb)
+        public string FilterParam { get; set; }
+
+        public override int Count
         {
+            get
+            {
+                return toSourceIndex.Count;
+            }
+        }
+
+        public override Line this[int i]
+        {
+            get
+            {
+                try
+                {
+                    return base[toSourceIndex[i]];
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Critical issue", MessageBoxButtons.OK);
+                    return base[0];
+                }
+            }
+            set
+            {
+                base[toSourceIndex[i]] = value;
+            }
         }
 
         public string LineFilterRegex
@@ -25,42 +51,38 @@ namespace Code.Editor.Terminal
             }
         }
 
+        public TextSourceWithLineFiltering(string filterParams, FastColoredTextBox tb) : base(tb)
+        {
+            FilterParam = filterParams;
+        }
+
         private void UpdateFilter()
         {
             toSourceIndex.Clear();
 
             var count = base.lines.Count;
-            var regex = new Regex(LineFilterRegex);
+            // var regex = new Regex(LineFilterRegex);
             for (int i = 0; i < count; i++)
             {
-                if (regex.IsMatch(lines[i].Text))
+                // if (regex.IsMatch(lines[i].Text))
+                if (string.IsNullOrWhiteSpace(FilterParam))
+                {
+                    toSourceIndex.AddRange(lines.Select(x => x.UniqueId).ToList());
+                    break;
+                }
+                if (lines[i].Text.ToString().Contains(FilterParam))
                 {
                     toSourceIndex.Add(i);
                 }
             }
 
+            if (toSourceIndex.Count == 0)
+            {
+                toSourceIndex.Add(lines.Count - 1);
+            }
+
             CurrentTB.NeedRecalc(true);
             CurrentTB.Invalidate();
-        }
-
-        public override int Count
-        {
-            get
-            {
-                return toSourceIndex.Count;
-            }
-        }
-
-        public override Line this[int i]
-        {
-            get
-            {
-                return base[toSourceIndex[i]];
-            }
-            set
-            {
-                base[toSourceIndex[i]] = value;
-            }
         }
 
         public override void InsertLine(int index, Line line)

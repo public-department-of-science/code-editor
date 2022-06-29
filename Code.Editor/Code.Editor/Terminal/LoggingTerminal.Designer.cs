@@ -41,7 +41,6 @@
             this.btnStartLoggin = new System.Windows.Forms.Button();
             this.txtBoxFilterLogsText = new System.Windows.Forms.TextBox();
             this.lblFilteringText = new System.Windows.Forms.Label();
-            this.filterTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.loggingTerminalArea)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +58,7 @@
             // 
             // timer
             // 
+            this.timer.Interval = 1;
             this.timer.Tick += new System.EventHandler(this.tm_Tick);
             // 
             // loggingTerminalArea
@@ -76,7 +76,7 @@
         '\''};
             this.loggingTerminalArea.AutoIndentCharsPatterns = "^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;=]+);\r\n^\\s*(case|default)\\s*[^:]*" +
     "(?<range>:)\\s*(?<range>[^;]+);";
-            this.loggingTerminalArea.AutoScrollMinSize = new System.Drawing.Size(29, 19);
+            this.loggingTerminalArea.AutoScrollMinSize = new System.Drawing.Size(2, 19);
             this.loggingTerminalArea.BackBrush = null;
             this.loggingTerminalArea.CharHeight = 19;
             this.loggingTerminalArea.CharWidth = 9;
@@ -186,11 +186,6 @@
             this.lblFilteringText.TabIndex = 14;
             this.lblFilteringText.Text = "Filtering text";
             // 
-            // filterTimer
-            // 
-            this.filterTimer.Enabled = true;
-            this.filterTimer.Interval = 200;
-            // 
             // LoggingTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -228,6 +223,5 @@
         private Button btnStartLoggin;
         private TextBox txtBoxFilterLogsText;
         private Label lblFilteringText;
-        private System.Windows.Forms.Timer filterTimer;
     }
 }

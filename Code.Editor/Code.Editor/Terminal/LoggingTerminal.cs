@@ -11,6 +11,8 @@ namespace Code.Editor.Terminal
         static TextStyle warningStyle = new TextStyle(Brushes.BurlyWood, null, FontStyle.Italic);
         static TextStyle errorStyle = new TextStyle(Brushes.Red, null, FontStyle.Bold);
 
+        private static FastColoredTextBox originalLogs;
+
         public LoggingTerminal()
         {
             InitializeComponent();
@@ -55,11 +57,8 @@ namespace Code.Editor.Terminal
             // some stuffs for best performance
             loggingTerminalArea.BeginUpdate();
             loggingTerminalArea.Selection.BeginUpdate();
-            // remember user selection
+
             var userSelection = loggingTerminalArea.Selection.Clone();
-
-
-            // add text with predefined style
             loggingTerminalArea.TextSource.CurrentTB = loggingTerminalArea;
 
             var currentInfoType = GetStyleByInformationType(informationType);
@@ -115,22 +114,29 @@ namespace Code.Editor.Terminal
 
         private void txtBoxFilterLogsText_TextChanged(object sender, EventArgs e)
         {
-            TextSourceWithLineFiltering ts = new TextSourceWithLineFiltering(loggingTerminalArea);
+            TextSourceWithLineFiltering ts = new TextSourceWithLineFiltering(txtBoxFilterLogsText.Text,
+                loggingTerminalArea);
 
             ts.CurrentTB = loggingTerminalArea;
-
-            //   loggingTerminalArea.TextSource = ts;
-            // loggingTerminalArea.TextSource.CurrentTB = loggingTerminalArea;
-
             loggingTerminalArea.ClearUndo();
 
-            (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).LineFilterRegex =
-            ts.LineFilterRegex = Regex.Escape(txtBoxFilterLogsText.Text);
+            if (string.IsNullOrWhiteSpace(txtBoxFilterLogsText.Text))
+            {
+                (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).FilterParam = string.Empty;
+                (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).LineFilterRegex = string.Empty;
+            }
+            else
+            {
+                (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).FilterParam
+                    = txtBoxFilterLogsText.Text;
+                (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).LineFilterRegex =
+                    $"\b{loggingTerminalArea.Text}\b";
+            }
         }
 
         private void LoggingTerminal_Shown(object sender, EventArgs e)
         {
-            var ts = new TextSourceWithLineFiltering(loggingTerminalArea);
+            var ts = new TextSourceWithLineFiltering(txtBoxFilterLogsText.Text, loggingTerminalArea);
             loggingTerminalArea.TextSource = ts;
             loggingTerminalArea.Text = "";
             loggingTerminalArea.ClearUndo();
