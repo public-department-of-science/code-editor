@@ -1,9 +1,8 @@
 ﻿using FastColoredTextBoxNS;
-using System.Text.RegularExpressions;
 
 namespace Code.Editor.Terminal
 {
-    public class TextSourceWithLineFiltering : TextSource
+    public class TextSourceLineFiltering : TextSource
     {
         private List<int> toSourceIndex = new List<int>();
         private string _lineFilterRegex;
@@ -51,7 +50,7 @@ namespace Code.Editor.Terminal
             }
         }
 
-        public TextSourceWithLineFiltering(string filterParams, FastColoredTextBox tb) : base(tb)
+        public TextSourceLineFiltering(string filterParams, FastColoredTextBox tb) : base(tb)
         {
             FilterParam = filterParams;
         }

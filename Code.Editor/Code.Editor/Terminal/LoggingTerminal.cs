@@ -114,7 +114,7 @@ namespace Code.Editor.Terminal
 
         private void txtBoxFilterLogsText_TextChanged(object sender, EventArgs e)
         {
-            TextSourceWithLineFiltering ts = new TextSourceWithLineFiltering(txtBoxFilterLogsText.Text,
+            TextSourceLineFiltering ts = new TextSourceLineFiltering(txtBoxFilterLogsText.Text,
                 loggingTerminalArea);
 
             ts.CurrentTB = loggingTerminalArea;
@@ -122,21 +122,21 @@ namespace Code.Editor.Terminal
 
             if (string.IsNullOrWhiteSpace(txtBoxFilterLogsText.Text))
             {
-                (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).FilterParam = string.Empty;
-                (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).LineFilterRegex = string.Empty;
+                (loggingTerminalArea.TextSource as TextSourceLineFiltering).FilterParam = string.Empty;
+                (loggingTerminalArea.TextSource as TextSourceLineFiltering).LineFilterRegex = string.Empty;
             }
             else
             {
-                (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).FilterParam
+                (loggingTerminalArea.TextSource as TextSourceLineFiltering).FilterParam
                     = txtBoxFilterLogsText.Text;
-                (loggingTerminalArea.TextSource as TextSourceWithLineFiltering).LineFilterRegex =
+                (loggingTerminalArea.TextSource as TextSourceLineFiltering).LineFilterRegex =
                     $"\b{loggingTerminalArea.Text}\b";
             }
         }
 
         private void LoggingTerminal_Shown(object sender, EventArgs e)
         {
-            var ts = new TextSourceWithLineFiltering(txtBoxFilterLogsText.Text, loggingTerminalArea);
+            var ts = new TextSourceLineFiltering(txtBoxFilterLogsText.Text, loggingTerminalArea);
             loggingTerminalArea.TextSource = ts;
             loggingTerminalArea.Text = "";
             loggingTerminalArea.ClearUndo();
