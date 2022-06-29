@@ -6,6 +6,7 @@ namespace Code.Editor.Terminal
     {
         private List<int> filteredLines = new List<int>();
         public string ContainsSegmentSymbols { get; set; }
+        public bool IsCaseSensitive { get; set; }
 
         public TextSourceLineFilter(string containsSegmentSymbols, FastColoredTextBox tb) : base(tb)
         {
@@ -17,6 +18,13 @@ namespace Code.Editor.Terminal
             filteredLines.Clear();
 
             var count = base.lines.Count;
+
+            var cultureComparison = StringComparison.CurrentCulture;
+            if (IsCaseSensitive == false)
+            {
+                cultureComparison = StringComparison.CurrentCultureIgnoreCase;
+            }
+
             for (int i = 0; i < count; i++)
             {
                 if (string.IsNullOrWhiteSpace(ContainsSegmentSymbols))
@@ -24,7 +32,7 @@ namespace Code.Editor.Terminal
                     filteredLines.AddRange(lines.Select(x => x.UniqueId).ToList());
                     break;
                 }
-                if (lines[i].Text.ToString().Contains(ContainsSegmentSymbols))
+                if (lines[i].Text.ToString().Contains(ContainsSegmentSymbols, cultureComparison))
                 {
                     filteredLines.Add(i);
                 }

@@ -11,8 +11,6 @@ namespace Code.Editor.Terminal
         static TextStyle warningStyle = new TextStyle(Brushes.BurlyWood, null, FontStyle.Italic);
         static TextStyle errorStyle = new TextStyle(Brushes.Red, null, FontStyle.Bold);
 
-        private static FastColoredTextBox originalLogs;
-
         public LoggingTerminal()
         {
             InitializeComponent();
@@ -102,6 +100,7 @@ namespace Code.Editor.Terminal
 
             checkListFilterBoxParams.Enabled = false;
             txtBoxFilterLogsText.Enabled = false;
+            chkBoxIsCaseSensitive.Enabled = false;
         }
 
         private void btnStopLogging_Click(object sender, EventArgs e)
@@ -110,13 +109,14 @@ namespace Code.Editor.Terminal
 
             checkListFilterBoxParams.Enabled = true;
             txtBoxFilterLogsText.Enabled = true;
+            chkBoxIsCaseSensitive.Enabled = true;
         }
 
         private void txtBoxFilterLogsText_TextChanged(object sender, EventArgs e)
         {
             loggingTerminalArea.ClearUndo();
 
-            if (string.IsNullOrWhiteSpace(txtBoxFilterLogsText.Text))
+            if (string.IsNullOrWhiteSpace(txtBoxFilterLogsText.Text) == true)
             {
                 var textSourceFilter = loggingTerminalArea.TextSource as TextSourceLineFilter;
                 if (textSourceFilter == null)
@@ -124,6 +124,7 @@ namespace Code.Editor.Terminal
                     throw new Exception("Critical files filter is null exception.");
                 }
                 textSourceFilter.ContainsSegmentSymbols = string.Empty;
+                textSourceFilter.IsCaseSensitive = false;
                 textSourceFilter.FilterLines();
             }
             else
@@ -134,6 +135,7 @@ namespace Code.Editor.Terminal
                     throw new Exception("Critical files filter is null exception.");
                 }
                 textSourceFilter.ContainsSegmentSymbols = txtBoxFilterLogsText.Text;
+                textSourceFilter.IsCaseSensitive = chkBoxIsCaseSensitive.Checked;
                 textSourceFilter.FilterLines();
             }
         }

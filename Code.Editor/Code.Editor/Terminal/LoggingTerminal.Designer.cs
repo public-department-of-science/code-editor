@@ -41,6 +41,7 @@
             this.btnStartLoggin = new System.Windows.Forms.Button();
             this.txtBoxFilterLogsText = new System.Windows.Forms.TextBox();
             this.lblFilteringText = new System.Windows.Forms.Label();
+            this.chkBoxIsCaseSensitive = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.loggingTerminalArea)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,11 +187,26 @@
             this.lblFilteringText.TabIndex = 14;
             this.lblFilteringText.Text = "Filtering text";
             // 
+            // chkBoxIsCaseSensitive
+            // 
+            this.chkBoxIsCaseSensitive.AutoSize = true;
+            this.chkBoxIsCaseSensitive.Checked = true;
+            this.chkBoxIsCaseSensitive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkBoxIsCaseSensitive.Enabled = false;
+            this.chkBoxIsCaseSensitive.Location = new System.Drawing.Point(16, 233);
+            this.chkBoxIsCaseSensitive.Name = "chkBoxIsCaseSensitive";
+            this.chkBoxIsCaseSensitive.Size = new System.Drawing.Size(122, 24);
+            this.chkBoxIsCaseSensitive.TabIndex = 15;
+            this.chkBoxIsCaseSensitive.Text = "Case sensitive";
+            this.chkBoxIsCaseSensitive.UseVisualStyleBackColor = true;
+            this.chkBoxIsCaseSensitive.CheckedChanged += new System.EventHandler(this.txtBoxFilterLogsText_TextChanged);
+            // 
             // LoggingTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 574);
+            this.Controls.Add(this.chkBoxIsCaseSensitive);
             this.Controls.Add(this.lblFilteringText);
             this.Controls.Add(this.txtBoxFilterLogsText);
             this.Controls.Add(this.btnStartLoggin);
@@ -223,5 +239,6 @@
         private Button btnStartLoggin;
         private TextBox txtBoxFilterLogsText;
         private Label lblFilteringText;
+        private CheckBox chkBoxIsCaseSensitive;
     }
 }
