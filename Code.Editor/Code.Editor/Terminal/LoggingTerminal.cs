@@ -114,29 +114,33 @@ namespace Code.Editor.Terminal
 
         private void txtBoxFilterLogsText_TextChanged(object sender, EventArgs e)
         {
-            TextSourceLineFiltering ts = new TextSourceLineFiltering(txtBoxFilterLogsText.Text,
-                loggingTerminalArea);
-
-            ts.CurrentTB = loggingTerminalArea;
             loggingTerminalArea.ClearUndo();
 
             if (string.IsNullOrWhiteSpace(txtBoxFilterLogsText.Text))
             {
-                (loggingTerminalArea.TextSource as TextSourceLineFiltering).FilterParam = string.Empty;
-                (loggingTerminalArea.TextSource as TextSourceLineFiltering).LineFilterRegex = string.Empty;
+                var textSourceFilter = loggingTerminalArea.TextSource as TextSourceLineFilter;
+                if (textSourceFilter == null)
+                {
+                    throw new Exception("Critical files filter is null exception.");
+                }
+                textSourceFilter.ContainsSegmentSymbols = string.Empty;
+                textSourceFilter.FilterLines();
             }
             else
             {
-                (loggingTerminalArea.TextSource as TextSourceLineFiltering).FilterParam
-                    = txtBoxFilterLogsText.Text;
-                (loggingTerminalArea.TextSource as TextSourceLineFiltering).LineFilterRegex =
-                    $"\b{loggingTerminalArea.Text}\b";
+                var textSourceFilter = loggingTerminalArea.TextSource as TextSourceLineFilter;
+                if (textSourceFilter == null)
+                {
+                    throw new Exception("Critical files filter is null exception.");
+                }
+                textSourceFilter.ContainsSegmentSymbols = txtBoxFilterLogsText.Text;
+                textSourceFilter.FilterLines();
             }
         }
 
         private void LoggingTerminal_Shown(object sender, EventArgs e)
         {
-            var ts = new TextSourceLineFiltering(txtBoxFilterLogsText.Text, loggingTerminalArea);
+            var ts = new TextSourceLineFilter(txtBoxFilterLogsText.Text, loggingTerminalArea);
             loggingTerminalArea.TextSource = ts;
             loggingTerminalArea.Text = "";
             loggingTerminalArea.ClearUndo();
