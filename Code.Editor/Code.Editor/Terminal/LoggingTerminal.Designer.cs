@@ -42,12 +42,12 @@
             this.txtBoxFilterLogsText = new System.Windows.Forms.TextBox();
             this.lblFilteringText = new System.Windows.Forms.Label();
             this.chkBoxIsCaseSensitive = new System.Windows.Forms.CheckBox();
+            this.buttonsTerminalSplitter = new System.Windows.Forms.Splitter();
             ((System.ComponentModel.ISupportInitialize)(this.loggingTerminalArea)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGotToEnd
             // 
-            this.btnGotToEnd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGotToEnd.Location = new System.Drawing.Point(13, 520);
             this.btnGotToEnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGotToEnd.Name = "btnGotToEnd";
@@ -59,11 +59,12 @@
             // 
             // timer
             // 
-            this.timer.Interval = 1;
+            this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.tm_Tick);
             // 
             // loggingTerminalArea
             // 
+            this.loggingTerminalArea.AllowMacroRecording = false;
             this.loggingTerminalArea.AutoCompleteBracketsList = new char[] {
         '(',
         ')',
@@ -77,7 +78,7 @@
         '\''};
             this.loggingTerminalArea.AutoIndentCharsPatterns = "^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;=]+);\r\n^\\s*(case|default)\\s*[^:]*" +
     "(?<range>:)\\s*(?<range>[^;]+);";
-            this.loggingTerminalArea.AutoScrollMinSize = new System.Drawing.Size(2, 19);
+            this.loggingTerminalArea.AutoScrollMinSize = new System.Drawing.Size(29, 19);
             this.loggingTerminalArea.BackBrush = null;
             this.loggingTerminalArea.CharHeight = 19;
             this.loggingTerminalArea.CharWidth = 9;
@@ -86,20 +87,19 @@
             this.loggingTerminalArea.Dock = System.Windows.Forms.DockStyle.Right;
             this.loggingTerminalArea.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.loggingTerminalArea.IsReplaceMode = false;
-            this.loggingTerminalArea.Location = new System.Drawing.Point(144, 0);
+            this.loggingTerminalArea.Location = new System.Drawing.Point(241, 0);
             this.loggingTerminalArea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.loggingTerminalArea.Name = "loggingTerminalArea";
             this.loggingTerminalArea.Paddings = new System.Windows.Forms.Padding(0);
             this.loggingTerminalArea.ReadOnly = true;
             this.loggingTerminalArea.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.loggingTerminalArea.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("loggingTerminalArea.ServiceColors")));
-            this.loggingTerminalArea.Size = new System.Drawing.Size(540, 574);
+            this.loggingTerminalArea.Size = new System.Drawing.Size(670, 583);
             this.loggingTerminalArea.TabIndex = 5;
             this.loggingTerminalArea.Zoom = 100;
             // 
             // btnEmptyTerminalWindow
             // 
-            this.btnEmptyTerminalWindow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEmptyTerminalWindow.Location = new System.Drawing.Point(13, 461);
             this.btnEmptyTerminalWindow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEmptyTerminalWindow.Name = "btnEmptyTerminalWindow";
@@ -111,7 +111,6 @@
             // 
             // btnSaveLogs
             // 
-            this.btnSaveLogs.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSaveLogs.Location = new System.Drawing.Point(13, 401);
             this.btnSaveLogs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSaveLogs.Name = "btnSaveLogs";
@@ -122,14 +121,15 @@
             // 
             // checkListFilterBoxParams
             // 
+            this.checkListFilterBoxParams.CheckOnClick = true;
             this.checkListFilterBoxParams.Enabled = false;
             this.checkListFilterBoxParams.FormattingEnabled = true;
             this.checkListFilterBoxParams.Items.AddRange(new object[] {
+            "Trace",
             "Info",
             "Debug",
             "Warning",
-            "Error",
-            "All"});
+            "Error"});
             this.checkListFilterBoxParams.Location = new System.Drawing.Point(13, 32);
             this.checkListFilterBoxParams.Name = "checkListFilterBoxParams";
             this.checkListFilterBoxParams.Size = new System.Drawing.Size(124, 114);
@@ -139,7 +139,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 5);
+            this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 20);
             this.label1.TabIndex = 10;
@@ -147,7 +147,6 @@
             // 
             // btnStopLogging
             // 
-            this.btnStopLogging.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnStopLogging.Location = new System.Drawing.Point(13, 325);
             this.btnStopLogging.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStopLogging.Name = "btnStopLogging";
@@ -159,7 +158,6 @@
             // 
             // btnStartLoggin
             // 
-            this.btnStartLoggin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnStartLoggin.Location = new System.Drawing.Point(13, 265);
             this.btnStartLoggin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStartLoggin.Name = "btnStartLoggin";
@@ -172,7 +170,7 @@
             // txtBoxFilterLogsText
             // 
             this.txtBoxFilterLogsText.Enabled = false;
-            this.txtBoxFilterLogsText.Location = new System.Drawing.Point(13, 196);
+            this.txtBoxFilterLogsText.Location = new System.Drawing.Point(13, 191);
             this.txtBoxFilterLogsText.Name = "txtBoxFilterLogsText";
             this.txtBoxFilterLogsText.Size = new System.Drawing.Size(121, 27);
             this.txtBoxFilterLogsText.TabIndex = 13;
@@ -181,7 +179,7 @@
             // lblFilteringText
             // 
             this.lblFilteringText.AutoSize = true;
-            this.lblFilteringText.Location = new System.Drawing.Point(13, 162);
+            this.lblFilteringText.Location = new System.Drawing.Point(13, 163);
             this.lblFilteringText.Name = "lblFilteringText";
             this.lblFilteringText.Size = new System.Drawing.Size(92, 20);
             this.lblFilteringText.TabIndex = 14;
@@ -190,8 +188,6 @@
             // chkBoxIsCaseSensitive
             // 
             this.chkBoxIsCaseSensitive.AutoSize = true;
-            this.chkBoxIsCaseSensitive.Checked = true;
-            this.chkBoxIsCaseSensitive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkBoxIsCaseSensitive.Enabled = false;
             this.chkBoxIsCaseSensitive.Location = new System.Drawing.Point(16, 233);
             this.chkBoxIsCaseSensitive.Name = "chkBoxIsCaseSensitive";
@@ -201,11 +197,22 @@
             this.chkBoxIsCaseSensitive.UseVisualStyleBackColor = true;
             this.chkBoxIsCaseSensitive.CheckedChanged += new System.EventHandler(this.txtBoxFilterLogsText_TextChanged);
             // 
+            // buttonsTerminalSplitter
+            // 
+            this.buttonsTerminalSplitter.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonsTerminalSplitter.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonsTerminalSplitter.Location = new System.Drawing.Point(237, 0);
+            this.buttonsTerminalSplitter.Name = "buttonsTerminalSplitter";
+            this.buttonsTerminalSplitter.Size = new System.Drawing.Size(4, 583);
+            this.buttonsTerminalSplitter.TabIndex = 16;
+            this.buttonsTerminalSplitter.TabStop = false;
+            // 
             // LoggingTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 574);
+            this.ClientSize = new System.Drawing.Size(911, 583);
+            this.Controls.Add(this.buttonsTerminalSplitter);
             this.Controls.Add(this.chkBoxIsCaseSensitive);
             this.Controls.Add(this.lblFilteringText);
             this.Controls.Add(this.txtBoxFilterLogsText);
@@ -218,6 +225,8 @@
             this.Controls.Add(this.loggingTerminalArea);
             this.Controls.Add(this.btnGotToEnd);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(1000, 800);
+            this.MinimumSize = new System.Drawing.Size(440, 630);
             this.Name = "LoggingTerminal";
             this.Text = "Logging terminal";
             this.Shown += new System.EventHandler(this.LoggingTerminal_Shown);
@@ -240,5 +249,6 @@
         private TextBox txtBoxFilterLogsText;
         private Label lblFilteringText;
         private CheckBox chkBoxIsCaseSensitive;
+        private Splitter buttonsTerminalSplitter;
     }
 }
