@@ -13,12 +13,11 @@ namespace Code.Editor.Terminal
             ContainsSegmentSymbols = containsSegmentSymbols;
         }
 
-        public void FilterLines()
+        public void FilterLines(HashSet<LoggingTerminal.InformationType>? selectedFlags)
         {
             filteredLines.Clear();
 
             var count = base.lines.Count;
-
             var cultureComparison = StringComparison.CurrentCulture;
             if (IsCaseSensitive == false)
             {
@@ -27,14 +26,46 @@ namespace Code.Editor.Terminal
 
             for (int i = 0; i < count; i++)
             {
-                if (string.IsNullOrWhiteSpace(ContainsSegmentSymbols))
+                if (string.IsNullOrWhiteSpace(ContainsSegmentSymbols) && selectedFlags == null)
                 {
                     filteredLines.AddRange(lines.Select(x => x.UniqueId).ToList());
                     break;
                 }
-                if (lines[i].Text.ToString().Contains(ContainsSegmentSymbols, cultureComparison))
+                if (selectedFlags != null && selectedFlags.Count != 0)
                 {
-                    filteredLines.Add(i);
+                    foreach (var item in selectedFlags)
+                    {
+                        var selectedFlagAsString = item.ToString();
+                        if (string.IsNullOrWhiteSpace(ContainsSegmentSymbols) == true)
+                        {
+                            var isSelectedFlagFound = lines[i].Text.ToString().Contains(selectedFlagAsString, cultureComparison);
+                            if (isSelectedFlagFound)
+                            {
+                                filteredLines.Add(i);
+                            }
+                        }
+                        else
+                        {
+                            var isLineSymbolsContains = lines[i].Text.ToString().Contains(ContainsSegmentSymbols, cultureComparison);
+                            var isSelectedFlagFound = lines[i].Text.ToString().Contains(selectedFlagAsString, cultureComparison);
+                            if (isLineSymbolsContains && isSelectedFlagFound)
+                            {
+                                filteredLines.Add(i);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(ContainsSegmentSymbols))
+                    {
+                        filteredLines.AddRange(lines.Select(x => x.UniqueId).ToList());
+                        break;
+                    }
+                    if (lines[i].Text.ToString().Contains(ContainsSegmentSymbols, cultureComparison))
+                    {
+                        filteredLines.Add(i);
+                    }
                 }
             }
 

@@ -22,7 +22,7 @@ namespace Code.Editor.Terminal
             {
                 case 0: LogInformation(DateTime.Now + " Trace\r\n", InformationType.Trace); break;
                 case 1: LogInformation(DateTime.Now + " Debug\r\n", InformationType.Debug); break;
-                case 2: LogInformation(DateTime.Now + " Info\r\n", InformationType.Information); break;
+                case 2: LogInformation(DateTime.Now + " Info\r\n", InformationType.Info); break;
                 case 3: LogInformation(DateTime.Now + " Warning\r\n", InformationType.Warning); break;
                 case 4: LogInformation(DateTime.Now + " Error\r\n", InformationType.Error); break;
             }
@@ -30,9 +30,10 @@ namespace Code.Editor.Terminal
 
         public enum InformationType
         {
+            Undefined = -1,
             Trace = 0,
             Debug = 1,
-            Information = 2,
+            Info = 2,
             Warning = 3,
             Error = 4,
         }
@@ -43,15 +44,42 @@ namespace Code.Editor.Terminal
             {
                 case InformationType.Trace: return traceStyle;
                 case InformationType.Debug: return debugStyle;
-                case InformationType.Information: return infoStyle;
+                case InformationType.Info: return infoStyle;
                 case InformationType.Warning: return warningStyle;
                 case InformationType.Error: return errorStyle;
+
+                case InformationType.Undefined:
                 default: return debugStyle;
+            }
+        }
+
+        private InformationType GetInformationTypeByString(string informationType)
+        {
+            switch (informationType)
+            {
+                case nameof(InformationType.Trace): return InformationType.Trace;
+                case nameof(InformationType.Debug): return InformationType.Debug;
+                case nameof(InformationType.Info): return InformationType.Info;
+                case nameof(InformationType.Warning): return InformationType.Warning;
+                case nameof(InformationType.Error): return InformationType.Error;
+
+                default: return InformationType.Undefined;
             }
         }
 
         private void LogInformation(string text, InformationType informationType)
         {
+            chkBoxIsCaseSensitive.Checked = false;
+            txtBoxFilterLogsText.Text = string.Empty;
+
+            checkListFilterBoxParams.ClearSelected();
+            for (int i = 0; i < checkListFilterBoxParams.Items.Count; i++)
+            {
+                checkListFilterBoxParams.SetItemChecked(i, false);
+            }
+
+            RunFiltration();
+
             // some stuffs for best performance
             loggingTerminalArea.BeginUpdate();
             loggingTerminalArea.Selection.BeginUpdate();
@@ -88,10 +116,16 @@ namespace Code.Editor.Terminal
 
         private void filterBoxParams_SelectedValueChanged(object sender, EventArgs e)
         {
-            foreach (string item in checkListFilterBoxParams.CheckedItems)
+            HashSet<InformationType> selectedFlags = new HashSet<InformationType>();
+            foreach (string selectedFlag in checkListFilterBoxParams.CheckedItems)
             {
-                //  item;
+                var infoType = GetInformationTypeByString(selectedFlag);
+                if (infoType != InformationType.Undefined && selectedFlags.Contains(infoType) == false)
+                {
+                    selectedFlags.Add(infoType);
+                }
             }
+            RunFiltration(selectedFlags);
         }
 
         private void btnStartLogging_Click(object sender, EventArgs e)
@@ -115,7 +149,11 @@ namespace Code.Editor.Terminal
         private void txtBoxFilterLogsText_TextChanged(object sender, EventArgs e)
         {
             loggingTerminalArea.ClearUndo();
+            RunFiltration();
+        }
 
+        private void RunFiltration(HashSet<InformationType>? selectedFlags = default)
+        {
             if (string.IsNullOrWhiteSpace(txtBoxFilterLogsText.Text) == true)
             {
                 var textSourceFilter = loggingTerminalArea.TextSource as TextSourceLineFilter;
@@ -125,7 +163,7 @@ namespace Code.Editor.Terminal
                 }
                 textSourceFilter.ContainsSegmentSymbols = string.Empty;
                 textSourceFilter.IsCaseSensitive = false;
-                textSourceFilter.FilterLines();
+                textSourceFilter.FilterLines(selectedFlags);
             }
             else
             {
@@ -136,7 +174,7 @@ namespace Code.Editor.Terminal
                 }
                 textSourceFilter.ContainsSegmentSymbols = txtBoxFilterLogsText.Text;
                 textSourceFilter.IsCaseSensitive = chkBoxIsCaseSensitive.Checked;
-                textSourceFilter.FilterLines();
+                textSourceFilter.FilterLines(selectedFlags);
             }
         }
 
