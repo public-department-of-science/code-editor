@@ -8,17 +8,30 @@ namespace Code.Editor
 {
     public partial class CodeEditorMainForm : Form
     {
-        private string[] keywords = { "abstract", "as", "base", "bool", "break", "byte", "case", "catch", "char",
-            "checked", "class", "const", "continue", "decimal", "default", "delegate", "do", "double", "else",
-            "enum", "event", "explicit", "extern", "false", "finally", "fixed", "float", "for", "foreach",
-            "goto", "if", "implicit", "in", "int", "interface", "internal", "is", "lock", "long", "namespace",
-            "new", "null", "object", "operator", "out", "override", "params", "private", "protected",
-            "public", "readonly", "ref", "return", "sbyte", "sealed", "short", "sizeof", "stackalloc",
-            "static", "string", "struct", "switch", "this", "throw", "true", "try", "typeof", "uint",
-            "ulong", "unchecked", "unsafe", "ushort", "using", "virtual", "void", "volatile", "while",
-            "add", "alias", "ascending", "descending", "dynamic", "from", "get", "global", "group", "into",
-            "join", "let", "orderby", "partial", "remove", "select", "set", "value", "var", "where",
-            "yield" };
+        private static LoggingTerminal LoggingTerminal;
+        private string[] keywords = {
+            "abstract", "as",
+            "base", "bool", "break", "byte", "case", "catch", "char",
+            "checked", "class", "const", "continue", "decimal",
+            "default", "delegate", "do", "double", "else",
+            "enum", "event", "explicit", "extern", "false", "finally", "fixed",
+            "float", "for", "foreach",
+            "goto", "if", "implicit", "in", "int", "interface", "internal", "is",
+            "lock", "long", "namespace",
+            "new", "null", "object", "operator", "out", "override", "params",
+            "private", "protected",
+            "public", "readonly", "ref", "return", "sbyte", "sealed", "short",
+            "sizeof", "stackalloc",
+            "static", "string", "struct", "switch", "this", "throw", "true", "try",
+            "typeof", "uint",
+            "ulong", "unchecked", "unsafe", "ushort",
+            "using", "virtual", "void", "volatile", "while",
+            "add", "alias", "ascending", "descending", "dynamic",
+            "from", "get", "global", "group", "into",
+            "join", "let", "orderby", "partial", "remove", "select",
+            "set", "value", "var", "where",
+            "yield"
+        };
 
         private string[] methods = { "Equals()", "GetHashCode()", "GetType()", "ToString()" };
 
@@ -68,7 +81,6 @@ namespace Code.Editor
         {
             InitializeComponent();
 
-            //init menu images
             ComponentResourceManager resources = new ComponentResourceManager(typeof(CodeEditorMainForm));
             copyToolStripMenuItem.Image = ((Image)(resources.GetObject("copyToolStripButton.Image")));
             cutToolStripMenuItem.Image = ((Image)(resources.GetObject("cutToolStripButton.Image")));
@@ -181,8 +193,7 @@ namespace Code.Editor
 
         private void compareTwoFilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var mergeFilesForm = new DiffMergeForm();
-            mergeFilesForm.Show();
+            new DiffMergeForm().Show();
         }
 
         private void loggingTerminalToolStripMenuItem_Click(object sender, EventArgs e)

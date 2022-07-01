@@ -465,7 +465,7 @@ namespace Code.Editor
             // compareTwoFilesToolStripMenuItem
             // 
             this.compareTwoFilesToolStripMenuItem.Name = "compareTwoFilesToolStripMenuItem";
-            this.compareTwoFilesToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.compareTwoFilesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.compareTwoFilesToolStripMenuItem.Text = "Merge Files";
             this.compareTwoFilesToolStripMenuItem.Click += new System.EventHandler(this.compareTwoFilesToolStripMenuItem_Click);
             // 
