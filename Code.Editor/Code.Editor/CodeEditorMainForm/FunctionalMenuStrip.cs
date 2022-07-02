@@ -108,8 +108,6 @@ namespace Code.Editor
         {
             changedRange.ClearStyle(hyperLinksStyle);
             changedRange.SetStyle(hyperLinksStyle, @"(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?");
-
-
         }
 
         private void HighlightInvisibleChars(FastColoredTextBoxNS.Range range)
@@ -368,7 +366,12 @@ namespace Code.Editor
             }
             foreach (var item in keywords)
             {
-                items.Add(new AutocompleteItem(item));
+                items.Add(new KeywordsAutocomplete(item)
+                {
+                    ForeColor = Color.Black,
+                    ImageIndex = 1,
+                    BackColor = Color.White,
+                });
             }
 
             items.Add(new InsertSpaceSnippet(digitsDividePattern));

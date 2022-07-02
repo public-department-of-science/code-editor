@@ -1,4 +1,6 @@
 ﻿using Analyzer.Tokenization.Base;
+using Analyzer.Tokenization.Base.Information;
+using Analyzer.Tokens;
 using Code.Editor.Merge;
 using Code.Editor.Terminal;
 using FarsiLibrary.Win;
@@ -9,7 +11,7 @@ namespace Code.Editor
 {
     public partial class CodeEditorMainForm : Form
     {
-        private string[] keywords = { };
+        private List<string> keywords = new List<string>();
         private string[] methods = { "Equals()", "GetHashCode()", "GetType()", "ToString()" };
         private string[] snippets = { "if(^)\n{\n;\n}", "if(^)\n{\n;\n}\nelse\n{\n;\n}",
             "for(^;;)\n{\n;\n}",
@@ -57,10 +59,10 @@ namespace Code.Editor
         public CodeEditorMainForm()
         {
             InitializeComponent();
-
-            //TokenType.
-
-           // keywords
+            foreach (var keyword in KeywordsTokensInfo.Keywords)
+            {
+                keywords.Add(keyword.Key);
+            }
 
             ComponentResourceManager resources = new ComponentResourceManager(typeof(CodeEditorMainForm));
             copyToolStripMenuItem.Image = ((Image)(resources.GetObject("copyToolStripButton.Image")));
