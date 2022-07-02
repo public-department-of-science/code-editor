@@ -58,9 +58,9 @@ namespace Code.Editor
         {
             InitializeComponent();
 
-            TokenType.
+            //TokenType.
 
-            keywords
+           // keywords
 
             ComponentResourceManager resources = new ComponentResourceManager(typeof(CodeEditorMainForm));
             copyToolStripMenuItem.Image = ((Image)(resources.GetObject("copyToolStripButton.Image")));
