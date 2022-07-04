@@ -59,7 +59,7 @@ namespace Code.Editor
             //set folding markers
             e.ChangedRange.SetFoldingMarkers("method", "}");//allow to collapse brackets block
             e.ChangedRange.SetFoldingMarkers("object", "END");//allow to collapse object definitions
-            e.ChangedRange.SetFoldingMarkers(@"#region\b", @"#endregion\b");
+            e.ChangedRange.SetFoldingMarkers(@"@region\b", @"@endregion\b");
         }
         #endregion
     }

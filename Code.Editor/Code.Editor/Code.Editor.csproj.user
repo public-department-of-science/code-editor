@@ -7,6 +7,9 @@
     <Compile Update="CodeEditorMainForm\CodeAreaContextMenuFunctions.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CodeEditorMainForm\CodeHighlighting.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CodeEditorMainForm\FileMenuFunctions.cs">
       <SubType>Form</SubType>
     </Compile>
