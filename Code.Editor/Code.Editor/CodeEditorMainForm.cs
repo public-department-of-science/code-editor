@@ -1,6 +1,4 @@
-﻿using Analyzer.Tokenization.Base;
-using Analyzer.Tokenization.Base.Information;
-using Analyzer.Tokens;
+﻿using Analyzer.Tokenization.Base.Information;
 using Code.Editor.Merge;
 using Code.Editor.Terminal;
 using FarsiLibrary.Win;
@@ -13,23 +11,53 @@ namespace Code.Editor
     {
         private List<string> keywords = new List<string>();
         private string[] methods = { "Equals()", "GetHashCode()", "GetType()", "ToString()" };
-        private string[] snippets = { "if(^)\n{\n;\n}", "if(^)\n{\n;\n}\nelse\n{\n;\n}",
-            "for(^;;)\n{\n;\n}",
-            "while(^)\n{\n;\n}",
-            "do\n{\n^;\n}while();",
-            "switch(^)\n{\ncase : break;\n}" };
+        private string[] snippets = {
+            "If(^)\n{\n\n}", "If(^)\n{\n\n}\nElse\n{\n\n}",
 
+            "For i = 0; i < ^; i = i + 1\n{\n\n}",
+            "While(^)\n{\n\n}",
+            "Do\n{\n^\n} While()",
+            "def public ^()\n{\n\n}",
+            "def private ^()\n{\n\n}",
+
+            "usefile \"^.txt\"",
+            "usefile \"^\"// namespace-name",
+
+            "namespace \"^\" \n{ \n}",
+            "Echo (^)",
+            "@region ^ \n @endregion",
+            "accessFile = file (\"^\")",
+
+            "namespace \"^\"\n { \n\t public object Name\n \t\t field public N = 5" +
+                "\n\n\t\tmethod public GetN()\n{\n\t\t\tReturn N\n}\nEND\n}\n}",
+
+             "namespace \"^\"\n { \n\tpublic object Name\n \t field public N = 5" +
+                "\n\n\tmethod public GetN()\n { \n\t\t Return N \n}\n\n" +
+                "\t\t\tmethod public Method()\n{\n\t\t a = 1 \n" +
+                "Print \"a = \" + a \n}\nEND\n}",
+
+             "\npublic object Name\n \t field public N = 5" +
+                "\n\n\tmethod public GetN() \n {\n\t\t Return N \n}\n\n" +
+                "\t\t\tmethod public Method() \n {\n\t\t a = 1 \n" +
+                "Print \"a = \" + a \n } \n END \n",
+
+             "\n/// <summary>\n/// ^\n /// </summary>\n",
+    };
+
+        /// <summary>
+        /// 
+        /// </summary>
         private string[] declarationSnippets = {
-                "public class ^\n{\n}",
-                "private class ^\n{\n}",
-                "internal class ^\n{\n}",
-                "public struct ^\n{\n;\n}",
-                "private struct ^\n{\n;\n}",
-                "internal struct ^\n{\n;\n}",
-                "public void ^()\n{\n;\n}", "private void ^()\n{\n;\n}",
-                "internal void ^()\n{\n;\n}", "protected void ^()\n{\n;\n}",
-                "public ^{ get; set; }", "private ^{ get; set; }", "internal ^{ get; set; }",
-                "protected ^{ get; set; }"
+                //"public class ^\n{\n}",
+                //"private class ^\n{\n}",
+                //"internal class ^\n{\n}",
+                //"public struct ^\n{\n;\n}",
+                //"private struct ^\n{\n;\n}",
+                //"internal struct ^\n{\n;\n}",
+                //"public void ^()\n{\n;\n}", "private void ^()\n{\n;\n}",
+                //"internal void ^()\n{\n;\n}", "protected void ^()\n{\n;\n}",
+                //"public ^{ get; set; }", "private ^{ get; set; }", "internal ^{ get; set; }",
+                //"protected ^{ get; set; }"
                };
 
         private Style invisibleCharsStyle = new InvisibleCharsRenderer(Pens.Gray);
