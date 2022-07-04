@@ -6,11 +6,11 @@ namespace Code.Editor
 {
     public partial class CodeEditorMainForm
     {
-
         #region Code highlighting
 
         TextStyle BlueStyle = new TextStyle(Brushes.Blue, null, FontStyle.Regular);
-        TextStyle BoldStyle = new TextStyle(null, null, FontStyle.Bold);// | FontStyle.Underline);
+        TextStyle BoldStyle = new TextStyle(null, null, FontStyle.Bold | FontStyle.Underline);
+        TextStyle UnderLineStyle = new TextStyle(null, null, FontStyle.Underline);
         TextStyle GrayStyle = new TextStyle(Brushes.Gray, null, FontStyle.Regular);
         TextStyle MagentaStyle = new TextStyle(Brushes.Magenta, null, FontStyle.Regular);
         TextStyle GreenStyle = new TextStyle(Brushes.Green, null, FontStyle.Italic);
@@ -25,7 +25,7 @@ namespace Code.Editor
             CurrentTextBox.LeftBracket2 = '{';
             CurrentTextBox.RightBracket2 = '}';
             //clear style of changed range
-            e.ChangedRange.ClearStyle(BlueStyle, BoldStyle, GrayStyle, MagentaStyle, GreenStyle, BrownStyle);
+            e.ChangedRange.ClearStyle(BlueStyle, BoldStyle, GrayStyle, MagentaStyle, GreenStyle, BrownStyle, UnderLineStyle);
 
             //string highlighting
             e.ChangedRange.SetStyle(BrownStyle, @"""""|@""""|''|@"".*?""|(?<!@)(?<range>"".*?[^\\]"")|'.*?[^\\]'");
@@ -38,7 +38,8 @@ namespace Code.Editor
             //attribute highlighting
             e.ChangedRange.SetStyle(GrayStyle, @"^\s*(?<range>\[.+?\])\s*$", RegexOptions.Multiline);
             //class name highlighting
-            e.ChangedRange.SetStyle(BoldStyle, @"\b(class|struct|enum|interface)\s+(?<range>\w+?)\b");
+            e.ChangedRange.SetStyle(BoldStyle, @"\b(object|class)\s+(?<range>\w+?)\b");
+            e.ChangedRange.SetStyle(UnderLineStyle, @"\b(method|field)\s+(?<range>\w+?)\b");
 
             //keyword highlighting
             var reservedKeywords = new StringBuilder();
@@ -51,19 +52,15 @@ namespace Code.Editor
             reservedKeywords.Append(@")\b");
 
             e.ChangedRange.SetStyle(BlueStyle, reservedKeywords.ToString());
-            // @"\b()\b|#region\b|#endregion\b");
 
             //clear folding markers
             e.ChangedRange.ClearFoldingMarkers();
 
             //set folding markers
-            e.ChangedRange.SetFoldingMarkers("{", "}");//allow to collapse brackets block
+            e.ChangedRange.SetFoldingMarkers("method", "}");//allow to collapse brackets block
             e.ChangedRange.SetFoldingMarkers("object", "END");//allow to collapse object definitions
-
-            e.ChangedRange.SetFoldingMarkers(@"#region\b", @"#endregion\b");//allow to collapse #region blocks
-            e.ChangedRange.SetFoldingMarkers(@"/\*", @"\*/");//allow to collapse comment block
+            e.ChangedRange.SetFoldingMarkers(@"#region\b", @"#endregion\b");
         }
-
         #endregion
     }
 }

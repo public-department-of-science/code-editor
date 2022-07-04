@@ -112,7 +112,7 @@ namespace Code.Editor
         private bool Save(FATabStripItem selectedTab)
         {
             var tb = (selectedTab.Controls[0] as FastColoredTextBox);
-            if (string.IsNullOrWhiteSpace(selectedTab.Tag.ToString()))
+            if (string.IsNullOrWhiteSpace(selectedTab?.Tag?.ToString()))
             {
                 if (saveFileDialogMain.ShowDialog() != DialogResult.OK)
                 {
