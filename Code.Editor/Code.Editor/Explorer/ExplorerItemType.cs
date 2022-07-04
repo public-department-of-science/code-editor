@@ -2,9 +2,9 @@
 {
     internal enum ExplorerItemType
     {
-        Class = 0,
+        Object = 0,
         Method = 1,
-        Property = 2,
-        Event = 3,
+        Field = 2,
+        Namespace = 3,
     }
 }

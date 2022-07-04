@@ -14,7 +14,7 @@ namespace Code.Editor
                 List<ExplorerItem> list = new List<ExplorerItem>();
                 int lastClassIndex = -1;
                 //find classes, methods and properties
-                Regex regex = new Regex(@"^(?<range>[\w\s]+\b(class|struct|enum|interface)\s+[\w<>,\s]+)|^\s*(public|private|internal|protected)[^\n]+(\n?\s*{|;)?", RegexOptions.Multiline);
+                Regex regex = new Regex(@"^(?<range>[\w\s]+\b(object|field|method)\s+[\w<>,\s]+)|^\s*(public|private)[^\n]+(\n?\s*{|;)?", RegexOptions.Multiline);
                 foreach (Match r in regex.Matches(text))
                 {
                     try
@@ -29,18 +29,18 @@ namespace Code.Editor
                         s = s.Trim();
 
                         var item = new ExplorerItem() { title = s, position = r.Index };
-                        if (Regex.IsMatch(item.title, @"\b(class|struct|enum|interface)\b"))
+                        if (Regex.IsMatch(item.title, @"\b(object|field|method)\b"))
                         {
                             item.title = item.title.Substring(item.title.LastIndexOf(' ')).Trim();
-                            item.type = ExplorerItemType.Class;
+                            item.type = ExplorerItemType.Object;
                             list.Sort(lastClassIndex + 1, list.Count - (lastClassIndex + 1), new ExplorerItemComparer());
                             lastClassIndex = list.Count;
                         }
-                        else if (item.title.Contains(" event "))
+                        else if (item.title.Contains("namespace"))
                         {
                             int ii = item.title.LastIndexOf(' ');
                             item.title = item.title.Substring(ii).Trim();
-                            item.type = ExplorerItemType.Event;
+                            item.type = ExplorerItemType.Namespace;
                         }
                         else if (item.title.Contains("("))
                         {
@@ -59,7 +59,7 @@ namespace Code.Editor
                         {
                             int ii = item.title.LastIndexOf(' ');
                             item.title = item.title.Substring(ii).Trim();
-                            item.type = ExplorerItemType.Property;
+                            item.type = ExplorerItemType.Field;
                         }
                         list.Add(item);
                     }
@@ -105,7 +105,7 @@ namespace Code.Editor
                 {
                     switch (item.type)
                     {
-                        case ExplorerItemType.Class:
+                        case ExplorerItemType.Object:
                             {
                                 e.Value = Properties.Resources.class_libraries;
                                 return;
@@ -115,12 +115,13 @@ namespace Code.Editor
                                 e.Value = Properties.Resources.box;
                                 return;
                             }
-                        case ExplorerItemType.Event:
+                        case ExplorerItemType.Namespace:
                             {
-                                e.Value = Properties.Resources.lightning;
+                                //e.Value = Properties.Resources.lightning;
+                                e.Value = Properties.Resources.box;
                                 return;
                             }
-                        case ExplorerItemType.Property:
+                        case ExplorerItemType.Field:
                             {
                                 e.Value = Properties.Resources.property;
                                 return;
