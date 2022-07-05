@@ -13,12 +13,13 @@ namespace Code.Editor
         private string[] methods = { "Equals()", "GetHashCode()", "GetType()", "ToString()" };
         private string[] snippets = {
             "If(^)\n{\n\n}", "If(^)\n{\n\n}\nElse\n{\n\n}",
+            "arrayName = array ( ^ )",
 
             "For i = 0; i < ^; i = i + 1\n{\n\n}",
             "While(^)\n{\n\n}",
             "Do\n{\n^\n} While()",
-            "def public ^()\n{\n\n}",
-            "def private ^()\n{\n\n}",
+            "def public ^()\n{\n}",
+            "def private ^()\n{\n}",
 
             "usefile \"^.txt\"",
             "usefile \"^\"// namespace-name",
@@ -48,16 +49,10 @@ namespace Code.Editor
         /// 
         /// </summary>
         private string[] declarationSnippets = {
-                //"public class ^\n{\n}",
-                //"private class ^\n{\n}",
-                //"internal class ^\n{\n}",
-                //"public struct ^\n{\n;\n}",
-                //"private struct ^\n{\n;\n}",
-                //"internal struct ^\n{\n;\n}",
-                //"public void ^()\n{\n;\n}", "private void ^()\n{\n;\n}",
-                //"internal void ^()\n{\n;\n}", "protected void ^()\n{\n;\n}",
-                //"public ^{ get; set; }", "private ^{ get; set; }", "internal ^{ get; set; }",
-                //"protected ^{ get; set; }"
+                "object public ^\n{\n}", "object private ^\n{\n}",
+                "field public ^ = \n", "field private ^ = \n",
+                "method public ^()\n{\n;\n}", "method private ^()\n{\n;\n}",
+                "def ^() \n {\n}","def ^(a, b) \n {\n\t Return a + b\n}",
                };
 
         private Style invisibleCharsStyle = new InvisibleCharsRenderer(Pens.Gray);

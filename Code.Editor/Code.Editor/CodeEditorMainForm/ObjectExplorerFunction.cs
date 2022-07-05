@@ -13,7 +13,7 @@ namespace Code.Editor
             {
                 List<ExplorerItem> list = new List<ExplorerItem>();
                 int lastClassIndex = -1;
-                //find classes, methods and properties
+                //find objects, methods and field
                 Regex regex = new Regex(@"^(?<range>[\w\s]+\b(object|field|method)\s+[\w<>,\s]+)|^\s*(public|private)[^\n]+(\n?\s*{|;)?", RegexOptions.Multiline);
                 foreach (Match r in regex.Matches(text))
                 {
