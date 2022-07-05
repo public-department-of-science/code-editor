@@ -192,6 +192,7 @@ namespace Code.Editor
                 newTextBox.Focus();
                 newTextBox.DelayedTextChangedInterval = 1000;
                 newTextBox.DelayedEventsInterval = 500;
+                newTextBox.AutoIndentChars = true;
                 newTextBox.CustomAction += closeOpenTabByHotKey_CustomAction;
                 newTextBox.TextChangedDelayed += new EventHandler<TextChangedEventArgs>(tb_TextChangedDelayed);
                 newTextBox.SelectionChangedDelayed += new EventHandler(tb_SelectionChangedDelayed);
@@ -200,6 +201,7 @@ namespace Code.Editor
                 newTextBox.MouseDown += new MouseEventHandler(tb_MouseDown);
                 newTextBox.TextChanged += new EventHandler<TextChangedEventArgs>(tb_TextChanged);
                 newTextBox.ToolTipNeeded += new EventHandler<ToolTipNeededEventArgs>(tb_ToolTipNeeded);
+                newTextBox.AutoIndentNeeded += new EventHandler<AutoIndentEventArgs>(tb_AutoIndentNeeded);
                 newTextBox.ChangedLineColor = changedLineColor;
                 if (buttonHighlightCurrentLine.Checked)
                 {
@@ -241,6 +243,42 @@ namespace Code.Editor
                 {
                     CreateTab(fileName);
                 }
+            }
+        }
+
+        private void tb_AutoIndentNeeded(object sender, AutoIndentEventArgs e)
+        {
+            if (e.LineText.TrimStart().TrimEnd().Equals(""))
+            {
+
+            }
+            if (e.LineText.TrimStart().TrimEnd() == "def")
+            {
+                e.ShiftNextLines = e.TabLength;
+            }
+            // if current line is "begin" then next
+            // line shift to right
+            if (e.LineText.Trim() == "begin")
+            {
+                e.ShiftNextLines = e.TabLength;
+                return;
+            }
+            // if current line is "end" then current
+            // and next line shift to left
+            if (e.LineText.Trim() == "end")
+            {
+                e.Shift = -e.TabLength;
+                e.ShiftNextLines = -e.TabLength;
+                return;
+            }
+            // if previous line contains "then" or "else", 
+            // and current line does not contain "begin"
+            // then shift current line to right
+            if (Regex.IsMatch(e.PrevLineText, @"\b(then|else)\b") &&
+                !Regex.IsMatch(e.LineText, @"\bbegin\b"))
+            {
+                e.Shift = e.TabLength;
+                return;
             }
         }
 
