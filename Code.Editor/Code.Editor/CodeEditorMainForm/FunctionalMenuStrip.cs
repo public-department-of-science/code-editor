@@ -248,13 +248,10 @@ namespace Code.Editor
 
         private void tb_AutoIndentNeeded(object sender, AutoIndentEventArgs e)
         {
-            if (e.LineText.Contains(@"{")
-                &&
-                Regex.IsMatch(e.PrevLineText, @"\bIf|Else|namespace|def|method|While|For|Do\b"))
+            if (e.LineText.Contains(@"{") && Regex.IsMatch(e.PrevLineText, @"\bIf|Else|namespace|def|method|While|For|Do\b"))
             {
                 e.ShiftNextLines += e.TabLength;
             }
-
             if ((e.LineText.Contains(@"field") || e.LineText.Contains("method"))
                 && Regex.IsMatch(e.PrevLineText, @"\bobject\b"))
             {
@@ -272,44 +269,6 @@ namespace Code.Editor
                 e.Shift -= e.TabLength;
                 e.ShiftNextLines -= e.TabLength;
             }
-
-            //if (!Regex.IsMatch(e.LineText, @"\b(If|Else|object|namespace|def|method|While|For|Do)\b"))
-            //{
-            //    e.ShiftNextLines += e.TabLength;
-            //    return;
-            //}
-
-
-            //if (Regex.IsMatch(e.LineText, @"\b(END|}|Break|Continue|Return)\b"))
-            ////&& !Regex.IsMatch(e.LineText, @"\bbegin\b"))
-            //{
-            //    e.ShiftNextLines -= e.TabLength;
-            //    return;
-            //}
-
-
-            //{
-
-            //}
-            //if (e.LineText.TrimStart().TrimEnd() == "def")
-            //{
-            //    e.ShiftNextLines = e.TabLength;
-            //}
-            //// if current line is "begin" then next
-            //// line shift to right
-            //if (e.LineText.Trim() == "begin")
-            //{
-            //    e.ShiftNextLines = e.TabLength;
-            //    return;
-            //}
-            //// if current line is "end" then current
-            //// and next line shift to left
-            //if (e.LineText.Trim() == "end")
-            //{
-            //    e.Shift = -e.TabLength;
-            //    e.ShiftNextLines = -e.TabLength;
-            //    return;
-            //}
         }
 
         private void tb_ToolTipNeeded(object sender, ToolTipNeededEventArgs e)
