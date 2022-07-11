@@ -57,12 +57,12 @@ namespace Code.Editor
             e.ChangedRange.ClearFoldingMarkers();
 
             //set folding markers
-            //e.ChangedRange.SetFoldingMarkers("If", "}");//allow to collapse brackets block
-            //e.ChangedRange.SetFoldingMarkers("Else", "}");//allow to collapse brackets block
-            //e.ChangedRange.SetFoldingMarkers("def", "}");//allow to collapse brackets block
-            //e.ChangedRange.SetFoldingMarkers("method", "}");//allow to collapse brackets block
-            //e.ChangedRange.SetFoldingMarkers("object", "END");//allow to collapse object definitions
-            //e.ChangedRange.SetFoldingMarkers(@"@region\b", @"@endregion\b");
+            e.ChangedRange.SetFoldingMarkers("If", "}");//allow to collapse brackets block
+            e.ChangedRange.SetFoldingMarkers("Else", "}");//allow to collapse brackets block
+            e.ChangedRange.SetFoldingMarkers("def", "}");//allow to collapse brackets block
+            e.ChangedRange.SetFoldingMarkers("method", "}");//allow to collapse brackets block
+            e.ChangedRange.SetFoldingMarkers("object", "END");//allow to collapse object definitions
+            e.ChangedRange.SetFoldingMarkers(@"@region\b", @"@endregion\b");
         }
         #endregion
     }
