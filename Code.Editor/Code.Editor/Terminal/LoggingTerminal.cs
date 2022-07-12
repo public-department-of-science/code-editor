@@ -111,7 +111,7 @@ namespace Code.Editor.Terminal
 
         private void btnEmptifyWindow_Click(object sender, EventArgs e)
         {
-            loggingTerminalArea.Clear();
+            LoggingTerminal_Shown(sender, e);
         }
 
         private void filterBoxParams_SelectedValueChanged(object sender, EventArgs e)

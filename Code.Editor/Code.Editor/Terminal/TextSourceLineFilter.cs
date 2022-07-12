@@ -13,6 +13,34 @@ namespace Code.Editor.Terminal
             ContainsSegmentSymbols = containsSegmentSymbols;
         }
 
+        public override int Count
+        {
+            get
+            {
+                return filteredLines.Count;
+            }
+        }
+
+        public override Line this[int i]
+        {
+            get
+            {
+                try
+                {
+                    return base[filteredLines[i]];
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Critical issue", MessageBoxButtons.OK);
+                    return base[0];
+                }
+            }
+            set
+            {
+                base[filteredLines[i]] = value;
+            }
+        }
+
         public void FilterLines(HashSet<LoggingTerminal.InformationType>? selectedFlags)
         {
             filteredLines.Clear();
@@ -76,34 +104,6 @@ namespace Code.Editor.Terminal
 
             CurrentTB.NeedRecalc(true);
             CurrentTB.Invalidate();
-        }
-
-        public override int Count
-        {
-            get
-            {
-                return filteredLines.Count;
-            }
-        }
-
-        public override Line this[int i]
-        {
-            get
-            {
-                try
-                {
-                    return base[filteredLines[i]];
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Critical issue", MessageBoxButtons.OK);
-                    return base[0];
-                }
-            }
-            set
-            {
-                base[filteredLines[i]] = value;
-            }
         }
 
         public override void InsertLine(int index, Line line)

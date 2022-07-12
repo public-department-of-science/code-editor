@@ -117,6 +117,9 @@ namespace Code.Editor
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.documentMapStripButton = new System.Windows.Forms.ToolStripButton();
             this.wordWrapToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.justForTest1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.test2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -432,26 +435,26 @@ namespace Code.Editor
             this.loggingTerminalToolStripMenuItem,
             this.errorsTerminalToolStripMenuItem});
             this.terminalToolStripMenuItem.Name = "terminalToolStripMenuItem";
-            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.terminalToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.terminalToolStripMenuItem.Text = "Terminal";
             // 
             // outputTerminalToolStripMenuItem
             // 
             this.outputTerminalToolStripMenuItem.Name = "outputTerminalToolStripMenuItem";
-            this.outputTerminalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.outputTerminalToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.outputTerminalToolStripMenuItem.Text = "Output terminal";
             // 
             // loggingTerminalToolStripMenuItem
             // 
             this.loggingTerminalToolStripMenuItem.Name = "loggingTerminalToolStripMenuItem";
-            this.loggingTerminalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.loggingTerminalToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.loggingTerminalToolStripMenuItem.Text = "Logging terminal";
             this.loggingTerminalToolStripMenuItem.Click += new System.EventHandler(this.loggingTerminalToolStripMenuItem_Click);
             // 
             // errorsTerminalToolStripMenuItem
             // 
             this.errorsTerminalToolStripMenuItem.Name = "errorsTerminalToolStripMenuItem";
-            this.errorsTerminalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.errorsTerminalToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.errorsTerminalToolStripMenuItem.Text = "Errors terminal";
             // 
             // toolsToolStripMenuItem
@@ -465,7 +468,7 @@ namespace Code.Editor
             // compareTwoFilesToolStripMenuItem
             // 
             this.compareTwoFilesToolStripMenuItem.Name = "compareTwoFilesToolStripMenuItem";
-            this.compareTwoFilesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.compareTwoFilesToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.compareTwoFilesToolStripMenuItem.Text = "Merge Files";
             this.compareTwoFilesToolStripMenuItem.Click += new System.EventHandler(this.compareTwoFilesToolStripMenuItem_Click);
             // 
@@ -603,11 +606,12 @@ namespace Code.Editor
             this.uncommentCodeStripButton,
             this.toolStripSeparator10,
             this.documentMapStripButton,
-            this.wordWrapToolStripButton});
+            this.wordWrapToolStripButton,
+            this.toolStripDropDownButton1});
             this.toolStripMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(956, 27);
+            this.toolStripMenu.Size = new System.Drawing.Size(956, 54);
             this.toolStripMenu.TabIndex = 3;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -891,6 +895,31 @@ namespace Code.Editor
             this.wordWrapToolStripButton.Text = "Word wrap";
             this.wordWrapToolStripButton.Click += new System.EventHandler(this.wordWrapToolStripButton_Click);
             // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.justForTest1ToolStripMenuItem,
+            this.test2ToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 24);
+            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            // 
+            // justForTest1ToolStripMenuItem
+            // 
+            this.justForTest1ToolStripMenuItem.CheckOnClick = true;
+            this.justForTest1ToolStripMenuItem.Name = "justForTest1ToolStripMenuItem";
+            this.justForTest1ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.justForTest1ToolStripMenuItem.Text = "Just for test 1";
+            // 
+            // test2ToolStripMenuItem
+            // 
+            this.test2ToolStripMenuItem.Name = "test2ToolStripMenuItem";
+            this.test2ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.test2ToolStripMenuItem.Text = "test 2";
+            // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
@@ -910,11 +939,11 @@ namespace Code.Editor
             // 
             this.openFilesTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.openFilesTabs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.openFilesTabs.Location = new System.Drawing.Point(233, 57);
+            this.openFilesTabs.Location = new System.Drawing.Point(233, 84);
             this.openFilesTabs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.openFilesTabs.Name = "openFilesTabs";
             this.openFilesTabs.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
-            this.openFilesTabs.Size = new System.Drawing.Size(723, 510);
+            this.openFilesTabs.Size = new System.Drawing.Size(723, 483);
             this.openFilesTabs.TabIndex = 0;
             this.openFilesTabs.Text = "faTabStrip1";
             this.openFilesTabs.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
@@ -922,10 +951,10 @@ namespace Code.Editor
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(229, 57);
+            this.splitter1.Location = new System.Drawing.Point(229, 84);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 510);
+            this.splitter1.Size = new System.Drawing.Size(4, 483);
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
@@ -1110,7 +1139,7 @@ namespace Code.Editor
             this.datagridviewerTextBoxColumn});
             this.datagridviewerObjectExplorer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.datagridviewerObjectExplorer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.datagridviewerObjectExplorer.Location = new System.Drawing.Point(0, 57);
+            this.datagridviewerObjectExplorer.Location = new System.Drawing.Point(0, 84);
             this.datagridviewerObjectExplorer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.datagridviewerObjectExplorer.MultiSelect = false;
             this.datagridviewerObjectExplorer.Name = "datagridviewerObjectExplorer";
@@ -1122,7 +1151,7 @@ namespace Code.Editor
             this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Green;
             this.datagridviewerObjectExplorer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.datagridviewerObjectExplorer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 510);
+            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 483);
             this.datagridviewerObjectExplorer.TabIndex = 6;
             this.datagridviewerObjectExplorer.VirtualMode = true;
             this.datagridviewerObjectExplorer.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvObjectExplorer_CellMouseDoubleClick);
@@ -1156,9 +1185,9 @@ namespace Code.Editor
             // documentMapSplitter
             // 
             this.documentMapSplitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.documentMapSplitter.Location = new System.Drawing.Point(952, 57);
+            this.documentMapSplitter.Location = new System.Drawing.Point(952, 84);
             this.documentMapSplitter.Name = "documentMapSplitter";
-            this.documentMapSplitter.Size = new System.Drawing.Size(4, 510);
+            this.documentMapSplitter.Size = new System.Drawing.Size(4, 483);
             this.documentMapSplitter.TabIndex = 7;
             this.documentMapSplitter.TabStop = false;
             // 
@@ -1309,5 +1338,8 @@ namespace Code.Editor
         private ToolStripMenuItem errorsTerminalToolStripMenuItem;
         private ToolStripMenuItem toolsToolStripMenuItem;
         private ToolStripMenuItem compareTwoFilesToolStripMenuItem;
+        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripMenuItem justForTest1ToolStripMenuItem;
+        private ToolStripMenuItem test2ToolStripMenuItem;
     }
 }
