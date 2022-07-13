@@ -237,7 +237,7 @@
         }
 
         #endregion
-        private FastColoredTextBoxNS.FastColoredTextBox loggingTerminalArea;
+        public FastColoredTextBoxNS.FastColoredTextBox loggingTerminalArea;
         private System.Windows.Forms.Button btnGotToEnd;
         private System.Windows.Forms.Timer timer;
         private Button btnEmptyTerminalWindow;

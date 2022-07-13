@@ -1,4 +1,5 @@
-﻿using Analyzer.Tokenization.Base.Information;
+﻿using Analyzer.Run.Base;
+using Analyzer.Tokenization.Base.Information;
 using Code.Editor.Merge;
 using Code.Editor.Terminal;
 using FarsiLibrary.Win;
@@ -79,13 +80,32 @@ namespace Code.Editor
             }
         }
 
-        public CodeEditorMainForm()
+        private LoggingTerminal loggingTerminal;
+        public LoggingTerminal LoggingTerminal
+        {
+            get
+            {
+                if (loggingTerminal != null)
+                {
+                    return loggingTerminal;
+                }
+                return new LoggingTerminal();
+            }
+            set
+            {
+                loggingTerminal = value;
+            }
+        }
+
+        public CodeEditorMainForm(LoggingTerminal loggingTerminal)
         {
             InitializeComponent();
             foreach (var keyword in KeywordsTokensInfo.Keywords)
             {
                 keywords.Add(keyword.Key);
             }
+
+            LoggingTerminal = loggingTerminal;
 
             ComponentResourceManager resources = new ComponentResourceManager(typeof(CodeEditorMainForm));
             copyToolStripMenuItem.Image = ((Image)(resources.GetObject("copyToolStripButton.Image")));
@@ -202,7 +222,22 @@ namespace Code.Editor
 
         private void loggingTerminalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new LoggingTerminal().Show();
+            LoggingTerminal.Show();
+            // new LoggingTerminal().Show();
+        }
+
+        private void ExecuteCode_Click(object sender, EventArgs e)
+        {
+            var assemblyPath = @"G:\DeskTop\grammar-analyzer\GrammarAnalyzer\04.Samples.CodePlace\Code";
+            Action<string> printStream = LoggingTerminal.loggingTerminalArea.AppendText;
+            Action<string> loggingStream = Console.Write;
+            Action<string> exceptionsStream = Console.Write;
+
+            IExecutionDirectory executionContext = new Analyzer.Run.Base.ExecutionContext(assemblyPath, printStream, loggingStream, exceptionsStream);
+            executionContext.ValidateFiles()
+                .Tokenize()
+                .Parse()
+                .ExecuteSynchronously();
         }
     }
 }

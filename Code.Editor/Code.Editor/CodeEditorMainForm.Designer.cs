@@ -120,6 +120,7 @@ namespace Code.Editor
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.justForTest1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.test2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExecuteCode = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -607,7 +608,8 @@ namespace Code.Editor
             this.toolStripSeparator10,
             this.documentMapStripButton,
             this.wordWrapToolStripButton,
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButton1,
+            this.ExecuteCode});
             this.toolStripMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
             this.toolStripMenu.Name = "toolStripMenu";
@@ -911,14 +913,24 @@ namespace Code.Editor
             // 
             this.justForTest1ToolStripMenuItem.CheckOnClick = true;
             this.justForTest1ToolStripMenuItem.Name = "justForTest1ToolStripMenuItem";
-            this.justForTest1ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.justForTest1ToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.justForTest1ToolStripMenuItem.Text = "Just for test 1";
             // 
             // test2ToolStripMenuItem
             // 
             this.test2ToolStripMenuItem.Name = "test2ToolStripMenuItem";
-            this.test2ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.test2ToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.test2ToolStripMenuItem.Text = "test 2";
+            // 
+            // ExecuteCode
+            // 
+            this.ExecuteCode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ExecuteCode.Image = ((System.Drawing.Image)(resources.GetObject("ExecuteCode.Image")));
+            this.ExecuteCode.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ExecuteCode.Name = "ExecuteCode";
+            this.ExecuteCode.Size = new System.Drawing.Size(29, 24);
+            this.ExecuteCode.Text = "Execute program code";
+            this.ExecuteCode.Click += new System.EventHandler(this.ExecuteCode_Click);
             // 
             // toolStripSeparator
             // 
@@ -1341,5 +1353,6 @@ namespace Code.Editor
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripMenuItem justForTest1ToolStripMenuItem;
         private ToolStripMenuItem test2ToolStripMenuItem;
+        private ToolStripButton ExecuteCode;
     }
 }
