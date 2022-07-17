@@ -124,7 +124,6 @@ namespace Code.Editor
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.openFilesTabs = new FarsiLibrary.Win.FATabStrip();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.saveFileDialogMain = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogMain = new System.Windows.Forms.OpenFileDialog();
@@ -155,14 +154,18 @@ namespace Code.Editor
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
             this.documentMapSplitter = new System.Windows.Forms.Splitter();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.openFilesTabs = new FarsiLibrary.Win.FATabStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cmBoxMembers = new System.Windows.Forms.ComboBox();
+            this.cmBoxNamespaces = new System.Windows.Forms.ComboBox();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.openFilesTabs)).BeginInit();
             this.codeAreaContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.openFilesTabs)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -177,7 +180,7 @@ namespace Code.Editor
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
-            this.menuStrip.Size = new System.Drawing.Size(956, 30);
+            this.menuStrip.Size = new System.Drawing.Size(964, 30);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -480,11 +483,11 @@ namespace Code.Editor
             // 
             this.documentMap.Dock = System.Windows.Forms.DockStyle.Right;
             this.documentMap.ForeColor = System.Drawing.Color.Maroon;
-            this.documentMap.Location = new System.Drawing.Point(956, 0);
+            this.documentMap.Location = new System.Drawing.Point(964, 0);
             this.documentMap.Margin = new System.Windows.Forms.Padding(4);
             this.documentMap.MaximumSize = new System.Drawing.Size(400, 0);
             this.documentMap.Name = "documentMap";
-            this.documentMap.Size = new System.Drawing.Size(200, 593);
+            this.documentMap.Size = new System.Drawing.Size(200, 653);
             this.documentMap.TabIndex = 1;
             this.documentMap.Target = null;
             this.documentMap.Text = "documentMap";
@@ -496,10 +499,10 @@ namespace Code.Editor
             this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelWordUnderMouse,
             this.buttonZoom});
-            this.mainStatusStrip.Location = new System.Drawing.Point(0, 567);
+            this.mainStatusStrip.Location = new System.Drawing.Point(0, 627);
             this.mainStatusStrip.Name = "mainStatusStrip";
             this.mainStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.mainStatusStrip.Size = new System.Drawing.Size(956, 26);
+            this.mainStatusStrip.Size = new System.Drawing.Size(964, 26);
             this.mainStatusStrip.TabIndex = 2;
             this.mainStatusStrip.Text = "statusStrip1";
             // 
@@ -508,7 +511,7 @@ namespace Code.Editor
             this.labelWordUnderMouse.AutoSize = false;
             this.labelWordUnderMouse.ForeColor = System.Drawing.Color.Gray;
             this.labelWordUnderMouse.Name = "labelWordUnderMouse";
-            this.labelWordUnderMouse.Size = new System.Drawing.Size(868, 20);
+            this.labelWordUnderMouse.Size = new System.Drawing.Size(876, 20);
             this.labelWordUnderMouse.Spring = true;
             this.labelWordUnderMouse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -616,7 +619,7 @@ namespace Code.Editor
             this.toolStripMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStripMenu.Location = new System.Drawing.Point(0, 30);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(956, 54);
+            this.toolStripMenu.Size = new System.Drawing.Size(964, 54);
             this.toolStripMenu.TabIndex = 3;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -950,26 +953,12 @@ namespace Code.Editor
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // openFilesTabs
-            // 
-            this.openFilesTabs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.openFilesTabs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.openFilesTabs.Location = new System.Drawing.Point(4, 37);
-            this.openFilesTabs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.openFilesTabs.Name = "openFilesTabs";
-            this.openFilesTabs.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
-            this.openFilesTabs.Size = new System.Drawing.Size(711, 441);
-            this.openFilesTabs.TabIndex = 0;
-            this.openFilesTabs.Text = "faTabStrip1";
-            this.openFilesTabs.TabStripItemClosing += new FarsiLibrary.Win.TabStripItemClosingHandler(this.tsFiles_TabStripItemClosing);
-            this.openFilesTabs.TabStripItemSelectionChanged += new FarsiLibrary.Win.TabStripItemChangedHandler(this.tsFiles_TabStripItemSelectionChanged);
-            // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(229, 84);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 483);
+            this.splitter1.Size = new System.Drawing.Size(4, 543);
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
@@ -1166,7 +1155,7 @@ namespace Code.Editor
             this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Green;
             this.datagridviewerObjectExplorer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.datagridviewerObjectExplorer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 483);
+            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 543);
             this.datagridviewerObjectExplorer.TabIndex = 6;
             this.datagridviewerObjectExplorer.VirtualMode = true;
             this.datagridviewerObjectExplorer.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvObjectExplorer_CellMouseDoubleClick);
@@ -1200,9 +1189,9 @@ namespace Code.Editor
             // documentMapSplitter
             // 
             this.documentMapSplitter.Dock = System.Windows.Forms.DockStyle.Right;
-            this.documentMapSplitter.Location = new System.Drawing.Point(952, 84);
+            this.documentMapSplitter.Location = new System.Drawing.Point(960, 84);
             this.documentMapSplitter.Name = "documentMapSplitter";
-            this.documentMapSplitter.Size = new System.Drawing.Size(4, 483);
+            this.documentMapSplitter.Size = new System.Drawing.Size(4, 543);
             this.documentMapSplitter.TabIndex = 7;
             this.documentMapSplitter.TabStop = false;
             // 
@@ -1211,36 +1200,67 @@ namespace Code.Editor
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.openFilesTabs, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(233, 84);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(719, 483);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(727, 543);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
-            // comboBox1
+            // openFilesTabs
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.openFilesTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.openFilesTabs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.openFilesTabs.Location = new System.Drawing.Point(4, 39);
+            this.openFilesTabs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.openFilesTabs.Name = "openFilesTabs";
+            this.openFilesTabs.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
+            this.openFilesTabs.Size = new System.Drawing.Size(719, 499);
+            this.openFilesTabs.TabIndex = 1;
+            this.openFilesTabs.Text = "faTabStrip1";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cmBoxMembers);
+            this.panel1.Controls.Add(this.cmBoxNamespaces);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(721, 28);
+            this.panel1.TabIndex = 2;
+            // 
+            // cmBoxMembers
+            // 
+            this.cmBoxMembers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmBoxMembers.FormattingEnabled = true;
+            this.cmBoxMembers.Items.AddRange(new object[] {
             "Method1",
-            "Method2",
-            "Method3"});
-            this.comboBox1.Location = new System.Drawing.Point(421, 3);
-            this.comboBox1.MaxDropDownItems = 50;
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(295, 28);
-            this.comboBox1.TabIndex = 1;
+            "Method2"});
+            this.cmBoxMembers.Location = new System.Drawing.Point(173, 0);
+            this.cmBoxMembers.Name = "cmBoxMembers";
+            this.cmBoxMembers.Size = new System.Drawing.Size(548, 28);
+            this.cmBoxMembers.TabIndex = 2;
+            // 
+            // cmBoxNamespaces
+            // 
+            this.cmBoxNamespaces.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cmBoxNamespaces.FormattingEnabled = true;
+            this.cmBoxNamespaces.Items.AddRange(new object[] {
+            "Object1",
+            "Object2"});
+            this.cmBoxNamespaces.Location = new System.Drawing.Point(0, 0);
+            this.cmBoxNamespaces.Name = "cmBoxNamespaces";
+            this.cmBoxNamespaces.Size = new System.Drawing.Size(173, 28);
+            this.cmBoxNamespaces.TabIndex = 0;
             // 
             // CodeEditorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 593);
+            this.ClientSize = new System.Drawing.Size(1164, 653);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.documentMapSplitter);
             this.Controls.Add(this.splitter1);
@@ -1251,6 +1271,7 @@ namespace Code.Editor
             this.Controls.Add(this.documentMap);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "CodeEditorMainForm";
             this.Text = "Code editor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1261,10 +1282,11 @@ namespace Code.Editor
             this.mainStatusStrip.PerformLayout();
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.openFilesTabs)).EndInit();
             this.codeAreaContextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.openFilesTabs)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1281,7 +1303,6 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.StatusStrip mainStatusStrip;
         private System.Windows.Forms.ToolStrip toolStripMenu;
-        private FarsiLibrary.Win.FATabStrip openFilesTabs;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.SaveFileDialog saveFileDialogMain;
@@ -1389,6 +1410,9 @@ namespace Code.Editor
         private ToolStripMenuItem test2ToolStripMenuItem;
         private ToolStripButton ExecuteCode;
         private TableLayoutPanel tableLayoutPanel1;
-        private ComboBox comboBox1;
+        private FarsiLibrary.Win.FATabStrip openFilesTabs;
+        private Panel panel1;
+        private ComboBox cmBoxNamespaces;
+        private ComboBox cmBoxMembers;
     }
 }
