@@ -148,12 +148,12 @@ namespace Code.Editor
             this.cloneLinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cloneLinesAndCommentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmUpdateInterface = new System.Windows.Forms.Timer(this.components);
-            this.datagridviewerObjectExplorer = new System.Windows.Forms.DataGridView();
-            this.datagridviewerImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageListAutocomplete = new System.Windows.Forms.ImageList(this.components);
             this.documentMapSplitter = new System.Windows.Forms.Splitter();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.datagridviewerObjectExplorer = new System.Windows.Forms.DataGridView();
+            this.datagridviewerImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.datagridviewerTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openFilesTabs = new FarsiLibrary.Win.FATabStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmBoxMembers = new System.Windows.Forms.ComboBox();
@@ -162,8 +162,8 @@ namespace Code.Editor
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
             this.codeAreaContextMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.openFilesTabs)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -485,7 +485,8 @@ namespace Code.Editor
             this.documentMap.ForeColor = System.Drawing.Color.Maroon;
             this.documentMap.Location = new System.Drawing.Point(964, 0);
             this.documentMap.Margin = new System.Windows.Forms.Padding(4);
-            this.documentMap.MaximumSize = new System.Drawing.Size(400, 0);
+            this.documentMap.MaximumSize = new System.Drawing.Size(200, 0);
+            this.documentMap.MinimumSize = new System.Drawing.Size(75, 0);
             this.documentMap.Name = "documentMap";
             this.documentMap.Size = new System.Drawing.Size(200, 653);
             this.documentMap.TabIndex = 1;
@@ -955,7 +956,7 @@ namespace Code.Editor
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(229, 84);
+            this.splitter1.Location = new System.Drawing.Point(0, 84);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(4, 543);
@@ -1129,54 +1130,6 @@ namespace Code.Editor
             this.tmUpdateInterface.Interval = 400;
             this.tmUpdateInterface.Tick += new System.EventHandler(this.tmUpdateInterface_Tick);
             // 
-            // datagridviewerObjectExplorer
-            // 
-            this.datagridviewerObjectExplorer.AllowUserToAddRows = false;
-            this.datagridviewerObjectExplorer.AllowUserToDeleteRows = false;
-            this.datagridviewerObjectExplorer.AllowUserToResizeColumns = false;
-            this.datagridviewerObjectExplorer.AllowUserToResizeRows = false;
-            this.datagridviewerObjectExplorer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.datagridviewerObjectExplorer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridviewerObjectExplorer.ColumnHeadersVisible = false;
-            this.datagridviewerObjectExplorer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.datagridviewerImageColumn,
-            this.datagridviewerTextBoxColumn});
-            this.datagridviewerObjectExplorer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.datagridviewerObjectExplorer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.datagridviewerObjectExplorer.Location = new System.Drawing.Point(0, 84);
-            this.datagridviewerObjectExplorer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.datagridviewerObjectExplorer.MultiSelect = false;
-            this.datagridviewerObjectExplorer.Name = "datagridviewerObjectExplorer";
-            this.datagridviewerObjectExplorer.ReadOnly = true;
-            this.datagridviewerObjectExplorer.RowHeadersVisible = false;
-            this.datagridviewerObjectExplorer.RowHeadersWidth = 51;
-            this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Green;
-            this.datagridviewerObjectExplorer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.datagridviewerObjectExplorer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(229, 543);
-            this.datagridviewerObjectExplorer.TabIndex = 6;
-            this.datagridviewerObjectExplorer.VirtualMode = true;
-            this.datagridviewerObjectExplorer.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvObjectExplorer_CellMouseDoubleClick);
-            this.datagridviewerObjectExplorer.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dgvObjectExplorer_CellValueNeeded);
-            // 
-            // datagridviewerImageColumn
-            // 
-            this.datagridviewerImageColumn.HeaderText = "Column2";
-            this.datagridviewerImageColumn.MinimumWidth = 32;
-            this.datagridviewerImageColumn.Name = "datagridviewerImageColumn";
-            this.datagridviewerImageColumn.ReadOnly = true;
-            this.datagridviewerImageColumn.Width = 32;
-            // 
-            // datagridviewerTextBoxColumn
-            // 
-            this.datagridviewerTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.datagridviewerTextBoxColumn.HeaderText = "Column1";
-            this.datagridviewerTextBoxColumn.MinimumWidth = 6;
-            this.datagridviewerTextBoxColumn.Name = "datagridviewerTextBoxColumn";
-            this.datagridviewerTextBoxColumn.ReadOnly = true;
-            // 
             // imageListAutocomplete
             // 
             this.imageListAutocomplete.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
@@ -1197,28 +1150,76 @@ namespace Code.Editor
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.openFilesTabs, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.datagridviewerObjectExplorer, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.openFilesTabs, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(233, 84);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 84);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(727, 543);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(956, 543);
             this.tableLayoutPanel1.TabIndex = 8;
+            // 
+            // datagridviewerObjectExplorer
+            // 
+            this.datagridviewerObjectExplorer.AllowUserToAddRows = false;
+            this.datagridviewerObjectExplorer.AllowUserToDeleteRows = false;
+            this.datagridviewerObjectExplorer.AllowUserToResizeColumns = false;
+            this.datagridviewerObjectExplorer.AllowUserToResizeRows = false;
+            this.datagridviewerObjectExplorer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.datagridviewerObjectExplorer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridviewerObjectExplorer.ColumnHeadersVisible = false;
+            this.datagridviewerObjectExplorer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.datagridviewerImageColumn,
+            this.datagridviewerTextBoxColumn});
+            this.datagridviewerObjectExplorer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.datagridviewerObjectExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datagridviewerObjectExplorer.Location = new System.Drawing.Point(4, 39);
+            this.datagridviewerObjectExplorer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.datagridviewerObjectExplorer.MultiSelect = false;
+            this.datagridviewerObjectExplorer.Name = "datagridviewerObjectExplorer";
+            this.datagridviewerObjectExplorer.ReadOnly = true;
+            this.datagridviewerObjectExplorer.RowHeadersVisible = false;
+            this.datagridviewerObjectExplorer.RowHeadersWidth = 51;
+            this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.datagridviewerObjectExplorer.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Green;
+            this.datagridviewerObjectExplorer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.datagridviewerObjectExplorer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datagridviewerObjectExplorer.Size = new System.Drawing.Size(231, 499);
+            this.datagridviewerObjectExplorer.TabIndex = 7;
+            this.datagridviewerObjectExplorer.VirtualMode = true;
+            // 
+            // datagridviewerImageColumn
+            // 
+            this.datagridviewerImageColumn.HeaderText = "Column2";
+            this.datagridviewerImageColumn.MinimumWidth = 32;
+            this.datagridviewerImageColumn.Name = "datagridviewerImageColumn";
+            this.datagridviewerImageColumn.ReadOnly = true;
+            this.datagridviewerImageColumn.Width = 32;
+            // 
+            // datagridviewerTextBoxColumn
+            // 
+            this.datagridviewerTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.datagridviewerTextBoxColumn.HeaderText = "Column1";
+            this.datagridviewerTextBoxColumn.MinimumWidth = 6;
+            this.datagridviewerTextBoxColumn.Name = "datagridviewerTextBoxColumn";
+            this.datagridviewerTextBoxColumn.ReadOnly = true;
             // 
             // openFilesTabs
             // 
             this.openFilesTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.openFilesTabs.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.openFilesTabs.Location = new System.Drawing.Point(4, 39);
+            this.openFilesTabs.Location = new System.Drawing.Point(243, 39);
             this.openFilesTabs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.openFilesTabs.Name = "openFilesTabs";
             this.openFilesTabs.Padding = new System.Windows.Forms.Padding(1, 20, 1, 1);
-            this.openFilesTabs.Size = new System.Drawing.Size(719, 499);
+            this.openFilesTabs.Size = new System.Drawing.Size(709, 499);
             this.openFilesTabs.TabIndex = 1;
             this.openFilesTabs.Text = "faTabStrip1";
             // 
@@ -1227,9 +1228,9 @@ namespace Code.Editor
             this.panel1.Controls.Add(this.cmBoxMembers);
             this.panel1.Controls.Add(this.cmBoxNamespaces);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(242, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(721, 28);
+            this.panel1.Size = new System.Drawing.Size(711, 28);
             this.panel1.TabIndex = 2;
             // 
             // cmBoxMembers
@@ -1241,7 +1242,7 @@ namespace Code.Editor
             "Method2"});
             this.cmBoxMembers.Location = new System.Drawing.Point(173, 0);
             this.cmBoxMembers.Name = "cmBoxMembers";
-            this.cmBoxMembers.Size = new System.Drawing.Size(548, 28);
+            this.cmBoxMembers.Size = new System.Drawing.Size(538, 28);
             this.cmBoxMembers.TabIndex = 2;
             // 
             // cmBoxNamespaces
@@ -1264,14 +1265,13 @@ namespace Code.Editor
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.documentMapSplitter);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.datagridviewerObjectExplorer);
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.mainStatusStrip);
             this.Controls.Add(this.documentMap);
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(850, 500);
             this.Name = "CodeEditorMainForm";
             this.Text = "Code editor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1283,8 +1283,8 @@ namespace Code.Editor
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
             this.codeAreaContextMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.datagridviewerObjectExplorer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.openFilesTabs)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1333,14 +1333,11 @@ namespace Code.Editor
         private System.Windows.Forms.ToolStripSeparator codeAreaContextMenuSeparator1;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replaceToolStripMenuItem;
-        private System.Windows.Forms.DataGridView datagridviewerObjectExplorer;
         private System.Windows.Forms.ToolStripButton buttonBackwardStrip;
         private System.Windows.Forms.ToolStripButton buttonForwardStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.DataGridViewImageColumn datagridviewerImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datagridviewerTextBoxColumn;
         private System.Windows.Forms.ToolStripStatusLabel labelWordUnderMouse;
         private System.Windows.Forms.ImageList imageListAutocomplete;
         private System.Windows.Forms.ToolStripSeparator codeAreaContextMenuSeparator2;
@@ -1414,5 +1411,8 @@ namespace Code.Editor
         private Panel panel1;
         private ComboBox cmBoxNamespaces;
         private ComboBox cmBoxMembers;
+        private DataGridView datagridviewerObjectExplorer;
+        private DataGridViewImageColumn datagridviewerImageColumn;
+        private DataGridViewTextBoxColumn datagridviewerTextBoxColumn;
     }
 }
