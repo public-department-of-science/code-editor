@@ -264,7 +264,24 @@ namespace Code.Editor
                 e.Shift -= e.TabLength;
                 e.ShiftNextLines -= e.TabLength;
             }
+
             if (e.LineText.Contains(endObjectKeyword))
+            {
+                e.Shift -= e.TabLength;
+                e.ShiftNextLines -= e.TabLength;
+            }
+
+            if (e.PrevLineText.Contains(namespaceKeyword) == false && e.LineText.Contains(endNamespaceKeyword))
+            {
+                return;
+            }
+
+            if (e.LineText.Contains(namespaceKeyword))
+            {
+                e.Shift += e.TabLength;
+                e.ShiftNextLines += e.TabLength;
+            }
+            if (e.LineText.Contains(endNamespaceKeyword))
             {
                 e.Shift -= e.TabLength;
                 e.ShiftNextLines -= e.TabLength;

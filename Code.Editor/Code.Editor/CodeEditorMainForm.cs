@@ -25,18 +25,18 @@ namespace Code.Editor
             "usefile \"^.txt\"",
             "usefile \"^\"// namespace-name",
 
-            "namespace \"^\" \n{ \n}",
+            "namespace \"^\"\n\nendnamespace",
             "Echo (^)",
             "@region ^ \n @endregion",
             "accessFile = file (\"^\")",
 
-            "namespace \"^\"\n { \n\t object public *\n \t\t field public * = &" +
-                "\n\n\t\tmethod public *()\n{\n\t\t\treturn &\n}\nendobject\n}",
+            "namespace \"^\"\n\n\t object public *\n \t\t field public * = &" +
+                "\n\n\t\tmethod public *()\n{\n\t\t\treturn &\n}\nendobject\nendnamespace",
 
-             "namespace \"^\"\n { \n\tobject public *\n \t field public * = &" +
+             "namespace \"^\"\n\n\tobject public *\n \t field public * = &" +
                 "\n\n\tmethod public *()\n { \n\t\t return & \n}\n\n" +
                 "\t\t\tmethod public *()\n{\n\t\t variable = & \n" +
-                "Print * \n}\nendobject\n}",
+                "Print * \n}\nendobject\nendnamespace",
 
              "\nobject public ^\n \t field public * = &" +
                 "\n\n\tmethod public *() \n {\n\t\t return * \n}\n\n" +
@@ -54,6 +54,7 @@ namespace Code.Editor
                 "field public ^ = \n", "field private ^ = \n",
                 "method public ^()\n{\n;\n}", "method private ^()\n{\n;\n}",
                 "def ^() \n {\n}","def ^(a, b) \n {\n\t return a + b\n}",
+                "namespace \"^\"\nendnamespace",
                };
 
         private Style invisibleCharsStyle = new InvisibleCharsRenderer(Pens.Gray);

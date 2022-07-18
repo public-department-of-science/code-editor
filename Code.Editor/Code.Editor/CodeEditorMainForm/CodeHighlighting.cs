@@ -7,6 +7,7 @@ namespace Code.Editor
     public partial class CodeEditorMainForm
     {
         private const string namespaceKeyword = "namespace";
+        private const string endNamespaceKeyword = "endnamespace";
         private const string ifKeyword = "if";
         private const string elseKeyword = "else";
         private const string defKeyword = "def";
@@ -18,9 +19,12 @@ namespace Code.Editor
         private const string endRegionKeyword = "@endregion";
         private const string rBraceSymbol = "}";
         private const string lBraceSymbol = "{";
+        private const string forKeyword = "for";
         private const string whileKeyword = "while";
         private const string doKeyword = "do";
-        private const string forKeyword = "for";
+
+        private const string publicKeyword = "public";
+        private const string privateKeyword = "private";
 
         #region Code highlighting
 
@@ -56,8 +60,8 @@ namespace Code.Editor
             // e.ChangedRange.SetStyle(GrayStyle, @"^\s*(?<range>\[.+?\])\s*$", RegexOptions.Multiline);
 
             //object and that members name highlighting
-            e.ChangedRange.SetStyle(BoldStyle, @"\b(object|class)\s+\b(public|private)\s+(?<range>\w+?)\b");
-            e.ChangedRange.SetStyle(UnderLineStyle, @"\b(method|field)\s+\b(public|private)\s+(?<range>\w+?)\b");
+            e.ChangedRange.SetStyle(BoldStyle, $@"\b({objectKeyword})\s+\b({publicKeyword}|{privateKeyword})\s+(?<range>\w+?)\b");
+            e.ChangedRange.SetStyle(UnderLineStyle, $@"\b({methodKeyword}|{fieldKeyword})\s+\b({publicKeyword}|{privateKeyword})\s+(?<range>\w+?)\b");
 
             //keyword highlighting
             var reservedKeywords = new StringBuilder();
@@ -81,6 +85,7 @@ namespace Code.Editor
             e.ChangedRange.SetFoldingMarkers(methodKeyword, rBraceSymbol);
             e.ChangedRange.SetFoldingMarkers(objectKeyword, endObjectKeyword);
             e.ChangedRange.SetFoldingMarkers(regionKeyword, endRegionKeyword);
+            e.ChangedRange.SetFoldingMarkers(namespaceKeyword, endNamespaceKeyword);
         }
         #endregion
     }
