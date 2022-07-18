@@ -248,23 +248,23 @@ namespace Code.Editor
 
         private void tb_AutoIndentNeeded(object sender, AutoIndentEventArgs e)
         {
-            if (e.LineText.Contains(@"{") && Regex.IsMatch(e.PrevLineText, @"\bIf|Else|namespace|def|method|While|For|Do\b"))
+            if (e.LineText.Contains(@$"{lBraceSymbol}") && Regex.IsMatch(e.PrevLineText, @$"\b{ifKeyword}|{elseKeyword}|{namespaceKeyword}|{defKeyword}|{methodKeyword}|{whileKeyword}|{forKeyword}|{doKeyword}\b"))
             {
                 e.ShiftNextLines += e.TabLength;
             }
-            if ((e.LineText.Contains(@"field") || e.LineText.Contains("method"))
-                && Regex.IsMatch(e.PrevLineText, @"\bobject\b"))
+            if ((e.LineText.Contains(@$"{fieldKeyword}") || e.LineText.Contains(@$"{methodKeyword}"))
+                && Regex.IsMatch(e.PrevLineText, @$"\b{objectKeyword}\b"))
             {
                 e.Shift += e.TabLength;
                 e.ShiftNextLines += e.TabLength;
             }
 
-            if (e.LineText.Contains("}"))
+            if (e.LineText.Contains(rBraceSymbol))
             {
                 e.Shift -= e.TabLength;
                 e.ShiftNextLines -= e.TabLength;
             }
-            if (e.LineText.Contains("END"))
+            if (e.LineText.Contains(endObjectKeyword))
             {
                 e.Shift -= e.TabLength;
                 e.ShiftNextLines -= e.TabLength;

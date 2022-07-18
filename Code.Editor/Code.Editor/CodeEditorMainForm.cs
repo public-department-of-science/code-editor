@@ -13,12 +13,12 @@ namespace Code.Editor
         private List<string> keywords = new List<string>();
         private string[] methods = { "Equals()", "GetHashCode()", "GetType()", "ToString()" };
         private string[] snippets = {
-            "If(^)\n{\n\n}", "If(^)\n{\n\n}\nElse\n{\n\n}",
+            "if(^)\n{\n\n}", "if(^)\n{\n\n}\nElse\n{\n\n}",
             "arrayName = array ( ^ )",
 
-            "For i = 0; i < ^; i = i + 1\n{\n\n}",
-            "While(^)\n{\n\n}",
-            "Do\n{\n^\n} While()",
+            "for i = 0; i < ^; i = i + 1\n{\n\n}",
+            "while(^)\n{\n\n}",
+            "do\n{\n^\n} while()",
             "def public ^()\n{\n}",
             "def private ^()\n{\n}",
 
@@ -30,18 +30,18 @@ namespace Code.Editor
             "@region ^ \n @endregion",
             "accessFile = file (\"^\")",
 
-            "namespace \"^\"\n { \n\t public object Name\n \t\t field public N = 5" +
-                "\n\n\t\tmethod public GetN()\n{\n\t\t\tReturn N\n}\nEND\n}\n}",
+            "namespace \"^\"\n { \n\t object public *\n \t\t field public * = &" +
+                "\n\n\t\tmethod public *()\n{\n\t\t\treturn &\n}\nendobject\n}",
 
-             "namespace \"^\"\n { \n\tpublic object Name\n \t field public N = 5" +
-                "\n\n\tmethod public GetN()\n { \n\t\t Return N \n}\n\n" +
-                "\t\t\tmethod public Method()\n{\n\t\t a = 1 \n" +
-                "Print \"a = \" + a \n}\nEND\n}",
+             "namespace \"^\"\n { \n\tobject public *\n \t field public * = &" +
+                "\n\n\tmethod public *()\n { \n\t\t return & \n}\n\n" +
+                "\t\t\tmethod public *()\n{\n\t\t variable = & \n" +
+                "Print * \n}\nendobject\n}",
 
-             "\npublic object Name\n \t field public N = 5" +
-                "\n\n\tmethod public GetN() \n {\n\t\t Return N \n}\n\n" +
-                "\t\t\tmethod public Method() \n {\n\t\t a = 1 \n" +
-                "Print \"a = \" + a \n } \n END \n",
+             "\nobject public ^\n \t field public * = &" +
+                "\n\n\tmethod public *() \n {\n\t\t return * \n}\n\n" +
+                "\t\t\tmethod public *() \n {\n\t\t variable = & \n" +
+                "Print * \n } \n endobject \n",
 
              "\n/// <summary>\n/// ^\n /// </summary>\n",
     };
@@ -50,10 +50,10 @@ namespace Code.Editor
         /// 
         /// </summary>
         private string[] declarationSnippets = {
-                "object public ^\n{\n}", "object private ^\n{\n}",
+                "object public ^\n\nendobject", "object private ^\n\nendobject",
                 "field public ^ = \n", "field private ^ = \n",
                 "method public ^()\n{\n;\n}", "method private ^()\n{\n;\n}",
-                "def ^() \n {\n}","def ^(a, b) \n {\n\t Return a + b\n}",
+                "def ^() \n {\n}","def ^(a, b) \n {\n\t return a + b\n}",
                };
 
         private Style invisibleCharsStyle = new InvisibleCharsRenderer(Pens.Gray);

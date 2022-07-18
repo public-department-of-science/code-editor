@@ -6,6 +6,22 @@ namespace Code.Editor
 {
     public partial class CodeEditorMainForm
     {
+        private const string namespaceKeyword = "namespace";
+        private const string ifKeyword = "if";
+        private const string elseKeyword = "else";
+        private const string defKeyword = "def";
+        private const string methodKeyword = "method";
+        private const string fieldKeyword = "field";
+        private const string objectKeyword = "object";
+        private const string endObjectKeyword = "endobject";
+        private const string regionKeyword = "@region";
+        private const string endRegionKeyword = "@endregion";
+        private const string rBraceSymbol = "}";
+        private const string lBraceSymbol = "{";
+        private const string whileKeyword = "while";
+        private const string doKeyword = "do";
+        private const string forKeyword = "for";
+
         #region Code highlighting
 
         TextStyle BlueStyle = new TextStyle(Brushes.Blue, null, FontStyle.Regular);
@@ -35,11 +51,13 @@ namespace Code.Editor
             e.ChangedRange.SetStyle(GreenStyle, @"(/\*.*?\*/)|(.*\*/)", RegexOptions.Singleline | RegexOptions.RightToLeft);
             //number highlighting
             e.ChangedRange.SetStyle(MagentaStyle, @"\b\d+[\.]?\d*([eE]\-?\d+)?[lLdDfF]?\b|\b0x[a-fA-F\d]+\b");
+
             //attribute highlighting
-            e.ChangedRange.SetStyle(GrayStyle, @"^\s*(?<range>\[.+?\])\s*$", RegexOptions.Multiline);
-            //class name highlighting
-            e.ChangedRange.SetStyle(BoldStyle, @"\b(object|class)\s+(?<range>\w+?)\b");
-            e.ChangedRange.SetStyle(UnderLineStyle, @"\b(method|field)\s+(?<range>\w+?)\b");
+            // e.ChangedRange.SetStyle(GrayStyle, @"^\s*(?<range>\[.+?\])\s*$", RegexOptions.Multiline);
+
+            //object and that members name highlighting
+            e.ChangedRange.SetStyle(BoldStyle, @"\b(object|class)\s+\b(public|private)\s+(?<range>\w+?)\b");
+            e.ChangedRange.SetStyle(UnderLineStyle, @"\b(method|field)\s+\b(public|private)\s+(?<range>\w+?)\b");
 
             //keyword highlighting
             var reservedKeywords = new StringBuilder();
@@ -57,12 +75,12 @@ namespace Code.Editor
             e.ChangedRange.ClearFoldingMarkers();
 
             //set folding markers
-            e.ChangedRange.SetFoldingMarkers("If", "}");
-            e.ChangedRange.SetFoldingMarkers("Else", "}");
-            e.ChangedRange.SetFoldingMarkers("def", "}");
-            e.ChangedRange.SetFoldingMarkers("method", "}");
-            e.ChangedRange.SetFoldingMarkers("object", "END");
-            e.ChangedRange.SetFoldingMarkers("@region", "@endregion");
+            e.ChangedRange.SetFoldingMarkers(ifKeyword, rBraceSymbol);
+            e.ChangedRange.SetFoldingMarkers(elseKeyword, rBraceSymbol);
+            e.ChangedRange.SetFoldingMarkers(defKeyword, rBraceSymbol);
+            e.ChangedRange.SetFoldingMarkers(methodKeyword, rBraceSymbol);
+            e.ChangedRange.SetFoldingMarkers(objectKeyword, endObjectKeyword);
+            e.ChangedRange.SetFoldingMarkers(regionKeyword, endRegionKeyword);
         }
         #endregion
     }
