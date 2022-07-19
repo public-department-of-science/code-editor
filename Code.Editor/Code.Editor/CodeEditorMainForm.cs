@@ -52,7 +52,7 @@ namespace Code.Editor
         private string[] declarationSnippets = {
                 "object public ^\n\nendobject", "object private ^\n\nendobject",
                 "field public ^ = \n", "field private ^ = \n",
-                "method public ^()\n{\n;\n}", "method private ^()\n{\n;\n}",
+                "method public ^()\n{\n\n}", "method private ^()\n{\n\n}",
                 "def ^() \n {\n}","def ^(a, b) \n {\n\t return a + b\n}",
                 "namespace \"^\"\nendnamespace",
                };

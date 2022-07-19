@@ -248,43 +248,49 @@ namespace Code.Editor
 
         private void tb_AutoIndentNeeded(object sender, AutoIndentEventArgs e)
         {
-            if (e.LineText.Contains(@$"{lBraceSymbol}") && Regex.IsMatch(e.PrevLineText, @$"\b{ifKeyword}|{elseKeyword}|{namespaceKeyword}|{defKeyword}|{methodKeyword}|{whileKeyword}|{forKeyword}|{doKeyword}\b"))
+            if (e.LineText.Contains(@$"{lBraceSymbol}"))
+            //&& Regex.IsMatch(e.PrevLineText, @$"\b{ifKeyword}|{elseKeyword}|{namespaceKeyword}|{defKeyword}|{methodKeyword}|{whileKeyword}|{forKeyword}|{doKeyword}\b"))
             {
                 e.ShiftNextLines += e.TabLength;
+                return;
             }
+            if (e.LineText.Contains(rBraceSymbol))
+            {
+                e.Shift -= e.TabLength;
+                e.ShiftNextLines -= e.TabLength;
+                return;
+            }
+
             if ((e.LineText.Contains(@$"{fieldKeyword}") || e.LineText.Contains(@$"{methodKeyword}"))
                 && Regex.IsMatch(e.PrevLineText, @$"\b{objectKeyword}\b"))
             {
                 e.Shift += e.TabLength;
                 e.ShiftNextLines += e.TabLength;
-            }
-
-            if (e.LineText.Contains(rBraceSymbol))
-            {
-                e.Shift -= e.TabLength;
-                e.ShiftNextLines -= e.TabLength;
-            }
-
-            if (e.LineText.Contains(endObjectKeyword))
-            {
-                e.Shift -= e.TabLength;
-                e.ShiftNextLines -= e.TabLength;
-            }
-
-            if (e.PrevLineText.Contains(namespaceKeyword) == false && e.LineText.Contains(endNamespaceKeyword))
-            {
                 return;
             }
 
-            if (e.LineText.Contains(namespaceKeyword))
-            {
-                e.Shift += e.TabLength;
-                e.ShiftNextLines += e.TabLength;
-            }
-            if (e.LineText.Contains(endNamespaceKeyword))
+            if (e.LineText.Contains(endObjectKeyword)// || e.LineText.Contains(endRegionKeyword))
+                && e.PrevLineText.Contains(rBraceSymbol))
             {
                 e.Shift -= e.TabLength;
+            }
+            // ending constructions must be as first cause used 'contains' method for define shifting way
+            if (e.LineText.Contains(endObjectKeyword))
+            {
                 e.ShiftNextLines -= e.TabLength;
+                return;
+            }
+
+            if (e.LineText.Contains(endNamespaceKeyword))
+            {
+                e.Shift = 0;
+                e.ShiftNextLines = 0;
+                return;
+            }
+            if (e.LineText.Contains(namespaceKeyword))
+            {
+                e.ShiftNextLines += e.TabLength;
+                return;
             }
         }
 
