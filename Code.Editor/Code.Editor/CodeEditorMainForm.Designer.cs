@@ -158,6 +158,7 @@ namespace Code.Editor
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmBoxMembers = new System.Windows.Forms.ComboBox();
             this.cmBoxNamespaces = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.menuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.toolStripMenu.SuspendLayout();
@@ -1225,6 +1226,7 @@ namespace Code.Editor
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.cmBoxMembers);
             this.panel1.Controls.Add(this.cmBoxNamespaces);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1235,14 +1237,14 @@ namespace Code.Editor
             // 
             // cmBoxMembers
             // 
-            this.cmBoxMembers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmBoxMembers.Dock = System.Windows.Forms.DockStyle.Right;
             this.cmBoxMembers.FormattingEnabled = true;
             this.cmBoxMembers.Items.AddRange(new object[] {
             "Method1",
             "Method2"});
-            this.cmBoxMembers.Location = new System.Drawing.Point(173, 0);
+            this.cmBoxMembers.Location = new System.Drawing.Point(464, 0);
             this.cmBoxMembers.Name = "cmBoxMembers";
-            this.cmBoxMembers.Size = new System.Drawing.Size(538, 28);
+            this.cmBoxMembers.Size = new System.Drawing.Size(247, 28);
             this.cmBoxMembers.TabIndex = 2;
             // 
             // cmBoxNamespaces
@@ -1254,8 +1256,16 @@ namespace Code.Editor
             "Object2"});
             this.cmBoxNamespaces.Location = new System.Drawing.Point(0, 0);
             this.cmBoxNamespaces.Name = "cmBoxNamespaces";
-            this.cmBoxNamespaces.Size = new System.Drawing.Size(173, 28);
+            this.cmBoxNamespaces.Size = new System.Drawing.Size(230, 28);
             this.cmBoxNamespaces.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(230, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(234, 28);
+            this.panel2.TabIndex = 3;
             // 
             // CodeEditorMainForm
             // 
@@ -1414,5 +1424,6 @@ namespace Code.Editor
         private DataGridView datagridviewerObjectExplorer;
         private DataGridViewImageColumn datagridviewerImageColumn;
         private DataGridViewTextBoxColumn datagridviewerTextBoxColumn;
+        private Panel panel2;
     }
 }
