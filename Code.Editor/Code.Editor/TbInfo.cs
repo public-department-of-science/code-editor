@@ -13,5 +13,10 @@ namespace Code.Editor
         /// CTRL+R
         /// </summary>
         public AutocompleteMenu randomWordsPopupMenu;
+
+        /// <summary>
+        /// CTRL+J
+        /// </summary>
+        public AutocompleteMenu builtInFunctionMenu;
     }
 }

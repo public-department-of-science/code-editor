@@ -235,6 +235,19 @@ namespace Code.Editor
                 randomWordsPopupMenu.Opening += new EventHandler<CancelEventArgs>(popupMenu_Opening);
                 BuildAutocompleteRandomWordsMenu(randomWordsPopupMenu);
                 (newTextBox.Tag as TextBoxInfo).randomWordsPopupMenu = randomWordsPopupMenu;
+
+                //create autocomplete for registered functions menu
+                AutocompleteMenu builtInFunctionsWordsPopupMenu = new AutocompleteMenu(newTextBox)
+                {
+                    SelectedColor = Color.Green,
+                    BackColor = Color.White,
+                    ForeColor = Color.Black,
+                };
+
+                builtInFunctionsWordsPopupMenu.Items.ImageList = imageListAutocomplete;
+                builtInFunctionsWordsPopupMenu.Opening += new EventHandler<CancelEventArgs>(popupMenu_Opening);
+                BuildAutocompleteBuiltInFunctionsMenu(builtInFunctionsWordsPopupMenu);
+                (newTextBox.Tag as TextBoxInfo).builtInFunctionMenu = builtInFunctionsWordsPopupMenu;
             }
             catch (Exception ex)
             {
@@ -411,10 +424,6 @@ namespace Code.Editor
             {
                 items.Add(new DeclarationSnippet(item) { ImageIndex = 0 });
             }
-            foreach (var item in builtInFunctions)
-            {
-                items.Add(new MethodAutocompleteItem(item) { ImageIndex = 2 });
-            }
             foreach (var item in keywords)
             {
                 items.Add(new KeywordsAutocomplete(item)
@@ -432,6 +441,26 @@ namespace Code.Editor
             //set as autocomplete source
             popupMenu.Items.SetAutocompleteItems(items);
             popupMenu.SearchPattern = @"[\w\.:=!<>]";
+        }
+
+        private void BuildAutocompleteBuiltInFunctionsMenu(AutocompleteMenu popupMenu)
+        {
+            //create autocomplete popup menu
+            popupMenu.MinFragmentLength = 2;
+
+            //generate 456976 words
+            var builtInFunctionsMenuWords = new List<string>();
+
+            foreach (var item in builtInFunctions)
+            {
+                builtInFunctionsMenuWords.Add(item);
+            }
+
+            //set words as autocomplete source
+            popupMenu.Items.SetAutocompleteItems(builtInFunctionsMenuWords);
+            //size of popupmenu
+            popupMenu.Items.MaximumSize = new System.Drawing.Size(200, 300);
+            popupMenu.Items.Width = 200;
         }
 
         private void BuildAutocompleteRandomWordsMenu(AutocompleteMenu popupMenu)
@@ -541,6 +570,13 @@ namespace Code.Editor
             {
                 //forced show (MinFragmentLength will be ignored)
                 (CurrentTextBox.Tag as TextBoxInfo).randomWordsPopupMenu.Show(true);
+                e.Handled = true;
+            }
+
+            if (e.KeyData == (Keys.Control | Keys.J))
+            {
+                //forced show (MinFragmentLength will be ignored)
+                (CurrentTextBox.Tag as TextBoxInfo).builtInFunctionMenu.Show(true);
                 e.Handled = true;
             }
         }
