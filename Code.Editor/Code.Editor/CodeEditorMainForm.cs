@@ -16,7 +16,7 @@ namespace Code.Editor
             "if(^)\n{\n\n}", "if(^)\n{\n\n}\nElse\n{\n\n}",
             "arrayName = array ( ^ )",
 
-            "for i = 0; i < ^; i = i + 1\n{\n\n}",
+            "for (i = 0; i < ^; i = i + 1)\n{\n\n}",
             "while(^)\n{\n\n}",
             "do\n{\n^\n} while()",
             "def public ^()\n{\n}",
