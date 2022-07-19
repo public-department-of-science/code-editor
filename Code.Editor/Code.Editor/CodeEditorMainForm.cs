@@ -4,6 +4,7 @@ using Code.Editor.Merge;
 using Code.Editor.Terminal;
 using FarsiLibrary.Win;
 using FastColoredTextBoxNS;
+using Grammar.Core.Functions.BuiltIn;
 using System.ComponentModel;
 
 namespace Code.Editor
@@ -11,7 +12,8 @@ namespace Code.Editor
     public partial class CodeEditorMainForm : Form
     {
         private List<string> keywords = new List<string>();
-        private string[] methods = { "Equals()", "GetHashCode()", "GetType()", "ToString()" };
+        private List<string> builtInFunctions = new List<string>();
+
         private string[] snippets = {
             "if(^)\n{\n\n}", "if(^)\n{\n\n}\nElse\n{\n\n}",
             "arrayName = array ( ^ )",
@@ -104,6 +106,11 @@ namespace Code.Editor
             foreach (var keyword in KeywordsTokensInfo.Keywords)
             {
                 keywords.Add(keyword.Key);
+            }
+
+            foreach (var function in GlobalFunctionsRegister.BuiltInFunctionsList)
+            {
+                builtInFunctions.Add(function);
             }
 
             LoggingTerminal = loggingTerminal;

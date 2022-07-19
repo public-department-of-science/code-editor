@@ -72,8 +72,19 @@ namespace Code.Editor
                 reservedKeywords.Append("|");
             }
             reservedKeywords.Append(@")\b");
-
             e.ChangedRange.SetStyle(BlueStyle, reservedKeywords.ToString());
+            reservedKeywords.Clear();
+
+            var reservedFunctions = new StringBuilder();
+            reservedFunctions.Append(@"\b(");
+            foreach (string function in builtInFunctions)
+            {
+                reservedFunctions.Append(function);
+                reservedFunctions.Append("|");
+            }
+            reservedFunctions.Append(@")\b");
+            e.ChangedRange.SetStyle(MaroonStyle, reservedFunctions.ToString());
+            reservedFunctions.Clear();
 
             //clear folding markers
             e.ChangedRange.ClearFoldingMarkers();

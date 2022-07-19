@@ -411,7 +411,7 @@ namespace Code.Editor
             {
                 items.Add(new DeclarationSnippet(item) { ImageIndex = 0 });
             }
-            foreach (var item in methods)
+            foreach (var item in builtInFunctions)
             {
                 items.Add(new MethodAutocompleteItem(item) { ImageIndex = 2 });
             }
